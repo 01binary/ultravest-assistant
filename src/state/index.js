@@ -1,7 +1,5 @@
-import flask from './flask';
-import investment from './investment';
+import compose from 'recompose';
+import withFlask from './withFlask';
+import withInvestment from './withInvestment';
 
-export default {
-	withFlask: flask,
-	withInvestment: investment
-};
+export default compose(withFlask, withInvestment);
