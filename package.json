@@ -26,6 +26,7 @@
   "dependencies": {
     "node-sass": "^4.5.3",
     "preact": "^8.2.5",
+    "preact-compat": "^3.17.0",
     "recompose": "^0.25.0",
     "sass-loader": "^6.0.6"
   }

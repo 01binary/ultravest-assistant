@@ -5532,7 +5532,7 @@ preact-cli@^1.4.1:
     which "^1.2.14"
     yargs "^8.0.1"
 
-preact-compat@^3.14.3:
+preact-compat@^3.14.3, preact-compat@^3.17.0:
   version "3.17.0"
   resolved "https://registry.yarnpkg.com/preact-compat/-/preact-compat-3.17.0.tgz#528cfdfc301190c1a0f47567336be1f4be0266b3"
   dependencies:
