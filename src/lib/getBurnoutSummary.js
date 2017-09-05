@@ -8,6 +8,6 @@ const getPresetSummary = (preset) => (
 	`${getFlaskSummary(preset)}, ${getTimeSummary(preset)}`
 );
 
-module.exports = ({ flask }) => getPresetSummary(
+export default ({ flask }) => getPresetSummary(
 	getBurnoutPreset(burnoutPresets)
 );

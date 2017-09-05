@@ -1,7 +1,7 @@
-import style from './style';
+import './style';
 
 const Header = () => (
-	<header class={style.header}>
+	<header>
 		<h1>UltraVest Assistant</h1>
 	</header>
 );
