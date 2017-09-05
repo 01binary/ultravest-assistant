@@ -1,0 +1,104 @@
+[
+	{
+		"diameter": 3,
+		"height": 3,
+		"schedule": [
+			{
+				"name": "Water Removal",
+				"description": "Ambient to 300ºF over 1 hour, hold 1 hour",
+				"rate": 300,
+				"temp": 300,
+				"hold": 1
+			},
+			{
+				"name": "Thermal Transition",
+				"description": "Raise to 700ºF over 1 hour, hold 1 hour",
+				"rate": 400,
+				"temp": 700,
+				"hold": 1
+			},
+			{
+				"name": "Pattern Removal",
+				"description": "Raise to 1350ºF over 2 hours, hold 2 hours",
+				"rate": 325,
+				"temp": 1350,
+				"hold": 2
+			},
+			{
+				"name": "Casting",
+				"description": "Reduce to 700ºF for casting",
+				"rate": 700,
+				"temp": 700,
+				"hold": 1
+			}
+		]
+	},
+	{
+		"diameter": 4,
+		"height": 6,
+		"schedule": [
+			{
+				"name": "Water Removal",
+				"description": "Ambient to 300ºF over 1 hour, hold 3 hours",
+				"rate": 300,
+				"temp": 300,
+				"hold": 3
+			},
+			{
+				"name": "Thermal Transition",
+				"description": "Raise to 700ºF over 2 hours, hold 2 hour",
+				"rate": 200,
+				"temp": 700,
+				"hold": 2
+			},
+			{
+				"name": "Pattern Removal",
+				"description": "Raise to 1350ºF over 2 hours, hold 2 hours",
+				"rate": 325,
+				"temp": 1350,
+				"hold": 2
+			},
+			{
+				"name": "Casting",
+				"description": "Reduce to 700ºF for casting",
+				"rate": 700,
+				"temp": 700,
+				"hold": 2
+			}
+		]
+	},
+	{
+		"diameter": 4,
+		"height": 8,
+		"schedule": [
+			{
+				"name": "Water Removal",
+				"description": "Ambient to 300ºF over 1 hour, hold 3 hours",
+				"rate": 300,
+				"temp": 300,
+				"hold": 3
+			},
+			{
+				"name": "Thermal Transition",
+				"description": "Raise to 700ºF over 2 hours, hold 2 hours",
+				"rate": 200,
+				"temp": 700,
+				"hold": 2
+			},
+			{
+				"name": "Pattern Removal",
+				"description": "Raise to 1350ºF over 3 hours, hold 3 hours",
+				"rate": 217,
+				"temp": 1350,
+				"hold": 3
+			},
+			{
+				"name": "Casting",
+				"description": "Reduce to 700ºF for casting",
+				"rate": 700,
+				"temp": 700,
+				"hold": 2
+			}
+		]
+	}
+]

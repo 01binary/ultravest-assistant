@@ -1,0 +1,12 @@
+{
+	"3.5 X 10": {
+		"diameter": 3.5,
+		"height": 10,
+		"default": true
+	},
+
+	"4 x 10": {
+		"diameter": 3.5,
+		"height": 10
+	}
+}
