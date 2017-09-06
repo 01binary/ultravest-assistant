@@ -1,13 +1,13 @@
 import { withState, withHandlers, compose } from 'recompose';
 import presets from '../config/investmentPresets';
-import getDefaultPreset from '../lib/getDefaultPreset';
+import getDefaultPresetName from '../lib/getDefaultPresetName';
 
 export default compose(
 	withState(
 		'investment',
 		'setInvestment',
 		{
-			preset: getDefaultPreset(presets),
+			preset: getDefaultPresetName(presets),
 			presets
 		}
 	),

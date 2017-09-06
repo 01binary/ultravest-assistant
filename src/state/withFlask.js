@@ -1,18 +1,18 @@
 import { withState, withHandlers, compose } from 'recompose';
 import presets from '../config/flaskPresets';
-import getDefaultPreset from '../lib/getDefaultPreset';
+import getDefaultPresetName from '../lib/getDefaultPresetName';
 
-const defaultPreset = getDefaultPreset(presets);
+const defaultPresetName = getDefaultPresetName(presets);
 
 export default compose(
 	withState(
 		'flask',
 		'setFlask',
 		{
-			preset: defaultPreset,
+			preset: defaultPresetName,
 			presets,
-			diameter: presets[defaultPreset].diameter,
-			height: presets[defaultPreset].height
+			diameter: presets[defaultPresetName].diameter,
+			height: presets[defaultPresetName].height
 		}
 	),
 	withHandlers({

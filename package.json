@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "eslint src && preact test",
+    "test": "eslint src && jest",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "build": "preact build",
     "serve": "preact build && preact serve",
@@ -16,17 +16,24 @@
   "eslintConfig": {
     "extends": "eslint-config-synacor"
   },
+  "jest": {
+    "testRegex": "(/tests?/.*|(\\.|/)(test|spec))\\.jsx?$"
+  },
   "devDependencies": {
+    "babel-jest": "^21.0.0",
     "eslint": "^4.6.1",
     "eslint-config-synacor": "^1.1.1",
     "if-env": "^1.0.0",
+    "jest": "^21.0.1",
     "preact-cli": "^1.4.1",
+    "regenerator-runtime": "^0.11.0",
     "sass-lint": "^1.11.1"
   },
   "dependencies": {
     "node-sass": "^4.5.3",
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
+    "react": "npm:preact-compat",
     "recompose": "^0.25.0",
     "sass-loader": "^6.0.6"
   }
