@@ -4,10 +4,11 @@
  * @returns {number} - The total time in hours for the burnout process.
  */
 module.exports = (burnoutPreset) => (
-	burnoutPreset.schedule.reduce((total, segment, index) =>
+	Math.round(burnoutPreset.schedule.reduce((total, segment, index) =>
+		total +
 		( index ?
-			segment.temp - burnoutPreset.schedule[index - 1] :
+			segment.temp - burnoutPreset.schedule[index - 1].temp :
 			segment.temp
 		) / segment.rate + segment.hold,
-	0)
+	0), 1)
 );

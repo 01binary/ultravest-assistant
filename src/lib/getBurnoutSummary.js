@@ -9,5 +9,5 @@ const getPresetSummary = (preset) => (
 );
 
 export default ({ flask }) => getPresetSummary(
-	getBurnoutPreset(burnoutPresets)
+	getBurnoutPreset(burnoutPresets, flask)
 );
