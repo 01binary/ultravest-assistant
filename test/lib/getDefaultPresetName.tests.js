@@ -1,9 +1,9 @@
-const expect = require('chai').expect;
-const getDefaultPresetName = require('../../src/lib/getDefaultPresetName');
+import { expect } from 'chai';
+import getDefaultPresetName from '../../src/lib/getDefaultPresetName';
 
 describe('getDefaultPresetName', () => {
 
-	it('returns the first sub-object with default property set', () => {
+	it('returns the default preset name', () => {
 		expect(getDefaultPresetName({
 			// has default false
 			one: {
@@ -25,7 +25,7 @@ describe('getDefaultPresetName', () => {
 			one: {
 				default: false
 			},
-			// has default true (should be chosen)
+			// has default undefined
 			two: {
 			},
 			// has default undefined

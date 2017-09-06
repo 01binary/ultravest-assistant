@@ -17,6 +17,9 @@
   "eslintConfig": {
     "extends": "eslint-config-synacor"
   },
+  "babel": {
+    "presets": [ "env" ]
+  },
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
