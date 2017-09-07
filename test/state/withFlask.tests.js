@@ -1,6 +1,6 @@
 //import { expect } from 'chai';
 import { h } from 'preact';
-import withFlask from '../../src/lib/withFlask';
+import withFlask from '../../src/state/withFlask';
 import Component from '../fixtures/Component';
 
 describe('state withFlask', () => {

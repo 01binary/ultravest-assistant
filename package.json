@@ -18,7 +18,11 @@
     "extends": "eslint-config-synacor"
   },
   "babel": {
-    "presets": [ "env" ]
+    "presets": [ "env" ],
+    "plugins": [
+      [ "transform-react-jsx", { "pragma": "h" } ],
+      "transform-decorators-legacy"
+    ]
   },
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
