@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import getDefaultPresetName from '../../src/lib/getDefaultPresetName';
 
-describe('getDefaultPresetName', () => {
+describe('selector getDefaultPresetName', () => {
 
 	it('returns the default preset name', () => {
 		expect(getDefaultPresetName({

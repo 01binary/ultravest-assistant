@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import getBurnoutSummary from '../../src/lib/getBurnoutSummary';
 
-describe('getBurnoutSummary', () => {
+describe('selector getBurnoutSummary', () => {
 
 	it('formats summary with a valid preset', () => {
 		expect(getBurnoutSummary({

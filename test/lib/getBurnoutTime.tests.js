@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import getBurnoutTime from '../../src/lib/getBurnoutTime';
 
-describe('getBurnoutTime', () => {
+describe('selector getBurnoutTime', () => {
 
 	it('calculates 0 with no segments', () => {
 		expect(getBurnoutTime({

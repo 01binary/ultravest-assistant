@@ -1,7 +1,35 @@
 import { expect } from 'chai';
 import getBurnoutPreset from '../../src/lib/getBurnoutPreset';
 
-describe('getBurnoutPreset', () => {
+describe('selector getBurnoutPreset', () => {
+
+	it('returns preset for exact flask size', () => {
+		expect(getBurnoutPreset(
+			[
+				{
+					diameter: 8,
+					length: 5
+				},
+				{
+					diameter: 2,
+					length: 4
+				},
+				{
+					diameter: 2,
+					length: 3
+				}
+			],
+			{
+				// requested 2 X 3
+				diameter: 2,
+				length: 3
+			}
+		)).to.eql({
+			// found exact match 2 X 3
+			diameter: 2,
+			length: 3
+		})
+	});
 
 	it('returns the shortest preset for flask size', () => {
 		expect(getBurnoutPreset(
@@ -35,7 +63,7 @@ describe('getBurnoutPreset', () => {
 		});
 	});
 
-	it('returns the longest preset if flask size exceeds preset with largest flask size', () => {
+	it('returns the longest preset if flask exceeds largest size', () => {
 		expect(getBurnoutPreset(
 			[
 				{
