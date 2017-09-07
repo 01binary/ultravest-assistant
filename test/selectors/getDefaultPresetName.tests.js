@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import getDefaultPresetName from '../../src/lib/getDefaultPresetName';
+import getDefaultPresetName from '../../src/selectors/getDefaultPresetName';
 
 describe('selector getDefaultPresetName', () => {
 

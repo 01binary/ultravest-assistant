@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import getBurnoutSummary from '../../src/lib/getBurnoutSummary';
+import getBurnoutSummary from '../../src/selectors/getBurnoutSummary';
 
 describe('selector getBurnoutSummary', () => {
 

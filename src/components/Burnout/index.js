@@ -1,6 +1,6 @@
 import burnoutPresets from '../../config/burnoutPresets';
-import getBurnoutPreset from '../../lib/getBurnoutPreset';
-import getBurnoutTime from '../../lib/getBurnoutTime';
+import getBurnoutPreset from '../../selectors/getBurnoutPreset';
+import getBurnoutTime from '../../selectors/getBurnoutTime';
 import style from './style';
 
 const Burnout = (props) => {

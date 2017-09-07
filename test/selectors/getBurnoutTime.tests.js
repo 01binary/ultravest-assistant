@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import getBurnoutTime from '../../src/lib/getBurnoutTime';
+import getBurnoutTime from '../../src/selectors/getBurnoutTime';
 
 describe('selector getBurnoutTime', () => {
 

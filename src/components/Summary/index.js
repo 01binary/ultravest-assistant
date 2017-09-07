@@ -1,5 +1,5 @@
 import style from './style';
-import getBurnoutSummary from '../../lib/getBurnoutSummary';
+import getBurnoutSummary from '../../selectors/getBurnoutSummary';
 
 /**
  * The summary of user selections.

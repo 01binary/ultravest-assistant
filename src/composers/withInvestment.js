@@ -1,6 +1,6 @@
 import { withState, withHandlers, compose } from 'recompose';
 import presets from '../config/investmentPresets';
-import getDefaultPresetName from '../lib/getDefaultPresetName';
+import getDefaultPresetName from '../selectors/getDefaultPresetName';
 
 export default compose(
 	withState(
