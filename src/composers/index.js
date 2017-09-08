@@ -1,4 +1,4 @@
-import compose from 'recompose';
+import { compose } from 'recompose';
 import withFlask from './withFlask';
 import withInvestment from './withInvestment';
 
