@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint src",
     "test": "mocha --recursive --require ./test/setup.js --compilers js:babel-register",
+    "test:watch": "yarn test -- --watch",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "build": "lint && preact build",
     "serve": "preact build && preact serve",

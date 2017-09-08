@@ -1,4 +1,5 @@
 
+import { h } from 'preact';
 import Header from '../Header';
 import Flask from '../Flask';
 import Investment from '../Investment';

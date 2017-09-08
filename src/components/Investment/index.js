@@ -1,4 +1,8 @@
-import style from './style';
+import { h } from 'preact';
+//import style from './style';
+let style = { flask: undefined };
+
+const defaultPresets = {};
 
 /**
  * Investment Parameters.
@@ -17,11 +21,11 @@ const Investment = (props) => (
 
 		<select
 			name="investment-ratio-preset"
-			value={props.investment.preset}
+			value={props.preset}
 			onChange={props.setInvestmentPreset}
 		>
-			{ Object.keys(props.investment.presets).map(preset => (
-				<option selected={preset === props.investment.presets.default}>
+			{ Object.keys(props.presets || defaultPresets).map(preset => (
+				<option selected={preset === props.presets.default}>
 					{preset}
 				</option>
 			))}

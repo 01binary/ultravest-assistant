@@ -1,4 +1,5 @@
-import './style';
+import { h } from 'preact';
+//import './style';
 
 const Header = () => (
 	<header>

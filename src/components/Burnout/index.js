@@ -1,10 +1,17 @@
+import { h } from 'preact';
 import burnoutPresets from '../../config/burnoutPresets';
 import getBurnoutPreset from '../../selectors/getBurnoutPreset';
 import getBurnoutTime from '../../selectors/getBurnoutTime';
-import style from './style';
+//import style from './style';
+let style = { flask: undefined };
+
+const unknown = {
+	diameter: 0,
+	height: 0
+};
 
 const Burnout = (props) => {
-	const preset = getBurnoutPreset(burnoutPresets, props.flask);
+	const preset = getBurnoutPreset(burnoutPresets, props.flask || unknown);
 
 	return (
 		<section class={style.burnout}>

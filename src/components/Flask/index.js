@@ -1,4 +1,6 @@
-import style from './style';
+import { h } from 'preact';
+//import style from './style';
+let style = { flask: undefined };
 
 /**
  * Flask Parameters.
@@ -18,7 +20,7 @@ const Flask = (props) => (
 		<input
 			name="flask-diameter"
 			type="number"
-			value={props.flask.diameter}
+			value={props.diameter}
 			onChange={props.setFlaskDiameter}
 		/>
 
@@ -26,7 +28,7 @@ const Flask = (props) => (
 		<input
 			name="flask-height"
 			type="number"
-			value={props.flask.height}
+			value={props.height}
 			onChange={props.setFlaskHeight}
 		/>
 	</section>
