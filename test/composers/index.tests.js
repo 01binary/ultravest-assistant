@@ -15,10 +15,12 @@ describe('composed state', () => {
 	});
 
 	function includes(composition, composer) {
-		const props = Object.keys(reflect(composition).props);
+		const props = reflect(composition).props;
 
-		Object.keys(reflect(composer).props).map((prop) => {
-			expect(props).to.have.key(prop);
-		});
+		Object.keys(reflect(composer).props)
+			.filter(prop => prop !== 'children')
+			.map(prop => {
+				expect(props).to.have.property(prop);
+			});
 	}
 });
