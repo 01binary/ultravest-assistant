@@ -18,7 +18,9 @@ export default compose(
 	),
 	withHandlers({
 		setFlaskPreset: ({ setFlask }) => (preset, then) => setFlask({
-			preset
+			preset,
+			diameter: presets[preset].diameter,
+			height: presets[preset].height
 		}, then),
 
 		setFlaskDiameter: ({ setFlask }) => (diameter, then) => setFlask({

@@ -12,7 +12,7 @@ export default compose(
 		}
 	),
 	withHandlers({
-		setInvestmentPreset: ({ setInvestment }) => (preset) =>
-			setInvestment({ preset })
+		setInvestmentPreset: ({ setInvestment }) => (preset, then) =>
+			setInvestment({ preset }, then)
 	})
 );

@@ -1,4 +1,9 @@
 {
+	"3.5 X 5": {
+		"diameter": 3.5,
+		"height": 5
+	},
+
 	"3.5 X 10": {
 		"diameter": 3.5,
 		"height": 10,
