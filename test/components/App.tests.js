@@ -8,7 +8,6 @@ import Result from '../../src/components/Result';
 import withState from '../../src/composers';
 import {
 	wrap,
-	expectTag,
 	expectParentTag,
 	expectAttribute,
 	findComponent
@@ -27,8 +26,8 @@ describe('App', () => {
 	});
 
 	it('should render wrapper', () => {
-		expect(wrapper).to.have.tagName('a', 'should render div');
-		expectAttribute(wrapper, 'id', 'app', 'should have id "app"');
+		expect(wrapper).to.have.tagName('div', 'should render div');
+		expect(wrapper).to.have.attribute('id', 'app');
 	});
 
 	it('should render Flask', () => {
