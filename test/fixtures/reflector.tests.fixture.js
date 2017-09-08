@@ -1,23 +1,42 @@
 import { h, render } from 'preact';
 
-const Reflector = (spy) => (props, state) => (
-	spy(props, state) || null
+/**
+ * Create a component reflecting its own props and state.
+ * @param {function} reflect - The function called with own state and props on render.
+ * @returns {function} - The component factory.
+ */
+const reflector = (reflect) => (props, state) => (
+	reflect(props, state) || null
 );
 
-const Enhancer = (hoc, spy) => (
-	hoc(Reflector(spy))
+/**
+ * Create a reflector enhanced with the given Higher Order Component (HOC).
+ * @param {function} hoc - The Higher Order Component to reflect.
+ * @param {function} reflect - The function called with props and state provided by the HOC.
+ * @returns {function} - A preact component factory.
+ */
+const enhancer = (hoc, reflect) => (
+	hoc(reflector(reflect))
 );
 
+/**
+ * Reflect props and state provided by a Higher Order Component.
+ * @param {hoc} - The Higher Order Component to reflect.
+ * @description
+ *  Reflected props and state are availble on .props and .state, respectively.
+ *  The reflected instance is available on .element.
+ */
 class Wrapper {
 	constructor(hoc) {
-		let Component = Enhancer(hoc, (props, state) => {
-			console.log('setting this.props.flask to', props.flask);
+		let factory = enhancer(hoc, (props, state) => {
 			this.props = props;
 			this.state = state;
 		});
 
-		render(h(Component), document);
+		this.element = h(factory);
+
+		render(this.element, global.document);
 	}
 }
 
-export default Wrapper;
+export default (hoc) => new Wrapper(hoc);

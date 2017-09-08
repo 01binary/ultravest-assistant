@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import Reflector from '../fixtures/reflector.tests.fixture';
+import reflect from '../fixtures/reflector.tests.fixture';
 import withFlask from '../../src/composers/withFlask';
 import flaskPresets from '../../src/config/flaskPresets.json';
 
@@ -8,7 +8,7 @@ describe('composer withFlask', () => {
 	let wrapper;
 
 	before(() => {
-		wrapper = new Reflector(withFlask);
+		wrapper = reflect(withFlask);
 	});
 
 	after(() => {
@@ -16,15 +16,17 @@ describe('composer withFlask', () => {
 	});
 
 	it('should initialize with default state', () => {
-		expect(wrapper.props.flask).to.eql({
+		const initialState = {
 			preset: '3.5 X 10',
 			presets: flaskPresets,
 			diameter: 3.5,
 			height: 10
-		});
+		};
+
+		expect(wrapper.props.flask).to.eql(initialState);
 	});
 
-	it('should set state', () => {
+	it('should set state', (done) => {
 		const anotherPreset = Object.keys(flaskPresets)[1];
 		const nextState = {
 			presets: flaskPresets,
@@ -33,8 +35,17 @@ describe('composer withFlask', () => {
 			height: flaskPresets[anotherPreset].height
 		};
 		
-		wrapper.props.setFlask(nextState);
-		global.console.log('ensuring flask is', nextState);
-		expect(wrapper.props.flask).to.eql(nextState);
+		wrapper.props.setFlask(nextState, () => {
+			expect(wrapper.props.flask).to.eql(nextState);
+			done();
+		});
+	});
+
+	it('should set flask diameter', (done) => {
+		wrapper.props.setFlaskDiameter(6
+	});
+
+	it('should set flask height', () => {
+	
 	});
 });

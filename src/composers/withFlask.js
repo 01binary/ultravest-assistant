@@ -1,7 +1,8 @@
-import { withState, withHandlers, compose } from 'recompose';
+import { compose, withState, withHandlers } from 'recompose';
 import presets from '../config/flaskPresets';
 import getDefaultPresetName from '../selectors/getDefaultPresetName';
 
+const customPresetName = 'Custom';
 const defaultPresetName = getDefaultPresetName(presets);
 
 export default compose(
@@ -16,14 +17,18 @@ export default compose(
 		}
 	),
 	withHandlers({
-		setFlaskPreset: ({ setFlask }) => (preset) => setFlask({ preset }),
-		setFlaskDiameter: ({ setFlask }) => (diameter => setFlask({
+		setFlaskPreset: ({ setFlask }) => (preset, then) => setFlask({
+			preset
+		}, then),
+
+		setFlaskDiameter: ({ setFlask }) => (diameter, then) => setFlask({
 			diameter,
-			preset: 'Custom'
-		})),
-		setFlaskHeight: ({ setFlask }) => (height => setFlask({
+			preset: customPresetName
+		}, then),
+
+		setFlaskHeight: ({ setFlask }) => (height, then) => setFlask({
 			height,
-			preset: 'Custom'
-		}))
+			preset: customPresetName
+		}, then)
 	})
 );
