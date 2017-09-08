@@ -7,10 +7,8 @@ import Summary from '../../src/components/Summary';
 import Result from '../../src/components/Result';
 import withState from '../../src/composers';
 import {
-	wrap,
-	expectParentTag,
-	expectAttribute,
-	findComponent
+	mount,
+	expectParentTag
 } from '../fixtures/component.tests.fixture';
 
 describe('App', () => {
@@ -18,7 +16,7 @@ describe('App', () => {
 	let wrapper;
 
 	before(() => {
-		wrapper = wrap(withState(App));
+		wrapper = mount(withState(App));
 	});
 
 	after(() => {
@@ -31,13 +29,14 @@ describe('App', () => {
 	});
 
 	it('should render Flask', () => {
-		const flask = findComponent(wrapper, Flask);
+		const flask = wrapper.find(Flask);
+
 		expect(flask).to.have.length(1, 'should render a single Flask component');
 		expectParentTag(flask, 'main', 'should render Flask inside main');
 	});
 
 	it('should render Investment', () => {
-		const investment = findComponent(wrapper, Investment);
+		const investment = wrapper.find(Investment);
 
 		expect(investment).to.have.length(1,
 			'should render a single Investment component');

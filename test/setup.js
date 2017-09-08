@@ -11,6 +11,8 @@ function assertJsxExtensions({ Assertion }) {
 	add(tagName);
 	// expect(x).to.have.attribute(name, [value], [because])
 	add(attribute);
+	// expect(x).to.have.parent(name || component, [because])
+	add(parent);
 
 	/**
 	 * Assert expected VDom node tag name.
@@ -27,6 +29,44 @@ function assertJsxExtensions({ Assertion }) {
 			expected,
 			actual
 		);
+	}
+
+	/**
+	 * Assert expected VDom node parent.
+	 * @param {string} expected - The expected tag name.
+	 * @param {string} message - The optional assert message.
+	 */
+	function parent(expected, message) {
+		this.assert(
+			this._obj.parentNode,
+			message || 'expected #{this} to have parent',
+			message || 'expected ${this} not to have parent'
+		);
+
+		if (typeof expected === 'function') {
+			// expected parent component
+			const actual = this._obj.parentNode._componentConstructor;
+
+			this.assert(
+				actual === expected,
+				message || 'expected #{this} to have parent component #{exp} but got #{act}',
+				message || 'expected #{this} not to have parent component #{exp} but got #{act}',
+				expected.name,
+				actual.name
+			);
+		}
+		else {
+			// expected parent tag name
+			const actual = this._obj.parentNode.nodeName.toLowerCase();
+			
+			this.assert(
+				actual === expected,
+				message || 'expected #{this} to have parent tag #{exp} but got #{act}',
+				message || 'expected #{this} not to have parent tag #{exp} but got #{act}',
+				expected,
+				actual
+			);
+		}
 	}
 
 	/**
