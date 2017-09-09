@@ -4,13 +4,8 @@ import getBurnoutPreset from '../../selectors/getBurnoutPreset';
 import getBurnoutTime from '../../selectors/getBurnoutTime';
 import style from './style';
 
-const unknown = {
-	diameter: 0,
-	height: 0
-};
-
 const Burnout = (props) => {
-	const preset = getBurnoutPreset(burnoutPresets, props.flask || unknown);
+	const preset = getBurnoutPreset(burnoutPresets, props.flask);
 
 	return (
 		<section class={style.burnout}>
