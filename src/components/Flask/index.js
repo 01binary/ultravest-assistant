@@ -1,6 +1,5 @@
 import { h } from 'preact';
-//import style from './style';
-let style = { flask: undefined };
+import style from './style';
 
 /**
  * Flask Parameters.

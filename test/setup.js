@@ -2,6 +2,7 @@ import chai from 'chai';
 import assertJsx from 'preact-jsx-chai';
 import 'undom/register';
 import 'babel-polyfill';
+import 'ignore-styles';
 
 chai.use(assertJsx);
 chai.use(assertJsxExtensions);

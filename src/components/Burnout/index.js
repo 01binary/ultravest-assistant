@@ -2,8 +2,7 @@ import { h } from 'preact';
 import burnoutPresets from '../../config/burnoutPresets';
 import getBurnoutPreset from '../../selectors/getBurnoutPreset';
 import getBurnoutTime from '../../selectors/getBurnoutTime';
-//import style from './style';
-let style = { flask: undefined };
+import style from './style';
 
 const unknown = {
 	diameter: 0,

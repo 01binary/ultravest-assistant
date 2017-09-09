@@ -1,8 +1,6 @@
 import { h } from 'preact';
-//import style from './style';
+import style from './style';
 import getBurnoutSummary from '../../selectors/getBurnoutSummary';
-
-let style = { flask: undefined };
 
 /**
  * The summary of user selections.
@@ -10,7 +8,7 @@ let style = { flask: undefined };
  * @param {object} props.investment - The investment parameters.
  * @returns {JSX.Element} - A React stateless component.
  */
-const Summary = (props) => null; /* (
+const Summary = (props) => (
 	<section class={style.summary}>
 		<h3>Summary</h3>
 
@@ -25,6 +23,6 @@ const Summary = (props) => null; /* (
 			<dd>{getBurnoutSummary(props)}</dd>
 		</dl>
 	</section>
-);*/
+);
 
 export default Summary;
