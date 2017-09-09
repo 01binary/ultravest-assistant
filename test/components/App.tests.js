@@ -6,10 +6,7 @@ import Burnout from '../../src/components/Burnout';
 import Summary from '../../src/components/Summary';
 import Result from '../../src/components/Result';
 import withState from '../../src/composers';
-import {
-	mount,
-	expectParentTag
-} from '../fixtures/component.tests.fixture';
+import { mount } from '../fixtures/component.tests.fixture';
 
 describe('App', () => {
 
@@ -31,8 +28,10 @@ describe('App', () => {
 	it('should render Flask', () => {
 		const flask = wrapper.find(Flask);
 
-		expect(flask).to.have.length(1, 'should render a single Flask component');
-		expectParentTag(flask, 'main', 'should render Flask inside main');
+		expect(flask).to.have.length(1,
+			'should render a single Flask component');
+		expect(flask).to.have.parent('main',
+			'should render Flask inside main');
 	});
 
 	it('should render Investment', () => {
@@ -40,34 +39,34 @@ describe('App', () => {
 
 		expect(investment).to.have.length(1,
 			'should render a single Investment component');
-		expectParentTag(investment, 'main',
+		expect(investment).to.have.parent('main',
 			'should render Investment inside main');
 	});
 
 	it('should render Burnout', () => {
-		const burnout = findComponent(wrapper, Burnout);
+		const burnout = wrapper.find(Burnout);
 
 		expect(burnout).to.have.length(1,
 			'should render a single Burnout component');
-		expectParentTag(burnout, 'main',
+		expect(burnout).to.have.parent('main',
 			'should render Burnout inside main');
 	});
 
 	it('should render Result', () => {
-		const result = findComponent(wrapper, Result);
+		const result = wrapper.find(Result);
 
 		expect(result).to.have.length(1,
 			'should render a single Result component');
-		expectParentTag(result, 'main',
+		expect(result).to.have.parent('main',
 			'should render Result inside main');
 	});
 
 	it('should render Summary', () => {
-		const summary = findComponent(wrapper, Summary);
+		const summary = wrapper.find(Summary);
 
 		expect(summary).to.have.length(1,
 			'should render a single Summary component');
-		expectParentTag(summary, 'aside',
+		expect(summary).to.have.parent('aside',
 			'should render Summary in aside');
 	});
 });

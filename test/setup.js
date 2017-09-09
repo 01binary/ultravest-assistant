@@ -15,12 +15,27 @@ function assertJsxExtensions({ Assertion }) {
 	add(parent);
 
 	/**
-	 * Assert expected VDom node tag name.
+	 * Assert expected VDom node(s) tag name.
 	 * @param {string} expected - The expected tag name.
 	 * @param {string} message - The optional assert message.
 	 */
 	function tagName(expected, message) {
-		const actual = this._obj.nodeName.toLowerCase();
+		if (Array.isArray(this._obj)) {
+			this._obj.forEach(subject => tagNameFor(subject, expected, message));
+		}
+		else {
+			tagNameFor(this._obj, expected, message);
+		}
+	}
+
+	/**
+	 * Assert expected VDom single node tag name.
+	 * @param {object} subject - The assertion subject.
+	 * @param {string} expected - The expected tag name.
+	 * @param {string} message - The optional assert message.
+	 */
+	function tagNameFor(subject, expected, message) {
+		const actual = subject.nodeName.toLowerCase();
 
 		this.assert(
 			actual === expected,
@@ -32,11 +47,26 @@ function assertJsxExtensions({ Assertion }) {
 	}
 
 	/**
-	 * Assert expected VDom node parent.
+	 * Assert expected VDom node(s) parent.
 	 * @param {string} expected - The expected tag name.
 	 * @param {string} message - The optional assert message.
 	 */
 	function parent(expected, message) {
+		if (Array.isArray(this._obj)) {
+			this._obj.forEach(subject => parentFor(subject, expected, message));
+		}
+		else {
+			parentFor(this._obj, expected, message);
+		}
+	}
+
+	/**
+	 * Assert expected VDom single node parent.
+	 * @param {object} subject - The assertion subject.
+	 * @param {string} expected - The expected tag name.
+	 * @param {string} message - The optional assert message.
+	 */
+	function parentFor(subject, expected, message) {
 		this.assert(
 			this._obj.parentNode,
 			message || 'expected #{this} to have parent',
@@ -70,13 +100,29 @@ function assertJsxExtensions({ Assertion }) {
 	}
 
 	/**
-	 * Assert expected VDom attribute.
+	 * Assert expected VDom node(s) attribute.
 	 * @param {string} name - The expected attribute name.
 	 * @param {string} value - The expected attribute value (optional).
 	 * @param {string} message - The optional assert message.
 	 */
 	function attribute(name, value, message) {
-		const match = this._obj.attributes.filter(attribute =>
+		if (Array.isArray(this._obj)) {
+			this._obj.forEach(subject => attributeFor(subject, name, value, message));
+		}
+		else {
+			attributeFor(this._obj, name, value, message);
+		}
+	}
+
+	/**
+	 * Assert expected VDom single node attribute.
+	 * @param {object} subject - The assertion subject.
+	 * @param {string} name - The expected attribute name.
+	 * @param {string} value - The expected attribute value (optional).
+	 * @param {string} message - The optional assert message.
+	 */
+	function attributeFor(subject, name, value, message) {
+		const match = subject.attributes.filter(attribute =>
 			attribute.name.toLowerCase() === name
 		)[0];
 
