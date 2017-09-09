@@ -68,14 +68,14 @@ function assertJsxExtensions({ Assertion }) {
 	 */
 	function parentFor(subject, expected, message) {
 		this.assert(
-			this._obj.parentNode,
+			subject.parentNode,
 			message || 'expected #{this} to have parent',
 			message || 'expected ${this} not to have parent'
 		);
 
 		if (typeof expected === 'function') {
 			// expected parent component
-			const actual = this._obj.parentNode._componentConstructor;
+			const actual = subject.parentNode._componentConstructor;
 
 			this.assert(
 				actual === expected,
@@ -87,7 +87,7 @@ function assertJsxExtensions({ Assertion }) {
 		}
 		else {
 			// expected parent tag name
-			const actual = this._obj.parentNode.nodeName.toLowerCase();
+			const actual = subject.parentNode.nodeName.toLowerCase();
 			
 			this.assert(
 				actual === expected,
