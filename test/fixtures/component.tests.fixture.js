@@ -8,7 +8,7 @@ import { h, render } from 'preact';
 export function mount(componentFactory) {
 	let wrapper = render(h(componentFactory));
 
-	wrapper.prototype.find = find;
+	wrapper.find = find;
 
 	return wrapper;
 }

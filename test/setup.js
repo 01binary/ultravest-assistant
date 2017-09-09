@@ -21,10 +21,10 @@ function assertJsxExtensions({ Assertion }) {
 	 */
 	function tagName(expected, message) {
 		if (Array.isArray(this._obj)) {
-			this._obj.forEach(subject => tagNameFor(subject, expected, message));
+			this._obj.forEach(subject => tagNameFor.call(this, subject, expected, message));
 		}
 		else {
-			tagNameFor(this._obj, expected, message);
+			tagNameFor.call(this, this._obj, expected, message);
 		}
 	}
 
@@ -53,10 +53,10 @@ function assertJsxExtensions({ Assertion }) {
 	 */
 	function parent(expected, message) {
 		if (Array.isArray(this._obj)) {
-			this._obj.forEach(subject => parentFor(subject, expected, message));
+			this._obj.forEach(subject => parentFor.call(this, subject, expected, message));
 		}
 		else {
-			parentFor(this._obj, expected, message);
+			parentFor.call(this, this._obj, expected, message);
 		}
 	}
 
@@ -107,10 +107,10 @@ function assertJsxExtensions({ Assertion }) {
 	 */
 	function attribute(name, value, message) {
 		if (Array.isArray(this._obj)) {
-			this._obj.forEach(subject => attributeFor(subject, name, value, message));
+			this._obj.forEach(subject => attributeFor.call(this, subject, name, value, message));
 		}
 		else {
-			attributeFor(this._obj, name, value, message);
+			attributeFor.call(this, this._obj, name, value, message);
 		}
 	}
 
