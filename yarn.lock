@@ -5653,7 +5653,14 @@ preact-cli@^1.4.1:
     which "^1.2.14"
     yargs "^8.0.1"
 
-preact-compat@^3.14.3, preact-compat@^3.17.0, "react@npm:preact-compat":
+preact-compat-enzyme@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/preact-compat-enzyme/-/preact-compat-enzyme-0.2.5.tgz#1cad6c5c99f749d079fcdccf695470d88331d76f"
+  dependencies:
+    preact "8.x"
+    preact-compat "3.x"
+
+preact-compat@3.x, preact-compat@^3.14.3, preact-compat@^3.17.0, "react@npm:preact-compat":
   version "3.17.0"
   resolved "https://registry.yarnpkg.com/preact-compat/-/preact-compat-3.17.0.tgz#528cfdfc301190c1a0f47567336be1f4be0266b3"
   dependencies:
@@ -5683,7 +5690,7 @@ preact-transition-group@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/preact-transition-group/-/preact-transition-group-1.1.1.tgz#f0a49327ea515ece34ea2be864c4a7d29e5d6e10"
 
-preact@^8.1.0, preact@^8.2.5:
+preact@8.x, preact@^8.1.0, preact@^8.2.5:
   version "8.2.5"
   resolved "https://registry.yarnpkg.com/preact/-/preact-8.2.5.tgz#cbfa3962a8012768159f6d01d46f9c1eb3213c0a"
 
