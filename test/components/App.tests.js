@@ -1,5 +1,5 @@
-import { shallow } from 'preact-render-spy';
 import { h } from 'preact';
+import { shallow } from 'preact-render-spy';
 import App from '../../src/components/App';
 import Flask from '../../src/components/Flask';
 import Investment from '../../src/components/Investment';
@@ -20,27 +20,27 @@ describe('App', () => {
 		wrapper = null;
 	});
 
-	it('should render', () => {
-		
+	test('should render', () => {
+		// TODO: toMatchSnapshot
 	});
 
-	it('should render Flask', () => {
-		expect(wrapper.find(Flask)).to.have.length(1);
+	test('should render Flask', () => {
+		expect(wrapper.find(Flask)).toHaveLength(1);
 	});
 
-	it('should render Investment', () => {
-		expect(wrapper.find(Investment)).to.have.length(1);
+	test('should render Investment', () => {
+		expect(wrapper.find(Investment)).toHaveLength(1);
 	});
 
-	it('should render Burnout', () => {
-		expect(wrapper.find(Burnout)).to.have.length(1);
+	test('should render Burnout', () => {
+		expect(wrapper.find(Burnout)).toHaveLength(1);
 	});
 
-	it('should render Result', () => {
-		expect(wrapper.find(Result)).to.have.length(1);
+	test('should render Result', () => {
+		expect(wrapper.find(Result)).toHaveLength(1);
 	});
 
-	it('should render Summary', () => {
-		expect(wrapper.find(Summary)).to.have.length(1);
+	test('should render Summary', () => {
+		expect(wrapper.find(Summary)).toHaveLength(1);
 	});
 });

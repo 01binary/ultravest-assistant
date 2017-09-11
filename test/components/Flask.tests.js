@@ -1,6 +1,5 @@
-/*import { h } from 'preact';
-import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { h } from 'preact';
+import { deep } from 'preact-render-spy';
 import withFlask from '../../src/composers/withFlask';
 import Flask from '../../src/components/Flask';
 
@@ -8,16 +7,14 @@ describe('Flask', () => {
 
 	let wrapper;
 
-	before(() => {
-		wrapper = mount(withFlask(<Flask />));
+	beforeAll(() => {
+		wrapper = deep(withFlask(<Flask />));
 	});
 
-	after(() => {
+	afterAll(() => {
 		wrapper = null;
 	});
 
-	it('should render', () => {
-		expect(wrapper.hasClass('flask')).to.equal(true);
+	test('should render', () => {
 	});
 });
-*/

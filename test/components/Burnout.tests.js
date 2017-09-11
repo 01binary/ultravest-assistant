@@ -1,4 +1,3 @@
-/*//import { expect } from 'chai';
 import { h } from 'preact';
 import { deep } from 'preact-render-spy';
 import Burnout from '../../src/components/Burnout';
@@ -8,30 +7,29 @@ describe('Burnout', () => {
 
 	let wrapper;
 
-	before(() => {
+	beforeAll(() => {
 		wrapper = deep(withState(Burnout));
 	});
 
-	after(() => {
+	afterAll(() => {
 		wrapper = null;
 	});
 
-	it('should render a section with burnout class', () => {
+	test('should render a section with burnout class', () => {
 	});
 
-	it('should render a heading', () => {
+	test('should render a heading', () => {
 	});
 
-	it('should render preset label', () => {
+	test('should render preset label', () => {
 	});
 
-	it('should render preset', () => {
+	test('should render preset', () => {
 	});
 
-	it('should render time label', () => {
+	test('should render time label', () => {
 	});
 
-	it('should render time', () => {
+	test('should render time', () => {
 	});
 });
-*/
