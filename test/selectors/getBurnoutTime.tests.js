@@ -1,15 +1,14 @@
-import { expect } from 'chai';
 import getBurnoutTime from '../../src/selectors/getBurnoutTime';
 
 describe('selector getBurnoutTime', () => {
 
-	it('calculates 0 with no segments', () => {
+	test('calculates 0 with no segments', () => {
 		expect(getBurnoutTime({
 			schedule: []
-		})).to.equal(0);
+		})).toEqual(0);
 	});
 
-	it('calculates burnout time for a single segment', () => {
+	test('calculates burnout time for a single segment', () => {
 		expect(getBurnoutTime({
 			schedule: [
 				// 100 / 100 + 1 = 2
@@ -19,10 +18,10 @@ describe('selector getBurnoutTime', () => {
 					hold: 1
 				}
 			]
-		})).to.equal(2);
+		})).toEqual(2);
 	});
 
-	it('calculates burnout time for multiple segments', () => {
+	test('calculates burnout time for multiple segments', () => {
 		expect(getBurnoutTime({
 			schedule: [
 				// 100/100 + 1 = 2
@@ -45,6 +44,6 @@ describe('selector getBurnoutTime', () => {
 				}
 				// 2 + 3 + 5 = 10
 			]
-		})).to.equal(10);
+		})).toEqual(10);
 	});
 });

@@ -5,11 +5,11 @@ import includes from '../fixtures/composer.tests.fixture';
 
 describe('composed state', () => {
 
-	it('should include withFlask', () => {
+	test('should include withFlask', () => {
 		includes(withState, withFlask);
 	});
 
-	it('should include withInvestment', () => {
+	test('should include withInvestment', () => {
 		includes(withState, withInvestment);
 	});
 });

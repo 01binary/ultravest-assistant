@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import { shallow } from 'preact-render-spy';
 import { h } from 'preact';
 import App from '../../src/components/App';
 import Flask from '../../src/components/Flask';
@@ -7,7 +7,6 @@ import Burnout from '../../src/components/Burnout';
 import Summary from '../../src/components/Summary';
 import Result from '../../src/components/Result';
 import withState from '../../src/composers';
-import { shallow } from 'preact-render-spy';
 
 describe('App', () => {
 
@@ -21,54 +20,27 @@ describe('App', () => {
 		wrapper = null;
 	});
 
-	it.only('should render wrapper', () => {
-		expect(wrapper.type()).to.equal('div');
-		//expect(wrapper).to.have.tagName('div', 'should render div');
-		//expect(wrapper).to.have.attribute('id', 'app');
+	it('should render', () => {
+		
 	});
 
 	it('should render Flask', () => {
-		const flask = wrapper.find(Flask);
-
-		expect(flask).to.have.length(1,
-			'should render a single Flask component');
-		expect(flask).to.have.parent('main',
-			'should render Flask inside main');
+		expect(wrapper.find(Flask)).to.have.length(1);
 	});
 
 	it('should render Investment', () => {
-		const investment = wrapper.find(Investment);
-
-		expect(investment).to.have.length(1,
-			'should render a single Investment component');
-		expect(investment).to.have.parent('main',
-			'should render Investment inside main');
+		expect(wrapper.find(Investment)).to.have.length(1);
 	});
 
 	it('should render Burnout', () => {
-		const burnout = wrapper.find(Burnout);
-
-		expect(burnout).to.have.length(1,
-			'should render a single Burnout component');
-		expect(burnout).to.have.parent('main',
-			'should render Burnout inside main');
+		expect(wrapper.find(Burnout)).to.have.length(1);
 	});
 
 	it('should render Result', () => {
-		const result = wrapper.find(Result);
-
-		expect(result).to.have.length(1,
-			'should render a single Result component');
-		expect(result).to.have.parent('main',
-			'should render Result inside main');
+		expect(wrapper.find(Result)).to.have.length(1);
 	});
 
 	it('should render Summary', () => {
-		const summary = wrapper.find(Summary);
-
-		expect(summary).to.have.length(1,
-			'should render a single Summary component');
-		expect(summary).to.have.parent('aside',
-			'should render Summary in aside');
+		expect(wrapper.find(Summary)).to.have.length(1);
 	});
 });

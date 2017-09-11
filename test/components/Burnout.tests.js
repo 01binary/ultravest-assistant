@@ -1,4 +1,4 @@
-//import { expect } from 'chai';
+/*//import { expect } from 'chai';
 import { h } from 'preact';
 import { deep } from 'preact-render-spy';
 import Burnout from '../../src/components/Burnout';
@@ -34,3 +34,4 @@ describe('Burnout', () => {
 	it('should render time', () => {
 	});
 });
+*/
