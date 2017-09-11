@@ -16,7 +16,10 @@
   "author": "",
   "license": "ISC",
   "eslintConfig": {
-    "extends": "eslint-config-synacor"
+    "extends": "eslint-config-synacor",
+    "env": {
+      "jest": true
+    }
   },
   "jest": {
     "testRegex": "/test/.*tests\\.js$",
