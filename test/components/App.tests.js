@@ -1,46 +1,41 @@
 import { h } from 'preact';
-import { shallow } from 'preact-render-spy';
+import { deep } from 'preact-render-spy';
 import App from '../../src/components/App';
-import Flask from '../../src/components/Flask';
-import Investment from '../../src/components/Investment';
-import Burnout from '../../src/components/Burnout';
-import Summary from '../../src/components/Summary';
-import Result from '../../src/components/Result';
 import withState from '../../src/composers';
 
 describe('App', () => {
 
 	let wrapper;
 
-	before(() => {
-		wrapper = shallow(withState(App));
+	beforeAll(() => {
+		wrapper = deep(h(withState(App)));
 	});
 
-	after(() => {
+	afterAll(() => {
 		wrapper = null;
 	});
 
 	test('should render', () => {
-		// TODO: toMatchSnapshot
+		expect(wrapper).toMatchSnapshot();
 	});
 
 	test('should render Flask', () => {
-		expect(wrapper.find(Flask)).toHaveLength(1);
+		expect(wrapper.find('Flask').length).toBe(1);
 	});
 
 	test('should render Investment', () => {
-		expect(wrapper.find(Investment)).toHaveLength(1);
+		expect(wrapper.find('Investment').length).toBe(1);
 	});
 
 	test('should render Burnout', () => {
-		expect(wrapper.find(Burnout)).toHaveLength(1);
+		expect(wrapper.find('Burnout').length).toBe(1);
 	});
 
 	test('should render Result', () => {
-		expect(wrapper.find(Result)).toHaveLength(1);
+		expect(wrapper.find('Result').length).toBe(1);
 	});
 
 	test('should render Summary', () => {
-		expect(wrapper.find(Summary)).toHaveLength(1);
+		expect(wrapper.find('Summary').length).toBe(1);
 	});
 });

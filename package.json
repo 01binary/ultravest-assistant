@@ -25,7 +25,8 @@
     ],
     "moduleFileExtensions": [
       "js",
-      "json"
+      "json",
+      "scss"
     ],
     "moduleDirectories": [
       "node_modules"
@@ -33,12 +34,13 @@
     "moduleNameMapper": {
       "^react$": "preact-compat",
       "^react-dom$": "preact-compat",
-      "\\.scss$": "identity-obj-proxy"
+      "/style$": "identity-obj-proxy"
     },
     "collectCoverageFrom": [
       "src/**/*.js"
     ],
-    "coverageDirectory": "./build/coverage"
+    "coverageDirectory": "./build/coverage",
+    "snapshotSerializers": [ "preact-render-spy/snapshot" ]
   },
   "babel": {
     "presets": [
