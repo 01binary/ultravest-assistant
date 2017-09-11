@@ -1,6 +1,6 @@
-import { expect } from 'chai';
+//import { expect } from 'chai';
 import { h } from 'preact';
-import { mount } from 'enzyme';
+import { deep } from 'preact-render-spy';
 import Burnout from '../../src/components/Burnout';
 import withState from '../../src/composers';
 
@@ -9,7 +9,7 @@ describe('Burnout', () => {
 	let wrapper;
 
 	before(() => {
-		wrapper = mount(withState(Burnout));
+		wrapper = deep(withState(Burnout));
 	});
 
 	after(() => {

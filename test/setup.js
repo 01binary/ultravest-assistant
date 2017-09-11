@@ -7,6 +7,9 @@ import 'ignore-styles';
 chai.use(assertJsx);
 chai.use(assertJsxExtensions);
 
+global.document.createDocumentFragment = () =>
+	global.document.createElement('#fragment');
+
 function assertJsxExtensions({ Assertion }) {
 	// expect(x).to.have.tagName(name, [because])
 	add(tagName);
@@ -21,11 +24,8 @@ function assertJsxExtensions({ Assertion }) {
 	 * @param {string} message - The optional assert message.
 	 */
 	function tagName(expected, message) {
-		if (Array.isArray(this._obj)) {
-			this._obj.forEach(subject => tagNameFor.call(this, subject, expected, message));
-		}
-		else {
-			tagNameFor.call(this, this._obj, expected, message);
+		if (typeof this._obj === 'RenderContext') {
+			tagNameFor(this._obj['0'])
 		}
 	}
 
