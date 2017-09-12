@@ -1,5 +1,5 @@
 import reflect from '../fixtures/reflector.tests.fixture';
-import { withFlask, CUSTOM_PRESET, DEFAULT_PRESET } from '../../src/composers/withFlask';
+import { default as withFlask, CUSTOM_PRESET, DEFAULT_PRESET } from '../../src/composers/withFlask';
 import presets from '../../src/config/flaskPresets.json';
 
 describe('composer withFlask', () => {
@@ -18,8 +18,8 @@ describe('composer withFlask', () => {
 		expect(reflector.props.flask).toEqual({
 			presets,
 			preset: DEFAULT_PRESET,
-			diameter: presets[DEFAULT_PRESET],
-			height: presets[DEFAULT_PRESET]
+			diameter: presets[DEFAULT_PRESET].diameter,
+			height: presets[DEFAULT_PRESET].height
 		});
 	});
 

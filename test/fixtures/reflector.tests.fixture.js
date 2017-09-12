@@ -28,6 +28,10 @@ const enhancer = (hoc, reflect) => (
  */
 class Wrapper {
 	constructor(hoc) {
+		if (typeof hoc !== 'function') {
+			throw new Error('invalid higher order component passed to reflect Wrapper:', hoc);
+		}
+
 		const factory = enhancer(hoc, (props, state) => {
 			this.props = props;
 			this.state = state;
