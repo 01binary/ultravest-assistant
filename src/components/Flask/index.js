@@ -11,29 +11,26 @@ import style from './style';
  * @param {func} props.setHeight - The function called to set flask height.
  * @returns {JSX.Element} - A React stateless component.
  */
-const Flask = (props) => {
-	console.log('rendering flask with props.flask = ', props.flask);
-	return (
-		<section class={style.flask}>
-			<h2>Flask</h2>
+const Flask = (props) => (
+	<section class={style.flask}>
+		<h2>Flask</h2>
 
-			<label for="flask-diameter">Diameter (in)</label>
-			<input
-				name="flask-diameter"
-				type="number"
-				value={props.flask.diameter}
-				onChange={e => props.setFlaskDiameter(e.target.value)}
-			/>
+		<label for="flask-diameter">Diameter (in)</label>
+		<input
+			name="flask-diameter"
+			type="number"
+			value={props.flask.diameter}
+			onChange={props.setFlaskDiameter}
+		/>
 
-			<label for="flask-height">Height (in)</label>
-			<input
-				name="flask-height"
-				type="number"
-				value={props.flask.height}
-				onChange={props.setFlaskHeight}
-			/>
-		</section>
-	);
-};
+		<label for="flask-height">Height (in)</label>
+		<input
+			name="flask-height"
+			type="number"
+			value={props.flask.height}
+			onChange={props.setFlaskHeight}
+		/>
+	</section>
+);
 
 export default Flask;

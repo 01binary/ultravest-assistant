@@ -1,64 +1,68 @@
 import reflect from '../fixtures/reflector.tests.fixture';
-import withFlask from '../../src/composers/withFlask';
-import getDefaultPresetName from '../../src/selectors/getDefaultPresetName';
+import { withFlask, CUSTOM_PRESET, DEFAULT_PRESET } from '../../src/composers/withFlask';
 import presets from '../../src/config/flaskPresets.json';
 
 describe('composer withFlask', () => {
 
-	let wrapper;
+	let reflector;
 
 	beforeAll(() => {
-		wrapper = reflect(withFlask);
+		reflector = reflect(withFlask);
 	});
 
 	afterAll(() => {
-		wrapper = null;
+		reflector = null;
 	});
 
 	test('should set initial state', () => {
-		const initialState = {
+		expect(reflector.props.flask).toEqual({
 			presets,
-			preset: defaultPreset,
-			diameter: 3.5,
-			height: 10
-		};
-
-		expect(wrapper.props.flask).toEqual(initialState);
+			preset: DEFAULT_PRESET,
+			diameter: presets[DEFAULT_PRESET],
+			height: presets[DEFAULT_PRESET]
+		});
 	});
 
-	test('should set flask preset', () => {
-		wrapper.props.setFlaskPreset(event(anotherPreset));
-		console.log('checking flask preset');
-		expect(wrapper.props.flask.preset)
-			.toEqual(anotherPreset, 'should set preset name');
-		expect(wrapper.props.flask.diameter)
-			.toEqual(presets[anotherPreset].diameter, 'should set preset diameter');
-		expect(wrapper.props.flask.height)
-			.toEqual(presets[anotherPreset].height, 'should set preset height');
+	test('should set flask preset', done => {
+		const arbitraryPreset = Object.keys(presets)[2];
+
+		reflector.props.setFlaskPreset({ target: { value: arbitraryPreset } });
+
+		reflector.update(props => {
+			expect(props.flask.preset)
+				.toEqual(arbitraryPreset, 'should set preset name');
+			expect(props.flask.diameter)
+				.toEqual(presets[arbitraryPreset].diameter, 'should set preset diameter');
+			expect(props.flask.height)
+				.toEqual(presets[arbitraryPreset].height, 'should set preset height');
+
+			done();
+		});
 	});
 
-	test('should set flask diameter', () => {
-		wrapper.props.setFlaskDiameter(event(6));
+	test('should set flask diameter', done => {
+		reflector.props.setFlaskDiameter({ target: { value: 6 } });
 
-		expect(wrapper.props.flask.diameter)
-			.toEqual(6, 'should set diameter');
-		expect(wrapper.props.flask.preset)
-			.toEqual('Custom', 'should set preset name');
+		reflector.update(props => {
+			expect(reflector.props.flask.diameter)
+				.toEqual(6, 'should set diameter');
+			expect(reflector.props.flask.preset)
+				.toEqual(CUSTOM_PRESET, 'should set preset name');
+
+			done();
+		});
 	});
 
-	test('should set flask height', () => {
-		wrapper.props.setFlaskHeight(event(13));
+	test('should set flask height', done => {
+		reflector.props.setFlaskHeight({ target: { value: 13 } });
 
-		expect(wrapper.props.flask.height)
-			.toEqual(13, 'should set height');
-		expect(wrapper.props.flask.preset)
-			.toEqual('Custom');
+		reflector.update(props => {
+			expect(reflector.props.flask.height)
+				.toEqual(13, 'should set height');
+			expect(reflector.props.flask.preset)
+				.toEqual(CUSTOM_PRESET);
+
+			done();
+		});
 	});
-
-	const defaultPreset = getDefaultPresetName(presets);
-	const anotherPreset = Object.keys(presets)[2];
-
-	function event(value) {
-		return { target: { value } };
-	}
 });

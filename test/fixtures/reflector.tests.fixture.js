@@ -28,14 +28,23 @@ const enhancer = (hoc, reflect) => (
  */
 class Wrapper {
 	constructor(hoc) {
-		let factory = enhancer(hoc, (props, state) => {
+		const factory = enhancer(hoc, (props, state) => {
 			this.props = props;
 			this.state = state;
+
+			if (this.callback) {
+				this.callback(props, state);
+			}
 		});
 
 		this.element = h(factory);
+		this.callback = null;
 
 		render(this.element, global.document);
+	}
+
+	update(callback) {
+		this.callback = callback;
 	}
 }
 

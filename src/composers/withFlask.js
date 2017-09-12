@@ -2,41 +2,37 @@ import { withStateHandlers } from 'recompose';
 import getDefaultPresetName from '../selectors/getDefaultPresetName';
 import presets from '../config/flaskPresets';
 
-const CUSTOM = 'Custom';
-const defaultPresetName = getDefaultPresetName(presets);
-const defaultState = {
-	presets,
-	preset: defaultPresetName,
-	diameter: presets[defaultPresetName].diameter,
-	height: presets[defaultPresetName].height
-};
+export const CUSTOM_PRESET = 'Custom';
+export const DEFAULT_PRESET = getDefaultPresetName(presets);
 
 export default withStateHandlers(
 	{
-		flask: defaultState
+		flask: {
+			presets,
+			preset: DEFAULT_PRESET,
+			diameter: presets[DEFAULT_PRESET].diameter,
+			height: presets[DEFAULT_PRESET].height
+		}
 	},
 	{
-		setFlaskPreset: () => ({ target }) => {
-			console.log('setFlaskPreset returning value');
-			return {
-				flask: {
-					preset: target.value,
-					diameter: presets[target.value].diameter,
-					height: presets[target.value].height
-				}
-			};
-		},
+		setFlaskPreset: () => ({ target }) => ({
+			flask: {
+				preset: target.value,
+				diameter: presets[target.value].diameter,
+				height: presets[target.value].height
+			}
+		}),
 
 		setFlaskDiameter: () => ({ target }) => ({
 			flask: {
-				preset: CUSTOM,
+				preset: CUSTOM_PRESET,
 				diameter: parseInt(target.value, 10)
 			}
 		}),
 
 		setFlaskHeight: () => ({ target }) => ({
 			flask: {
-				preset: CUSTOM,
+				preset: CUSTOM_PRESET,
 				height: parseInt(target.value, 10)
 			}
 		})
