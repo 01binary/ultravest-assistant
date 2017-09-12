@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render 1`] = `
+preact-render-spy (1 nodes)
+-------
+<div id="app">
+  <header>
+    <h1>UltraVest Assistant</h1>
+  </header>
+  <main>
+    <section class="flask">
+      <h2>Flask</h2>
+      <label for="flask-diameter">Diameter (in)</label>
+      <input
+        name="flask-diameter"
+        type="number"
+        value={3.5}
+        onChange={[Function anonymous]}
+       />
+      </input>
+      <label for="flask-height">Height (in)</label>
+      <input
+        name="flask-height"
+        type="number"
+        value={10}
+        onChange={[Function anonymous]}
+       />
+      </input>
+    </section>
+    <section class="investment">
+      <h2>Investment</h2>
+      <label for="investment-ratio-preset">Ratio (W:P)</label>
+      <select
+        name="investment-ratio-preset"
+        value="40/100"
+        onChange={[Function anonymous]}
+      >
+        <option selected={false}>38/100</option>
+        <option selected={false}>39/100</option>
+        <option selected={false}>40/100</option>
+        <option selected={false}>41/100</option>
+        <option selected={false}>42/100</option>
+      </select>
+    </section>
+    <section class="burnout">
+      <h2>Burnout</h2>
+      <dl>
+        <dt>Preset</dt>
+        <dd>4 X 8 in</dd>
+        <dt>Time</dt>
+        <dd>15 hours</dd>
+      </dl>
+    </section>
+  </main>
+  <aside>
+    <section class="summary">
+      <h3>Summary</h3>
+      <dl>
+        <dt>Flask</dt>
+        <dd>3.5 X 10 in</dd>
+        <dt>Investment</dt>
+        <dd>40/100 W:P</dd>
+        <dt>Burnout</dt>
+        <dd>4 X 8, 15 hours</dd>
+      </dl>
+    </section>
+  </aside>
+</div>
+
+`;
