@@ -55,17 +55,6 @@
         {
           "pragma": "h"
         }
-      ],
-      [
-        "module-resolver",
-        {
-          "root": [
-            "."
-          ],
-          "alias": {
-            "react": "preact-compat"
-          }
-        }
       ]
     ]
   },
@@ -89,7 +78,6 @@
   "dependencies": {
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
-    "react": "npm:preact-compat",
     "recompose": "^0.25.0"
   }
 }
