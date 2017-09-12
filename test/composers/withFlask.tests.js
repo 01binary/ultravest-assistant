@@ -26,53 +26,39 @@ describe('composer withFlask', () => {
 		expect(wrapper.props.flask).toEqual(initialState);
 	});
 
-	test('should set flask', (done) => {
-		const nextState = {
-			presets,
-			preset: secondPreset,
-			diameter: presets[secondPreset].diameter,
-			height: presets[secondPreset].height
-		};
-		
-		wrapper.props.setFlask(nextState, () => {
-			expect(wrapper.props.flask).toEqual(nextState);
-			done();
-		});
+	test('should set flask preset', () => {
+		wrapper.props.setFlaskPreset(event(anotherPreset));
+		console.log('checking flask preset');
+		expect(wrapper.props.flask.preset)
+			.toEqual(anotherPreset, 'should set preset name');
+		expect(wrapper.props.flask.diameter)
+			.toEqual(presets[anotherPreset].diameter, 'should set preset diameter');
+		expect(wrapper.props.flask.height)
+			.toEqual(presets[anotherPreset].height, 'should set preset height');
 	});
 
-	test('should set flask preset', (done) => {
-		wrapper.props.setFlaskPreset(thirdPreset, () => {
-			expect(wrapper.props.flask.preset)
-				.toEqual(thirdPreset, 'should set preset name');
-			expect(wrapper.props.flask.diameter)
-				.toEqual(presets[thirdPreset].diameter, 'should set preset diameter');
-			expect(wrapper.props.flask.height)
-				.toEqual(presets[thirdPreset].height, 'should set preset height');
+	test('should set flask diameter', () => {
+		wrapper.props.setFlaskDiameter(event(6));
 
-			done();
-		});
-	});
-
-	test('should set flask diameter', (done) => {
-		wrapper.props.setFlaskDiameter(6, () => {
-			expect(wrapper.props.flask.diameter)
-				.toEqual(6, 'should set diameter');
-			expect(wrapper.props.flask.preset)
-				.toEqual('Custom', 'should set preset name');
-			done();
-		});
+		expect(wrapper.props.flask.diameter)
+			.toEqual(6, 'should set diameter');
+		expect(wrapper.props.flask.preset)
+			.toEqual('Custom', 'should set preset name');
 	});
 
 	test('should set flask height', () => {
-		wrapper.props.setFlaskHeight(13, () => {
-			expect(wrapper.props.flask.height)
-				.toEqual(13, 'should set height');
-			expect(wrapper.props.flask.preset)
-				.toEqual('Custom');
-		});
+		wrapper.props.setFlaskHeight(event(13));
+
+		expect(wrapper.props.flask.height)
+			.toEqual(13, 'should set height');
+		expect(wrapper.props.flask.preset)
+			.toEqual('Custom');
 	});
 
 	const defaultPreset = getDefaultPresetName(presets);
-	const secondPreset = Object.keys(presets)[1];
-	const thirdPreset = Object.keys(presets)[2];
+	const anotherPreset = Object.keys(presets)[2];
+
+	function event(value) {
+		return { target: { value } };
+	}
 });

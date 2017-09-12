@@ -1,39 +1,44 @@
-import { compose, withState, withHandlers } from 'recompose';
-import presets from '../config/flaskPresets';
+import { withStateHandlers } from 'recompose';
 import getDefaultPresetName from '../selectors/getDefaultPresetName';
+import presets from '../config/flaskPresets';
 
-const customPresetName = 'Custom';
+const CUSTOM = 'Custom';
 const defaultPresetName = getDefaultPresetName(presets);
+const defaultState = {
+	presets,
+	preset: defaultPresetName,
+	diameter: presets[defaultPresetName].diameter,
+	height: presets[defaultPresetName].height
+};
 
-export default compose(
-	withState(
-		'flask',
-		'setFlask',
-		{
-			presets,
-			preset: defaultPresetName,
-			diameter: presets[defaultPresetName].diameter,
-			height: presets[defaultPresetName].height
-		}
-	),
-	withHandlers({
-		setFlaskPreset: ({ setFlask }) => (preset, then) => setFlask({
-			preset,
-			diameter: presets[preset].diameter,
-			height: presets[preset].height
-		}, then),
-
-		setFlaskDiameter: ({ setFlask }) => (diameter, then) => {
-			console.log('setFlaskDiameter with', diameter);
-			setFlask({
-				diameter,
-				preset: customPresetName
-			}, then);
+export default withStateHandlers(
+	{
+		flask: defaultState
+	},
+	{
+		setFlaskPreset: () => ({ target }) => {
+			console.log('setFlaskPreset returning value');
+			return {
+				flask: {
+					preset: target.value,
+					diameter: presets[target.value].diameter,
+					height: presets[target.value].height
+				}
+			};
 		},
 
-		setFlaskHeight: ({ setFlask }) => (height, then) => setFlask({
-			height,
-			preset: customPresetName
-		}, then)
-	})
+		setFlaskDiameter: () => ({ target }) => ({
+			flask: {
+				preset: CUSTOM,
+				diameter: parseInt(target.value, 10)
+			}
+		}),
+
+		setFlaskHeight: () => ({ target }) => ({
+			flask: {
+				preset: CUSTOM,
+				height: parseInt(target.value, 10)
+			}
+		})
+	}
 );

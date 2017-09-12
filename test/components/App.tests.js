@@ -2,7 +2,7 @@ import { h } from 'preact';
 import { deep } from 'preact-render-spy';
 import App from '../../src/components/App';
 import withState from '../../src/composers';
-
+/*
 describe('App', () => {
 
 	let wrapper;
@@ -39,3 +39,4 @@ describe('App', () => {
 		expect(wrapper.find('Summary').length).toBe(1);
 	});
 });
+*/
