@@ -23,10 +23,13 @@ export default compose(
 			height: presets[preset].height
 		}, then),
 
-		setFlaskDiameter: ({ setFlask }) => (diameter, then) => setFlask({
-			diameter,
-			preset: customPresetName
-		}, then),
+		setFlaskDiameter: ({ setFlask }) => (diameter, then) => {
+			console.log('setFlaskDiameter with', diameter);
+			setFlask({
+				diameter,
+				preset: customPresetName
+			}, then);
+		},
 
 		setFlaskHeight: ({ setFlask }) => (height, then) => setFlask({
 			height,
