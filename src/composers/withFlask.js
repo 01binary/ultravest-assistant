@@ -15,7 +15,7 @@ export default withStateHandlers(
 		}
 	},
 	{
-		setFlaskPreset: () => ({ target }) => ({
+		handleFlaskPresetChange: () => ({ target }) => ({
 			flask: {
 				preset: target.value,
 				diameter: presets[target.value].diameter,
@@ -23,14 +23,14 @@ export default withStateHandlers(
 			}
 		}),
 
-		setFlaskDiameter: () => ({ target }) => ({
+		handleFlaskDiameterChange: () => ({ target }) => ({
 			flask: {
 				preset: CUSTOM_PRESET,
 				diameter: parseInt(target.value, 10)
 			}
 		}),
 
-		setFlaskHeight: () => ({ target }) => ({
+		handleFlaskHeightChange: () => ({ target }) => ({
 			flask: {
 				preset: CUSTOM_PRESET,
 				height: parseInt(target.value, 10)

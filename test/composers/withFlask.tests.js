@@ -1,7 +1,8 @@
 import {
 	default as withFlask,
 	CUSTOM_PRESET,
-	DEFAULT_PRESET } from '../../src/composers/withFlask';
+	DEFAULT_PRESET
+} from '../../src/composers/withFlask';
 import presets from '../../src/config/flaskPresets.json';
 import reflect from '../fixtures/reflector.tests.fixture';
 
@@ -29,7 +30,9 @@ describe('composer withFlask', () => {
 	test('should set flask preset', done => {
 		const arbitraryPreset = Object.keys(presets)[2];
 
-		reflector.props.setFlaskPreset({ target: { value: arbitraryPreset } });
+		reflector.props.handleFlaskPresetChange({
+			target: { value: arbitraryPreset }
+		});
 
 		reflector.update(props => {
 			expect(props.flask.preset)
@@ -44,7 +47,9 @@ describe('composer withFlask', () => {
 	});
 
 	test('should set flask diameter', done => {
-		reflector.props.setFlaskDiameter({ target: { value: 6 } });
+		reflector.props.handleFlaskDiameterChange({
+			target: { value: 6 }
+		});
 
 		reflector.update(props => {
 			expect(reflector.props.flask.diameter)
@@ -57,13 +62,15 @@ describe('composer withFlask', () => {
 	});
 
 	test('should set flask height', done => {
-		reflector.props.setFlaskHeight({ target: { value: 13 } });
+		reflector.props.handleFlaskHeightChange({
+			target: { value: 13 }
+		});
 
 		reflector.update(props => {
 			expect(reflector.props.flask.height)
 				.toEqual(13, 'should set height');
 			expect(reflector.props.flask.preset)
-				.toEqual(CUSTOM_PRESET);
+				.toEqual(CUSTOM_PRESET, 'should set preset name');
 
 			done();
 		});

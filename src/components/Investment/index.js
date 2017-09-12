@@ -1,8 +1,6 @@
 import { h } from 'preact';
 import style from './style';
 
-const defaultPresets = {};
-
 /**
  * Investment Parameters.
  * @param {number} props.investment.preset - The investment ratio preset.
@@ -21,9 +19,9 @@ const Investment = (props) => (
 		<select
 			name="investment-ratio-preset"
 			value={props.investment.preset}
-			onChange={props.setInvestmentPreset}
+			onChange={props.handleInvestmentPresetChange}
 		>
-			{ Object.keys(props.investment.presets || defaultPresets).map(preset => (
+			{ Object.keys(props.investment.presets).map(preset => (
 				<option selected={preset === props.investment.preset}>
 					{preset}
 				</option>
