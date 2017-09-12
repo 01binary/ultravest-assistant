@@ -8,28 +8,14 @@ describe('Burnout', () => {
 	let wrapper;
 
 	beforeAll(() => {
-		wrapper = deep(withState(Burnout));
+		wrapper = deep(h(withState(Burnout)));
 	});
 
 	afterAll(() => {
 		wrapper = null;
 	});
 
-	test('should render a section with burnout class', () => {
-	});
-
-	test('should render a heading', () => {
-	});
-
-	test('should render preset label', () => {
-	});
-
-	test('should render preset', () => {
-	});
-
-	test('should render time label', () => {
-	});
-
-	test('should render time', () => {
+	test('should render', () => {
+		expect(wrapper).toMatchSnapshot();
 	});
 });

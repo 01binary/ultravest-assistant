@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Burnout should render 1`] = `
+preact-render-spy (1 nodes)
+-------
+<section class="burnout">
+  <h2>Burnout</h2>
+  <dl>
+    <dt>Preset</dt>
+    <dd>4 X 8 in</dd>
+    <dt>Time</dt>
+    <dd>15 hours</dd>
+  </dl>
+</section>
+
+`;

@@ -8,7 +8,7 @@ describe('Flask', () => {
 	let wrapper;
 
 	beforeAll(() => {
-		wrapper = deep(withFlask(<Flask />));
+		wrapper = deep(h(withFlask(Flask)));
 	});
 
 	afterAll(() => {
@@ -16,5 +16,6 @@ describe('Flask', () => {
 	});
 
 	test('should render', () => {
+		expect(wrapper).toMatchSnapshot();
 	});
 });
