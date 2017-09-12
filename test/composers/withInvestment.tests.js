@@ -17,7 +17,7 @@ describe('composer withInvestment', () => {
 
 	test('should set initial state', () => {
 		const initialState = {
-			preset: defaultPreset,
+			preset: getDefaultPresetName(presets),
 			presets
 		};
 
@@ -43,7 +43,6 @@ describe('composer withInvestment', () => {
 		});
 	});
 
-	const defaultPreset = getDefaultPresetName(presets);
 	const secondPreset = Object.keys(presets)[1];
 	const thirdPreset = Object.keys(presets)[2];
 });

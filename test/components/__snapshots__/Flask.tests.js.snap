@@ -9,6 +9,7 @@ preact-render-spy (1 nodes)
   <input
     name="flask-diameter"
     type="number"
+    value={3.5}
     onChange={[Function anonymous]}
    />
   </input>
@@ -16,6 +17,7 @@ preact-render-spy (1 nodes)
   <input
     name="flask-height"
     type="number"
+    value={10}
     onChange={[Function anonymous]}
    />
   </input>

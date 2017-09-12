@@ -12,8 +12,8 @@ const App = (props) => (
 		<Header />
 
 		<main>
-			<Flask {...props} {...props.flask} />
-			<Investment {...props} {...props.investment} />
+			<Flask {...props} />
+			<Investment {...props} />
 			<Burnout {...props} />
 
 			<Result {...props} />

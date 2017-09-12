@@ -20,11 +20,11 @@ const Investment = (props) => (
 
 		<select
 			name="investment-ratio-preset"
-			value={props.preset}
+			value={props.investment.preset}
 			onChange={props.setInvestmentPreset}
 		>
-			{ Object.keys(props.presets || defaultPresets).map(preset => (
-				<option selected={preset === props.presets.default}>
+			{ Object.keys(props.investment.presets || defaultPresets).map(preset => (
+				<option selected={preset === props.investment.preset}>
 					{preset}
 				</option>
 			))}

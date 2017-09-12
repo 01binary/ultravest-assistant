@@ -37,7 +37,7 @@ preact-render-spy (1 nodes)
       >
         <option selected={false}>38/100</option>
         <option selected={false}>39/100</option>
-        <option selected={false}>40/100</option>
+        <option selected={true}>40/100</option>
         <option selected={false}>41/100</option>
         <option selected={false}>42/100</option>
       </select>

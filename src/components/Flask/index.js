@@ -19,7 +19,7 @@ const Flask = (props) => (
 		<input
 			name="flask-diameter"
 			type="number"
-			value={props.diameter}
+			value={props.flask.diameter}
 			onChange={props.setFlaskDiameter}
 		/>
 
@@ -27,7 +27,7 @@ const Flask = (props) => (
 		<input
 			name="flask-height"
 			type="number"
-			value={props.height}
+			value={props.flask.height}
 			onChange={props.setFlaskHeight}
 		/>
 	</section>
