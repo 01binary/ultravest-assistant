@@ -1,14 +1,13 @@
 import { h } from 'preact';
 import { deep } from 'preact-render-spy';
-import App from '../../src/components/App';
-import withState from '../../src/composers';
-/*
+import Root from '../../src/index.js';
+
 describe('App', () => {
 
 	let wrapper;
 
 	beforeAll(() => {
-		wrapper = deep(h(withState(App)));
+		wrapper = deep(h(Root));
 	});
 
 	afterAll(() => {
@@ -39,4 +38,3 @@ describe('App', () => {
 		expect(wrapper.find('Summary').length).toBe(1);
 	});
 });
-*/

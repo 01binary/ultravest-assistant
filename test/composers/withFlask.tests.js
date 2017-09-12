@@ -1,6 +1,9 @@
-import reflect from '../fixtures/reflector.tests.fixture';
-import { default as withFlask, CUSTOM_PRESET, DEFAULT_PRESET } from '../../src/composers/withFlask';
+import {
+	default as withFlask,
+	CUSTOM_PRESET,
+	DEFAULT_PRESET } from '../../src/composers/withFlask';
 import presets from '../../src/config/flaskPresets.json';
+import reflect from '../fixtures/reflector.tests.fixture';
 
 describe('composer withFlask', () => {
 

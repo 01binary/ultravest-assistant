@@ -1,18 +1,21 @@
-import { withState, withHandlers, compose } from 'recompose';
+import { withStateHandlers } from 'recompose';
 import presets from '../config/investmentPresets';
 import getDefaultPresetName from '../selectors/getDefaultPresetName';
 
-export default compose(
-	withState(
-		'investment',
-		'setInvestment',
-		{
-			preset: getDefaultPresetName(presets),
+export const DEFAULT_PRESET = getDefaultPresetName(presets);
+
+export default withStateHandlers(
+	{
+		investment: {
+			preset: DEFAULT_PRESET,
 			presets
 		}
-	),
-	withHandlers({
-		setInvestmentPreset: ({ setInvestment }) => (preset, then) =>
-			setInvestment({ preset }, then)
-	})
+	},
+	{
+		setInvestmentPreset: () => ({ target }) => ({
+			investment: {
+				preset: target.value
+			}
+		})
+	}
 );

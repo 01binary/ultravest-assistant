@@ -1,49 +1,36 @@
-import reflect from '../fixtures/reflector.tests.fixture';
-import withInvestment from '../../src/composers/withInvestment';
-import getDefaultPresetName from '../../src/selectors/getDefaultPresetName';
+import {
+	default as withInvestment,
+	DEFAULT_PRESET
+} from '../../src/composers/withInvestment';
 import presets from '../../src/config/investmentPresets.json';
-/*
+import reflect from '../fixtures/reflector.tests.fixture';
+
 describe('composer withInvestment', () => {
 
-	let wrapper;
+	let reflector;
 
 	beforeAll(() => {
-		wrapper = reflect(withInvestment);
+		reflector = reflect(withInvestment);
 	});
 
 	afterAll(() => {
-		wrapper = null;
+		reflector = null;
 	});
 
 	test('should set initial state', () => {
-		const initialState = {
-			preset: getDefaultPresetName(presets),
+		expect(reflector.props.investment).toEqual({
+			preset: DEFAULT_PRESET,
 			presets
-		};
-
-		expect(wrapper.props.investment).toEqual(initialState);
+		});
 	});
 
-	test('should set investment', (done) => {
-		const nextState = {
-			preset: secondPreset,
-			presets
-		};
+	test('should set investment preset', done => {
+		const arbitraryPreset = Object.keys(presets)[2];
 		
-		wrapper.props.setInvestment(nextState, () => {
-			expect(wrapper.props.investment).toEqual(nextState);
+		reflector.props.setInvestmentPreset({ target: { value: arbitraryPreset } })
+		reflector.update(() => {
+			expect(reflector.props.investment.preset).toEqual(arbitraryPreset);
 			done();
 		});
 	});
-
-	test('should set investment preset', (done) => {
-		wrapper.props.setInvestmentPreset(thirdPreset, () => {
-			expect(wrapper.props.investment.preset).toEqual(thirdPreset);
-			done();
-		});
-	});
-
-	const secondPreset = Object.keys(presets)[1];
-	const thirdPreset = Object.keys(presets)[2];
 });
-*/
