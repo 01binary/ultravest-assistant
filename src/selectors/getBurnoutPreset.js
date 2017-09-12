@@ -6,16 +6,12 @@
  */
 export default (presets, flask) => (
 	presets
-		.sort(flaskSizeAscending)
+		.sort((first, second) =>
+			(first.diameter * first.height) -
+			(second.diameter * second.height)
+		)
 		.filter(preset => (
 			preset.diameter >= flask.diameter &&
 			preset.height >= flask.height
 		)) [0] || presets[presets.length - 1]
 );
-
-function flaskSizeAscending(first, second) {
-	return (
-		first.diameter > second.diameter &&
-		first.height > second.height
-	) ? 1 : -1;
-}

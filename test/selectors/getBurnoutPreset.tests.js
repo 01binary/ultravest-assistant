@@ -7,26 +7,26 @@ describe('selector getBurnoutPreset', () => {
 			[
 				{
 					diameter: 8,
-					length: 5
+					height: 5
 				},
 				{
 					diameter: 2,
-					length: 4
+					height: 4
 				},
 				{
 					diameter: 2,
-					length: 3
+					height: 3
 				}
 			],
 			{
 				// requested 2 X 3
 				diameter: 2,
-				length: 3
+				height: 3
 			}
 		)).toEqual({
 			// found exact match 2 X 3
 			diameter: 2,
-			length: 3
+			height: 3
 		});
 	});
 
