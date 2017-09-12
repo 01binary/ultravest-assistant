@@ -23,9 +23,6 @@
   },
   "jest": {
     "testRegex": "/test/.*tests\\.js$",
-    "setupFiles": [
-      "./test/setup.js"
-    ],
     "moduleFileExtensions": [
       "js",
       "json",
