@@ -1,3 +1,8 @@
-.burnout {
-	border: 1px solid gray;
+@import '../../style/colors';
+
+.longest {
+	margin: 4px;
+	padding: 2px 6px;
+	background: $secondary-background-color;
+	border-radius: 4px;
 }

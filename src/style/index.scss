@@ -1,16 +1,39 @@
+@import 'colors';
+@import 'breakpoints';
+
 html, body {
-	height: 100%;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	background: #FAFAFA;
-	font-family: 'Helvetica Neue', arial, sans-serif;
+	font-family: 'Open Sans', 'Helvetica Neue', arial, sans-serif;
 	font-weight: 400;
-	color: #444;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	color: $primary-text-color;
+	background-color: $primary-background-color;
+}
+
+h1 {
+	font-size: 24px;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+header, article, main {
+	flex: 1 100%;
+}
+
+main {
+	flex: 2 0px;
+}
+
+article {
+	padding: 10px;
+	border-bottom: 1px dashed lightgray;
 }
 
 #app {
-	height: 100%;
+	display: flex;
+	flex-flow: row wrap;
 }

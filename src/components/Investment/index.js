@@ -9,7 +9,7 @@ import style from './style';
  * @returns {JSX.Element} - A React stateless component.
  */
 const Investment = (props) => (
-	<section class={style.investment}>
+	<article class={style.investment}>
 		<h2>Investment</h2>
 
 		<label for="investment-ratio-preset">
@@ -27,7 +27,7 @@ const Investment = (props) => (
 				</option>
 			))}
 		</select>
-	</section>
+	</article>
 );
 
 export default Investment;

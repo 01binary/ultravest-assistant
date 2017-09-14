@@ -13,7 +13,7 @@ const Burnout = ({ flask }) => {
 	const preset = getBurnoutPreset(presets, flask);
 
 	return (
-		<section class={style.burnout}>
+		<article class={style.burnout}>
 			<h2>Burnout</h2>
 
 			<dl>
@@ -21,14 +21,14 @@ const Burnout = ({ flask }) => {
 				<dd>
 					{preset.diameter} X {preset.height} in
 					{ getIsLastPreset(preset) &&
-						<span class="preset-largest">Largest</span>
+						<span class={style.longest}>longest</span>
 					}
 				</dd>
 
 				<dt>Time</dt>
 				<dd>{getBurnoutTime(preset)} hours</dd>
 			</dl>
-		</section>
+		</article>
 	);
 };
 

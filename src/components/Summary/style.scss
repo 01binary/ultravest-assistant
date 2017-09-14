@@ -1,3 +1,17 @@
 .summary {
-	border: 1px solid gray;
+}
+
+// Mobile
+@media (max-width: 767px) {
+	.summary {
+		display: none;
+	}
+}
+
+// Desktop or Tablet
+@media (min-width: 768px) {
+	.summary {
+		display: block;
+		padding-left: 28px;
+	}
 }

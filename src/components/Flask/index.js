@@ -12,7 +12,7 @@ import style from './style';
  * @returns {JSX.Element} - A React stateless component.
  */
 const Flask = (props) => (
-	<section class={style.flask}>
+	<article class={style.flask}>
 		<h2>Flask</h2>
 
 		<label for="flask-diameter">Diameter (in)</label>
@@ -30,7 +30,7 @@ const Flask = (props) => (
 			value={props.flask.height}
 			onChange={props.handleFlaskHeightChange}
 		/>
-	</section>
+	</article>
 );
 
 export default Flask;

@@ -1,3 +1,7 @@
+@import '../../style/colors';
+
 header {
-	background: yellow;
+	background-color: $secondary-background-color;
+	padding: 4px 16px 16px 16px;
+	border-radius: 8px;
 }
