@@ -1,11 +1,16 @@
 import { h } from 'preact';
-import burnoutPresets from '../../config/burnoutPresets';
+import presets from '../../config/burnoutPresets';
 import getBurnoutPreset from '../../selectors/getBurnoutPreset';
 import getBurnoutTime from '../../selectors/getBurnoutTime';
 import style from './style';
 
-const Burnout = (props) => {
-	const preset = getBurnoutPreset(burnoutPresets, props.flask);
+/**
+ * Display burnout preset calculated from flask size.
+ * @param {object} flask - The flask props.
+ * @returns {JSX.Element} - A stateless component.
+ */
+const Burnout = ({ flask }) => {
+	const preset = getBurnoutPreset(presets, flask);
 
 	return (
 		<section class={style.burnout}>
@@ -13,7 +18,12 @@ const Burnout = (props) => {
 
 			<dl>
 				<dt>Preset</dt>
-				<dd>{preset.diameter} X {preset.height} in</dd>
+				<dd>
+					{preset.diameter} X {preset.height} in
+					{ getIsLastPreset(preset) &&
+						<span class="preset-largest">Largest</span>
+					}
+				</dd>
 
 				<dt>Time</dt>
 				<dd>{getBurnoutTime(preset)} hours</dd>
@@ -21,5 +31,9 @@ const Burnout = (props) => {
 		</section>
 	);
 };
+
+function getIsLastPreset(preset) {
+	return preset === presets[presets.length - 1] || null;
+}
 
 export default Burnout;
