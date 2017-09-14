@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Burnout should render 1`] = `
+exports[`Burnout should render with last preset 1`] = `
 preact-render-spy (1 nodes)
 -------
 <section class="burnout">

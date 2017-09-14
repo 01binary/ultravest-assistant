@@ -32,8 +32,8 @@ const Burnout = ({ flask }) => {
 	);
 };
 
-function getIsLastPreset(preset) {
-	return preset === presets[presets.length - 1] || null;
-}
+const getIsLastPreset = (preset) => (
+	preset === presets[presets.length - 1] || null
+);
 
 export default Burnout;

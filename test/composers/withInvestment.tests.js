@@ -27,7 +27,7 @@ describe('composer withInvestment', () => {
 	test('should set investment preset', done => {
 		const arbitraryPreset = Object.keys(presets)[2];
 		
-		reflector.props.handleInvestmentPresetChange({ target: { value: arbitraryPreset } })
+		reflector.props.handleInvestmentPresetChange({ target: { value: arbitraryPreset } });
 		reflector.update(() => {
 			expect(reflector.props.investment.preset).toEqual(arbitraryPreset);
 			done();
