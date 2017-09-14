@@ -46,7 +46,10 @@ preact-render-spy (1 nodes)
       <h2>Burnout</h2>
       <dl>
         <dt>Preset</dt>
-        <dd>4 X 8 in</dd>
+        <dd>
+          4 X 8 in
+          <span class="preset-largest">Largest</span>
+        </dd>
         <dt>Time</dt>
         <dd>15 hours</dd>
       </dl>
