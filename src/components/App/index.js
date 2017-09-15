@@ -15,8 +15,6 @@ const App = (props) => (
 			<Flask {...props} />
 			<Investment {...props} />
 			<Burnout {...props} />
-
-			<Result {...props} />
 		</main>
 
 		<aside>
