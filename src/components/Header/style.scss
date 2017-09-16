@@ -5,10 +5,14 @@
 header {
 	background-color: $color-background-secondary;
 	padding: $spacing-single;
+
+	p {
+		margin-bottom: 0;
+	}
 }
 
 // Desktop or Tablet
-@media (min-width: 720px) {
+@media (min-width: $spacing-max) {
 	header {
 		margin-top: $spacing-double;
 		border-radius: $spacing-third;

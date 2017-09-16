@@ -6,13 +6,9 @@
 }
 
 // Desktop or Tablet
-@media (min-width: 720px) {
+@media (min-width: $spacing-max) {
 	.summary {
 		display: block;
-		padding:
-			$spacing-single
-			$spacing-single
-			$spacing-single
-			$spacing-double;
+		padding: $spacing-single;
 	}
 }

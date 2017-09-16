@@ -17,11 +17,11 @@ html, body {
 }
 
 // Desktop or Tablet
-@media (min-width: 720px) {
+@media (min-width: $spacing-max) {
 	body {
 		// Fixed width with auto gutter
 		margin: 0 auto;
-		width: 720px;
+		width: $spacing-max;
 	}
 }
 
