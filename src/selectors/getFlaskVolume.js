@@ -3,11 +3,11 @@
  * @param {object} flask - The flask diameter and height.
  * @returns {number} - The flask volume.
  */
-export default ({ flask }) => (
+export default ({ diameter, height }) => (
 	// π
 	Math.PI *
 	// r²
-	Math.pow(flask.diameter / 2, 2) *
+	Math.pow(diameter / 2, 2) *
 	// h
-	flask.height
+	height
 );
