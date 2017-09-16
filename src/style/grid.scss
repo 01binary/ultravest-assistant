@@ -11,3 +11,11 @@ $spacing-third:			$spacing / 3;		// 8px
 $spacing-quarter:		$spacing / 4;		// 6px
 $spacing-small:			$spacing / 6;		// 4px
 $spacing-min:			$spacing / 12;		// 2px
+
+@mixin fullWidth {
+	flex: 1 100%;
+}
+
+@mixin twoColumnWidth {
+	flex: 2 0px;
+}

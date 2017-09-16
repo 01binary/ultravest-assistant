@@ -42,12 +42,8 @@ h1, h2, h3 {
 	margin-bottom: $spacing-single;
 }
 
-header {
-	flex: 1 100%;
-}
-
 main {
-	flex: 2 0px;
+	@include twoColumnWidth;
 }
 
 article {
