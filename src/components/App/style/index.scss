@@ -47,6 +47,11 @@ main {
 	@include two-col-width;
 }
 
+aside {
+	@include one-col-width;
+	margin-left: $spacing-double;
+}
+
 article {
 	padding: $spacing-single;
 	border-bottom: $border dashed $color-border;

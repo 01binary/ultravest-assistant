@@ -13,9 +13,13 @@ $spacing-small:			$spacing / 6;		// 4px
 $spacing-min:			$spacing / 12;		// 2px
 
 @mixin full-width {
-	flex: 1 100%;
+	flex-basis: $spacing-max;
+}
+
+@mixin one-col-width {
+	flex-basis: 208px;
 }
 
 @mixin two-col-width {
-	flex: 2 0px;
+	flex-basis: 464px;
 }
