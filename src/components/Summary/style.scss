@@ -1,3 +1,5 @@
+@import '../../style/grid';
+
 // Mobile
 .summary {
 	display: none;
@@ -7,6 +9,10 @@
 @media (min-width: 720px) {
 	.summary {
 		display: block;
-		padding: 24px 24px 24px 48px;
+		padding:
+			$spacing-single
+			$spacing-single
+			$spacing-single
+			$spacing-double;
 	}
 }

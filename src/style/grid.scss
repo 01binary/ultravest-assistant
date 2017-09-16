@@ -1,0 +1,13 @@
+$border: 1px;
+$spacing: 24px;
+
+$spacing-max:			$spacing * 30;		// 720px
+$spacing-double:		$spacing * 2;		// 48px
+$spacing-single:		$spacing;			// 24px
+$spacing-four-thirds:	$spacing / (4 / 3);	// 18px
+$spacing-three-halves:	$spacing / (3 / 2);	// 16px
+$spacing-half:			$spacing / 2;		// 12px
+$spacing-third:			$spacing / 3;		// 8px
+$spacing-quarter:		$spacing / 4;		// 6px
+$spacing-small:			$spacing / 6;		// 4px
+$spacing-min:			$spacing / 12;		// 2px

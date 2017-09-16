@@ -1,8 +1,9 @@
 @import '../../style/colors';
+@import '../../style/grid';
 
 .longest {
-	margin: 4px;
-	padding: 2px 6px;
+	margin: $spacing-small;
+	padding: $spacing-min $spacing-quarter;
 	background: $color-background-secondary;
-	border-radius: 4px;
+	border-radius: $spacing-small;
 }

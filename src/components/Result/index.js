@@ -3,8 +3,7 @@ import { h } from 'preact';
 
 const Result = ({ flask, investment }) => (
 	<p>
-		Enter your flask size and the investment-to-water ratio to see how much investment and water are required.
-		The kiln program is calculated automatically.
+		Calculate investment and water required to fill a flask and a kiln program to burn it out.
 
 		<input type="submit" value="Calculate" />
 	</p>

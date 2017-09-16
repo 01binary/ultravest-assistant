@@ -1,15 +1,16 @@
 @import '../../style/colors';
+@import '../../style/grid';
 
 // Default or Mobile
 header {
 	background-color: $color-background-secondary;
-	padding: 0 24px;
+	padding: $spacing-single;
 }
 
 // Desktop or Tablet
 @media (min-width: 720px) {
 	header {
-		margin-top: 48px;
-		border-radius: 8px;
+		margin-top: $spacing-double;
+		border-radius: $spacing-third;
 	}
 }
