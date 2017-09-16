@@ -1,7 +1,15 @@
 @import '../../style/colors';
 
+// Default or Mobile
 header {
-	background-color: $secondary-background-color;
-	padding: 0 24px 16px 24px;
-	border-radius: 8px;
+	background-color: $color-background-secondary;
+	padding: 0 24px;
+}
+
+// Desktop or Tablet
+@media (min-width: 720px) {
+	header {
+		margin-top: 48px;
+		border-radius: 8px;
+	}
 }

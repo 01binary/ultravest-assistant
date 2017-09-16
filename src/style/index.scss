@@ -1,39 +1,56 @@
+@import 'fonts';
 @import 'colors';
-@import 'breakpoints';
 
+// Default or Mobile
 html, body {
-	font-size: 16px;
-	font-family: 'Open Sans', 'Helvetica Neue', arial, sans-serif;
-	font-weight: 400;
-	color: $primary-text-color;
-	background-color: $primary-background-color;
-	margin: 24px auto;
+	font-family: $font-primary;
+	font-weight: $font-weight-primary;
+	font-size: $font-size-text;
+
+	color: $color-text-primary;
+	background-color: $color-background-primary;
+
+	// Variable width with no gutter
+	margin: 0;
+}
+
+// Desktop or Tablet
+@media (min-width: 720px) {
+	body {
+		// Fixed width with auto gutter
+		margin: 0 auto;
+		width: 720px;
+	}
 }
 
 h1 {
-	font-size: 24px;
+	font-size: $font-size-title;
 }
 
 h2 {
-	font-size: 18px;
+	font-size: $font-size-heading;
 }
 
 h3 {
-	font-size: 16px;
+	font-size: $font-size-text;
 }
 
-header, article, main {
+h1, h2, h3 {
+	margin-top: 0;
+	margin-bottom: 24px;
+}
+
+header {
 	flex: 1 100%;
 }
 
 main {
 	flex: 2 0px;
-	background: yellow;
 }
 
 article {
 	padding: 24px;
-	border-bottom: 1px dashed lightgray;
+	border-bottom: 1px dashed $color-border;
 }
 
 #app {
