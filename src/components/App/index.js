@@ -5,6 +5,7 @@ import Flask from '../Flask';
 import Investment from '../Investment';
 import Burnout from '../Burnout';
 import Summary from '../Summary';
+import './style';
 
 const App = (props) => (
 	<div id="app">

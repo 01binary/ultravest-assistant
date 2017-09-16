@@ -1,9 +1,10 @@
 @import 'fonts';
 @import 'colors';
-@import 'grid';
+@import 'layout';
 
 // Default or Mobile
-html, body {
+html,
+body {
 	font-family: $font-primary;
 	font-weight: $font-weight-primary;
 	font-size: $font-size-text;
