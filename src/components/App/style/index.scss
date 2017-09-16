@@ -43,10 +43,6 @@ h1, h2, h3 {
 	margin-bottom: $spacing-single;
 }
 
-main {
-	@include twoColumnWidth;
-}
-
 article {
 	padding: $spacing-single;
 	border-bottom: $border dashed $color-border;

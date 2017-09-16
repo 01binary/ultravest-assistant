@@ -7,11 +7,16 @@ import Burnout from '../Burnout';
 import Summary from '../Summary';
 import './style';
 
-const App = (props) => (
+/**
+ * Ultravest Assistant App
+ * @param {object} props - The composed application state.
+ * @returns {function} - A stateless component.
+ */
+const App = props => (
 	<div id="app">
 		<Header />
 
-		<main>
+		<main class="two-col-width">
 			<Flask {...props} />
 			<Investment {...props} />
 			<Burnout {...props} />

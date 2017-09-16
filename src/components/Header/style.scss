@@ -1,12 +1,10 @@
-@import '../../style/colors';
-@import '../../style/grid';
+@import '../App/style/colors';
+@import '../App/style/layout';
 
 // Default or Mobile
 header {
 	background-color: $color-background-secondary;
 	padding: $spacing-single;
-
-	@include fullWidth;
 
 	p {
 		margin-bottom: 0;

@@ -8,19 +8,19 @@ import getBurnoutSummary from '../../selectors/getBurnoutSummary';
  * @param {object} props.investment - The investment parameters.
  * @returns {JSX.Element} - A React stateless component.
  */
-const Summary = (props) => (
+const Summary = ({ flask, investment }) => (
 	<section class={style.summary}>
 		<h3>Summary</h3>
 
 		<dl>
 			<dt>Flask</dt>
-			<dd>{props.flask.diameter} X {props.flask.height} in</dd>
+			<dd>{flask.diameter} X {flask.height} in</dd>
 
 			<dt>Investment</dt>
-			<dd>{props.investment.preset} W:P</dd>
+			<dd>{investment.preset} W:P</dd>
 
 			<dt>Burnout</dt>
-			<dd>{getBurnoutSummary(props)}</dd>
+			<dd>{getBurnoutSummary(flask)}</dd>
 		</dl>
 	</section>
 );

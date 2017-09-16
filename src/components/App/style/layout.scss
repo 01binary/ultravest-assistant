@@ -12,10 +12,10 @@ $spacing-quarter:		$spacing / 4;		// 6px
 $spacing-small:			$spacing / 6;		// 4px
 $spacing-min:			$spacing / 12;		// 2px
 
-@mixin fullWidth {
+.full-width {
 	flex: 1 100%;
 }
 
-@mixin twoColumnWidth {
+.two-col-width {
 	flex: 2 0px;
 }

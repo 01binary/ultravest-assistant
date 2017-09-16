@@ -4,10 +4,8 @@ describe('selector getBurnoutSummary', () => {
 
 	test('formats summary with a valid preset', () => {
 		expect(getBurnoutSummary({
-			flask: {
-				diameter: 2,
-				height: 3
-			}
+			diameter: 2,
+			height: 3
 		})).toEqual('3 X 3, 8 hours');
 	});
 });
