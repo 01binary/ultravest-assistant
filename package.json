@@ -9,7 +9,7 @@
     "test:watch": "yarn test -- --watch",
     "test:snapshot": "yarn test -- --updateSnapshot",
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "build": "yarn lint && preact build",
+    "build": "yarn lint && preact build --config src/config/preact-config.js",
     "serve": "preact build && preact serve",
     "dev": "preact watch"
   },
@@ -73,7 +73,8 @@
     "preact-render-spy": "^1.0.0-rc.8",
     "ramda": "^0.24.1",
     "sass-lint": "^1.11.1",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "webpack-bundle-analyzer": "^2.9.0"
   },
   "dependencies": {
     "preact": "^8.2.5",
