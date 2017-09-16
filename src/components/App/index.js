@@ -5,7 +5,7 @@ import Flask from '../Flask';
 import Investment from '../Investment';
 import Burnout from '../Burnout';
 import Summary from '../Summary';
-import './style';
+import style from './style';
 
 /**
  * Ultravest Assistant App
@@ -13,10 +13,10 @@ import './style';
  * @returns {function} - A stateless component.
  */
 const App = props => (
-	<div id="app">
+	<div id="app" class={style.app}>
 		<Header />
 
-		<main class="two-col-width">
+		<main>
 			<Flask {...props} />
 			<Investment {...props} />
 			<Burnout {...props} />

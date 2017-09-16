@@ -43,12 +43,16 @@ h1, h2, h3 {
 	margin-bottom: $spacing-single;
 }
 
+main {
+	@include two-col-width;
+}
+
 article {
 	padding: $spacing-single;
 	border-bottom: $border dashed $color-border;
 }
 
-#app {
+.app {
 	display: flex;
 	flex-flow: row wrap;
 }
