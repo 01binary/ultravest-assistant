@@ -2,7 +2,8 @@ import { h } from 'preact';
 import { deep } from 'preact-render-spy';
 import { reduce, minBy, maxBy } from 'ramda';
 import Burnout from '../../src/components/Burnout';
-import presets from '../../config/burnoutPresets';
+import getFlaskVolume from '../../src/selectors/getFlaskVolume';
+import presets from '../../src/config/burnoutPresets';
 
 describe('Burnout', () => {
 
@@ -42,10 +43,6 @@ describe('Burnout', () => {
 		});
 	});
 
-	const orderPreset = ({ diameter, height }) => (
-		diameter * height
-	);
-
-	const firstPreset = reduce(maxBy(({ flask }) => flask.diameter * flask.height, 
-	const lastPreset = presets[presets.length - 1];
+	const firstPreset = reduce(minBy(getFlaskVolume), presets[0], presets);
+	const lastPreset = reduce(maxBy(getFlaskVolume), presets[0], presets);
 });
