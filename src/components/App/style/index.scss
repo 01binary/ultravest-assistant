@@ -18,7 +18,7 @@ body {
 }
 
 // Desktop or Tablet
-@media (min-width: $spacing-max) {
+@media (min-width: $breakpoint) {
 	body {
 		// Fixed width with auto gutter
 		margin: 0 auto;

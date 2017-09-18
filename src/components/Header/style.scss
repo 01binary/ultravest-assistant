@@ -14,7 +14,7 @@ header {
 }
 
 // Desktop or Tablet
-@media (min-width: $spacing-max) {
+@media (min-width: $breakpoint) {
 	header {
 		margin-top: $spacing-double;
 		border-radius: $spacing-third;

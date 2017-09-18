@@ -13,7 +13,7 @@ $spacing-small:         $spacing / 6;       // 4px
 $spacing-min:           $spacing / 12;      // 2px
 
 // Desktop to Mobile breakpoint
-$breakpoint:            $spacing-max + $spacing-single * 2;
+$breakpoint:            $spacing-max + $spacing-double;
 
 @mixin full-width {
 	flex-basis: $spacing-max;

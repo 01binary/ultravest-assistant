@@ -6,7 +6,7 @@
 }
 
 // Desktop or Tablet
-@media (min-width: $spacing-max) {
+@media (min-width: $breakpoint) {
 	.summary {
 		display: block;
 		padding: $spacing-single;
