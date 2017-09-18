@@ -14,7 +14,7 @@ $spacing-small:         $spacing / 6;       // 4px
 $spacing-min:           $spacing / 12;      // 2px
 
 // Desktop to Mobile breakpoint
-$breakpoint:            $spacing-max +// 768px
+$breakpoint:            $spacing-max +      // 768px
                         $spacing-double;
 
 // Content that takes entire site width
