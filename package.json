@@ -74,7 +74,8 @@
     "preact-render-spy": "^1.0.0-rc.8",
     "ramda": "^0.24.1",
     "sass-lint": "^1.11.1",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "typings-for-css-modules-loader": "^1.5.0"
   },
   "dependencies": {
     "preact": "^8.2.5",

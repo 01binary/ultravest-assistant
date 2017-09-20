@@ -1,13 +1,21 @@
-const preactCliTypeScript = require('preact-cli-plugin-typescript');
+const ts = require('preact-cli-plugin-typescript');
+const path = require('path');
 
-/**
- * Function that mutates original webpack config.
- * Supports asynchronous changes when promise is returned.
- *
- * @param {object} config original webpack config.
- * @param {object} env options passed to CLI.
- * @param {WebpackConfigHelpers} helpers object with useful helpers when working with config.
- **/
-export default function (config, env, helpers) {
-	preactCliTypeScript(config);
-}
+export default config => {
+	config.module.loaders.push({
+		test: /\.scss$/,
+		include: path.join(__dirname, './src'),
+		use: [
+			'style-loader',
+			{
+				loader: 'typings-for-css-modules-loader',
+				options: {
+					modules: true,
+					namedExport: true
+				}
+			}
+		]
+	});
+
+	ts(config);
+};
