@@ -9,14 +9,6 @@ preact-render-spy (1 nodes)
 >
   <header>
     <h1>UltraVest Assistant</h1>
-    <p>
-      Calculate investment and water required to fill a flask and a kiln program to burn it out.
-      <input
-        type="submit"
-        value="Calculate"
-       />
-      </input>
-    </p>
   </header>
   <main>
     <article class="flask">
