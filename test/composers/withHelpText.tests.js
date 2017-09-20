@@ -23,13 +23,6 @@ describe('composer withHelpText', () => {
 			expect(reflector.props.showHelpText).toEqual(false);
 			done();
 		});
-	});
 
-	test('should not change showHelpText on handleShowHelpText if already false', done => {
-		reflector.props.handleShowHelpText();
-		reflector.update(() => {
-			expect(reflector.props.showHelpText).toEqual(false);
-			done();
-		});
 	});
 });
