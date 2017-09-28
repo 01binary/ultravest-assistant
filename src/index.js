@@ -1,4 +1,4 @@
 import App from './components/App';
-import withState from './composers';
+import withState from './enhancers';
 
 export default withState(App);

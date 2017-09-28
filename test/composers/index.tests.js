@@ -1,7 +1,7 @@
-import withState from '../../src/composers';
-import withFlask from '../../src/composers/withFlask';
-import withInvestment from '../../src/composers/withInvestment';
-import withHelpText from '../../src/composers/withHelpText';
+import withState from '../../src/enhancers';
+import withFlask from '../../src/enhancers/withFlask';
+import withInvestment from '../../src/enhancers/withInvestment';
+import withHelpText from '../../src/enhancers/withHelpText';
 import includes from '../fixtures/composer.tests.fixture';
 
 describe('composed state', () => {

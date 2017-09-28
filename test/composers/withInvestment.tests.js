@@ -1,7 +1,7 @@
 import {
 	default as withInvestment,
 	DEFAULT_PRESET
-} from '../../src/composers/withInvestment';
+} from '../../src/enhancers/withInvestment';
 import presets from '../../src/config/investmentPresets.json';
 import reflect from '../fixtures/reflector.tests.fixture';
 

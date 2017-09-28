@@ -2,7 +2,7 @@ import {
 	default as withFlask,
 	CUSTOM_PRESET,
 	DEFAULT_PRESET
-} from '../../src/composers/withFlask';
+} from '../../src/enhancers/withFlask';
 import presets from '../../src/config/flaskPresets.json';
 import reflect from '../fixtures/reflector.tests.fixture';
 
