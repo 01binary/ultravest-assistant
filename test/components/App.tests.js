@@ -30,10 +30,6 @@ describe('App', () => {
 		expect(wrapper.find('Burnout').length).toBe(1);
 	});
 
-	test('should render Result', () => {
-		expect(wrapper.find('Result').length).toBe(1);
-	});
-
 	test('should render Summary', () => {
 		expect(wrapper.find('Summary').length).toBe(1);
 	});

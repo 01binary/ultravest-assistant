@@ -17,6 +17,7 @@ export default withStateHandlers(
 	{
 		handleFlaskPresetChange: () => ({ target }) => ({
 			flask: {
+				presets,
 				preset: target.value,
 				diameter: presets[target.value].diameter,
 				height: presets[target.value].height
@@ -25,6 +26,7 @@ export default withStateHandlers(
 
 		handleFlaskDiameterChange: ({ flask }) => ({ target }) => ({
 			flask: {
+				presets,
 				preset: CUSTOM_PRESET,
 				diameter: parseInt(target.value, 10),
 				height: flask.height
@@ -33,6 +35,7 @@ export default withStateHandlers(
 
 		handleFlaskHeightChange: ({ flask }) => ({ target }) => ({
 			flask: {
+				presets,
 				preset: CUSTOM_PRESET,
 				diameter: flask.diameter,
 				height: parseInt(target.value, 10)
