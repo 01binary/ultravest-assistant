@@ -40,6 +40,7 @@ const Flask = (
 		<input
 			name="flask-diameter"
 			type="number"
+			step="0.1"
 			value={flask.diameter}
 			onChange={handleFlaskDiameterChange}
 		/>
@@ -48,6 +49,7 @@ const Flask = (
 		<input
 			name="flask-height"
 			type="number"
+			step="0.1"
 			value={flask.height}
 			onChange={handleFlaskHeightChange}
 		/>
