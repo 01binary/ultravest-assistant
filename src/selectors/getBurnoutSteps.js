@@ -2,12 +2,10 @@
  * Get friendly steps from a machine readable burnout program.
  * @param {object} preset - The burnout preset.
  * @returns {object[]} - The burnout steps ready for formatted output.
- * TODO: diagram for naming
  */
 export default preset => preset.schedule.reduce(
 	(steps, segment, index, schedule) => {
 		const lastStep = steps.length && steps[steps.length - 1];
-		const formattedTemp = `${segment.temp}°F`;
 		const diff = lastStep ? segment.temp - lastStep.temp : segment.temp;
 		const duration = Math.round(Math.abs(diff / segment.rate) * 10) / 10;
 
@@ -18,7 +16,7 @@ export default preset => preset.schedule.reduce(
 			steps.push({
 				heading: segment.name,
 				action: diff < 0 ? 'lower to' : 'raise to',
-				temp: formattedTemp,
+				temp: segment.temp,
 				middle: 'over',
 				time: `${duration} ${getUnits(duration)}`,
 				end: index === schedule.length - 1 ? 'for casting' : null
@@ -31,7 +29,7 @@ export default preset => preset.schedule.reduce(
 			steps.push({
 				heading: segment.name,
 				action: 'hold',
-				temp: formattedTemp,
+				temp: segment.temp,
 				middle: 'for',
 				time: `${segment.hold} ${getUnits(segment.hold)}`
 			});
