@@ -12,7 +12,7 @@ import style from './style';
  * @returns {function} - A stateless component.
  */
 const App = props => (
-	<div id="app" class={style.app}>
+	<form id="app" class={style.app} method="get" action="/">
 		<Header />
 
 		<main>
@@ -20,7 +20,7 @@ const App = props => (
 			<Investment {...props} />
 			<Burnout {...props} />
 		</main>
-	</div>
+	</form>
 );
 
 export default App;
