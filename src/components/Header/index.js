@@ -1,11 +1,14 @@
 import { h } from 'preact';
 import './style';
 
-const Header = props => (
+/**
+ * Application header with main actions.
+ * @returns {JSX.Element} - A stateless component.
+ */
+const Header = () => (
 	<header>
 		<h1>
-			UltraVest
-			<span>Assistant</span>
+			UltraVest <span>assistant</span>
 		</h1>
 
 		<p><strong>Calculate</strong> materials and burnout program for your project.</p>
