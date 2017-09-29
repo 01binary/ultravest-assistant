@@ -29,8 +29,4 @@ describe('App', () => {
 	test('should render Burnout', () => {
 		expect(wrapper.find('Burnout').length).toBe(1);
 	});
-
-	test('should render Summary', () => {
-		expect(wrapper.find('Summary').length).toBe(1);
-	});
 });

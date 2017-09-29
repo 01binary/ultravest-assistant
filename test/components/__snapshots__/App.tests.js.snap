@@ -68,19 +68,6 @@ preact-render-spy (1 nodes)
       </dl>
     </article>
   </main>
-  <aside>
-    <section class="summary">
-      <h3>Summary</h3>
-      <dl>
-        <dt>Flask</dt>
-        <dd>3.5 X 10 in</dd>
-        <dt>Investment</dt>
-        <dd>40/100 W:P</dd>
-        <dt>Burnout</dt>
-        <dd>4 X 8, 15 hours</dd>
-      </dl>
-    </section>
-  </aside>
 </div>
 
 `;

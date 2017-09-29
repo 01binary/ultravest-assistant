@@ -4,7 +4,6 @@ import Header from '../Header';
 import Flask from '../Flask';
 import Investment from '../Investment';
 import Burnout from '../Burnout';
-import Summary from '../Summary';
 import style from './style';
 
 /**
@@ -21,10 +20,6 @@ const App = props => (
 			<Investment {...props} />
 			<Burnout {...props} />
 		</main>
-
-		<aside>
-			<Summary {...props} />
-		</aside>
 	</div>
 );
 
