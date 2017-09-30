@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import classNames from 'obj-str';
 import style from './style';
 
 /**
@@ -6,31 +7,50 @@ import style from './style';
  * @param {Object} prev - The previous segment.
  * @param {Object} cur - The current segment.
  */
-const BurnoutSegment = ({ prev, cur }) => (
-	<section class={[
-		style.segment,
-		cur.temp > prev.temp ?
-			style.segmentRaise :
-			style.segmentLower]}
-	>
-		<article class={style.temperature}>
-			<h3>temp</h3>
-			{ prev ? 'ambient' : `${cur.temp}°` }
-			<span class={style.units}>F</span>
-		</article>
+const Segment = ({ prev, cur }) => (
+	<article class={getSegmentClass(prev, cur)}>
+		<figure class={style.temperature}>
+			<svg />
 
-		<article class={style.rate}>
-			<h3>rate</h3>
-			{ `${cur.rate}°` }
-			<span class={style.units}>F/hr</span>
-		</article>
+			<figcaption>
+				<h3>temp</h3>
+				{ prev ?
+					`${cur.temp}°` : 'ambient'
+				}
+				{ prev &&
+					<span class={style.units}>F</span>
+				}
+			</figcaption>
+		</figure>
 
-		<article class={style.time}>
-			<h3>hold</h3>
-			{ cur.hold }
-			<span class={style.units}>hours</span>
-		</article>
-	</section>
+		<figure class={style.rate}>
+			<svg />
+
+			<figcaption>
+				<h3>rate</h3>
+				{ `${cur.rate}°` }
+				<span class={style.units}>F/hr</span>
+			</figcaption>
+		</figure>
+
+		<figure class={style.time}>
+			<svg />
+
+			<figcaption>
+				<h3>hold</h3>
+				{ cur.hold }
+				<span class={style.units}>
+					{ cur.hold > 1 ? 'hours' : 'hour' }
+				</span>
+			</figcaption>
+		</figure>
+	</article>
 );
 
-export default BurnoutSegment;
+const getSegmentClass = (prev, cur) => classNames({
+	[style.segment]: true,
+	[style.raise]: cur.temp > prev.temp,
+	[style.lower]: cur.temp < prev.temp
+});
+
+export default Segment;

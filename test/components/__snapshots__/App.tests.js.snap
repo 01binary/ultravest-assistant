@@ -3,12 +3,38 @@
 exports[`App should render 1`] = `
 preact-render-spy (1 nodes)
 -------
-<div
+<form
   id="app"
   class="app"
+  method="get"
+  action="/"
 >
   <header>
-    <h1>UltraVest Assistant</h1>
+    <h1>
+      UltraVest 
+      <span>assistant</span>
+    </h1>
+    <p>
+      <strong>Calculate</strong>
+       materials and burnout program for your project.
+    </p>
+    <p>
+      Bookmark or 
+      <strong>share</strong>
+       via permalink.
+    </p>
+    <input
+      type="submit"
+      value="Share"
+     />
+    </input>
+    <a
+      href="https://github.com/01binary/ultravest-assistant/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Fork
+    </a>
   </header>
   <main>
     <article class="flask">
@@ -27,6 +53,7 @@ preact-render-spy (1 nodes)
       <input
         name="flask-diameter"
         type="number"
+        step="0.1"
         value={3.5}
         onChange={[Function anonymous]}
        />
@@ -35,6 +62,7 @@ preact-render-spy (1 nodes)
       <input
         name="flask-height"
         type="number"
+        step="0.1"
         value={10}
         onChange={[Function anonymous]}
        />
@@ -68,6 +96,6 @@ preact-render-spy (1 nodes)
       </dl>
     </article>
   </main>
-</div>
+</form>
 
 `;
