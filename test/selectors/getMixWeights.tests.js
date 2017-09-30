@@ -13,17 +13,19 @@ describe('selector getMixWeights', () => {
 		weights = null;
 	});
 
-	test('calculates investment mix weight', () => {
-		expect(weights.water).toBeCloseTo(volume * mix.water);
-	});
-	
-	test('calculates water mix weight', () => {
-		expect(weights.investment).toBeCloseTo(volume * mix.investment);
+	test('calculates mix weights and sorts by component name', () => {
+		weights.forEach((calc, index) => {
+			expect(calc.grams)
+				.toEqual(mix[index].grams);
+			expect(calc.component)
+				.toEqual(mix[index].component);
+		});
 	});
 
-	const mix = {
-		water: 10,
-		investment: 20
+	const preset = {
+		investment: 21.0,
+		water: 8.0,
+		default: true
 	};
 
 	const flask = {
@@ -31,10 +33,21 @@ describe('selector getMixWeights', () => {
 		height: 3
 	};
 
+	const volume = getFlaskVolume(flask);
+
 	const investment = {
-		preset: 'mix',
-		presets: { mix }
+		preset: 'preset',
+		presets: { preset }
 	};
 
-	const volume = getFlaskVolume(flask);
+	const mix = [
+		{
+			component: 'investment',
+			grams: Math.round(volume * preset.investment)
+		},
+		{
+			component: 'water',
+			grams: Math.round(volume * preset.water)
+		}
+	];
 });

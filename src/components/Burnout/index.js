@@ -14,20 +14,22 @@ const Burnout = ({ flask }) => {
 
 	return (
 		<article class={style.burnout}>
-			<h2>Burnout</h2>
+			<h2>burnout</h2>
 
-			<dl>
-				<dt>Preset</dt>
-				<dd>
-					{preset.diameter} X {preset.height} in
-					{ getIsLastPreset(preset) &&
-						<span class={style.longest}>longest</span>
-					}
-				</dd>
+			<blockquote>
+				<dl>
+					<dt>preset</dt>
+					<dd>
+						{preset.diameter} X {preset.height} in
+						{ getIsLastPreset(preset) &&
+							<span class={style.longest}>longest</span>
+						}
+					</dd>
 
-				<dt>Time</dt>
-				<dd>{getBurnoutTime(preset)} hours</dd>
-			</dl>
+					<dt>time</dt>
+					<dd>{getBurnoutTime(preset)} hours</dd>
+				</dl>
+			</blockquote>
 		</article>
 	);
 };

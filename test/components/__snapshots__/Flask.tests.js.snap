@@ -4,8 +4,8 @@ exports[`Flask should render 1`] = `
 preact-render-spy (1 nodes)
 -------
 <article class="flask">
-  <h2>Flask</h2>
-  <label for="flask-preset">Preset</label>
+  <h2>flask</h2>
+  <label for="flask-preset">preset</label>
   <select
     name="flask-preset"
     value="3.5 X 10"
@@ -14,8 +14,9 @@ preact-render-spy (1 nodes)
     <option selected={false}>3.5 X 5</option>
     <option selected={true}>3.5 X 10</option>
     <option selected={false}>4 x 10</option>
+    <option selected={false}>4 x 14</option>
   </select>
-  <label for="flask-diameter">Diameter (in)</label>
+  <label for="flask-diameter">diameter</label>
   <input
     name="flask-diameter"
     type="number"
@@ -24,7 +25,7 @@ preact-render-spy (1 nodes)
     onChange={[Function anonymous]}
    />
   </input>
-  <label for="flask-height">Height (in)</label>
+  <label for="flask-height">height</label>
   <input
     name="flask-height"
     type="number"

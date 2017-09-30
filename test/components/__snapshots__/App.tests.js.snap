@@ -38,8 +38,8 @@ preact-render-spy (1 nodes)
   </header>
   <main>
     <article class="flask">
-      <h2>Flask</h2>
-      <label for="flask-preset">Preset</label>
+      <h2>flask</h2>
+      <label for="flask-preset">preset</label>
       <select
         name="flask-preset"
         value="3.5 X 10"
@@ -48,8 +48,9 @@ preact-render-spy (1 nodes)
         <option selected={false}>3.5 X 5</option>
         <option selected={true}>3.5 X 10</option>
         <option selected={false}>4 x 10</option>
+        <option selected={false}>4 x 14</option>
       </select>
-      <label for="flask-diameter">Diameter (in)</label>
+      <label for="flask-diameter">diameter</label>
       <input
         name="flask-diameter"
         type="number"
@@ -58,7 +59,7 @@ preact-render-spy (1 nodes)
         onChange={[Function anonymous]}
        />
       </input>
-      <label for="flask-height">Height (in)</label>
+      <label for="flask-height">height</label>
       <input
         name="flask-height"
         type="number"
@@ -69,10 +70,10 @@ preact-render-spy (1 nodes)
       </input>
     </article>
     <article class="investment">
-      <h2>Investment</h2>
-      <label for="investment-ratio-preset">Ratio (W:P)</label>
+      <h2>investment</h2>
+      <label for="investment-ratio">ratio</label>
       <select
-        name="investment-ratio-preset"
+        name="investment-ratio"
         value="40/100"
         onChange={[Function anonymous]}
       >
@@ -82,18 +83,30 @@ preact-render-spy (1 nodes)
         <option selected={false}>41/100</option>
         <option selected={false}>42/100</option>
       </select>
+      <blockquote>
+        <dl>
+          <dt>investment</dt>
+          <dd>1963</dd>
+        </dl>
+        <dl>
+          <dt>water</dt>
+          <dd>789</dd>
+        </dl>
+      </blockquote>
     </article>
     <article class="burnout">
-      <h2>Burnout</h2>
-      <dl>
-        <dt>Preset</dt>
-        <dd>
-          4 X 8 in
-          <span class="longest">longest</span>
-        </dd>
-        <dt>Time</dt>
-        <dd>15 hours</dd>
-      </dl>
+      <h2>burnout</h2>
+      <blockquote>
+        <dl>
+          <dt>preset</dt>
+          <dd>
+            4 X 8 in
+            <span class="longest">longest</span>
+          </dd>
+          <dt>time</dt>
+          <dd>15 hours</dd>
+        </dl>
+      </blockquote>
     </article>
   </main>
 </form>

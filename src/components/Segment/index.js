@@ -49,8 +49,8 @@ const Segment = ({ prev, cur }) => (
 
 const getSegmentClass = (prev, cur) => classNames({
 	[style.segment]: true,
-	[style.raise]: cur.temp > prev.temp,
-	[style.lower]: cur.temp < prev.temp
+	[style.raise]: prev ? cur.temp > prev.temp : true,
+	[style.lower]: prev ? cur.temp < prev.temp : false
 });
 
 export default Segment;

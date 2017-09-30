@@ -13,5 +13,10 @@
 	"4 x 10": {
 		"diameter": 4,
 		"height": 10
+	},
+
+	"4 x 14": {
+		"diameter": 4,
+		"height": 14
 	}
 }

@@ -14,12 +14,10 @@ export default ({ flask, investment }) => getWeight(
 const getWeight = (preset, volume) => (
 	Object
 		.keys(preset)
+		.filter(key => key !== 'default')
+		.sort((first, second) => first > second ? 1 : -1)
 		.map(component => ({
 			component,
-			grams: preset[component] * volume
+			grams: Math.round(preset[component] * volume)
 		}))
-		.reduce((mix, weight) => {
-			mix[weight.component] = weight.grams;
-			return mix;
-		}, {})
 );

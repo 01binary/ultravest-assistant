@@ -18,10 +18,10 @@ const Flask = (
 	}) => (
 
 	<article class={style.flask}>
-		<h2>Flask</h2>
+		<h2>flask</h2>
 
 		<label for="flask-preset">
-			Preset
+			preset
 		</label>
 
 		<select
@@ -36,7 +36,7 @@ const Flask = (
 			))}
 		</select>
 
-		<label for="flask-diameter">Diameter (in)</label>
+		<label for="flask-diameter">diameter</label>
 		<input
 			name="flask-diameter"
 			type="number"
@@ -45,7 +45,7 @@ const Flask = (
 			onChange={handleFlaskDiameterChange}
 		/>
 
-		<label for="flask-height">Height (in)</label>
+		<label for="flask-height">height</label>
 		<input
 			name="flask-height"
 			type="number"
