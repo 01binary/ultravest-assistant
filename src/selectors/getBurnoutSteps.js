@@ -1,9 +1,9 @@
 /**
  * Get friendly steps from a machine readable burnout program.
- * @param {object} preset - The burnout preset.
+ * @param {object} segments - The burnout preset segments.
  * @returns {object[]} - The burnout steps ready for formatted output.
  */
-export default preset => preset.schedule.reduce(
+export default segments => segments.reduce(
 	(steps, segment, index, schedule) => {
 		const lastStep = steps.length && steps[steps.length - 1];
 		const diff = lastStep ? segment.temp - lastStep.temp : segment.temp;

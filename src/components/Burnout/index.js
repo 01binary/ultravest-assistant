@@ -2,6 +2,8 @@ import { h } from 'preact';
 import presets from '../../config/burnoutPresets';
 import getBurnoutPreset from '../../selectors/getBurnoutPreset';
 import getBurnoutTime from '../../selectors/getBurnoutTime';
+import Diagram from '../Diagram';
+import Steps from '../Steps';
 import style from './style';
 
 /**
@@ -30,6 +32,9 @@ const Burnout = ({ flask }) => {
 					<dd>{getBurnoutTime(preset)} hours</dd>
 				</dl>
 			</output>
+
+			<Diagram segments={preset.schedule} />
+			<Steps segments={preset.schedule} />
 		</article>
 	);
 };
