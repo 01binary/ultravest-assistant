@@ -3,7 +3,7 @@
 exports[`Diagram should render 1`] = `
 preact-render-spy (1 nodes)
 -------
-<figure class="diagram">
+<section class="diagram">
   <article class="segment raise">
     <figure class="temperature">
       <svg></svg>
@@ -107,7 +107,6 @@ preact-render-spy (1 nodes)
       </figcaption>
     </figure>
   </article>
-  <figcaption>burnout diagram</figcaption>
-</figure>
+</section>
 
 `;

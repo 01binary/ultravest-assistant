@@ -83,7 +83,7 @@ preact-render-spy (1 nodes)
         <option selected={false}>41/100</option>
         <option selected={false}>42/100</option>
       </select>
-      <blockquote>
+      <output>
         <dl>
           <dt>investment</dt>
           <dd>1963</dd>
@@ -92,11 +92,11 @@ preact-render-spy (1 nodes)
           <dt>water</dt>
           <dd>789</dd>
         </dl>
-      </blockquote>
+      </output>
     </article>
     <article class="burnout">
       <h2>burnout</h2>
-      <blockquote>
+      <output>
         <dl>
           <dt>preset</dt>
           <dd>
@@ -106,7 +106,7 @@ preact-render-spy (1 nodes)
           <dt>time</dt>
           <dd>15 hours</dd>
         </dl>
-      </blockquote>
+      </output>
     </article>
   </main>
 </form>

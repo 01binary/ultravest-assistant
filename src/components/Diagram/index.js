@@ -8,17 +8,14 @@ import style from './style';
  * @returns {JSX.Element} - A stateless component. 
  */
 const Diagram = ({ segments }) => (
-	<figure class={style.diagram}>
+	<section class={style.diagram}>
 		{ segments.map((segment, index) => (
 			<Segment
 				prev={segments[index - 1]}
 				cur={segment}
 			/>
 		))}
-		<figcaption>
-			burnout diagram
-		</figcaption>
-	</figure>
+	</section>
 );
 
 export default Diagram;

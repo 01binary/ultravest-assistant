@@ -35,14 +35,14 @@ const Investment = (
 			))}
 		</select>
 
-		<blockquote>
+		<output>
 			{ getMixWeights({ flask, investment }).map(mix => (
 				<dl>
 					<dt>{mix.component}</dt>
 					<dd>{mix.grams}</dd>
 				</dl>
 			))}
-		</blockquote>
+		</output>
 	</article>
 );
 

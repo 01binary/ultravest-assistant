@@ -16,7 +16,7 @@ const Burnout = ({ flask }) => {
 		<article class={style.burnout}>
 			<h2>burnout</h2>
 
-			<blockquote>
+			<output>
 				<dl>
 					<dt>preset</dt>
 					<dd>
@@ -29,7 +29,7 @@ const Burnout = ({ flask }) => {
 					<dt>time</dt>
 					<dd>{getBurnoutTime(preset)} hours</dd>
 				</dl>
-			</blockquote>
+			</output>
 		</article>
 	);
 };
