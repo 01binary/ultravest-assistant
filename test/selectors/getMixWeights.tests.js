@@ -3,18 +3,20 @@ import getFlaskVolume from '../../src/selectors/getFlaskVolume';
 
 describe('selector getMixWeights', () => {
 
-	let weights;
-
-	beforeAll(() => {
-		weights = getMixWeights({ flask, investment });
+	test('calculates mix weights', () => {
+		getMixWeights({ flask, investment }).forEach((calc, index) => {
+			expect(calc.grams)
+				.toEqual(mix[index].grams);
+			expect(calc.component)
+				.toEqual(mix[index].component);
+		});
 	});
 
-	afterAll(() => {
-		weights = null;
-	});
-
-	test('calculates mix weights and sorts by component name', () => {
-		weights.forEach((calc, index) => {
+	test('sorts by component name', () => {
+		getMixWeights({
+			flask,
+			investment: unsortedInvestment
+		}).forEach((calc, index) => {
 			expect(calc.grams)
 				.toEqual(mix[index].grams);
 			expect(calc.component)
@@ -28,6 +30,11 @@ describe('selector getMixWeights', () => {
 		default: true
 	};
 
+	const unsortedPreset = {
+		water: 8.0,
+		investment: 21.0
+	};
+
 	const flask = {
 		diameter: 4,
 		height: 3
@@ -38,6 +45,11 @@ describe('selector getMixWeights', () => {
 	const investment = {
 		preset: 'preset',
 		presets: { preset }
+	};
+
+	const unsortedInvestment = {
+		preset: 'unsortedPreset',
+		presets: { unsortedPreset }
 	};
 
 	const mix = [

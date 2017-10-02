@@ -105,8 +105,8 @@ describe('selector getBurnoutSteps', () => {
 				},
 				{
 					name: 'second segment',
-					rate: 50,
-					temp: 700,
+					rate: 200,
+					temp: 400,
 					hold: 5
 				}
 			]
@@ -128,16 +128,16 @@ describe('selector getBurnoutSteps', () => {
 			},
 			{
 				heading: 'second segment',
-				action: 'raise to',
-				temp: 700,
+				action: 'lower to',
+				temp: 400,
 				middle: 'over',
-				time: '2 hours',
+				time: '1 hour',
 				end: 'for casting'
 			},
 			{
 				heading: 'second segment',
 				action: 'hold',
-				temp: 700,
+				temp: 400,
 				middle: 'for',
 				time: '5 hours'
 			}
