@@ -22,6 +22,6 @@ describe('Diagram', () => {
 	});
 
 	const first = Object.keys(presets)[0];
-	const segments = presets[first].schedule;
+	const segments = presets[first].segments;
 	const props = { segments };
 });

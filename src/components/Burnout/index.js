@@ -33,8 +33,8 @@ const Burnout = ({ flask }) => {
 				</dl>
 			</output>
 
-			<Diagram segments={preset.schedule} />
-			<Steps segments={preset.schedule} />
+			<Diagram segments={preset.segments} />
+			<Steps segments={preset.segments} />
 		</article>
 	);
 };

@@ -2,7 +2,7 @@
 	{
 		"diameter": 3,
 		"height": 3,
-		"schedule": [
+		"segments": [
 			{
 				"name": "Water Removal",
 				"rate": 300,
@@ -32,7 +32,7 @@
 	{
 		"diameter": 4,
 		"height": 6,
-		"schedule": [
+		"segments": [
 			{
 				"name": "Water Removal",
 				"rate": 300,
@@ -62,7 +62,7 @@
 	{
 		"diameter": 4,
 		"height": 8,
-		"schedule": [
+		"segments": [
 			{
 				"name": "Water Removal",
 				"rate": 300,

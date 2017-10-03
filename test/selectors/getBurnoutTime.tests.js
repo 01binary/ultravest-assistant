@@ -4,13 +4,13 @@ describe('selector getBurnoutTime', () => {
 
 	test('calculates 0 with no segments', () => {
 		expect(getBurnoutTime({
-			schedule: []
+			segments: []
 		})).toEqual(0);
 	});
 
 	test('calculates burnout time for a single segment', () => {
 		expect(getBurnoutTime({
-			schedule: [
+			segments: [
 				// 100 / 100 + 1 = 2
 				{
 					rate: 100,
@@ -23,7 +23,7 @@ describe('selector getBurnoutTime', () => {
 
 	test('calculates burnout time for multiple segments', () => {
 		expect(getBurnoutTime({
-			schedule: [
+			segments: [
 				// 100/100 + 1 = 2
 				{
 					rate: 100,

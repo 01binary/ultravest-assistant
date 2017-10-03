@@ -4,7 +4,7 @@
  * @returns {object[]} - The burnout steps ready for formatted output.
  */
 export default segments => segments.reduce(
-	(steps, segment, index, schedule) => {
+	(steps, segment, index, segments) => {
 		const lastStep = steps.length && steps[steps.length - 1];
 		const diff = lastStep ? segment.temp - lastStep.temp : segment.temp;
 		const duration = Math.round(Math.abs(diff / segment.rate) * 10) / 10;
@@ -20,7 +20,7 @@ export default segments => segments.reduce(
 				middle: 'over',
 				time: duration,
 				units: getUnits(duration),
-				end: index === schedule.length - 1 ? 'for casting' : null
+				end: index === segments.length - 1 ? 'for casting' : null
 			});
 		}
 

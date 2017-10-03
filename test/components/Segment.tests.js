@@ -22,8 +22,8 @@ describe('Segment', () => {
 	});
 
 	const first = Object.keys(presets)[0];
-	const schedule = presets[first].schedule;
-	const cur = schedule[1];
-	const prev = schedule[0];
+	const segments = presets[first].segments;
+	const cur = segments[1];
+	const prev = segments[0];
 	const props = { cur, prev };
 });
