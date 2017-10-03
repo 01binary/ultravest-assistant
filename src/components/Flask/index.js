@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import { CUSTOM_PRESET } from '../../enhancers/withFlask';
 import style from './style';
 
 /**
@@ -34,25 +35,31 @@ const Flask = (
 					{preset}
 				</option>
 			))}
+
+			<option selected={flask.preset === CUSTOM_PRESET}>
+				Custom
+			</option>
 		</select>
 
-		<label for="flask-diameter">diameter</label>
-		<input
-			name="flask-diameter"
-			type="number"
-			step="0.1"
-			value={flask.diameter}
-			onChange={handleFlaskDiameterChange}
-		/>
+		<fieldset>
+			<label for="flask-diameter">diameter</label>
+			<input
+				name="flask-diameter"
+				type="number"
+				step="0.1"
+				value={flask.diameter}
+				onChange={handleFlaskDiameterChange}
+			/>
 
-		<label for="flask-height">height</label>
-		<input
-			name="flask-height"
-			type="number"
-			step="0.1"
-			value={flask.height}
-			onChange={handleFlaskHeightChange}
-		/>
+			<label for="flask-height">height</label>
+			<input
+				name="flask-height"
+				type="number"
+				step="0.1"
+				value={flask.height}
+				onChange={handleFlaskHeightChange}
+			/>
+		</fieldset>
 	</article>
 );
 

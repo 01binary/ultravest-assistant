@@ -126,64 +126,117 @@ preact-render-spy (1 nodes)
       </figure>
     </article>
   </section>
-  <ol>
-    <li>
-      raise to 
-      <span>300</span>
-      ° over 
-      <span>1</span>
-       hour
-    </li>
-    <li>
-      hold 
-      <span>300</span>
-      ° for 
-      <span>1</span>
-       hour
-    </li>
-    <li>
-      raise to 
-      <span>700</span>
-      ° over 
-      <span>1</span>
-       hour
-    </li>
-    <li>
-      hold 
-      <span>700</span>
-      ° for 
-      <span>1</span>
-       hour
-    </li>
-    <li>
-      raise to 
-      <span>1350</span>
-      ° over 
-      <span>2</span>
-       hours
-    </li>
-    <li>
-      hold 
-      <span>1350</span>
-      ° for 
-      <span>2</span>
-       hours
-    </li>
-    <li>
-      lower to 
-      <span>700</span>
-      ° over 
-      <span>0.9</span>
-       hour
-    </li>
-    <li>
-      hold 
-      <span>700</span>
-      ° for 
-      <span>1</span>
-       hour
-    </li>
-  </ol>
+  <section class="steps">
+    <input
+      type="radio"
+      name="program-view"
+      id="steps"
+      checked={true}
+     />
+    </input>
+    <label for="steps">steps</label>
+    <input
+      type="radio"
+      name="program-view"
+      id="segments"
+     />
+    </input>
+    <label for="segments">segments</label>
+    <table>
+      <thead>
+        <tr>
+          <th>segment</th>
+          <th>rate</th>
+          <th>temp</th>
+          <th>hold</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>water removal</td>
+          <td>300</td>
+          <td>300</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>thermal transition</td>
+          <td>400</td>
+          <td>700</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>pattern removal</td>
+          <td>325</td>
+          <td>1350</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>casting</td>
+          <td>700</td>
+          <td>700</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+    <ol>
+      <li>
+        raise to
+        <span> 300</span>
+        ° over 
+        <span> 1 </span>
+        hour
+      </li>
+      <li>
+        hold
+        <span> 300</span>
+        ° for 
+        <span> 1 </span>
+        hour
+      </li>
+      <li>
+        raise to
+        <span> 700</span>
+        ° over 
+        <span> 1 </span>
+        hour
+      </li>
+      <li>
+        hold
+        <span> 700</span>
+        ° for 
+        <span> 1 </span>
+        hour
+      </li>
+      <li>
+        raise to
+        <span> 1350</span>
+        ° over 
+        <span> 2 </span>
+        hours
+      </li>
+      <li>
+        hold
+        <span> 1350</span>
+        ° for 
+        <span> 2 </span>
+        hours
+      </li>
+      <li>
+        lower to
+        <span> 700</span>
+        ° over 
+        <span> 0.9 </span>
+        hour
+      </li>
+      <li>
+        hold
+        <span> 700</span>
+        ° for 
+        <span> 1 </span>
+        hour
+      </li>
+    </ol>
+  </section>
 </article>
 
 `;
@@ -317,64 +370,117 @@ preact-render-spy (1 nodes)
       </figure>
     </article>
   </section>
-  <ol>
-    <li>
-      raise to 
-      <span>300</span>
-      ° over 
-      <span>1</span>
-       hour
-    </li>
-    <li>
-      hold 
-      <span>300</span>
-      ° for 
-      <span>3</span>
-       hours
-    </li>
-    <li>
-      raise to 
-      <span>700</span>
-      ° over 
-      <span>2</span>
-       hours
-    </li>
-    <li>
-      hold 
-      <span>700</span>
-      ° for 
-      <span>2</span>
-       hours
-    </li>
-    <li>
-      raise to 
-      <span>1350</span>
-      ° over 
-      <span>3</span>
-       hours
-    </li>
-    <li>
-      hold 
-      <span>1350</span>
-      ° for 
-      <span>3</span>
-       hours
-    </li>
-    <li>
-      lower to 
-      <span>700</span>
-      ° over 
-      <span>0.9</span>
-       hour
-    </li>
-    <li>
-      hold 
-      <span>700</span>
-      ° for 
-      <span>2</span>
-       hours
-    </li>
-  </ol>
+  <section class="steps">
+    <input
+      type="radio"
+      name="program-view"
+      id="steps"
+      checked={true}
+     />
+    </input>
+    <label for="steps">steps</label>
+    <input
+      type="radio"
+      name="program-view"
+      id="segments"
+     />
+    </input>
+    <label for="segments">segments</label>
+    <table>
+      <thead>
+        <tr>
+          <th>segment</th>
+          <th>rate</th>
+          <th>temp</th>
+          <th>hold</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>water removal</td>
+          <td>300</td>
+          <td>300</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>thermal transition</td>
+          <td>200</td>
+          <td>700</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>pattern removal</td>
+          <td>217</td>
+          <td>1350</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>casting</td>
+          <td>700</td>
+          <td>700</td>
+          <td>2</td>
+        </tr>
+      </tbody>
+    </table>
+    <ol>
+      <li>
+        raise to
+        <span> 300</span>
+        ° over 
+        <span> 1 </span>
+        hour
+      </li>
+      <li>
+        hold
+        <span> 300</span>
+        ° for 
+        <span> 3 </span>
+        hours
+      </li>
+      <li>
+        raise to
+        <span> 700</span>
+        ° over 
+        <span> 2 </span>
+        hours
+      </li>
+      <li>
+        hold
+        <span> 700</span>
+        ° for 
+        <span> 2 </span>
+        hours
+      </li>
+      <li>
+        raise to
+        <span> 1350</span>
+        ° over 
+        <span> 3 </span>
+        hours
+      </li>
+      <li>
+        hold
+        <span> 1350</span>
+        ° for 
+        <span> 3 </span>
+        hours
+      </li>
+      <li>
+        lower to
+        <span> 700</span>
+        ° over 
+        <span> 0.9 </span>
+        hour
+      </li>
+      <li>
+        hold
+        <span> 700</span>
+        ° for 
+        <span> 2 </span>
+        hours
+      </li>
+    </ol>
+  </section>
 </article>
 
 `;

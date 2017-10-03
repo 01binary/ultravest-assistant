@@ -4,25 +4,25 @@
 		"height": 3,
 		"segments": [
 			{
-				"name": "Water Removal",
+				"name": "water removal",
 				"rate": 300,
 				"temp": 300,
 				"hold": 1
 			},
 			{
-				"name": "Thermal Transition",
+				"name": "thermal transition",
 				"rate": 400,
 				"temp": 700,
 				"hold": 1
 			},
 			{
-				"name": "Pattern Removal",
+				"name": "pattern removal",
 				"rate": 325,
 				"temp": 1350,
 				"hold": 2
 			},
 			{
-				"name": "Casting",
+				"name": "casting",
 				"rate": 700,
 				"temp": 700,
 				"hold": 1
@@ -34,25 +34,25 @@
 		"height": 6,
 		"segments": [
 			{
-				"name": "Water Removal",
+				"name": "water removal",
 				"rate": 300,
 				"temp": 300,
 				"hold": 3
 			},
 			{
-				"name": "Thermal Transition",
+				"name": "thermal transition",
 				"rate": 200,
 				"temp": 700,
 				"hold": 2
 			},
 			{
-				"name": "Pattern Removal",
+				"name": "pattern removal",
 				"rate": 325,
 				"temp": 1350,
 				"hold": 2
 			},
 			{
-				"name": "Casting",
+				"name": "casting",
 				"rate": 700,
 				"temp": 700,
 				"hold": 2
@@ -64,25 +64,25 @@
 		"height": 8,
 		"segments": [
 			{
-				"name": "Water Removal",
+				"name": "water removal",
 				"rate": 300,
 				"temp": 300,
 				"hold": 3
 			},
 			{
-				"name": "Thermal Transition",
+				"name": "thermal transition",
 				"rate": 200,
 				"temp": 700,
 				"hold": 2
 			},
 			{
-				"name": "Pattern Removal",
+				"name": "pattern removal",
 				"rate": 217,
 				"temp": 1350,
 				"hold": 3
 			},
 			{
-				"name": "Casting",
+				"name": "casting",
 				"rate": 700,
 				"temp": 700,
 				"hold": 2

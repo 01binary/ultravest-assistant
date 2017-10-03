@@ -28,7 +28,7 @@ export default withStateHandlers(
 			flask: {
 				presets,
 				preset: CUSTOM_PRESET,
-				diameter: parseInt(target.value, 10),
+				diameter: parseFloat(target.value),
 				height: flask.height
 			}
 		}),
@@ -38,7 +38,7 @@ export default withStateHandlers(
 				presets,
 				preset: CUSTOM_PRESET,
 				diameter: flask.diameter,
-				height: parseInt(target.value, 10)
+				height: parseFloat(target.value)
 			}
 		})
 	}

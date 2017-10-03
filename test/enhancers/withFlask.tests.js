@@ -50,12 +50,12 @@ describe('composer withFlask', () => {
 
 	test('should set flask diameter', done => {
 		reflector.props.handleFlaskDiameterChange({
-			target: { value: 6 }
+			target: { value: 6.2 }
 		});
 
 		reflector.update(props => {
 			expect(reflector.props.flask.diameter)
-				.toEqual(6, 'should set diameter');
+				.toEqual(6.2, 'should set diameter');
 			expect(reflector.props.flask.height)
 				.toEqual(presets[DEFAULT_PRESET].height, 'should retain flask height');
 			expect(reflector.props.flask.preset)
@@ -69,14 +69,14 @@ describe('composer withFlask', () => {
 
 	test('should set flask height', done => {
 		reflector.props.handleFlaskHeightChange({
-			target: { value: 13 }
+			target: { value: 13.5 }
 		});
 
 		reflector.update(props => {
 			expect(reflector.props.flask.height)
-				.toEqual(13, 'should set height');
+				.toEqual(13.5, 'should set height');
 			expect(reflector.props.flask.diameter)
-				.toEqual(6, 'should retain diameter');
+				.toEqual(6.2, 'should retain diameter');
 			expect(reflector.props.flask.preset)
 				.toEqual(CUSTOM_PRESET, 'should set preset name');
 			expect(props.flask.presets)

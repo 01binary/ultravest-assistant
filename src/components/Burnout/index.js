@@ -9,9 +9,15 @@ import style from './style';
 /**
  * Display burnout preset calculated from flask size.
  * @param {object} flask - The flask props.
+ * @param {bool} showSegments - Whether to show raw or formatted burnout steps.
+ * @param {func} handleChangeView - Switches between raw and formatted steps.
  * @returns {JSX.Element} - A stateless component.
  */
-const Burnout = ({ flask }) => {
+const Burnout = ({
+	flask,
+	showSegments,
+	handleChangeView
+}) => {
 	const preset = getBurnoutPreset(presets, flask);
 
 	return (
@@ -34,7 +40,12 @@ const Burnout = ({ flask }) => {
 			</output>
 
 			<Diagram segments={preset.segments} />
-			<Steps segments={preset.segments} />
+
+			<Steps
+				segments={preset.segments}
+				showSegments={showSegments}
+				handleChangeView={handleChangeView}
+			/>
 		</article>
 	);
 };
