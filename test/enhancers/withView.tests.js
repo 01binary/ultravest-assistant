@@ -1,8 +1,4 @@
-import {
-	default as withView,
-	VIEW_SEGMENTS,
-	VIEW_STEPS
-} from '../../src/enhancers/withView';
+import withView from '../../src/enhancers/withView';
 import reflect from '../fixtures/reflector.tests.fixture';
 
 describe('composer withView', () => {
