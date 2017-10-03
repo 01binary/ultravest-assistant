@@ -22,11 +22,7 @@ describe('composer withView', () => {
 	});
 
 	test('should switch to segment view', done => {
-		reflector.props.handleChangeView({
-			target: {
-				value: VIEW_SEGMENTS
-			}
-		});
+		reflector.props.toggleSegmentView();
 
 		reflector.update(() => {
 			expect(reflector.props.showSegments).toEqual(true);
@@ -35,11 +31,7 @@ describe('composer withView', () => {
 	});
 
 	test('should switch to step view', done => {
-		reflector.props.handleChangeView({
-			target: {
-				value: VIEW_STEPS
-			}
-		});
+		reflector.props.toggleSegmentView();
 
 		reflector.update(() => {
 			expect(reflector.props.showSegments).toEqual(false);

@@ -1,30 +1,35 @@
 import { h } from 'preact';
 import getBurnoutSteps from '../../selectors/getBurnoutSteps';
-import { VIEW_SEGMENTS, VIEW_STEPS } from '../../enhancers/withView';
 import style from './style';
 
 /**
  * Burnout steps.
  * @param {object} segments - The burnout segments.
+ * @param {bool} showSegments - Whether to show segments or steps.
+ * @param {func} toggleSegmentView - Toggle between segment and step view.
  * @returns {JSX.Element} - A stateless component.
  */
-const Steps = ({ segments, showSegments, handleChangeView }) => (
+const Steps = ({
+	segments,
+	showSegments,
+	toggleSegmentView
+}) => (
 	<section class={style.steps}>
 		<input
 			type="radio"
 			name="program-view"
-			id={VIEW_SEGMENTS}
+			id="steps"
 			checked={!showSegments}
-			onChange={handleChangeView}
+			onChange={toggleSegmentView}
 		/>
 		<label for="steps">steps</label>
 
 		<input
 			type="radio"
 			name="program-view"
-			id={VIEW_STEPS}
+			id="segments"
 			checked={showSegments}
-			onChange={handleChangeView}
+			onChange={toggleSegmentView}
 		/>
 		<label for="segments">segments</label>
 
