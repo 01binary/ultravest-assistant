@@ -3,22 +3,18 @@ import getBurnoutSteps from '../../src/selectors/getBurnoutSteps';
 describe('selector getBurnoutSteps', () => {
 
 	test('calculates no steps with no segments', () => {
-		expect(getBurnoutSteps({
-			schedule: []
-		}).length).toEqual(0);
+		expect(getBurnoutSteps([]).length).toEqual(0);
 	});
 
 	test('calculates up transition and hold step for one segment', () => {
-		expect(getBurnoutSteps({
-			schedule: [
-				{
-					name: 'test heading',
-					rate: 250,
-					temp: 500,
-					hold: 1
-				}
-			]
-		})).toEqual([
+		expect(getBurnoutSteps([
+			{
+				name: 'test heading',
+				rate: 250,
+				temp: 500,
+				hold: 1
+			}
+		])).toEqual([
 			{
 				heading: 'test heading',
 				action: 'raise to',
@@ -34,50 +30,51 @@ describe('selector getBurnoutSteps', () => {
 				temp: 500,
 				middle: 'for',
 				time: 1,
-				units: 'hour'
+				units: 'hour',
+				end: null
 			}
 		]);
 	});
 
 	test('calculates up transition with no hold for one segment', () => {
-		expect(getBurnoutSteps({
-			schedule: [
-				{
-					name: 'test heading',
-					rate: 250,
-					temp: 500,
-					hold: 0
-				}
-			]
-		})).toEqual([
+		expect(getBurnoutSteps([
+			{
+				name: 'test heading',
+				rate: 250,
+				temp: 500,
+				hold: 0,
+				end: null
+			}
+		])).toEqual([
 			{
 				heading: 'test heading',
 				action: 'raise to',
 				temp: 500,
 				middle: 'over',
-				time: '2 hours',
+				time: 2,
+				units: 'hours',
 				end: 'for casting'
 			}
 		]);
 	});
 
 	test('calculates only hold for segments with no difference', () => {
-		expect(getBurnoutSteps({
-			schedule: [
-				{
-					name: 'test heading',
-					rate: 250,
-					temp: 500,
-					hold: 0
-				},
-				{
-					name: 'test heading',
-					rate: 250,
-					temp: 500,
-					hold: 1
-				}
-			]
-		})).toEqual([
+		expect(getBurnoutSteps([
+			{
+				name: 'test heading',
+				rate: 250,
+				temp: 500,
+				hold: 0,
+				end: null
+			},
+			{
+				name: 'test heading',
+				rate: 250,
+				temp: 500,
+				hold: 1,
+				end: null
+			}
+		])).toEqual([
 			{
 				heading: 'test heading',
 				action: 'raise to',
@@ -100,22 +97,22 @@ describe('selector getBurnoutSteps', () => {
 	});
 
 	test('calculates four steps with two segments', () => {
-		expect(getBurnoutSteps({
-			schedule: [
-				{
-					name: 'first segment',
-					rate: 300,
-					temp: 600,
-					hold: 1
-				},
-				{
-					name: 'second segment',
-					rate: 200,
-					temp: 400,
-					hold: 5
-				}
-			]
-		})).toEqual([
+		expect(getBurnoutSteps([
+			{
+				name: 'first segment',
+				rate: 300,
+				temp: 600,
+				hold: 1,
+				end: null
+			},
+			{
+				name: 'second segment',
+				rate: 200,
+				temp: 400,
+				hold: 5,
+				end: null
+			}
+		])).toEqual([
 			{
 				heading: 'first segment',
 				action: 'raise to',
@@ -131,7 +128,8 @@ describe('selector getBurnoutSteps', () => {
 				temp: 600,
 				middle: 'for',
 				time: 1,
-				units: 'hour'
+				units: 'hour',
+				end: null
 			},
 			{
 				heading: 'second segment',
@@ -148,7 +146,8 @@ describe('selector getBurnoutSteps', () => {
 				temp: 400,
 				middle: 'for',
 				time: 5,
-				units: 'hours'
+				units: 'hours',
+				end: null
 			}
 		]);
 	});

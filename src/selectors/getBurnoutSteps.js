@@ -33,7 +33,8 @@ export default segments => segments.reduce(
 				temp: segment.temp,
 				middle: 'for',
 				time: segment.hold,
-				units: getUnits(segment.hold)
+				units: getUnits(segment.hold),
+				end: null
 			});
 		}
 
