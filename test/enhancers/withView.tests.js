@@ -1,4 +1,8 @@
-import withView from '../../src/enhancers/withView';
+import {
+	default as withView,
+	VIEW_SEGMENTS,
+	VIEW_STEPS
+} from '../../src/enhancers/withView';
 import reflect from '../fixtures/reflector.tests.fixture';
 
 describe('composer withView', () => {
@@ -18,7 +22,11 @@ describe('composer withView', () => {
 	});
 
 	test('should switch to segment view', done => {
-		reflector.props.handleChangeView(true);
+		reflector.props.handleChangeView({
+			target: {
+				value: VIEW_SEGMENTS
+			}
+		});
 
 		reflector.update(() => {
 			expect(reflector.props.showSegments).toEqual(true);
@@ -27,7 +35,11 @@ describe('composer withView', () => {
 	});
 
 	test('should switch to step view', done => {
-		reflector.props.handleChangeView(false);
+		reflector.props.handleChangeView({
+			target: {
+				value: VIEW_STEPS
+			}
+		});
 
 		reflector.update(() => {
 			expect(reflector.props.showSegments).toEqual(false);

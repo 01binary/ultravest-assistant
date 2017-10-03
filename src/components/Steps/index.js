@@ -1,5 +1,6 @@
 import { h } from 'preact';
 import getBurnoutSteps from '../../selectors/getBurnoutSteps';
+import { VIEW_SEGMENTS, VIEW_STEPS } from '../../enhancers/withView';
 import style from './style';
 
 /**
@@ -12,7 +13,7 @@ const Steps = ({ segments, showSegments, handleChangeView }) => (
 		<input
 			type="radio"
 			name="program-view"
-			id="steps"
+			id={VIEW_SEGMENTS}
 			checked={!showSegments}
 			onChange={handleChangeView}
 		/>
@@ -21,7 +22,7 @@ const Steps = ({ segments, showSegments, handleChangeView }) => (
 		<input
 			type="radio"
 			name="program-view"
-			id="segments"
+			id={VIEW_STEPS}
 			checked={showSegments}
 			onChange={handleChangeView}
 		/>

@@ -1,7 +1,4 @@
 .segment {
-	width: 128px;
-	height: 128px;
-	border: 1px solid gray;
 }
 
 .raise {
@@ -13,25 +10,18 @@
 }
 
 .rate {
-	left: 8px;
 }
 
 .temperature {
-	left: 48px;
 }
 
 .time {
-	left: 64px;
 }
 
 .temperature,
 .rate,
 .time {
-	position: absolute;
-	background: lightgray;
-	height: 48px;
 }
 
 .units {
-	color: gray;
 }
