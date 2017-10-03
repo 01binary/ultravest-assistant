@@ -13,6 +13,177 @@ preact-render-spy (1 nodes)
       <dd>8 hours</dd>
     </dl>
   </output>
+  <section class="diagram">
+    <a href="#">
+      ←
+      <span>Previous Step</span>
+    </a>
+    <a href="#">
+      <span>Next Step</span>
+      →
+    </a>
+    <article class="segment raise">
+      <figure class="temperature">
+        <svg></svg>
+        <figcaption>
+          <h3>temp</h3>
+          ambient
+        </figcaption>
+      </figure>
+      <figure class="rate">
+        <svg></svg>
+        <figcaption>
+          <h3>rate</h3>
+          300°
+          <span class="units">F/hr</span>
+        </figcaption>
+      </figure>
+      <figure class="time">
+        <svg></svg>
+        <figcaption>
+          <h3>hold</h3>
+          1
+          <span class="units">hour</span>
+        </figcaption>
+      </figure>
+    </article>
+    <article class="segment raise">
+      <figure class="temperature">
+        <svg></svg>
+        <figcaption>
+          <h3>temp</h3>
+          700°
+          <span class="units">F</span>
+        </figcaption>
+      </figure>
+      <figure class="rate">
+        <svg></svg>
+        <figcaption>
+          <h3>rate</h3>
+          400°
+          <span class="units">F/hr</span>
+        </figcaption>
+      </figure>
+      <figure class="time">
+        <svg></svg>
+        <figcaption>
+          <h3>hold</h3>
+          1
+          <span class="units">hour</span>
+        </figcaption>
+      </figure>
+    </article>
+    <article class="segment raise">
+      <figure class="temperature">
+        <svg></svg>
+        <figcaption>
+          <h3>temp</h3>
+          1350°
+          <span class="units">F</span>
+        </figcaption>
+      </figure>
+      <figure class="rate">
+        <svg></svg>
+        <figcaption>
+          <h3>rate</h3>
+          325°
+          <span class="units">F/hr</span>
+        </figcaption>
+      </figure>
+      <figure class="time">
+        <svg></svg>
+        <figcaption>
+          <h3>hold</h3>
+          2
+          <span class="units">hours</span>
+        </figcaption>
+      </figure>
+    </article>
+    <article class="segment lower">
+      <figure class="temperature">
+        <svg></svg>
+        <figcaption>
+          <h3>temp</h3>
+          700°
+          <span class="units">F</span>
+        </figcaption>
+      </figure>
+      <figure class="rate">
+        <svg></svg>
+        <figcaption>
+          <h3>rate</h3>
+          700°
+          <span class="units">F/hr</span>
+        </figcaption>
+      </figure>
+      <figure class="time">
+        <svg></svg>
+        <figcaption>
+          <h3>hold</h3>
+          1
+          <span class="units">hour</span>
+        </figcaption>
+      </figure>
+    </article>
+  </section>
+  <ol>
+    <li>
+      raise to 
+      <span>300</span>
+      ° over 
+      <span>1</span>
+       hour
+    </li>
+    <li>
+      hold 
+      <span>300</span>
+      ° for 
+      <span>1</span>
+       hour
+    </li>
+    <li>
+      raise to 
+      <span>700</span>
+      ° over 
+      <span>1</span>
+       hour
+    </li>
+    <li>
+      hold 
+      <span>700</span>
+      ° for 
+      <span>1</span>
+       hour
+    </li>
+    <li>
+      raise to 
+      <span>1350</span>
+      ° over 
+      <span>2</span>
+       hours
+    </li>
+    <li>
+      hold 
+      <span>1350</span>
+      ° for 
+      <span>2</span>
+       hours
+    </li>
+    <li>
+      lower to 
+      <span>700</span>
+      ° over 
+      <span>0.9</span>
+       hour
+    </li>
+    <li>
+      hold 
+      <span>700</span>
+      ° for 
+      <span>1</span>
+       hour
+    </li>
+  </ol>
 </article>
 
 `;
@@ -33,6 +204,177 @@ preact-render-spy (1 nodes)
       <dd>15 hours</dd>
     </dl>
   </output>
+  <section class="diagram">
+    <a href="#">
+      ←
+      <span>Previous Step</span>
+    </a>
+    <a href="#">
+      <span>Next Step</span>
+      →
+    </a>
+    <article class="segment raise">
+      <figure class="temperature">
+        <svg></svg>
+        <figcaption>
+          <h3>temp</h3>
+          ambient
+        </figcaption>
+      </figure>
+      <figure class="rate">
+        <svg></svg>
+        <figcaption>
+          <h3>rate</h3>
+          300°
+          <span class="units">F/hr</span>
+        </figcaption>
+      </figure>
+      <figure class="time">
+        <svg></svg>
+        <figcaption>
+          <h3>hold</h3>
+          3
+          <span class="units">hours</span>
+        </figcaption>
+      </figure>
+    </article>
+    <article class="segment raise">
+      <figure class="temperature">
+        <svg></svg>
+        <figcaption>
+          <h3>temp</h3>
+          700°
+          <span class="units">F</span>
+        </figcaption>
+      </figure>
+      <figure class="rate">
+        <svg></svg>
+        <figcaption>
+          <h3>rate</h3>
+          200°
+          <span class="units">F/hr</span>
+        </figcaption>
+      </figure>
+      <figure class="time">
+        <svg></svg>
+        <figcaption>
+          <h3>hold</h3>
+          2
+          <span class="units">hours</span>
+        </figcaption>
+      </figure>
+    </article>
+    <article class="segment raise">
+      <figure class="temperature">
+        <svg></svg>
+        <figcaption>
+          <h3>temp</h3>
+          1350°
+          <span class="units">F</span>
+        </figcaption>
+      </figure>
+      <figure class="rate">
+        <svg></svg>
+        <figcaption>
+          <h3>rate</h3>
+          217°
+          <span class="units">F/hr</span>
+        </figcaption>
+      </figure>
+      <figure class="time">
+        <svg></svg>
+        <figcaption>
+          <h3>hold</h3>
+          3
+          <span class="units">hours</span>
+        </figcaption>
+      </figure>
+    </article>
+    <article class="segment lower">
+      <figure class="temperature">
+        <svg></svg>
+        <figcaption>
+          <h3>temp</h3>
+          700°
+          <span class="units">F</span>
+        </figcaption>
+      </figure>
+      <figure class="rate">
+        <svg></svg>
+        <figcaption>
+          <h3>rate</h3>
+          700°
+          <span class="units">F/hr</span>
+        </figcaption>
+      </figure>
+      <figure class="time">
+        <svg></svg>
+        <figcaption>
+          <h3>hold</h3>
+          2
+          <span class="units">hours</span>
+        </figcaption>
+      </figure>
+    </article>
+  </section>
+  <ol>
+    <li>
+      raise to 
+      <span>300</span>
+      ° over 
+      <span>1</span>
+       hour
+    </li>
+    <li>
+      hold 
+      <span>300</span>
+      ° for 
+      <span>3</span>
+       hours
+    </li>
+    <li>
+      raise to 
+      <span>700</span>
+      ° over 
+      <span>2</span>
+       hours
+    </li>
+    <li>
+      hold 
+      <span>700</span>
+      ° for 
+      <span>2</span>
+       hours
+    </li>
+    <li>
+      raise to 
+      <span>1350</span>
+      ° over 
+      <span>3</span>
+       hours
+    </li>
+    <li>
+      hold 
+      <span>1350</span>
+      ° for 
+      <span>3</span>
+       hours
+    </li>
+    <li>
+      lower to 
+      <span>700</span>
+      ° over 
+      <span>0.9</span>
+       hour
+    </li>
+    <li>
+      hold 
+      <span>700</span>
+      ° for 
+      <span>2</span>
+       hours
+    </li>
+  </ol>
 </article>
 
 `;

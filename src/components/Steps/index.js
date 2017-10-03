@@ -12,10 +12,13 @@ const Steps = ({ segments }) => (
 		{ getBurnoutSteps(segments).map(step => (
 			<li>
 				{step.action}
-				<span>{step.temp}</span>
-				&deg;
-				{' '}{step.middle}{' '}
+				{' '}
+				<span>{step.temp}</span>&deg;
+				{' '}
+				{step.middle}
+				{' '}
 				<span>{step.time}</span>
+				{' '}
 				{step.units}
 			</li>
 		))}

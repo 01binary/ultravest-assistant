@@ -24,7 +24,8 @@ describe('selector getBurnoutSteps', () => {
 				action: 'raise to',
 				temp: 500,
 				middle: 'over',
-				time: '2 hours',
+				time: 2,
+				units: 'hours',
 				end: 'for casting'
 			},
 			{
@@ -32,7 +33,8 @@ describe('selector getBurnoutSteps', () => {
 				action: 'hold',
 				temp: 500,
 				middle: 'for',
-				time: '1 hour'
+				time: 1,
+				units: 'hour'
 			}
 		]);
 	});
@@ -81,7 +83,8 @@ describe('selector getBurnoutSteps', () => {
 				action: 'raise to',
 				temp: 500,
 				middle: 'over',
-				time: '2 hours',
+				time: 2,
+				units: 'hours',
 				end: null
 			},
 			{
@@ -89,7 +92,9 @@ describe('selector getBurnoutSteps', () => {
 				action: 'hold',
 				temp: 500,
 				middle: 'for',
-				time: '1 hour'
+				time: 1,
+				units: 'hour',
+				end: null
 			}
 		]);
 	});
@@ -116,7 +121,8 @@ describe('selector getBurnoutSteps', () => {
 				action: 'raise to',
 				temp: 600,
 				middle: 'over',
-				time: '2 hours',
+				time: 2,
+				units: 'hours',
 				end: null
 			},
 			{
@@ -124,14 +130,16 @@ describe('selector getBurnoutSteps', () => {
 				action: 'hold',
 				temp: 600,
 				middle: 'for',
-				time: '1 hour'
+				time: 1,
+				units: 'hour'
 			},
 			{
 				heading: 'second segment',
 				action: 'lower to',
 				temp: 400,
 				middle: 'over',
-				time: '1 hour',
+				time: 1,
+				units: 'hour',
 				end: 'for casting'
 			},
 			{
@@ -139,7 +147,8 @@ describe('selector getBurnoutSteps', () => {
 				action: 'hold',
 				temp: 400,
 				middle: 'for',
-				time: '5 hours'
+				time: 5,
+				units: 'hours'
 			}
 		]);
 	});

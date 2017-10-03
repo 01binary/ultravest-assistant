@@ -18,7 +18,8 @@ export default segments => segments.reduce(
 				action: diff < 0 ? 'lower to' : 'raise to',
 				temp: segment.temp,
 				middle: 'over',
-				time: `${duration} ${getUnits(duration)}`,
+				time: duration,
+				units: getUnits(duration),
 				end: index === schedule.length - 1 ? 'for casting' : null
 			});
 		}
@@ -31,7 +32,8 @@ export default segments => segments.reduce(
 				action: 'hold',
 				temp: segment.temp,
 				middle: 'for',
-				time: `${segment.hold} ${getUnits(segment.hold)}`
+				time: segment.hold,
+				units: getUnits(segment.hold)
 			});
 		}
 
