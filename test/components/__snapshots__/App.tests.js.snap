@@ -98,18 +98,21 @@ preact-render-spy (1 nodes)
     </article>
     <article class="investment">
       <h2>investment</h2>
-      <label for="investment-ratio">ratio</label>
-      <select
-        name="investment-ratio"
-        value="40/100"
-        onChange={[Function anonymous]}
-      >
-        <option selected={false}>38/100</option>
-        <option selected={false}>39/100</option>
-        <option selected={true}>40/100</option>
-        <option selected={false}>41/100</option>
-        <option selected={false}>42/100</option>
-      </select>
+      <label for="investment-ratio">
+        ratio
+        <select
+          name="investment-ratio"
+          class="investmentRatio"
+          value="40/100"
+          onChange={[Function anonymous]}
+        >
+          <option selected={false}>38/100</option>
+          <option selected={false}>39/100</option>
+          <option selected={true}>40/100</option>
+          <option selected={false}>41/100</option>
+          <option selected={false}>42/100</option>
+        </select>
+      </label>
       <output>
         <dl>
           <dt>investment</dt>

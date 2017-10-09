@@ -21,19 +21,19 @@ const Investment = (
 
 		<label for="investment-ratio">
 			ratio
+			<select
+				name="investment-ratio"
+				className={style.investmentRatio}
+				value={investment.preset}
+				onChange={handleInvestmentPresetChange}
+			>
+				{ Object.keys(investment.presets).map(preset => (
+					<option selected={preset === investment.preset}>
+						{preset}
+					</option>
+				))}
+			</select>
 		</label>
-
-		<select
-			name="investment-ratio"
-			value={investment.preset}
-			onChange={handleInvestmentPresetChange}
-		>
-			{ Object.keys(investment.presets).map(preset => (
-				<option selected={preset === investment.preset}>
-					{preset}
-				</option>
-			))}
-		</select>
 
 		<output>
 			{ getMixWeights({ flask, investment }).map(mix => (
