@@ -28,7 +28,7 @@ describe('composer withFlask', () => {
 	});
 
 	test('should set flask preset', done => {
-		const expected = Object.keys(presets)[2];
+		const expected = Object.keys(reflector.props.flask.presets)[2];
 
 		reflector.props.handleFlaskPresetChange({
 			target: { value: expected }
@@ -164,26 +164,66 @@ describe('composer withFlask', () => {
 		});
 	});
 
-	test('should not add flask preset if already added', () => {
+	test('should not add flask preset if already added', done => {
+		const before = reflector.props.flask.presets.length;
+
 		reflector.props.handleFlaskPresetChange({
 			target: { value: '6.2 × 13.5' }
 		});
+
+		reflector.props.handleAddFlaskPreset();
+
+		reflector.update(props => {
+			expect(props.flask.presets.length)
+				.toEqual(before);
+
+			done();
+		});
 	});
 
-	test('should remove added flask preset', done => {
-		const expected = Object.keys(presets)[3];
+	test('should remove added flask preset and switch to the one before', done => {
+		const presetNames = Object.keys(reflector.props.flask.presets);
+		const next = presetNames[
+			presetNames.indexOf(reflector.props.flask.preset) - 1
+		];
 
 		reflector.props.handleRemoveFlaskPreset();
 
 		reflector.update(props => {
-			expect(props.flask.presets)
-				.toEqual(presets);
 			expect(props.flask.preset)
-				.toEqual(expected);
-			expect(props.flask.diameter)
-				.toEqual(presets[expected].diameter);
-			expect(props.flask.height)
-				.toEqual(presets[expected].height);
+				.toEqual(next);
+
+			done();
+		});
+	});
+
+	test('should remove second to last preset and switch to the one after', done => {
+		const presetNames = Object.keys(reflector.props.flask.presets);
+		const remove = presetNames[presetNames.length - 2];
+		const next = presetNames[presetNames.length - 1];
+
+		reflector.props.handleFlaskPresetChange({
+			target: { value: remove }
+		});
+		
+		reflector.props.handleRemoveFlaskPreset();
+
+		reflector.update(props => {
+			expect(props.flask.preset)
+				.toEqual(next);
+
+			done();
+		});
+	});
+
+	test('should set current preset to null when last remaining preset is removed', done => {
+		Object
+			.keys(reflector.props.flask.presets)
+			.forEach(preset => reflector.props.handleRemoveFlaskPreset());
+
+		reflector.update(props => {
+			expect(props.flask.preset)
+				.toEqual(null);
 
 			done();
 		});
