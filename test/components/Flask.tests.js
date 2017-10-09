@@ -9,19 +9,16 @@ describe('Flask', () => {
 	beforeAll(() => {
 		props = {
 			flask: {
-				preset: 'test preset',
+				preset: expectedName,
 				presets: {
-					'test preset': {
-						diameter: 2,
-						height: 3
-					},
+					[expectedName]: expected,
 					'another preset': {
 						diameter: 4,
 						height: 6
 					}
 				},
-				diameter: 2,
-				height: 3
+				diameter: expected.diameter,
+				height: expected.height
 			},
 			handleFlaskPresetChange: jest.fn(),
 			handleFlaskDiameterChange: jest.fn(),
@@ -41,6 +38,21 @@ describe('Flask', () => {
 
 	test('should render', () => {
 		expect(wrapper).toMatchSnapshot();
+	});
+
+	test('should bind preset value', () => {
+		expect(wrapper.find('.flaskPreset')[0].attributes.value)
+			.toBe(expectedName);
+	});
+
+	test('should bind diameter', () => {
+		expect(wrapper.find('.flaskDiameter')[0].attributes.value)
+			.toBe(expected.diameter);
+	});
+
+	test('should bind height', () => {
+		expect(wrapper.find('.flaskHeight')[0].attributes.value)
+			.toBe(expected.height);
 	});
 
 	test('should bind change preset handler', () => {
@@ -72,4 +84,10 @@ describe('Flask', () => {
 		expect(props.handleRemoveFlaskPreset.mock.calls.length)
 			.toBe(1);
 	});
+
+	const expectedName = 'test preset';
+	const expected = {
+		diameter: 2,
+		height: 3
+	};
 });
