@@ -37,12 +37,12 @@ const Flask = (
 			))}
 
 			<option selected={flask.preset === CUSTOM_PRESET}>
-				Custom
+				custom
 			</option>
 		</select>
 
-		<fieldset>
-			<label for="flask-diameter">diameter</label>
+		<label for="flask-diameter">
+			diameter
 			<input
 				name="flask-diameter"
 				type="number"
@@ -50,8 +50,10 @@ const Flask = (
 				value={flask.diameter}
 				onChange={handleFlaskDiameterChange}
 			/>
+		</label>
 
-			<label for="flask-height">height</label>
+		<label for="flask-height">
+			height
 			<input
 				name="flask-height"
 				type="number"
@@ -59,7 +61,7 @@ const Flask = (
 				value={flask.height}
 				onChange={handleFlaskHeightChange}
 			/>
-		</fieldset>
+		</label>
 	</article>
 );
 

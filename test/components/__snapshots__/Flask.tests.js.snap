@@ -8,17 +8,17 @@ preact-render-spy (1 nodes)
   <label for="flask-preset">preset</label>
   <select
     name="flask-preset"
-    value="3.5 X 10"
+    value="3.5 × 10"
     onChange={[Function anonymous]}
   >
-    <option selected={false}>3.5 X 5</option>
-    <option selected={true}>3.5 X 10</option>
-    <option selected={false}>4 x 10</option>
-    <option selected={false}>4 x 14</option>
-    <option selected={false}>Custom</option>
+    <option selected={false}>3.5 × 5</option>
+    <option selected={true}>3.5 × 10</option>
+    <option selected={false}>4 × 10</option>
+    <option selected={false}>4 × 14</option>
+    <option selected={false}>custom</option>
   </select>
-  <fieldset>
-    <label for="flask-diameter">diameter</label>
+  <label for="flask-diameter">
+    diameter
     <input
       name="flask-diameter"
       type="number"
@@ -27,7 +27,9 @@ preact-render-spy (1 nodes)
       onChange={[Function anonymous]}
      />
     </input>
-    <label for="flask-height">height</label>
+  </label>
+  <label for="flask-height">
+    height
     <input
       name="flask-height"
       type="number"
@@ -36,7 +38,7 @@ preact-render-spy (1 nodes)
       onChange={[Function anonymous]}
      />
     </input>
-  </fieldset>
+  </label>
 </article>
 
 `;
