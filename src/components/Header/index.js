@@ -14,7 +14,7 @@ const Header = () => (
 		<p><strong>Calculate</strong> materials and burnout program for your project.</p>
 		<p>Bookmark or <strong>share</strong> via permalink.</p>
 
-		<input type="submit" value="Share" />
+		<input type="submit" name="action" value="Share" />
 
 		<a
 			href="https://github.com/01binary/ultravest-assistant/"

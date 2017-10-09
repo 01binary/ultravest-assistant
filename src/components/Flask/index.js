@@ -1,13 +1,14 @@
 import { h } from 'preact';
-import { CUSTOM_PRESET } from '../../enhancers/withFlask';
+import { CUSTOM } from '../../enhancers/withFlask';
 import style from './style';
 
 /**
  * Flask Parameters.
- * @param {number} props.flask - The flask props.
- * @param {func} props.handleFlaskPresetChange - The function called to set flask preset.
- * @param {func} props.handleFlaskDiameterChange - The function called to set flask diameter.
- * @param {func} props.handleFlaskHeightChange - The function called to set flask height.
+ * @param {number} flask - The flask props.
+ * @param {func} handleFlaskPresetChange - Handle changing flask preset.
+ * @param {func} handleFlaskDiameterChange - Handle changing flask diameter.
+ * @param {func} handleFlaskHeightChange - Handle changing flask height.
+ * @param {func} handleAddFlaskPreset - Handle adding current flask diameter and height as preset.
  * @returns {JSX.Element} - A React stateless component.
  */
 const Flask = (
@@ -15,7 +16,9 @@ const Flask = (
 		flask,
 		handleFlaskPresetChange,
 		handleFlaskDiameterChange,
-		handleFlaskHeightChange
+		handleFlaskHeightChange,
+		handleAddFlaskPreset,
+		handleRemoveFlaskPreset
 	}) => (
 
 	<article class={style.flask}>
@@ -23,23 +26,36 @@ const Flask = (
 
 		<label for="flask-preset">
 			preset
-		</label>
+			<select
+				name="flask-preset"
+				value={flask.preset}
+				onChange={handleFlaskPresetChange}
+			>
+				{ Object.keys(flask.presets).map(preset => (
+					<option selected={preset === flask.preset}>
+						{preset}
+					</option>
+				))}
 
-		<select
-			name="flask-preset"
-			value={flask.preset}
-			onChange={handleFlaskPresetChange}
-		>
-			{ Object.keys(flask.presets).map(preset => (
-				<option selected={preset === flask.preset}>
-					{preset}
+				<option selected={flask.preset === CUSTOM}>
+					custom
 				</option>
-			))}
+			</select>
 
-			<option selected={flask.preset === CUSTOM_PRESET}>
-				custom
-			</option>
-		</select>
+			<input
+				type="submit"
+				name="action"
+				value="Add flask preset"
+				onClick={handleAddFlaskPreset}
+			/>
+
+			<input
+				type="submit"
+				name="action"
+				value="Remove flask preset"
+				onClick={handleRemoveFlaskPreset}
+			/>
+		</label>
 
 		<label for="flask-diameter">
 			diameter

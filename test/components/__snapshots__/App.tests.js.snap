@@ -6,7 +6,7 @@ preact-render-spy (1 nodes)
 <form
   id="app"
   class="app"
-  method="get"
+  method="post"
   action="/"
 >
   <header>
@@ -25,6 +25,7 @@ preact-render-spy (1 nodes)
     </p>
     <input
       type="submit"
+      name="action"
       value="Share"
      />
     </input>
@@ -39,18 +40,34 @@ preact-render-spy (1 nodes)
   <main>
     <article class="flask">
       <h2>flask</h2>
-      <label for="flask-preset">preset</label>
-      <select
-        name="flask-preset"
-        value="3.5 × 10"
-        onChange={[Function anonymous]}
-      >
-        <option selected={false}>3.5 × 5</option>
-        <option selected={true}>3.5 × 10</option>
-        <option selected={false}>4 × 10</option>
-        <option selected={false}>4 × 14</option>
-        <option selected={false}>custom</option>
-      </select>
+      <label for="flask-preset">
+        preset
+        <select
+          name="flask-preset"
+          value="3.5 × 10"
+          onChange={[Function anonymous]}
+        >
+          <option selected={false}>3.5 × 5</option>
+          <option selected={true}>3.5 × 10</option>
+          <option selected={false}>4 × 10</option>
+          <option selected={false}>4 × 14</option>
+          <option selected={false}>custom</option>
+        </select>
+        <input
+          type="submit"
+          name="action"
+          value="Add flask preset"
+          onClick={[Function anonymous]}
+         />
+        </input>
+        <input
+          type="submit"
+          name="action"
+          value="Remove flask preset"
+          onClick={[Function anonymous]}
+         />
+        </input>
+      </label>
       <label for="flask-diameter">
         diameter
         <input

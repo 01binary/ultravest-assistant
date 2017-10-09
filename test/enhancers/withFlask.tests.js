@@ -1,8 +1,4 @@
-import {
-	default as withFlask,
-	CUSTOM_PRESET,
-	DEFAULT_PRESET
-} from '../../src/enhancers/withFlask';
+import { default as withFlask, CUSTOM, DEFAULT } from '../../src/enhancers/withFlask';
 import presets from '../../src/config/flaskPresets.json';
 import reflect from '../fixtures/reflector.tests.fixture';
 
@@ -21,9 +17,9 @@ describe('composer withFlask', () => {
 	test('should set initial state', () => {
 		expect(reflector.props.flask).toEqual({
 			presets,
-			preset: DEFAULT_PRESET,
-			diameter: presets[DEFAULT_PRESET].diameter,
-			height: presets[DEFAULT_PRESET].height
+			preset: DEFAULT,
+			diameter: presets[DEFAULT].diameter,
+			height: presets[DEFAULT].height
 		});
 	});
 
@@ -57,9 +53,9 @@ describe('composer withFlask', () => {
 			expect(reflector.props.flask.diameter)
 				.toEqual(6.2);
 			expect(reflector.props.flask.height)
-				.toEqual(presets[DEFAULT_PRESET].height);
+				.toEqual(presets[DEFAULT].height);
 			expect(reflector.props.flask.preset)
-				.toEqual(CUSTOM_PRESET);
+				.toEqual(CUSTOM);
 			expect(props.flask.presets)
 				.toEqual(presets);
 
@@ -78,7 +74,7 @@ describe('composer withFlask', () => {
 			expect(reflector.props.flask.diameter)
 				.toEqual(6.2);
 			expect(reflector.props.flask.preset)
-				.toEqual(CUSTOM_PRESET);
+				.toEqual(CUSTOM);
 			expect(props.flask.presets)
 				.toEqual(presets);
 
@@ -119,7 +115,7 @@ describe('composer withFlask', () => {
 			expect(reflector.props.flask.diameter)
 				.toEqual(1.5);
 			expect(reflector.props.flask.preset)
-				.toEqual(CUSTOM_PRESET);
+				.toEqual(CUSTOM);
 			expect(reflector.props.flask.presets)
 				.toEqual(expected);
 
@@ -138,7 +134,7 @@ describe('composer withFlask', () => {
 			expect(reflector.props.flask.height)
 				.toEqual(9.3);
 			expect(reflector.props.flask.preset)
-				.toEqual(CUSTOM_PRESET);
+				.toEqual(CUSTOM);
 			expect(reflector.props.flask.presets)
 				.toEqual(expected);
 
