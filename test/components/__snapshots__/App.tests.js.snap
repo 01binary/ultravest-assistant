@@ -44,6 +44,7 @@ preact-render-spy (1 nodes)
         preset
         <select
           name="flask-preset"
+          class="flaskPreset"
           value="3.5 × 10"
           onChange={[Function anonymous]}
         >
@@ -57,6 +58,7 @@ preact-render-spy (1 nodes)
           type="submit"
           name="action"
           value="Add flask preset"
+          class="actionInline actionAdd"
           onClick={[Function anonymous]}
          />
         </input>
@@ -64,6 +66,7 @@ preact-render-spy (1 nodes)
           type="submit"
           name="action"
           value="Remove flask preset"
+          class="actionInline actionRemove"
           onClick={[Function anonymous]}
          />
         </input>
@@ -72,6 +75,7 @@ preact-render-spy (1 nodes)
         diameter
         <input
           name="flask-diameter"
+          class="flaskDiameter"
           type="number"
           step="0.1"
           value={3.5}
@@ -83,6 +87,7 @@ preact-render-spy (1 nodes)
         height
         <input
           name="flask-height"
+          class="flaskHeight"
           type="number"
           step="0.1"
           value={10}

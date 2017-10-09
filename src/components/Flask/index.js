@@ -1,5 +1,7 @@
 import { h } from 'preact';
+import joinStyle from 'obj-str';
 import { CUSTOM } from '../../enhancers/withFlask';
+import appStyle from '../App/style';
 import style from './style';
 
 /**
@@ -28,6 +30,7 @@ const Flask = (
 			preset
 			<select
 				name="flask-preset"
+				className={style.flaskPreset}
 				value={flask.preset}
 				onChange={handleFlaskPresetChange}
 			>
@@ -46,6 +49,10 @@ const Flask = (
 				type="submit"
 				name="action"
 				value="Add flask preset"
+				class={joinStyle({
+					[appStyle.actionInline]: true,
+					[appStyle.actionAdd]: true
+				})}
 				onClick={handleAddFlaskPreset}
 			/>
 
@@ -53,6 +60,10 @@ const Flask = (
 				type="submit"
 				name="action"
 				value="Remove flask preset"
+				class={joinStyle({
+					[appStyle.actionInline]: true,
+					[appStyle.actionRemove]: true
+				})}
 				onClick={handleRemoveFlaskPreset}
 			/>
 		</label>
@@ -61,6 +72,7 @@ const Flask = (
 			diameter
 			<input
 				name="flask-diameter"
+				className={style.flaskDiameter}
 				type="number"
 				step="0.1"
 				value={flask.diameter}
@@ -72,6 +84,7 @@ const Flask = (
 			height
 			<input
 				name="flask-height"
+				className={style.flaskHeight}
 				type="number"
 				step="0.1"
 				value={flask.height}
