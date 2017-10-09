@@ -42,8 +42,10 @@ export default withStateHandlers(
 			}
 		}),
 
-		handleAddFlaskPreset: ({ flask }) => () => {
+		handleAddFlaskPreset: ({ flask }) => event => {
 			const key = `${flask.diameter} × ${flask.height}`;
+
+			event.preventDefault();
 
 			return {
 				flask: {
@@ -62,12 +64,14 @@ export default withStateHandlers(
 			};
 		},
 
-		handleRemoveFlaskPreset: ({ flask }) => () => {
+		handleRemoveFlaskPreset: ({ flask }) => event => {
 			const keys = Object.keys(flask.presets);
 			const nextKey = getNextKey(
 				keys,
 				keys.indexOf(flask.preset)
 			);
+
+			event.preventDefault();
 
 			return {
 				flask: {

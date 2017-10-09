@@ -1,4 +1,5 @@
 import { default as withFlask, CUSTOM, DEFAULT } from '../../src/enhancers/withFlask';
+import { always } from 'ramda';
 import presets from '../../src/config/flaskPresets.json';
 import reflect from '../fixtures/reflector.tests.fixture';
 
@@ -83,9 +84,13 @@ describe('composer withFlask', () => {
 	});
 
 	test('should add flask preset', done => {
-		reflector.props.handleAddFlaskPreset();
+		const event = { preventDefault: jest.fn() };
+		
+		reflector.props.handleAddFlaskPreset(event);
 
 		reflector.update(props => {
+			expect(event.preventDefault.mock.calls.length)
+				.toBe(1);
 			expect(reflector.props.flask.preset)
 				.toEqual('6.2 × 13.5');
 			expect(reflector.props.flask.diameter)
@@ -167,7 +172,7 @@ describe('composer withFlask', () => {
 			target: { value: '6.2 × 13.5' }
 		});
 
-		reflector.props.handleAddFlaskPreset();
+		reflector.props.handleAddFlaskPreset({ preventDefault: always() });
 
 		reflector.update(props => {
 			expect(props.flask.presets.length)
@@ -178,14 +183,17 @@ describe('composer withFlask', () => {
 	});
 
 	test('should remove added flask preset and switch to the one before', done => {
+		const event = { preventDefault: jest.fn() };
 		const presetNames = Object.keys(reflector.props.flask.presets);
 		const next = presetNames[
 			presetNames.indexOf(reflector.props.flask.preset) - 1
 		];
 
-		reflector.props.handleRemoveFlaskPreset();
+		reflector.props.handleRemoveFlaskPreset(event);
 
 		reflector.update(props => {
+			expect(event.preventDefault.mock.calls.length)
+				.toBe(1);
 			expect(props.flask.preset)
 				.toEqual(next);
 
@@ -202,7 +210,7 @@ describe('composer withFlask', () => {
 			target: { value: remove }
 		});
 		
-		reflector.props.handleRemoveFlaskPreset();
+		reflector.props.handleRemoveFlaskPreset({ preventDefault: always() });
 
 		reflector.update(props => {
 			expect(props.flask.preset)
@@ -215,7 +223,7 @@ describe('composer withFlask', () => {
 	test('should set current preset to null when last remaining preset is removed', done => {
 		Object
 			.keys(reflector.props.flask.presets)
-			.forEach(preset => reflector.props.handleRemoveFlaskPreset());
+			.forEach(preset => reflector.props.handleRemoveFlaskPreset({ preventDefault: always() }));
 
 		reflector.update(props => {
 			expect(props.flask.preset)
