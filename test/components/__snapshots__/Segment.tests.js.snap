@@ -3,31 +3,33 @@
 exports[`Segment should render 1`] = `
 preact-render-spy (1 nodes)
 -------
-<article class="segment raise">
-  <figure class="temperature">
-    <svg></svg>
-    <figcaption>
-      <h3>temp</h3>
-      700°
-      <span class="units">F</span>
-    </figcaption>
-  </figure>
-  <figure class="rate">
-    <svg></svg>
-    <figcaption>
-      <h3>rate</h3>
-      400°
-      <span class="units">F/hr</span>
-    </figcaption>
-  </figure>
-  <figure class="time">
-    <svg></svg>
-    <figcaption>
-      <h3>hold</h3>
-      1
-      <span class="units">hour</span>
-    </figcaption>
-  </figure>
-</article>
+<a name="thermal-transition">
+  <article class="segment raise">
+    <figure class="temperature">
+      <svg></svg>
+      <figcaption>
+        <h3>temp</h3>
+        700°
+        <span class="units">F</span>
+      </figcaption>
+    </figure>
+    <figure class="rate">
+      <svg></svg>
+      <figcaption>
+        <h3>rate</h3>
+        400°
+        <span class="units">F/hr</span>
+      </figcaption>
+    </figure>
+    <figure class="time">
+      <svg></svg>
+      <figcaption>
+        <h3>hold</h3>
+        1
+        <span class="units">hour</span>
+      </figcaption>
+    </figure>
+  </article>
+</a>
 
 `;

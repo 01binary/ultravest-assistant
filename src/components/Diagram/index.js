@@ -9,20 +9,10 @@ import style from './style';
  */
 const Diagram = ({ segments }) => (
 	<section class={style.diagram}>
-		<a href="#">
-			&larr;
-			<span>Previous Step</span>
-		</a>
-
-		<a href="#">
-			<span>Next Step</span>
-			&rarr;
-		</a>
-
 		{ segments.map((segment, index) => (
 			<Segment
+				{...segment}
 				prev={segments[index - 1]}
-				cur={segment}
 			/>
 		))}
 	</section>

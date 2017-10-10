@@ -25,5 +25,5 @@ describe('Segment', () => {
 	const segments = presets[first].segments;
 	const cur = segments[1];
 	const prev = segments[0];
-	const props = { cur, prev };
+	const props = Object.assign({}, cur, { prev });
 });
