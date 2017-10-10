@@ -280,25 +280,33 @@ preact-render-spy (1 nodes)
           </thead>
           <tbody>
             <tr>
-              <td>water removal</td>
+              <td>
+                <a href="#water-removal">water removal</a>
+              </td>
               <td>300</td>
               <td>300</td>
               <td>3</td>
             </tr>
             <tr>
-              <td>thermal transition</td>
+              <td>
+                <a href="#thermal-transition">thermal transition</a>
+              </td>
               <td>200</td>
               <td>700</td>
               <td>2</td>
             </tr>
             <tr>
-              <td>pattern removal</td>
+              <td>
+                <a href="#pattern-removal">pattern removal</a>
+              </td>
               <td>217</td>
               <td>1350</td>
               <td>3</td>
             </tr>
             <tr>
-              <td>casting</td>
+              <td>
+                <a href="#casting">casting</a>
+              </td>
               <td>700</td>
               <td>700</td>
               <td>2</td>
@@ -307,60 +315,76 @@ preact-render-spy (1 nodes)
         </table>
         <ol>
           <li>
-            raise to
-            <span> 300</span>
-            ° over 
-            <span> 1 </span>
-            hour
+            <a href="#water-removal">
+              raise to
+              <span> 300</span>
+              ° over 
+              <span> 1 </span>
+              hour
+            </a>
           </li>
           <li>
-            hold
-            <span> 300</span>
-            ° for 
-            <span> 3 </span>
-            hours
+            <a href="#water-removal">
+              hold
+              <span> 300</span>
+              ° for 
+              <span> 3 </span>
+              hours
+            </a>
           </li>
           <li>
-            raise to
-            <span> 700</span>
-            ° over 
-            <span> 2 </span>
-            hours
+            <a href="#thermal-transition">
+              raise to
+              <span> 700</span>
+              ° over 
+              <span> 2 </span>
+              hours
+            </a>
           </li>
           <li>
-            hold
-            <span> 700</span>
-            ° for 
-            <span> 2 </span>
-            hours
+            <a href="#thermal-transition">
+              hold
+              <span> 700</span>
+              ° for 
+              <span> 2 </span>
+              hours
+            </a>
           </li>
           <li>
-            raise to
-            <span> 1350</span>
-            ° over 
-            <span> 3 </span>
-            hours
+            <a href="#pattern-removal">
+              raise to
+              <span> 1350</span>
+              ° over 
+              <span> 3 </span>
+              hours
+            </a>
           </li>
           <li>
-            hold
-            <span> 1350</span>
-            ° for 
-            <span> 3 </span>
-            hours
+            <a href="#pattern-removal">
+              hold
+              <span> 1350</span>
+              ° for 
+              <span> 3 </span>
+              hours
+            </a>
           </li>
           <li>
-            lower to
-            <span> 700</span>
-            ° over 
-            <span> 0.9 </span>
-            hour
+            <a href="#casting">
+              lower to
+              <span> 700</span>
+              ° over 
+              <span> 0.9 </span>
+              hour
+            </a>
           </li>
           <li>
-            hold
-            <span> 700</span>
-            ° for 
-            <span> 2 </span>
-            hours
+            <a href="#casting">
+              hold
+              <span> 700</span>
+              ° for 
+              <span> 2 </span>
+              hours
+            </a>
           </li>
         </ol>
       </section>

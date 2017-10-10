@@ -1,5 +1,6 @@
 import { h } from 'preact';
 import getBurnoutSteps from '../../selectors/getBurnoutSteps';
+import getSegmentAnchor from '../../selectors/getSegmentAnchor';
 import style from './style';
 
 /**
@@ -44,27 +45,43 @@ const Steps = ({
 			</thead>
 			
 			<tbody>
-				{ segments.map(segment => (
+				{ segments.map(({
+					name,
+					rate,
+					temp,
+					hold
+				}) => (
 					<tr>
-						<td>{segment.name}</td>
-						<td>{segment.rate}</td>
-						<td>{segment.temp}</td>
-						<td>{segment.hold}</td>
+						<td>
+							<a href={`#${getSegmentAnchor(name)}`}>
+								{name}
+							</a>
+						</td>
+						<td>{rate}</td>
+						<td>{temp}</td>
+						<td>{hold}</td>
 					</tr>
 				))}
 			</tbody>
 		</table>
 
 		<ol>
-			{ getBurnoutSteps(segments).map(step => (
+			{ getBurnoutSteps(segments).map(({
+				heading,
+				action,
+				temp,
+				middle,
+				time,
+				units
+			}) => (
 				<li>
-					{step.action}
-					<span> {step.temp}</span>&deg;
-					{' '}
-					{step.middle}
-					{' '}
-					<span> {step.time} </span>
-					{step.units}
+					<a href={`#${getSegmentAnchor(heading)}`}>
+						{action}
+						<span> {temp}</span>&deg;
+						{` ${middle} `}
+						<span> {time} </span>
+						{units}
+					</a>
 				</li>
 			))}
 		</ol>

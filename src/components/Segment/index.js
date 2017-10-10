@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import classNames from 'obj-str';
-import changeCase from 'change-case';
+import getSegmentAnchor from '../../selectors/getSegmentAnchor';
 import style from './style';
 
 /**
@@ -64,9 +64,5 @@ const getSegmentClass = (prevTemp, temp) => classNames({
 	[style.raise]: prevTemp ? temp > prevTemp : true,
 	[style.lower]: prevTemp ? temp < prevTemp : false
 });
-
-const getSegmentAnchor = name => (
-	changeCase.paramCase(name)
-);
 
 export default Segment;
