@@ -51,7 +51,7 @@ const Segment = ({
 					<h3>hold</h3>
 					{hold}
 					<span class={style.units}>
-						{hold > 1 ? 'hours' : 'hour'}
+						{hold > 1 ? ' hours' : ' hour'}
 					</span>
 				</figcaption>
 			</figure>
