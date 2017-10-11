@@ -1,12 +1,16 @@
 import { h } from 'preact';
+import joinStyle from 'obj-str';
+import { CUSTOM } from '../../enhancers/withFlask';
+import appStyle from '../App/style';
 import style from './style';
 
 /**
  * Flask Parameters.
- * @param {number} props.flask - The flask props.
- * @param {func} props.handleFlaskPresetChange - The function called to set flask preset.
- * @param {func} props.handleFlaskDiameterChange - The function called to set flask diameter.
- * @param {func} props.handleFlaskHeightChange - The function called to set flask height.
+ * @param {number} flask - The flask props.
+ * @param {func} handleFlaskPresetChange - Handle changing flask preset.
+ * @param {func} handleFlaskDiameterChange - Handle changing flask diameter.
+ * @param {func} handleFlaskHeightChange - Handle changing flask height.
+ * @param {func} handleAddFlaskPreset - Handle adding current flask diameter and height as preset.
  * @returns {JSX.Element} - A React stateless component.
  */
 const Flask = (
@@ -14,43 +18,79 @@ const Flask = (
 		flask,
 		handleFlaskPresetChange,
 		handleFlaskDiameterChange,
-		handleFlaskHeightChange
+		handleFlaskHeightChange,
+		handleAddFlaskPreset,
+		handleRemoveFlaskPreset
 	}) => (
 
 	<article class={style.flask}>
-		<h2>Flask</h2>
+		<h2>flask</h2>
 
 		<label for="flask-preset">
-			Preset
+			preset
+			<select
+				name="flask-preset"
+				className={style.flaskPreset}
+				value={flask.preset}
+				onChange={handleFlaskPresetChange}
+			>
+				{ Object.keys(flask.presets).map(preset => (
+					<option selected={preset === flask.preset}>
+						{preset}
+					</option>
+				))}
+
+				<option selected={flask.preset === CUSTOM}>
+					custom
+				</option>
+			</select>
+
+			<input
+				type="submit"
+				name="action"
+				value="Add flask preset"
+				class={joinStyle({
+					[appStyle.actionInline]: true,
+					[appStyle.actionAdd]: true
+				})}
+				onClick={handleAddFlaskPreset}
+			/>
+
+			<input
+				type="submit"
+				name="action"
+				value="Remove flask preset"
+				class={joinStyle({
+					[appStyle.actionInline]: true,
+					[appStyle.actionRemove]: true
+				})}
+				onClick={handleRemoveFlaskPreset}
+			/>
 		</label>
 
-		<select
-			name="flask-preset"
-			value={flask.preset}
-			onChange={handleFlaskPresetChange}
-		>
-			{ Object.keys(flask.presets).map(preset => (
-				<option selected={preset === flask.preset}>
-					{preset}
-				</option>
-			))}
-		</select>
+		<label for="flask-diameter">
+			diameter
+			<input
+				name="flask-diameter"
+				className={style.flaskDiameter}
+				type="number"
+				step="0.1"
+				value={flask.diameter}
+				onChange={handleFlaskDiameterChange}
+			/>
+		</label>
 
-		<label for="flask-diameter">Diameter (in)</label>
-		<input
-			name="flask-diameter"
-			type="number"
-			value={flask.diameter}
-			onChange={handleFlaskDiameterChange}
-		/>
-
-		<label for="flask-height">Height (in)</label>
-		<input
-			name="flask-height"
-			type="number"
-			value={flask.height}
-			onChange={handleFlaskHeightChange}
-		/>
+		<label for="flask-height">
+			height
+			<input
+				name="flask-height"
+				className={style.flaskHeight}
+				type="number"
+				step="0.1"
+				value={flask.height}
+				onChange={handleFlaskHeightChange}
+			/>
+		</label>
 	</article>
 );
 

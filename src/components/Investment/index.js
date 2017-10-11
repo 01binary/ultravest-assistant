@@ -1,36 +1,48 @@
 import { h } from 'preact';
+import getMixWeights from '../../selectors/getMixWeights';
 import style from './style';
 
 /**
  * Investment Parameters.
- * @param {number} props.investment - The investment props.
- * @param {func} props.setInvestmentPreset - The function called to set investment ratio preset.
+ * @param {object} flask - The flask props.
+ * @param {number} investment - The investment props.
+ * @param {func} setInvestmentPreset - The function called to set investment ratio preset.
  * @returns {JSX.Element} - A React stateless component.
  */
 const Investment = (
 	{
+		flask,
 		investment,
 		handleInvestmentPresetChange
 	}) => (
 
 	<article class={style.investment}>
-		<h2>Investment</h2>
+		<h2>investment</h2>
 
-		<label for="investment-ratio-preset">
-			Ratio (W:P)
+		<label for="investment-ratio">
+			ratio
+			<select
+				name="investment-ratio"
+				className={style.investmentRatio}
+				value={investment.preset}
+				onChange={handleInvestmentPresetChange}
+			>
+				{ Object.keys(investment.presets).map(preset => (
+					<option selected={preset === investment.preset}>
+						{preset}
+					</option>
+				))}
+			</select>
 		</label>
 
-		<select
-			name="investment-ratio-preset"
-			value={investment.preset}
-			onChange={handleInvestmentPresetChange}
-		>
-			{ Object.keys(investment.presets).map(preset => (
-				<option selected={preset === investment.preset}>
-					{preset}
-				</option>
+		<output>
+			{ getMixWeights({ flask, investment }).map(mix => (
+				<dl>
+					<dt>{mix.component}</dt>
+					<dd>{mix.grams}</dd>
+				</dl>
 			))}
-		</select>
+		</output>
 	</article>
 );
 

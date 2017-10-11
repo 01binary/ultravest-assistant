@@ -14,6 +14,7 @@ export default withStateHandlers(
 	{
 		handleInvestmentPresetChange: () => ({ target }) => ({
 			investment: {
+				presets,
 				preset: target.value
 			}
 		})

@@ -1,14 +1,35 @@
 import { h } from 'preact';
 import { deep } from 'preact-render-spy';
-import withFlask from '../../src/enhancers/withFlask';
 import Flask from '../../src/components/Flask';
 
 describe('Flask', () => {
 
-	let wrapper;
+	let wrapper, props;
 
 	beforeAll(() => {
-		wrapper = deep(h(withFlask(Flask)));
+		props = {
+			flask: {
+				preset: expectedName,
+				presets: {
+					[expectedName]: expected,
+					'another preset': {
+						diameter: 4,
+						height: 6
+					}
+				},
+				diameter: expected.diameter,
+				height: expected.height
+			},
+			handleFlaskPresetChange: jest.fn(),
+			handleFlaskDiameterChange: jest.fn(),
+			handleFlaskHeightChange: jest.fn(),
+			handleAddFlaskPreset: jest.fn(),
+			handleRemoveFlaskPreset: jest.fn()
+		};
+
+		wrapper = deep(
+			<Flask {...props} />
+		);
 	});
 
 	afterAll(() => {
@@ -18,4 +39,55 @@ describe('Flask', () => {
 	test('should render', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
+
+	test('should bind preset value', () => {
+		expect(wrapper.find('.flaskPreset')[0].attributes.value)
+			.toBe(expectedName);
+	});
+
+	test('should bind diameter', () => {
+		expect(wrapper.find('.flaskDiameter')[0].attributes.value)
+			.toBe(expected.diameter);
+	});
+
+	test('should bind height', () => {
+		expect(wrapper.find('.flaskHeight')[0].attributes.value)
+			.toBe(expected.height);
+	});
+
+	test('should bind change preset handler', () => {
+		wrapper.find('.flaskPreset')[0].attributes.onChange();
+		expect(props.handleFlaskPresetChange.mock.calls.length)
+			.toBe(1);
+	});
+
+	test('should bind change diameter handler', () => {
+		wrapper.find('.flaskDiameter')[0].attributes.onChange();
+		expect(props.handleFlaskDiameterChange.mock.calls.length)
+			.toBe(1);
+	});
+
+	test('should bind change height handler', () => {
+		wrapper.find('.flaskHeight')[0].attributes.onChange();
+		expect(props.handleFlaskHeightChange.mock.calls.length)
+			.toBe(1);
+	});
+
+	test('should bind add preset handler', () => {
+		wrapper.find('.actionAdd')[0].attributes.onClick();
+		expect(props.handleAddFlaskPreset.mock.calls.length)
+			.toBe(1);
+	});
+
+	test('should bind remove preset handler', () => {
+		wrapper.find('.actionRemove')[0].attributes.onClick();
+		expect(props.handleRemoveFlaskPreset.mock.calls.length)
+			.toBe(1);
+	});
+
+	const expectedName = 'test preset';
+	const expected = {
+		diameter: 2,
+		height: 3
+	};
 });

@@ -76,6 +76,8 @@
     "sass-loader": "^6.0.6"
   },
   "dependencies": {
+    "change-case": "^3.0.1",
+    "obj-str": "^1.0.0",
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
     "recompose": "^0.25.0"

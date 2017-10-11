@@ -4,33 +4,60 @@ exports[`Flask should render 1`] = `
 preact-render-spy (1 nodes)
 -------
 <article class="flask">
-  <h2>Flask</h2>
-  <label for="flask-preset">Preset</label>
-  <select
-    name="flask-preset"
-    value="3.5 X 10"
-    onChange={[Function anonymous]}
-  >
-    <option selected={false}>3.5 X 5</option>
-    <option selected={true}>3.5 X 10</option>
-    <option selected={false}>4 x 10</option>
-  </select>
-  <label for="flask-diameter">Diameter (in)</label>
-  <input
-    name="flask-diameter"
-    type="number"
-    value={3.5}
-    onChange={[Function anonymous]}
-   />
-  </input>
-  <label for="flask-height">Height (in)</label>
-  <input
-    name="flask-height"
-    type="number"
-    value={10}
-    onChange={[Function anonymous]}
-   />
-  </input>
+  <h2>flask</h2>
+  <label for="flask-preset">
+    preset
+    <select
+      name="flask-preset"
+      class="flaskPreset"
+      value="test preset"
+      onChange={[Function mockConstructor]}
+    >
+      <option selected={true}>test preset</option>
+      <option selected={false}>another preset</option>
+      <option selected={false}>custom</option>
+    </select>
+    <input
+      type="submit"
+      name="action"
+      value="Add flask preset"
+      class="actionInline actionAdd"
+      onClick={[Function mockConstructor]}
+     />
+    </input>
+    <input
+      type="submit"
+      name="action"
+      value="Remove flask preset"
+      class="actionInline actionRemove"
+      onClick={[Function mockConstructor]}
+     />
+    </input>
+  </label>
+  <label for="flask-diameter">
+    diameter
+    <input
+      name="flask-diameter"
+      class="flaskDiameter"
+      type="number"
+      step="0.1"
+      value={2}
+      onChange={[Function mockConstructor]}
+     />
+    </input>
+  </label>
+  <label for="flask-height">
+    height
+    <input
+      name="flask-height"
+      class="flaskHeight"
+      type="number"
+      step="0.1"
+      value={3}
+      onChange={[Function mockConstructor]}
+     />
+    </input>
+  </label>
 </article>
 
 `;
