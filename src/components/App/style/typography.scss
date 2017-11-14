@@ -1,0 +1,14 @@
+@import 'layout';
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
+$font-body: 'Open Sans', sans-serif;
+$font-header: 'Soleil', sans-serif;
+
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+
+$font-size-title: $spacing-one-and-half; // 36px
+$font-size-subtitle: $spacing;           // 24px
+$font-size-heading: $spacing;            // 24px
+$font-size-header: $spacing-four-thirds; // 18px
+$font-size-body: $spacing-three-halves;  // 16px

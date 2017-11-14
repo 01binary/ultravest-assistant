@@ -1,63 +1,60 @@
-@import 'fonts';
+@import 'typography';
 @import 'colors';
 @import 'layout';
 
-// Default or Mobile
 html,
 body {
-	font-family: $font-primary;
-	font-weight: $font-weight-primary;
-	font-size: $font-size-text;
+	color: $color-text-dark;
+	background-color: $color-background;
+	font-family: $font-body;
+	font-weight: $font-weight-regular;
+	font-size: $font-size-body;
 	line-height: $spacing-single;
-
-	color: $color-text-primary;
-	background-color: $color-background-primary;
-
-	// Variable width with no gutter
 	margin: 0;
 }
 
-// Desktop or Tablet
-@media (min-width: $breakpoint) {
-	body {
-		// Fixed width with auto gutter
-		margin: 0 auto;
-		width: $spacing-max;
-	}
+main {
+	display: block;
 }
 
 h1 {
 	font-size: $font-size-title;
+	font-weight: $font-weight-semibold;
+	line-height: $spacing-double;
+	margin: 0 0 $spacing-single 0;
+}
+
+h1 span {
+	display: inline-block;
+	font-size: $font-size-subtitle;
+	font-weight: $font-weight-regular;
+	line-height: $spacing-double;
+	vertical-align: text-bottom;
+	padding-left: $spacing-half;
 }
 
 h2 {
+	color: $color-text-dark;
 	font-size: $font-size-heading;
-}
-
-h3 {
-	font-size: $font-size-text;
-}
-
-h1, h2, h3 {
-	margin-top: 0;
-	margin-bottom: $spacing-single;
-}
-
-main {
-	@include two-col-width;
-}
-
-aside {
-	@include one-col-width;
-	margin-left: $spacing-double;
+	font-weight: $font-weight-semibold;
+	margin-top: $spacing-three-halves;
+	margin-bottom: $spacing-three-halves;
 }
 
 article {
-	padding: $spacing-single;
-	border-bottom: $border dashed $color-border;
+	display: block;
 }
 
-.app {
-	display: flex;
-	flex-flow: row wrap;
+label {
+	color: $color-text-light;
+}
+
+input:focus + label,
+select:focus + label {
+	color: $color-text-dark;
+}
+
+fieldset {
+	margin-top: 0;
+	margin-bottom: 24px;
 }
