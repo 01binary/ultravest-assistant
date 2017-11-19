@@ -7,10 +7,12 @@ label {
 	opacity: .55;
 	transition: opacity .3s ease-in-out;
 	margin-right: $spacing-third;
+	cursor: pointer;
 }
 
 input:focus + label,
-select:focus + label {
+select:focus + label,
+label:hover {
 	opacity: 1;
 }
 
@@ -72,5 +74,14 @@ select {
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: space-between;
+	flex: 1 1 0px;
+}
+
+.control label {
+	flex: 0 0 4em;
+}
+
+.control select,
+.control input {
 	flex: 1 1 0px;
 }

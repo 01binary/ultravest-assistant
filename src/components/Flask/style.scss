@@ -1,18 +1,9 @@
 @import '../App/style/layout';
 @import '../App/style/colors';
 
-// Labels
-.preset label,
-.dimensions label {
-	flex: 0 0 4em;
-	cursor: pointer;
-}
-
-// Inputs
-.preset select,
-.dimensions input {
-	flex-grow: 1;
-	flex-shrink: 1;
+.dimensions input:focus ~ span,
+.dimensions section:hover span {
+	opacity: 0;
 }
 
 // Controls
@@ -28,6 +19,8 @@
 .dimensions span {
 	margin: 1em 0 0 calc(-1em - 8px);
 	order: -2;
+	opacity: .5;
+	transition: opacity .3s ease-in-out;
 }
 
 // Buttons
