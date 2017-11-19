@@ -1,15 +1,10 @@
 @import 'typography';
 @import 'colors';
 @import 'layout';
+@import 'forms';
 
 html,
 body {
-	color: $color-text-dark;
-	background-color: $color-background;
-	font-family: $font-body;
-	font-weight: $font-weight-regular;
-	font-size: $font-size-body;
-	line-height: $spacing-single;
 	margin: 0;
 }
 
@@ -17,44 +12,6 @@ main {
 	display: block;
 }
 
-h1 {
-	font-size: $font-size-title;
-	font-weight: $font-weight-semibold;
-	line-height: $spacing-double;
-	margin: 0 0 $spacing-single 0;
-}
-
-h1 span {
-	display: inline-block;
-	font-size: $font-size-subtitle;
-	font-weight: $font-weight-regular;
-	line-height: $spacing-double;
-	vertical-align: text-bottom;
-	padding-left: $spacing-half;
-}
-
-h2 {
-	color: $color-text-dark;
-	font-size: $font-size-heading;
-	font-weight: $font-weight-semibold;
-	margin-top: $spacing-three-halves;
-	margin-bottom: $spacing-three-halves;
-}
-
 article {
 	display: block;
-}
-
-label {
-	color: $color-text-light;
-}
-
-input:focus + label,
-select:focus + label {
-	color: $color-text-dark;
-}
-
-fieldset {
-	margin-top: 0;
-	margin-bottom: 24px;
 }

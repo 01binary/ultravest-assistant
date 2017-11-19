@@ -1,0 +1,30 @@
+@import 'colors';
+@import 'layout';
+
+$timeline-donut-size: 24px;
+$timeline-icon-size: 120px;
+$timeline-spacing: $spacing-one-and-half;
+$timeline-gutter: $timeline-icon-size + $timeline-spacing * 2 + $timeline-donut-size;
+
+// Timeline article content
+.timeline {
+	position: relative;
+	max-width: $max-width-desktop - $timeline-gutter;
+	margin: $spacing-three-halves auto 0 auto;
+	padding: 0 0 0 $timeline-gutter;
+}
+
+// Timeline stroke
+.timeline:before {
+	content: '';
+	position: absolute;
+	border: 1px solid $color-border-light;
+	left: $timeline-icon-size + $timeline-spacing + $timeline-donut-size / 2;
+	width: 0;
+	top: 0;
+	bottom: -24px;
+}
+
+// Timeline donut
+.timeline:after {
+}

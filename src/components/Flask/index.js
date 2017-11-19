@@ -1,7 +1,8 @@
 import { h } from 'preact';
-import joinStyle from 'obj-str';
+import classNames from 'obj-str';
 import { CUSTOM } from '../../enhancers/withFlask';
-import appStyle from '../App/style';
+import timelineStyle from '../App/style/timeline';
+import formStyle from '../App/style/forms';
 import style from './style';
 
 /**
@@ -13,45 +14,50 @@ import style from './style';
  * @param {func} handleAddFlaskPreset - Handle adding current flask diameter and height as preset.
  * @returns {JSX.Element} - A React stateless component.
  */
-const Flask = (
-	{
-		flask,
-		handleFlaskPresetChange,
-		handleFlaskDiameterChange,
-		handleFlaskHeightChange,
-		handleAddFlaskPreset,
-		handleRemoveFlaskPreset
-	}) => (
-
-	<article class={style.flask}>
+const Flask = ({
+	flask,
+	handleFlaskPresetChange,
+	handleFlaskDiameterChange,
+	handleFlaskHeightChange,
+	handleAddFlaskPreset,
+	handleRemoveFlaskPreset }) => (
+	<article class={timelineStyle.timeline}>
 		<h2>flask</h2>
 
-		<label for="flask-preset">
-			preset
-			<select
-				name="flask-preset"
-				className={style.flaskPreset}
-				value={flask.preset}
-				onChange={handleFlaskPresetChange}
+		<section class={formStyle.group}>
+			<section class={classNames({
+				[formStyle.control]: true,
+				[style.preset]: true
+			})}
 			>
-				{ Object.keys(flask.presets).map(preset => (
-					<option selected={preset === flask.preset}>
-						{preset}
-					</option>
-				))}
+				<select
+					id="flask-preset"
+					value={flask.preset}
+					onChange={handleFlaskPresetChange}
+				>
+					{ Object.keys(flask.presets).map(preset => (
+						<option selected={preset === flask.preset}>
+							{preset}
+						</option>
+					))}
 
-				<option selected={flask.preset === CUSTOM}>
-					custom
-				</option>
-			</select>
+					<option selected={flask.preset === CUSTOM}>
+						custom
+					</option>
+				</select>
+
+				<label for="flask-preset">
+					preset
+				</label>
+			</section>
 
 			<input
 				type="submit"
 				name="action"
 				value="Add flask preset"
-				class={joinStyle({
-					[appStyle.actionInline]: true,
-					[appStyle.actionAdd]: true
+				class={classNames({
+					[style.action]: true,
+					[style.add]: true
 				})}
 				onClick={handleAddFlaskPreset}
 			/>
@@ -60,37 +66,47 @@ const Flask = (
 				type="submit"
 				name="action"
 				value="Remove flask preset"
-				class={joinStyle({
-					[appStyle.actionInline]: true,
-					[appStyle.actionRemove]: true
+				class={classNames({
+					[style.action]: true,
+					[style.remove]: true
 				})}
 				onClick={handleRemoveFlaskPreset}
 			/>
-		</label>
+		</section>
 
-		<label for="flask-diameter">
-			diameter
-			<input
-				name="flask-diameter"
-				className={style.flaskDiameter}
-				type="number"
-				step="0.1"
-				value={flask.diameter}
-				onChange={handleFlaskDiameterChange}
-			/>
-		</label>
+		<section class={classNames({
+			[formStyle.group]: true,
+			[style.dimensions]: true
+		})}
+		>
+			<section class={formStyle.control}>
+				<input
+					id="flask-diameter"
+					type="number"
+					step="0.1"
+					value={flask.diameter}
+					onChange={handleFlaskDiameterChange}
+				/>
+				<label for="flask-diameter">
+					diameter
+				</label>
+				<span>in</span>
+			</section>
 
-		<label for="flask-height">
-			height
-			<input
-				name="flask-height"
-				className={style.flaskHeight}
-				type="number"
-				step="0.1"
-				value={flask.height}
-				onChange={handleFlaskHeightChange}
-			/>
-		</label>
+			<section class={formStyle.control}>
+				<input
+					id="flask-height"
+					type="number"
+					step="0.1"
+					value={flask.height}
+					onChange={handleFlaskHeightChange}
+				/>
+				<label for="flask-height">
+					height
+				</label>
+				<span>in</span>
+			</section>
+		</section>
 	</article>
 );
 

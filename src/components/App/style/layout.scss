@@ -1,8 +1,8 @@
 $border: 1px;
 $spacing: 24px;
 
-// Content spacing multipliers
 $spacing-max:           $spacing * 30;      // 720px
+$spacing-triple:        $spacing * 3;       // 72px
 $spacing-double:        $spacing * 2;       // 48px
 $spacing-one-and-half:  $spacing * 1.5;     // 36px
 $spacing-single:        $spacing;           // 24px
@@ -13,3 +13,5 @@ $spacing-third:         $spacing / 3;       // 8px
 $spacing-quarter:       $spacing / 4;       // 6px
 $spacing-small:         $spacing / 6;       // 4px
 $spacing-min:           $spacing / 12;      // 2px
+
+$max-width-desktop: 584px;

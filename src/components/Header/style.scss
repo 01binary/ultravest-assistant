@@ -1,5 +1,6 @@
 @import '../App/style/colors';
 @import '../App/style/typography';
+@import '../App/style/layout';
 
 header {
 	color: $color-text-inverse;
@@ -9,12 +10,13 @@ header {
 }
 
 header p {
-	font-size: $spacing-four-thirds;
-	margin-bottom: $spacing-small;
+	font-size: $font-size-body;
+	line-height: $spacing-single;
+	margin: 0;
 }
 
 header p + p {
-	margin-top: 0;
+	margin-top: $spacing-small;
 }
 
 header strong {
@@ -25,7 +27,7 @@ header strong {
 
 .wrapper {
 	position: relative;
-	width: 560px;
+	width: $max-width-desktop;
 	margin: auto;
 }
 

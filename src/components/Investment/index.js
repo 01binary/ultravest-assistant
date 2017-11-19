@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import getMixWeights from '../../selectors/getMixWeights';
-import style from './style';
+import timelineStyle from '../App/style/timeline';
 
 /**
  * Investment Parameters.
@@ -16,14 +16,13 @@ const Investment = (
 		handleInvestmentPresetChange
 	}) => (
 
-	<article class={style.investment}>
+	<article class={timelineStyle.timeline}>
 		<h2>investment</h2>
 
 		<label for="investment-ratio">
 			ratio
 			<select
 				name="investment-ratio"
-				className={style.investmentRatio}
 				value={investment.preset}
 				onChange={handleInvestmentPresetChange}
 			>

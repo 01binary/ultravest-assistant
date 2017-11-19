@@ -14,10 +14,11 @@ $color-highlight: fade-out($color-background, .80);
 $color-shadow: #f7f7f7;
 $color-dark-shadow: fade-out(#000, 0.8);
 
-$color-border: fade-out(#000, 0.4);
-$color-border-light: fade-out(#000, 0.9);
-$color-border-dark: fade-out(#000, 0.7);
+$color-border: #666666;
+$color-border-dark: #e3e3e3;
+$color-border-light: #f2f2f2;
+$color-border-text: #bdbdbd;
 
-$color-selection-primary: #42C2C4;
-$color-selection-accent: #7E55D2;
-$color-selection-secondary: #E190FC;
+$color-selection-primary: #42c2c4;
+$color-selection-accent: #7e55d2;
+$color-selection-secondary: #e190fc;
