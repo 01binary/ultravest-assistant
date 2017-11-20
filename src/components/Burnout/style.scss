@@ -1,6 +1,10 @@
 @import '../App/style/colors';
 @import '../App/style/layout';
 
+.burnout dl:last-of-type dt {
+	flex: 0 0 3em;
+}
+
 .longest {
 	margin: $spacing-small;
 	padding: $spacing-min $spacing-quarter;

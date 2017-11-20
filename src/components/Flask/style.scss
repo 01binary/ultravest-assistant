@@ -1,18 +1,10 @@
 @import '../App/style/layout';
 @import '../App/style/colors';
 
-.dimensions input:focus ~ span,
-.dimensions section:hover span {
-	opacity: 0;
-}
-
-// Controls
-.dimensions section {
-	margin-right: $spacing-single;
-}
-
-.dimensions section:last-of-type {
-	margin-right: 0;
+// Height label smaller and with margin
+.dimensions section:last-of-type label {
+	margin-left: $spacing-half;
+	flex: 0 0 3.5em;
 }
 
 // Units
@@ -21,6 +13,12 @@
 	order: -2;
 	opacity: .5;
 	transition: opacity .3s ease-in-out;
+}
+
+// Hide units on hover or focus to make way for up/down spinner
+.dimensions input:focus ~ span,
+.dimensions section:hover span {
+	opacity: 0;
 }
 
 // Buttons

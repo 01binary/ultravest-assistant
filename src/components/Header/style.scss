@@ -4,13 +4,14 @@
 
 header {
 	color: $color-text-inverse;
-	background-image: linear-gradient(-154deg, $color-secondary 13%, $color-primary 100%);
+	background-image: linear-gradient(90deg, $color-primary 13%, $color-secondary 100%);
 	box-shadow: 0 2px 4px 0 $color-dark-shadow;
 	padding: $spacing-double 0 $spacing-double 0;
+	-webkit-font-smoothing: antialiased;
 }
 
 header p {
-	font-size: $font-size-body;
+	font-size: $font-size-header;
 	line-height: $spacing-single;
 	margin: 0;
 }
@@ -20,7 +21,6 @@ header p + p {
 }
 
 header strong {
-	font-weight: $font-weight-regular;
 	background-color: $color-highlight;
 	padding: $spacing-min $spacing-third;
 }

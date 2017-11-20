@@ -1,10 +1,13 @@
 import { h } from 'preact';
+import classNames from 'obj-str';
 import presets from '../../config/burnoutPresets';
 import getBurnoutPreset from '../../selectors/getBurnoutPreset';
 import getBurnoutTime from '../../selectors/getBurnoutTime';
 import Diagram from '../Diagram';
 import Steps from '../Steps';
 import timelineStyle from '../App/style/timeline';
+import formStyle from '../App/style/forms';
+import calcStyle from '../App/style/calc';
 import style from './style';
 
 /**
@@ -17,44 +20,39 @@ import style from './style';
 const Burnout = ({
 	flask,
 	showSegments,
-	toggleSegmentView
-}) => {
+	toggleSegmentView }) => {
 	const preset = getBurnoutPreset(presets, flask);
-
 	return (
-		<article>
-			<section class={timelineStyle.timeline}>
-				<h2>burnout</h2>
+		<article class={classNames({
+			[timelineStyle.timeline]: true,
+			[style.burnout]: true
+		})}
+		>
+			<h2>burnout</h2>
 
-				<output>
-					<dl>
-						<dt>preset</dt>
-						<dd>
-							{preset.diameter} X {preset.height} in
-							{ getIsLastPreset(preset) &&
-								<span class={style.longest}>longest</span>
-							}
-						</dd>
+			<output class={classNames({
+				[formStyle.group]: true,
+				[calcStyle.calc]: true
+			})}
+			>
+				<dl class={formStyle.control}>
+					<dt>time</dt>
+					<dd>
+						{getBurnoutTime(preset)}
+						<span>hours</span>
+					</dd>
+				</dl>
+			</output>
 
-						<dt>time</dt>
-						<dd>{getBurnoutTime(preset)} hours</dd>
-					</dl>
-				</output>
+			<Diagram segments={preset.segments} />
 
-				<Diagram segments={preset.segments} />
-
-				<Steps
-					segments={preset.segments}
-					showSegments={showSegments}
-					toggleSegmentView={toggleSegmentView}
-				/>
-			</section>
+			<Steps
+				segments={preset.segments}
+				showSegments={showSegments}
+				toggleSegmentView={toggleSegmentView}
+			/>
 		</article>
 	);
 };
-
-const getIsLastPreset = preset => (
-	preset === presets[presets.length - 1] || null
-);
 
 export default Burnout;

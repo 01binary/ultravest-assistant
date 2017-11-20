@@ -22,7 +22,8 @@ select {
 	font-family: $font-body;
 	font-size: $font-size-input;
 	box-sizing: border-box;
-	line-height: 32px;
+	line-height: $spacing-one-and-third;
+	min-height: $spacing-double;
 	margin: 0;
 	-moz-appearance: none;
 	-webkit-appearance: none;
@@ -57,6 +58,7 @@ select {
 	background: $color-border-dark;
 	border-radius: $spacing-third;
 	border: none;
+	max-width: $spacing-single * 8;
 	padding: 0 $spacing-one-and-half 0 $spacing-three-halves;
 	background-image: url('../../../assets/select.svg');
 	background-repeat: no-repeat;
@@ -67,18 +69,26 @@ select {
 .group {
 	display: flex;
 	flex-direction: row;
-	margin-bottom: 24px;
+	margin-bottom: $spacing-single;
+}
+
+.group section {
+	margin-right: $spacing-single;
+}
+
+.group section:last-of-type {
+	margin-right: 0;
 }
 
 .control {
 	display: flex;
 	flex-direction: row-reverse;
-	justify-content: space-between;
+	justify-content: flex-end;
 	flex: 1 1 0px;
 }
 
 .control label {
-	flex: 0 0 4em;
+	flex: 0 0 5em;
 }
 
 .control select,
