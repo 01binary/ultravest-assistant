@@ -1,5 +1,11 @@
 @import '../App/style/colors';
 @import '../App/style/layout';
+@import '../App/style/timeline';
+
+.burnout:after {
+	top: $spacing-double + $timeline-donut-size / 2;
+	border-color: $color-tertiary;
+}
 
 .burnout dl:last-of-type dt {
 	flex: 0 0 3em;

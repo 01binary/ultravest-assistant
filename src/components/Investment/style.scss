@@ -1,0 +1,6 @@
+@import '../App/style/colors';
+@import '../App/style/timeline';
+
+.investment:after {
+	border-color: $color-secondary;
+}

@@ -4,6 +4,7 @@ import getMixWeights from '../../selectors/getMixWeights';
 import timelineStyle from '../App/style/timeline';
 import formStyle from '../App/style/forms';
 import calcStyle from '../App/style/calc';
+import style from './style';
 
 /**
  * Investment Parameters.
@@ -16,7 +17,11 @@ const Investment = ({
 	flask,
 	investment,
 	handleInvestmentPresetChange }) => (
-	<article class={timelineStyle.timeline}>
+	<article class={classNames({
+		[timelineStyle.timeline]: true,
+		[style.investment]: true
+	})}
+	>
 		<h2>investment</h2>
 
 		<section class={formStyle.group}>

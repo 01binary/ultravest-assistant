@@ -21,7 +21,11 @@ const Flask = ({
 	handleFlaskHeightChange,
 	handleAddFlaskPreset,
 	handleRemoveFlaskPreset }) => (
-	<article class={timelineStyle.timeline}>
+	<article class={classNames({
+		[style.flask]: true,
+		[timelineStyle.timeline]: true
+	})}
+	>
 		<h2>flask</h2>
 
 		<section class={formStyle.group}>

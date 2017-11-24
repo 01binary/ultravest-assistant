@@ -1,5 +1,11 @@
-@import '../App/style/layout';
 @import '../App/style/colors';
+@import '../App/style/layout';
+@import '../App/style/timeline';
+
+.flask:after {
+	border-color: $color-primary;
+}
+
 
 // Height label smaller and with margin
 .dimensions section:last-of-type label {

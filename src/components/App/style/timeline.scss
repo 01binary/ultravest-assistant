@@ -32,8 +32,10 @@ $timeline-gutter-center: $timeline-icon-size + $timeline-spacing + $timeline-don
 	position: absolute;
 	width: $timeline-donut-size;
 	height: $timeline-donut-size;
+	background: $color-background;
 	border: $spacing-third solid $color-text-dark;
 	border-radius: $timeline-donut-size + $spacing-third * 2;
 	top: calc(50% - #{$timeline-donut-size});
-	left: $timeline-gutter-center - 19px;
+	left: $timeline-gutter-center - $timeline-donut-size;
+	box-shadow: 0 0 0 $spacing-quarter $color-background;
 }
