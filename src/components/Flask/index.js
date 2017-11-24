@@ -7,11 +7,11 @@ import style from './style';
 
 /**
  * Flask Parameters.
- * @param {number} flask - The flask props.
- * @param {func} handleFlaskPresetChange - Handle changing flask preset.
- * @param {func} handleFlaskDiameterChange - Handle changing flask diameter.
- * @param {func} handleFlaskHeightChange - Handle changing flask height.
- * @param {func} handleAddFlaskPreset - Handle adding current flask diameter and height as preset.
+ * @param {object} flask - The flask props.
+ * @param {function} handleFlaskPresetChange - Handle changing flask preset.
+ * @param {function} handleFlaskDiameterChange - Handle changing flask diameter.
+ * @param {function} handleFlaskHeightChange - Handle changing flask height.
+ * @param {function} handleAddFlaskPreset - Handle adding current flask diameter and height as preset.
  * @returns {JSX.Element} - A React stateless component.
  */
 const Flask = ({
@@ -22,8 +22,8 @@ const Flask = ({
 	handleAddFlaskPreset,
 	handleRemoveFlaskPreset }) => (
 	<article class={classNames({
-		[style.flask]: true,
-		[timelineStyle.timeline]: true
+		[timelineStyle.timeline]: true,
+		[style.flask]: true
 	})}
 	>
 		<h2>flask</h2>

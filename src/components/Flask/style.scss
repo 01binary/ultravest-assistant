@@ -2,10 +2,16 @@
 @import '../App/style/layout';
 @import '../App/style/timeline';
 
+// Timeline color
 .flask:after {
 	border-color: $color-primary;
 }
 
+// Timeline icon
+.flask {
+	background: url('../../assets/flask.svg') 0 50% no-repeat;
+	background-size: $timeline-icon-size $timeline-icon-size;
+}
 
 // Height label smaller and with margin
 .dimensions section:last-of-type label {

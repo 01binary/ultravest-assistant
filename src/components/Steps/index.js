@@ -7,7 +7,7 @@ import style from './style';
  * Burnout steps.
  * @param {object} segments - The burnout segments.
  * @param {bool} showSegments - Whether to show segments or steps.
- * @param {func} toggleSegmentView - Toggle between segment and step view.
+ * @param {function} toggleSegmentView - Toggle between segment and step view.
  * @returns {JSX.Element} - A stateless component.
  */
 const Steps = ({

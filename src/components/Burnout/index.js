@@ -14,7 +14,7 @@ import style from './style';
  * Display burnout preset calculated from flask size.
  * @param {object} flask - The flask props.
  * @param {bool} showSegments - Whether to show raw or formatted burnout steps.
- * @param {func} toggleSegmentView - Switches between raw and formatted steps.
+ * @param {function} toggleSegmentView - Switches between raw and formatted steps.
  * @returns {JSX.Element} - A stateless component.
  */
 const Burnout = ({
