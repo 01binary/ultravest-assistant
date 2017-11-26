@@ -1,27 +1,107 @@
+@import '../App/style/colors';
+@import '../App/style/layout';
+
+$segment-width: 160px;
+$segment-height: 61.6px;
+
 .segment {
+	background-repeat: no-repeat;
+	width: $segment-width;
+	height: $segment-height;
+	margin-right: -18px;
+	opacity: .75;
+	transition: opacity .2s ease-in-out;
+}
+
+.segment:hover {
+	opacity: .9;
 }
 
 .raise {
-	background: orange;
+	background-image: url('../../assets/raise.svg');
 }
 
 .lower {
-	background: blueviolet;
+	background-image: url('../../assets/lower.svg');
 }
 
+// Segment tip
+.segment figure {
+	display: none;
+	position: absolute;
+	background: $color-shadow;
+	padding: $spacing-third $spacing-half;
+	max-width: 4em;
+}
+
+// Segment tip icon
+.segment figure:after {
+	content: '';
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	top: calc(100% + #{$spacing-third + $spacing-quarter});
+	left: $spacing-triple - $spacing-min;
+}
+
+// Segment tip point
+.segment figure:before {
+	content: '';
+	position: absolute;
+	top: 100%;
+	right: 0px;
+	border-width: $spacing-quarter;
+	border-style: solid;
+	border-color:
+		$color-shadow
+		$color-shadow
+		transparent
+		transparent;
+}
+
+// Segment tip heading
+.segment h3 {
+	font-size: $spacing-four-thirds;
+	margin: 0;
+	line-height: $spacing-single;
+}
+
+// Segment tip text
+.segment figcaption {
+	line-height: $spacing-single;
+}
+
+// Rate tip
 .rate {
+	left: 10px;
 }
 
+// Temperature tip
 .temperature {
+	left: 40px;
 }
 
+// Time tip
 .time {
+	left: 80px;
 }
 
-.temperature,
-.rate,
-.time {
+// Rate icon
+.rate:after {
+	background-image: url('../../assets/up.svg');
 }
 
+// Temperature icon
+.temperature:after {
+	background-image: url('../../assets/pyrometer.svg');
+}
+
+// Time icon
+.time:after {
+	background-image: url('../../assets/clock.svg');
+}
+
+// Units span
 .units {
+	color: $color-text-light;
 }

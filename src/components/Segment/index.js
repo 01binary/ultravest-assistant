@@ -16,13 +16,10 @@ const Segment = ({
 	rate,
 	temp,
 	hold,
-	prev
-}) => (
+	prev }) => (
 	<a name={getSegmentAnchor(name)}>
 		<article class={getSegmentClass(prev && prev.temp, temp)}>
 			<figure class={style.temperature}>
-				<svg />
-
 				<figcaption>
 					<h3>temp</h3>
 					{ prev ?
@@ -35,8 +32,6 @@ const Segment = ({
 			</figure>
 
 			<figure class={style.rate}>
-				<svg />
-
 				<figcaption>
 					<h3>rate</h3>
 					{ `${rate}°` }
@@ -45,8 +40,6 @@ const Segment = ({
 			</figure>
 
 			<figure class={style.time}>
-				<svg />
-
 				<figcaption>
 					<h3>hold</h3>
 					{hold}
