@@ -56,5 +56,5 @@ $share-icon-size: 42px;
 .share:hover {
 	background:
 		url('../../assets/share.svg') 0 0 no-repeat,
-		$color-tertiary;
+		linear-gradient(45deg, $color-accent 50%, $color-selection-accent 100%);
 }
