@@ -11,12 +11,13 @@ $segment-height: 62px;
 	transition: background-color .2s ease-in-out;
 
 	&:hover {
-		background-color: rgba(0, 0, 0, .05);
+		background-color: rgba(0, 0, 0, .01);
 	}
 }
 
 // Segment content
 .segment article {
+	position: relative;
 	background-repeat: no-repeat;
 	width: $segment-width;
 	height: $segment-height;
@@ -38,27 +39,83 @@ $segment-height: 62px;
 	background-image: url('../../assets/lower.svg');
 }
 
-// Segment tip
-.segment figure {
-	display: none;
-	position: absolute;
-	background: $color-shadow;
-	padding: $spacing-third $spacing-half;
-	max-width: 4em;
-}
-
 // Segment tip icon
-.segment figure:after {
-	content: '';
+.segment figure {
 	position: absolute;
 	width: 35px;
 	height: 35px;
-	top: calc(100% + #{$spacing-third + $spacing-quarter});
-	left: $spacing-triple - $spacing-min;
+	cursor: pointer;
+	z-index: 2;
+}
+
+// Segment temperature icon
+.temperature {
+	background-image: url('../../assets/pyrometer.svg');
+}
+
+// Segment time icon
+.time {
+	background-image: url('../../assets/clock.svg');
+}
+
+// Segment rate up icon
+.raise .rate {
+	background-image: url('../../assets/up.svg');
+	left: 0px;
+	top: -10px;
+}
+
+.raise .temperature {
+	left: 47px;
+	top: -55px;
+}
+
+.raise .time {
+	left: 93px;
+	top: -55px;
+}
+
+// Segment rate down icon
+.lower .rate {
+	background-image: url('../../assets/down.svg');
+	left: -2px;
+	top: 0px;
+}
+
+.lower .temperature {
+	left: 47px;
+	top: 50px;
+}
+
+.lower .time {
+	left: 93px;
+	top: 50px;
+}
+
+// Segment tip
+.segment figcaption {
+	position: absolute;
+	line-height: $spacing-single;
+	background: $color-border-light;
+	padding: $spacing-third $spacing-half;
+	min-width: 4em;
+	bottom: calc(100% + 1em);
+	right: 1em;
+	opacity: 0;
+	transform: translateY(8px);
+	transition:
+		opacity .2s ease-in-out,
+		transform .2s ease-in-out;
+}
+
+// Segment tip hover
+.segment figure:hover > figcaption {
+	opacity: 1;
+	transform: translateY(0);
 }
 
 // Segment tip point
-.segment figure:before {
+.segment figcaption:before {
 	content: '';
 	position: absolute;
 	top: 100%;
@@ -66,8 +123,8 @@ $segment-height: 62px;
 	border-width: $spacing-quarter;
 	border-style: solid;
 	border-color:
-		$color-shadow
-		$color-shadow
+		$color-border-light
+		$color-border-light
 		transparent
 		transparent;
 }
@@ -77,41 +134,6 @@ $segment-height: 62px;
 	font-size: $spacing-four-thirds;
 	margin: 0;
 	line-height: $spacing-single;
-}
-
-// Segment tip text
-.segment figcaption {
-	line-height: $spacing-single;
-}
-
-// Rate tip
-.rate {
-	left: 10px;
-}
-
-// Temperature tip
-.temperature {
-	left: 40px;
-}
-
-// Time tip
-.time {
-	left: 80px;
-}
-
-// Rate icon
-.rate:after {
-	background-image: url('../../assets/up.svg');
-}
-
-// Temperature icon
-.temperature:after {
-	background-image: url('../../assets/pyrometer.svg');
-}
-
-// Time icon
-.time:after {
-	background-image: url('../../assets/clock.svg');
 }
 
 // Units span

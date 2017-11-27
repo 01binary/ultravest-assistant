@@ -22,7 +22,7 @@ const Segment = ({
 		<article
 			class={getSegmentClass(prev && prev.temp, temp)}
 			style={{
-				marginTop: offset * 44
+				marginTop: 44 + offset * 44
 			}}
 		>
 			<figure class={style.temperature}>
