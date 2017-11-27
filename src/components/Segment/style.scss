@@ -6,10 +6,12 @@ $segment-height: 62px;
 
 // Segment wrapper
 .segment {
+	padding: 8px;
+	border-radius: 8px;
 	transition: background-color .2s ease-in-out;
 
 	&:hover {
-		background-color: $color-shadow;
+		background-color: rgba(0, 0, 0, .05);
 	}
 }
 
@@ -18,7 +20,7 @@ $segment-height: 62px;
 	background-repeat: no-repeat;
 	width: $segment-width;
 	height: $segment-height;
-	margin-right: -18px;
+	margin-right: -34px;
 }
 
 // Last segment content
