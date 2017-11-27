@@ -44,17 +44,12 @@ $share-icon-size: 42px;
 	height: $share-icon-size+ $spacing-quarter * 2;
 	right: 0px;
 	top: 0px;
-	padding:
-		$spacing-quarter
-		$spacing-quarter
-		$spacing-quarter
-		$spacing-quarter + $share-icon-size + $spacing-third;
-	cursor: pointer;
+	padding: $spacing-quarter;
+	padding-left: $spacing-quarter + $share-icon-size + $spacing-third;
 	transition: background-color .2s ease-in-out;
+	cursor: pointer;
 }
 
 .share:hover {
-	background:
-		url('../../assets/share.svg') 0 0 no-repeat,
-		linear-gradient(45deg, $color-accent 50%, $color-selection-accent 100%);
+	background: url('../../assets/share.svg') 0 0 no-repeat, $color-accent;
 }

@@ -13,12 +13,18 @@ import style from './style';
  */
 const Segment = ({
 	name,
+	offset,
 	rate,
 	temp,
 	hold,
 	prev }) => (
-	<a name={getSegmentAnchor(name)}>
-		<article class={getSegmentClass(prev && prev.temp, temp)}>
+	<a name={getSegmentAnchor(name)} class={style.segment}>
+		<article
+			class={getSegmentClass(prev && prev.temp, temp)}
+			style={{
+				marginTop: offset * 44
+			}}
+		>
 			<figure class={style.temperature}>
 				<figcaption>
 					<h3>temp</h3>
@@ -53,7 +59,6 @@ const Segment = ({
 );
 
 const getSegmentClass = (prevTemp, temp) => classNames({
-	[style.segment]: true,
 	[style.raise]: prevTemp ? temp > prevTemp : true,
 	[style.lower]: prevTemp ? temp < prevTemp : false
 });

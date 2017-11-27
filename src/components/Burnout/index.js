@@ -3,6 +3,7 @@ import classNames from 'obj-str';
 import presets from '../../config/burnoutPresets';
 import getBurnoutPreset from '../../selectors/getBurnoutPreset';
 import getBurnoutTime from '../../selectors/getBurnoutTime';
+import getMaxSegmentIndex from '../../selectors/getMaxSegmentIndex';
 import Diagram from '../Diagram';
 import Steps from '../Steps';
 import timelineStyle from '../App/style/timeline';
@@ -44,7 +45,10 @@ const Burnout = ({
 				</dl>
 			</output>
 
-			<Diagram segments={preset.segments} />
+			<Diagram
+				segments={preset.segments}
+				maxIndex={getMaxSegmentIndex(preset.segments)}
+			/>
 
 			<Steps
 				segments={preset.segments}

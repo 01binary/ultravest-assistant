@@ -2,25 +2,36 @@
 @import '../App/style/layout';
 
 $segment-width: 160px;
-$segment-height: 61.6px;
+$segment-height: 62px;
 
+// Segment wrapper
 .segment {
+	transition: background-color .2s ease-in-out;
+
+	&:hover {
+		background-color: $color-shadow;
+	}
+}
+
+// Segment content
+.segment article {
 	background-repeat: no-repeat;
 	width: $segment-width;
 	height: $segment-height;
 	margin-right: -18px;
-	opacity: .75;
-	transition: opacity .2s ease-in-out;
 }
 
-.segment:hover {
-	opacity: .9;
+// Last segment content
+.segment:last-of-type article {
+	margin-right: 0;
 }
 
+// Segment raising diagram
 .raise {
 	background-image: url('../../assets/raise.svg');
 }
 
+// Segment lowering diagram
 .lower {
 	background-image: url('../../assets/lower.svg');
 }
