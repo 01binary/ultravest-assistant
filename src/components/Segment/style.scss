@@ -3,6 +3,7 @@
 
 $segment-width: 160px;
 $segment-height: 62px;
+$segment-overlap: -34px;
 $segment-icon-size: 35px;
 $segment-extend: $segment-icon-size + $spacing-three-halves;
 
@@ -17,7 +18,7 @@ $segment-extend: $segment-icon-size + $spacing-three-halves;
 	background-repeat: no-repeat;
 	width: $segment-width;
 	height: $segment-height;
-	margin-right: -34px;
+	margin-right: $segment-overlap;
 }
 
 // Last segment content
@@ -96,15 +97,17 @@ $segment-extend: $segment-icon-size + $spacing-three-halves;
 // Segment temperature down icon
 .lower .temperature {
 	left: 47px;
-	top: $segment-extend;
-	height: $segment-icon-size;
+	top: $spacing-single;
+	background-position-y: $spacing-single + $spacing-min;
+	height: $segment-icon-size + $spacing-single + $spacing-min;
 }
 
 // Segment time down icon
 .lower .time {
 	left: 93px;
-	top: $segment-extend;
-	height: $segment-icon-size;
+	top: $spacing-single;
+	background-position-y: $spacing-single + $spacing-min;
+	height: $segment-icon-size + $spacing-single + $spacing-min;
 }
 
 // Segment tip
@@ -118,7 +121,7 @@ $segment-extend: $segment-icon-size + $spacing-three-halves;
 	bottom: calc(100% + 1em);
 	right: 1em;
 	opacity: 0;
-	transform: translateY(8px);
+	transform: translateY($spacing-third);
 	transition:
 		opacity .2s ease-in-out,
 		transform .2s ease-in-out;
