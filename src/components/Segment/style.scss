@@ -9,12 +9,6 @@ $segment-extend: $segment-icon-size + $spacing-three-halves;
 // Segment wrapper
 .segment {
 	padding: $spacing-third;
-	border-radius: $spacing-third;
-	transition: background-color .2s ease-in-out;
-
-	&:hover {
-		background-color: rgba(0, 0, 0, .01);
-	}
 }
 
 // Segment content
@@ -71,20 +65,22 @@ $segment-extend: $segment-icon-size + $spacing-three-halves;
 	height: 60px;
 }
 
-// Segment rate up icon
+// Segment rate icon
 .rate {
 	background-image: url('../../assets/up.svg');
-	width: 35px;
-	height: 35px;
+	width: $segment-extend;
+	height: $segment-icon-size;
 	left: 0px;
 	top: -10px;
 }
 
+// Segment temperature up icon
 .raise .temperature {
 	left: 47px;
 	top: -55px;
 }
 
+// Segment time up icon
 .raise .time {
 	left: 93px;
 	top: -55px;
@@ -94,20 +90,20 @@ $segment-extend: $segment-icon-size + $spacing-three-halves;
 .lower .rate {
 	background-image: url('../../assets/down.svg');
 	left: -2px;
-	top: 0px;
+	top: $spacing-third;
 }
 
 // Segment temperature down icon
 .lower .temperature {
 	left: 47px;
-	top: 50px;
+	top: $segment-extend;
 	height: $segment-icon-size;
 }
 
 // Segment time down icon
 .lower .time {
 	left: 93px;
-	top: 50px;
+	top: $segment-extend;
 	height: $segment-icon-size;
 }
 
@@ -127,6 +123,11 @@ $segment-extend: $segment-icon-size + $spacing-three-halves;
 		opacity .2s ease-in-out,
 		transform .2s ease-in-out;
 	pointer-events: none;
+}
+
+// Offset segment tip for rate
+.rate figcaption {
+	right: 2em;
 }
 
 // Segment tip hover
@@ -156,6 +157,7 @@ $segment-extend: $segment-icon-size + $spacing-three-halves;
 	bottom: initial;
 }
 
+// Segment down tip arrow
 .segment .lower figcaption:before {
 	top: -$spacing-half;
 	border-color:
