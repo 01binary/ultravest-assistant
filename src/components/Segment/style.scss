@@ -3,11 +3,13 @@
 
 $segment-width: 160px;
 $segment-height: 62px;
+$segment-icon-size: 35px;
+$segment-extend: $segment-icon-size + $spacing-three-halves;
 
 // Segment wrapper
 .segment {
-	padding: 8px;
-	border-radius: 8px;
+	padding: $spacing-third;
+	border-radius: $spacing-third;
 	transition: background-color .2s ease-in-out;
 
 	&:hover {
@@ -42,25 +44,38 @@ $segment-height: 62px;
 // Segment tip icon
 .segment figure {
 	position: absolute;
-	width: 35px;
-	height: 35px;
 	cursor: pointer;
 	z-index: 2;
+	background-repeat: no-repeat;
 }
 
 // Segment temperature icon
 .temperature {
 	background-image: url('../../assets/pyrometer.svg');
+
+	// Icon width
+	width: $segment-icon-size;
+
+	// Extend to cover graph point
+	height: 60px;
 }
 
 // Segment time icon
 .time {
 	background-image: url('../../assets/clock.svg');
+
+	// Icon width
+	width: $segment-icon-size;
+	
+	// Extend to cover graph point
+	height: 60px;
 }
 
 // Segment rate up icon
-.raise .rate {
+.rate {
 	background-image: url('../../assets/up.svg');
+	width: 35px;
+	height: 35px;
 	left: 0px;
 	top: -10px;
 }
@@ -82,19 +97,24 @@ $segment-height: 62px;
 	top: 0px;
 }
 
+// Segment temperature down icon
 .lower .temperature {
 	left: 47px;
 	top: 50px;
+	height: $segment-icon-size;
 }
 
+// Segment time down icon
 .lower .time {
 	left: 93px;
 	top: 50px;
+	height: $segment-icon-size;
 }
 
 // Segment tip
 .segment figcaption {
 	position: absolute;
+	z-index: 2;
 	line-height: $spacing-single;
 	background: $color-border-light;
 	padding: $spacing-third $spacing-half;
@@ -106,6 +126,7 @@ $segment-height: 62px;
 	transition:
 		opacity .2s ease-in-out,
 		transform .2s ease-in-out;
+	pointer-events: none;
 }
 
 // Segment tip hover
@@ -126,6 +147,21 @@ $segment-height: 62px;
 		$color-border-light
 		$color-border-light
 		transparent
+		transparent;
+}
+
+// Segment tip down
+.segment .lower figcaption {
+	top: calc(100% + 1em);
+	bottom: initial;
+}
+
+.segment .lower figcaption:before {
+	top: -$spacing-half;
+	border-color:
+		transparent
+		$color-border-light
+		$color-border-light
 		transparent;
 }
 
