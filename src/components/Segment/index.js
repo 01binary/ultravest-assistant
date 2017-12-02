@@ -4,7 +4,7 @@ import getSegmentAnchor from '../../selectors/getSegmentAnchor';
 import style from './style';
 
 /**
- * Burnout diagram segment.
+ * Burnout diagram segment
  * @param {string} name - The segment name.
  * @param {number} rate - The segment rate (F per hour).
  * @param {number} temp - The segment temperature (F).
@@ -25,12 +25,18 @@ const Segment = ({
 				marginTop: 44 + offset * 44
 			}}
 		>
+			{ !prev &&
+				<figure class={style.ambient}>
+					<figcaption>
+						<h3>ambient</h3>
+					</figcaption>
+				</figure>
+			}
+
 			<figure class={style.temperature}>
 				<figcaption>
 					<h3>temp</h3>
-					{ prev ?
-						`${temp}°` : 'ambient'
-					}
+					{ `${temp}°` }
 					{ prev &&
 						<span class={style.units}>F</span>
 					}

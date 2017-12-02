@@ -4,7 +4,7 @@ import getSegmentOffset from '../../selectors/getSegmentOffset';
 import style from './style';
 
 /**
- * Burnout diagram.
+ * Burnout diagram
  * @param {object[]} segments - The program segments.
  * @param {number} maxIndex - The max segment index.
  * @returns {JSX.Element} - A stateless component.

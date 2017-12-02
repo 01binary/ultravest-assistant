@@ -12,7 +12,7 @@ import calcStyle from '../App/style/calc';
 import style from './style';
 
 /**
- * Display burnout preset calculated from flask size.
+ * Display burnout preset calculated from flask size
  * @param {object} flask - The flask props.
  * @param {bool} showSegments - Whether to show raw or formatted burnout steps.
  * @param {function} toggleSegmentView - Switches between raw and formatted steps.

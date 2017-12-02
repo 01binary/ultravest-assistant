@@ -3,7 +3,7 @@ import Helmet from 'preact-helmet';
 import style from './style';
 
 /**
- * Application header with main actions.
+ * Application header with actions
  * @returns {JSX.Element} - A stateless component.
  */
 const Header = () => (

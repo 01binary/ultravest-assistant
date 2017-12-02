@@ -4,7 +4,7 @@ import getSegmentAnchor from '../../selectors/getSegmentAnchor';
 import style from './style';
 
 /**
- * Burnout steps.
+ * Burnout steps
  * @param {object} segments - The burnout segments.
  * @param {bool} showSegments - Whether to show segments or steps.
  * @param {function} toggleSegmentView - Toggle between segment and step view.

@@ -12,7 +12,7 @@ import style from './style';
  * @returns {function} - A stateless component.
  */
 const App = props => (
-	<form id="app" class={style.app} method="post" action="/">
+	<form id="app" class={style.app}>
 		<Header />
 
 		<main>

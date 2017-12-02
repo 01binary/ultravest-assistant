@@ -44,6 +44,14 @@ $segment-extend: $segment-icon-size + $spacing-three-halves;
 	background-repeat: no-repeat;
 }
 
+// Segment ambient temperature overlay
+.ambient {
+	width: 28px;
+	height: $spacing-single;
+	top: 24px;
+	left: -43px;
+}
+
 // Segment temperature icon
 .temperature {
 	background-image: url('../../assets/pyrometer.svg');

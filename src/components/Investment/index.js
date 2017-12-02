@@ -7,7 +7,7 @@ import calcStyle from '../App/style/calc';
 import style from './style';
 
 /**
- * Investment Parameters.
+ * Investment Parameters
  * @param {object} flask - The flask props.
  * @param {object} investment - The investment props.
  * @param {function} setInvestmentPreset - The function called to set investment ratio preset.
@@ -28,6 +28,7 @@ const Investment = ({
 			<section class={formStyle.control}>
 				<select
 					id="investment-ratio"
+					name="investment-ratio"
 					value={investment.preset}
 					onChange={handleInvestmentPresetChange}
 				>

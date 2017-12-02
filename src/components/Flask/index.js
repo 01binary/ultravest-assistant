@@ -6,7 +6,7 @@ import formStyle from '../App/style/forms';
 import style from './style';
 
 /**
- * Flask Parameters.
+ * Flask Parameters
  * @param {object} flask - The flask props.
  * @param {function} handleFlaskPresetChange - Handle changing flask preset.
  * @param {function} handleFlaskDiameterChange - Handle changing flask diameter.
@@ -36,8 +36,10 @@ const Flask = ({
 			>
 				<select
 					id="flask-preset"
+					name="flask-preset"
 					value={flask.preset}
 					onChange={handleFlaskPresetChange}
+					autofocus
 				>
 					{ Object.keys(flask.presets).map(preset => (
 						<option selected={preset === flask.preset}>
@@ -86,6 +88,7 @@ const Flask = ({
 			<section class={formStyle.control}>
 				<input
 					id="flask-diameter"
+					name="flask-diameter"
 					type="number"
 					step="0.1"
 					value={flask.diameter}
@@ -100,6 +103,7 @@ const Flask = ({
 			<section class={formStyle.control}>
 				<input
 					id="flask-height"
+					name="flask-height"
 					type="number"
 					step="0.1"
 					value={flask.height}
