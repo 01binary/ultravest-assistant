@@ -91,6 +91,10 @@
 	text-align: left;
 }
 
+.steps td span {
+	color: $color-text-light;
+}
+
 .steps a {
 	color: $color-accent;
 	text-decoration: none;

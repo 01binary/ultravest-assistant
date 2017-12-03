@@ -36,18 +36,16 @@ const Segment = ({
 			<figure class={style.temperature}>
 				<figcaption>
 					<h3>temp</h3>
-					{ `${temp}°` }
-					{ prev &&
-						<span class={style.units}>F</span>
-					}
+					{ temp }
+					<span class={style.units}>&deg;F</span>
 				</figcaption>
 			</figure>
 
 			<figure class={style.rate}>
 				<figcaption>
 					<h3>rate</h3>
-					{ `${rate}°` }
-					<span class={style.units}>F/hr</span>
+					{ rate }
+					<span class={style.units}>&deg;F/hr</span>
 				</figcaption>
 			</figure>
 

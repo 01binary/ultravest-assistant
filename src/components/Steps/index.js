@@ -74,9 +74,18 @@ const Steps = ({
 								{name}
 							</a>
 						</td>
-						<td>{rate}</td>
-						<td>{temp}</td>
-						<td>{hold}</td>
+						<td>
+							{rate}
+							<span>&deg;F/hr</span>
+						</td>
+						<td>
+							{temp}
+							<span>&deg;F</span>
+						</td>
+						<td>
+							{`${hold} `}
+							<span>hours</span>
+						</td>
 					</tr>
 				))}
 			</tbody>
