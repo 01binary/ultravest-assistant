@@ -113,13 +113,13 @@
 	color: $color-text-light;
 }
 
-.steps a {
+.steps table a {
 	color: $color-accent;
 	text-decoration: none;
 	transition: color .3s ease-in-out;
 }
 
-.steps a:hover {
+.steps table a:hover {
 	color: $color-accent-highlight;
 }
 
@@ -132,19 +132,37 @@
 }
 
 .steps li {
-	line-height: $spacing-single;
 	margin: 0 0 $spacing-half 0;
 }
 
-.steps li:before {
+.steps li a {
+	color: $color-text-light;
+	text-decoration: none;
+}
+
+.steps li a:before {
 	display: inline-block;
 	content: counter(listCounter);
+	color: $color-text-dark;
 	counter-increment: listCounter;
 	line-height: $spacing-one-and-third;
-	background: $color-shadow;
+	background: $color-border-light;
 	width: $spacing-one-and-third;
 	height: $spacing-one-and-third;
 	border-radius: $spacing-one-and-third;
 	margin: 0 $spacing-half 0 0;
 	text-align: center;
+	transition:
+		color .3s ease-in-out,
+		background-color .3s ease-in-out;
+}
+
+.steps li a:hover:before,
+.steps li a:focus:before {
+	color: $color-background;
+	background: $color-accent;
+}
+
+.steps li span {
+	color: $color-text-dark;
 }
