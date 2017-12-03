@@ -55,11 +55,11 @@
 }
 
 .stepsTab + label {
-	background-image: url('../../assets/segments.svg');
+	background-image: url('../../assets/steps.svg');
 }
 
 .segmentsTab + label {
-	background-image: url('../../assets/steps.svg');
+	background-image: url('../../assets/segments.svg');
 }
 
 .stepsTab:checked ~ table {
