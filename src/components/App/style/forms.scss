@@ -70,6 +70,7 @@ select {
 	display: flex;
 	flex-direction: row;
 	margin-bottom: $spacing-single;
+	max-width: $spacing-single * 16;
 }
 
 .group section {
