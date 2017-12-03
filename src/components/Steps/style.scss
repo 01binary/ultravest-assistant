@@ -26,7 +26,7 @@
 	padding: 0 $spacing-third 0 $spacing-double;
 	margin: 0;
 	margin-bottom: -1px;
-	opacity: .8;
+	opacity: 1;
 	cursor: pointer;
 	border-bottom: $spacing-min solid transparent;
 	background-repeat: no-repeat;
@@ -37,16 +37,20 @@
 		$spacing-third
 		$spacing-three-halves;
 	transition:
-		opacity .2s ease-in-out,
+		color .3s ease-in-out,
 		border-color .3s ease-in-out;
 }
 
 .tab + label:hover {
-	opacity: 1;
+	color: $color-accent-highlight;
 }
 
 .tab:checked + label {
 	border-bottom-color: $color-accent;
+}
+
+.tab:checked + label:hover {
+	border-bottom-color: $color-accent-highlight;
 }
 
 .stepsTab + label {
@@ -55,4 +59,44 @@
 
 .segmentsTab + label {
 	background-image: url('../../assets/steps.svg');
+}
+
+.steps table {
+	font-size: $spacing-four-thirds;
+	border-spacing: 0;
+	width: 100%;
+}
+
+.steps th {
+	padding: $spacing-half;
+	text-align: left;
+}
+
+.steps tr {
+	height: $spacing-double;
+	border: 1px solid $color-border-dark;
+}
+
+.steps td {
+	padding: $spacing-half;
+	border-bottom: 1px solid $color-border-dark;
+	transition: background-color .3s ease-in-out;
+}
+
+.steps tr:hover td {
+	background: $color-shadow;
+}
+
+.steps td:first-of-type {
+	text-align: left;
+}
+
+.steps a {
+	color: $color-accent;
+	text-decoration: none;
+	transition: color .3s ease-in-out;
+}
+
+.steps a:hover {
+	color: $color-accent-highlight;
 }
