@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import classNames from 'obj-str';
 import getBurnoutSteps from '../../selectors/getBurnoutSteps';
 import getSegmentAnchor from '../../selectors/getSegmentAnchor';
 import style from './style';
@@ -16,25 +17,39 @@ const Steps = ({
 	toggleSegmentView
 }) => (
 	<section class={style.steps}>
-		<input
-			type="radio"
-			name="view"
-			id="steps"
-			value="steps"
-			checked={!showSegments}
-			onChange={toggleSegmentView}
-		/>
-		<label for="steps">steps</label>
+		<fieldset class={style.tabGroup}>
+			<input
+				class={classNames({
+					[style.tab]: true,
+					[style.segmentsTab]: true
+				})}
+				type="radio"
+				name="view"
+				id="segments"
+				value="segments"
+				checked={showSegments}
+				onChange={toggleSegmentView}
+			/>
+			<label for="segments">
+				segments
+			</label>
 
-		<input
-			type="radio"
-			name="view"
-			id="segments"
-			value="segments"
-			checked={showSegments}
-			onChange={toggleSegmentView}
-		/>
-		<label for="segments">segments</label>
+			<input
+				class={classNames({
+					[style.tab]: true,
+					[style.stepsTab]: true
+				})}
+				type="radio"
+				name="view"
+				id="steps"
+				value="steps"
+				checked={!showSegments}
+				onChange={toggleSegmentView}
+			/>
+			<label for="steps">
+				steps
+			</label>
+		</fieldset>
 
 		<table>
 			<thead>

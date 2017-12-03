@@ -1,4 +1,58 @@
+@import '../App/style/colors';
+@import '../App/style/layout';
+
 .steps {
 	position: relative;
 	z-index: 10;
+}
+
+.tabGroup {
+	border: none;
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid $color-border-dark;
+}
+
+.tab {
+	display: none;
+}
+
+.tab + label {
+	display: inline-block;
+	color: $color-accent;
+	font-size: $spacing-four-thirds;
+	width: $spacing-half * 12 - $spacing-double - $spacing-third;
+	line-height: $spacing-double + $spacing-quarter;
+	padding: 0 $spacing-third 0 $spacing-double;
+	margin: 0;
+	margin-bottom: -1px;
+	opacity: .8;
+	cursor: pointer;
+	border-bottom: $spacing-min solid transparent;
+	background-repeat: no-repeat;
+	background-size:
+		$spacing-single
+		$spacing-single;
+	background-position:
+		$spacing-third
+		$spacing-three-halves;
+	transition:
+		opacity .2s ease-in-out,
+		border-color .3s ease-in-out;
+}
+
+.tab + label:hover {
+	opacity: 1;
+}
+
+.tab:checked + label {
+	border-bottom-color: $color-accent;
+}
+
+.stepsTab + label {
+	background-image: url('../../assets/segments.svg');
+}
+
+.segmentsTab + label {
+	background-image: url('../../assets/steps.svg');
 }

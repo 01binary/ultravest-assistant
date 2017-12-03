@@ -2,6 +2,10 @@
 @import 'typography';
 @import 'layout';
 
+.calc {
+	margin-bottom: $spacing-third;
+}
+
 // Calculation pair
 .calc dl {
 	flex-direction: row;
