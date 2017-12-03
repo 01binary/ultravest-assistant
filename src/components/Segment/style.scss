@@ -121,7 +121,6 @@ $segment-extend: $segment-icon-size + $spacing-three-halves;
 // Segment tip
 .segment figcaption {
 	position: absolute;
-	z-index: 2;
 	line-height: $spacing-single;
 	background: $color-border-light;
 	padding: $spacing-third $spacing-half;

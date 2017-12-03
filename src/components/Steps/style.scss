@@ -3,14 +3,6 @@
 
 .steps {
 	position: relative;
-	z-index: 10;
-}
-
-.tabGroup {
-	border: none;
-	margin: 0;
-	padding: 0;
-	border-bottom: 1px solid $color-border-dark;
 }
 
 .tab {
@@ -53,6 +45,15 @@
 	border-bottom-color: $color-accent-highlight;
 }
 
+.tab:first-of-type + label:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: $spacing-double + $spacing-third;
+	border-bottom: 1px solid $color-border-dark;
+}
+
 .stepsTab + label {
 	background-image: url('../../assets/segments.svg');
 }
@@ -61,10 +62,27 @@
 	background-image: url('../../assets/steps.svg');
 }
 
+.stepsTab:checked ~ table {
+	display: none;
+}
+
+.stepsTab:checked ~ ol {
+	display: block;
+}
+
+.segmentsTab:checked ~ table {
+	display: block;
+}
+
+.segmentsTab:checked ~ ol {
+	display: none;
+}
+
 .steps table {
 	font-size: $spacing-four-thirds;
 	border-spacing: 0;
 	width: 100%;
+	margin: $spacing-half 0 $spacing-triple 0;
 }
 
 .steps th {
@@ -103,4 +121,30 @@
 
 .steps a:hover {
 	color: $color-accent-highlight;
+}
+
+.steps ol {
+	font-size: $spacing-four-thirds;
+	counter-reset: listCounter;
+	margin: $spacing-single 0 $spacing-single 0;
+	padding: 0;
+	list-style: none;
+}
+
+.steps li {
+	line-height: $spacing-single;
+	margin: 0 0 $spacing-half 0;
+}
+
+.steps li:before {
+	display: inline-block;
+	content: counter(listCounter);
+	counter-increment: listCounter;
+	line-height: $spacing-one-and-third;
+	background: $color-shadow;
+	width: $spacing-one-and-third;
+	height: $spacing-one-and-third;
+	border-radius: $spacing-one-and-third;
+	margin: 0 $spacing-half 0 0;
+	text-align: center;
 }
