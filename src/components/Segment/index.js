@@ -28,7 +28,7 @@ const Segment = ({
 			{ !prev &&
 				<figure class={style.ambient}>
 					<figcaption>
-						<h3>ambient</h3>
+						ambient
 					</figcaption>
 				</figure>
 			}

@@ -45,15 +45,15 @@ const Burnout = ({
 				</dl>
 			</output>
 
-			<Diagram
-				segments={preset.segments}
-				maxIndex={getMaxSegmentIndex(preset.segments)}
-			/>
-
 			<Steps
 				segments={preset.segments}
 				showSegments={showSegments}
 				toggleSegmentView={toggleSegmentView}
+			/>
+
+			<Diagram
+				segments={preset.segments}
+				maxIndex={getMaxSegmentIndex(preset.segments)}
 			/>
 		</article>
 	);

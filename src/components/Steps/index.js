@@ -18,8 +18,9 @@ const Steps = ({
 	<section class={style.steps}>
 		<input
 			type="radio"
-			name="program-view"
+			name="view"
 			id="steps"
+			value="steps"
 			checked={!showSegments}
 			onChange={toggleSegmentView}
 		/>
@@ -27,8 +28,9 @@ const Steps = ({
 
 		<input
 			type="radio"
-			name="program-view"
+			name="view"
 			id="segments"
+			value="segments"
 			checked={showSegments}
 			onChange={toggleSegmentView}
 		/>
