@@ -1,0 +1,40 @@
+@import '../App/style/colors';
+@import '../App/style/typography';
+@import '../App/style/layout';
+
+footer {
+	width: 100%;
+	text-align: center;
+	margin: $spacing-triple 0 $spacing-double 0;
+}
+
+footer a {
+	position: relative;
+	color: $color-text-medium;
+	font-size: $spacing-four-thirds;
+	text-decoration: none;
+	padding-left: $spacing-one-and-half + $spacing-quarter;
+	background: url('../../assets/github.svg') 0 0 no-repeat;
+	transition: color .2s ease-in-out;
+}
+
+footer a:after {
+	content: '';
+	position: absolute;
+	border: 1px solid $color-border;
+	left: -$spacing-half + 5px;
+	top: -7px;
+	width: $spacing-one-and-half;
+	height: $spacing-one-and-half;
+	border-radius: $spacing-one-and-half;
+	opacity: 1;
+	transition: opacity .2s ease-in-out;
+}
+
+footer a:hover {
+	color: $color-text-light;
+}
+
+footer a:hover:after {
+	opacity: .7;
+}
