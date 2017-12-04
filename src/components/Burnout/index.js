@@ -5,7 +5,7 @@ import getBurnoutPreset from '../../selectors/getBurnoutPreset';
 import getBurnoutTime from '../../selectors/getBurnoutTime';
 import getMaxSegmentIndex from '../../selectors/getMaxSegmentIndex';
 import Diagram from '../Diagram';
-import Steps from '../Steps';
+import Program from '../Program';
 import timelineStyle from '../App/style/timeline';
 import formStyle from '../App/style/forms';
 import calcStyle from '../App/style/calc';
@@ -45,7 +45,7 @@ const Burnout = ({
 				</dl>
 			</output>
 
-			<Steps
+			<Program
 				segments={preset.segments}
 				showSegments={showSegments}
 				toggleSegmentView={toggleSegmentView}
