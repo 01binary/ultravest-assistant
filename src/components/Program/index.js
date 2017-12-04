@@ -7,15 +7,9 @@ import style from './style';
 /**
  * Burnout steps
  * @param {object} segments - The burnout segments.
- * @param {bool} showSegments - Whether to show segments or steps.
- * @param {function} toggleSegmentView - Toggle between segment and step view.
  * @returns {JSX.Element} - A stateless component.
  */
-const Steps = ({
-	segments,
-	showSegments,
-	toggleSegmentView
-}) => (
+const Steps = ({ segments }) => (
 	<section class={style.steps}>
 		<input
 			class={classNames({
@@ -26,8 +20,6 @@ const Steps = ({
 			name="view"
 			id="segments"
 			value="segments"
-			checked={showSegments}
-			onChange={toggleSegmentView}
 		/>
 		<label for="segments">
 			segments
@@ -42,8 +34,6 @@ const Steps = ({
 			name="view"
 			id="steps"
 			value="steps"
-			checked={!showSegments}
-			onChange={toggleSegmentView}
 		/>
 		<label for="steps">
 			steps
