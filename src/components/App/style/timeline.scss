@@ -6,11 +6,12 @@ $timeline-icon-size: $spacing-single * 5;
 $timeline-spacing: $spacing-one-and-half;
 $timeline-gutter: $timeline-icon-size + $timeline-spacing * 2 + $timeline-donut-size;
 $timeline-gutter-center: $timeline-icon-size + $timeline-spacing + $timeline-donut-size / 2;
+$timeline-width-desktop: $max-width-desktop - $timeline-gutter;
 
 // Timeline article content
 .timeline {
 	position: relative;
-	max-width: $max-width-desktop - $timeline-gutter;
+	max-width: $timeline-width-desktop;
 	margin: $spacing-three-halves auto 0 auto;
 	padding: 0 0 0 $timeline-gutter;
 }

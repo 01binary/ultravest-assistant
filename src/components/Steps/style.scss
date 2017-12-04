@@ -1,5 +1,6 @@
 @import '../App/style/colors';
 @import '../App/style/layout';
+@import '../App/style/timeline';
 
 .steps {
 	position: relative;
@@ -62,85 +63,103 @@
 	background-image: url('../../assets/segments.svg');
 }
 
-.stepsTab:checked ~ table {
-	display: none;
+.tabPages {
+	display: flex;
+	flex-wrap: nowrap;
+	width: $timeline-width-desktop;
+	overflow: hidden;
+	transition: transform 1s ease-in-out;
 }
 
-.stepsTab:checked ~ ol {
-	display: block;
+.tabPages table,
+.tabPages ol {
+	transform: translateX(0);
+	transition:
+		transform .5s ease-in-out,
+		opacity .5s ease-in-out;
 }
 
-.segmentsTab:checked ~ table {
-	display: block;
+.tabPages table {
+	opacity: 1;
 }
 
-.segmentsTab:checked ~ ol {
-	display: none;
+.tabPages ol {
+	opacity: 0;
 }
 
-.steps table {
+.stepsTab:checked ~ .tabPages table {
+	opacity: 0;
+	transform: translateX(-$timeline-width-desktop);
+}
+
+.stepsTab:checked ~ .tabPages ol {
+	opacity: 1;
+	transform: translateX(-$timeline-width-desktop);
+}
+
+.tabPages table {
 	font-size: $spacing-four-thirds;
 	border-spacing: 0;
-	width: 100%;
+	flex: 0 0 $timeline-width-desktop;
 	margin: $spacing-half 0 $spacing-triple 0;
 }
 
-.steps th {
+.tabPages th {
 	padding: $spacing-half;
 	text-align: left;
 }
 
-.steps tr {
+.tabPages tr {
 	height: $spacing-double;
-	border: 1px solid $color-border-dark;
 }
 
-.steps td {
+.tabPages td {
 	padding: $spacing-half;
 	border-bottom: 1px solid $color-border-dark;
 	transition: background-color .3s ease-in-out;
 }
 
-.steps tr:hover td {
+.tabPages tr:hover td {
 	background: $color-shadow;
 }
 
-.steps td:first-of-type {
-	text-align: left;
+.tabPages tr:last-of-type td {
+	border: none;
 }
 
-.steps td span {
+.tabPages td span {
 	color: $color-text-light;
 }
 
-.steps table a {
+.tabPages table a {
 	color: $color-accent;
 	text-decoration: none;
 	transition: color .3s ease-in-out;
 }
 
-.steps table a:hover {
+.tabPages table a:hover {
 	color: $color-accent-highlight;
 }
 
-.steps ol {
+.tabPages ol {
+	list-style: none;
 	font-size: $spacing-four-thirds;
 	counter-reset: listCounter;
+	flex: 0 0 $timeline-width-desktop;
 	margin: $spacing-single 0 $spacing-single 0;
 	padding: 0;
-	list-style: none;
 }
 
-.steps li {
+.tabPages li {
 	margin: 0 0 $spacing-half 0;
 }
 
-.steps li a {
+.tabPages li a {
 	color: $color-text-light;
 	text-decoration: none;
 }
 
-.steps li a:before {
+.tabPages li a:before {
 	display: inline-block;
 	content: counter(listCounter);
 	color: $color-text-dark;
@@ -157,12 +176,12 @@
 		background-color .3s ease-in-out;
 }
 
-.steps li a:hover:before,
-.steps li a:focus:before {
+.tabPages li a:hover:before,
+.tabPages li a:focus:before {
 	color: $color-background;
 	background: $color-accent;
 }
 
-.steps li span {
+.tabPages li span {
 	color: $color-text-dark;
 }

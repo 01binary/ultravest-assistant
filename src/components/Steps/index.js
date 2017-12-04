@@ -49,66 +49,68 @@ const Steps = ({
 			steps
 		</label>
 
-		<table>
-			<thead>
-				<tr>
-					<th>segment</th>
-					<th>rate</th>
-					<th>temp</th>
-					<th>hold</th>
-				</tr>
-			</thead>
-			
-			<tbody>
-				{ segments.map(({
-					name,
-					rate,
-					temp,
-					hold
-				}) => (
+		<section class={style.tabPages}>
+			<table>
+				<thead>
 					<tr>
-						<td>
-							<a href={`#${getSegmentAnchor(name)}`}>
-								{name}
-							</a>
-						</td>
-						<td>
-							{rate}
-							<span>&deg;F/hr</span>
-						</td>
-						<td>
-							{temp}
-							<span>&deg;F</span>
-						</td>
-						<td>
-							{`${hold} `}
-							<span>hours</span>
-						</td>
+						<th>segment</th>
+						<th>rate</th>
+						<th>temp</th>
+						<th>hold</th>
 					</tr>
-				))}
-			</tbody>
-		</table>
+				</thead>
+				
+				<tbody>
+					{ segments.map(({
+						name,
+						rate,
+						temp,
+						hold
+					}) => (
+						<tr>
+							<td>
+								<a href={`#${getSegmentAnchor(name)}`}>
+									{name}
+								</a>
+							</td>
+							<td>
+								{rate}
+								<span>&deg;F/hr</span>
+							</td>
+							<td>
+								{temp}
+								<span>&deg;F</span>
+							</td>
+							<td>
+								{`${hold} `}
+								<span>hours</span>
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
 
-		<ol>
-			{ getBurnoutSteps(segments).map(({
-				heading,
-				action,
-				temp,
-				middle,
-				time,
-				units
-			}) => (
-				<li>
-					<a href={`#${getSegmentAnchor(heading)}`}>
-						{action}
-						<span> {temp}</span>&deg;
-						{` ${middle} `}
-						<span> {time} </span>
-						{units}
-					</a>
-				</li>
-			))}
-		</ol>
+			<ol>
+				{ getBurnoutSteps(segments).map(({
+					heading,
+					action,
+					temp,
+					middle,
+					time,
+					units
+				}) => (
+					<li>
+						<a href={`#${getSegmentAnchor(heading)}`}>
+							{action}
+							<span> {temp}</span>&deg;
+							{` ${middle} `}
+							<span> {time} </span>
+							{units}
+						</a>
+					</li>
+				))}
+			</ol>
+		</section>
 	</section>
 );
 
