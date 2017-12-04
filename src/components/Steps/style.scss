@@ -101,7 +101,6 @@
 	font-size: $spacing-four-thirds;
 	border-spacing: 0;
 	flex: 0 0 $timeline-width-desktop;
-	margin: $spacing-half 0 $spacing-triple 0;
 }
 
 .tabPages th {
@@ -146,7 +145,7 @@
 	font-size: $spacing-four-thirds;
 	counter-reset: listCounter;
 	flex: 0 0 $timeline-width-desktop;
-	margin: $spacing-single 0 $spacing-single 0;
+	margin: $spacing-single 0 $spacing-half 0;
 	padding: 0;
 }
 
