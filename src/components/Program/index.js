@@ -1,15 +1,15 @@
 import { h } from 'preact';
 import classNames from 'obj-str';
-import getBurnoutSteps from '../../selectors/getBurnoutSteps';
-import getSegmentAnchor from '../../selectors/getSegmentAnchor';
+import Segments from '../Segments';
+import Steps from '../Steps';
 import style from './style';
 
 /**
- * Burnout steps
+ * Burnout program tabs
  * @param {object} segments - The burnout segments.
  * @returns {JSX.Element} - A stateless component.
  */
-const Steps = ({ segments }) => (
+const Program = ({ segments }) => (
 	<section class={style.steps}>
 		<input
 			class={classNames({
@@ -40,68 +40,10 @@ const Steps = ({ segments }) => (
 		</label>
 
 		<section class={style.tabPages}>
-			<table>
-				<thead>
-					<tr>
-						<th>segment</th>
-						<th>rate</th>
-						<th>temp</th>
-						<th>hold</th>
-					</tr>
-				</thead>
-				
-				<tbody>
-					{ segments.map(({
-						name,
-						rate,
-						temp,
-						hold
-					}) => (
-						<tr>
-							<td>
-								<a href={`#${getSegmentAnchor(name)}`}>
-									{name}
-								</a>
-							</td>
-							<td>
-								{rate}
-								<span>&deg;F/hr</span>
-							</td>
-							<td>
-								{temp}
-								<span>&deg;F</span>
-							</td>
-							<td>
-								{`${hold} `}
-								<span>hours</span>
-							</td>
-						</tr>
-					))}
-				</tbody>
-			</table>
-
-			<ol>
-				{ getBurnoutSteps(segments).map(({
-					heading,
-					action,
-					temp,
-					middle,
-					time,
-					units
-				}) => (
-					<li>
-						<a href={`#${getSegmentAnchor(heading)}`}>
-							{action}
-							<span> {temp}</span>&deg;
-							{` ${middle} `}
-							<span> {time} </span>
-							{units}
-						</a>
-					</li>
-				))}
-			</ol>
+			<Segments segments={segments} />
+			<Steps segments={segments} />
 		</section>
 	</section>
 );
 
-export default Steps;
+export default Program;
