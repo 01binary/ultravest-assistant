@@ -97,6 +97,14 @@
 	transform: translateX(-$timeline-width-desktop);
 }
 
+// Firefox hack
+@-moz-document url-prefix() { 
+	.stepsTab:checked ~ .tabPages ol {
+		opacity: 1;
+		transform: translateX(-$timeline-width-desktop + 108px);
+	}
+}
+
 .tabPages table {
 	font-size: $spacing-four-thirds;
 	border-spacing: 0;
