@@ -21,16 +21,39 @@
 
 // Units
 .dimensions span {
+	color: $color-text-light;
 	margin: 1em 0 0 calc(-1em - 8px);
 	order: -2;
-	opacity: .5;
-	transition: opacity .3s ease-in-out;
+	transition: color .3s ease-in-out;
 }
 
-// Hide units on hover or focus to make way for up/down spinner
+// Hide units on focus and hover
 .dimensions input:focus ~ span,
 .dimensions section:hover span {
-	opacity: 0;
+	color: $color-background;
+}
+
+// Hide spinners when units are shown
+.dimensions input {
+	-moz-appearance: textfield;
+
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+	}
+}
+
+// Show spinners when units are hidden
+.dimensions input:focus,
+.dimensions section:hover input {
+	-moz-appearance: number-input;
+
+	&::-webkit-outer-spin-button {
+		-webkit-appearance: outer-spin-button;
+	}
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: inner-spin-button;
+	}
 }
 
 // Buttons

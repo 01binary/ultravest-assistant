@@ -18,6 +18,7 @@ label:hover {
 input[type=text],
 input[type=number],
 select {
+	color: $color-text-dark;
 	font-family: $font-body;
 	font-size: $font-size-input;
 	box-sizing: border-box;
@@ -27,7 +28,6 @@ select {
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
-	color: $color-text-dark;
 }
 
 input[type=text],
@@ -36,6 +36,7 @@ input[type=number] {
 	padding: $spacing-third 0 $spacing-third $spacing-third;
 	border: none;
 	border-bottom: 2px solid $color-border-text;
+	background-color: transparent;
 	transition:
 		color .2s ease-in-out,
 		border-bottom-color .2s ease-in-out;
