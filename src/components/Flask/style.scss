@@ -59,7 +59,7 @@
 // Buttons
 .action {
 	flex: 0 0 $spacing-double;
-	background-color: $color-border-dark;
+	background-color: $color-border-light;
 	border-radius: $spacing-quarter;
 	border: none;
 	width: $spacing-double;
@@ -79,7 +79,7 @@
 	&:hover,
 	&:focus {
 		color: $color-text-darker;
-		background-color: $color-border-light;
+		background-color: $color-shadow;
 	}
 }
 

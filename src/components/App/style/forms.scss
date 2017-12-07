@@ -25,6 +25,9 @@ select {
 	line-height: $spacing-one-and-third;
 	min-height: $spacing-double;
 	margin: 0;
+}
+
+select {
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
@@ -49,7 +52,7 @@ input[type=number] {
 }
 
 select {
-	background-color: $color-border-dark;
+	background-color: $color-border-light;
 	border-radius: $spacing-third;
 	border: none;
 	max-width: $spacing-single * 8;
@@ -65,7 +68,7 @@ select {
 	&:hover,
 	&:focus {
 		color: $color-text-darker;
-		background-color: $color-border-light;
+		background-color: $color-shadow;
 	}
 }
 
