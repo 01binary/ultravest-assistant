@@ -98,7 +98,9 @@ const Flask = ({
 				<label for="flask-diameter">
 					diameter
 				</label>
-				<Units display="in" alt="inches" />
+				<Units alt="inches">
+					in
+				</Units>
 			</section>
 
 			<section class={formStyle.control}>
@@ -113,7 +115,9 @@ const Flask = ({
 				<label for="flask-height">
 					height
 				</label>
-				<Units display="in" alt="inches" />
+				<Units alt="inches">
+					in
+				</Units>
 			</section>
 		</section>
 	</article>

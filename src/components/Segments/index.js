@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import Units from '../Units';
 import getSegmentAnchor from '../../selectors/getSegmentAnchor';
 
 /**
@@ -27,11 +28,15 @@ const Segments = ({ segments }) => (
 					</td>
 					<td>
 						{rate}
-						<span>&deg;F/hr</span>
+						<Units alt="degrees Fahrenheit per hour">
+							&deg;F/hr
+						</Units>
 					</td>
 					<td>
 						{temp}
-						<span>&deg;F</span>
+						<Units alt="degrees Fahrenheit">
+							&deg;F
+						</Units>
 					</td>
 					<td>
 						{`${hold} `}

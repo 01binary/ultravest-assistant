@@ -55,7 +55,9 @@ const Investment = ({
 					<dt>{mix.component}</dt>
 					<dd>
 						{mix.grams}
-						<Units display="g" alt="grams" />
+						<Units alt="grams">
+							g
+						</Units>
 					</dd>
 				</dl>
 			))}

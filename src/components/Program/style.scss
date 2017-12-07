@@ -101,6 +101,7 @@
 	font-size: $spacing-four-thirds;
 	border-spacing: 0;
 	flex: 0 0 $timeline-width-desktop;
+	width: 100%;
 }
 
 .tabPages th {
@@ -137,7 +138,7 @@
 }
 
 .tabPages table a:hover {
-	color: $color-accent-highlight;
+	text-decoration: underline;
 }
 
 .tabPages ol {
