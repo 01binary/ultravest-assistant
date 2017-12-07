@@ -3,9 +3,8 @@
 @import 'layout';
 
 label {
-	color: $color-text-dark;
-	opacity: .55;
-	transition: opacity .3s ease-in-out;
+	color: $color-text-light;
+	transition: color .3s ease-in-out;
 	margin-right: $spacing-third;
 	cursor: pointer;
 }
@@ -13,7 +12,7 @@ label {
 input:focus + label,
 select:focus + label,
 label:hover {
-	opacity: 1;
+	color: $color-text-dark;
 }
 
 input[type=text],
@@ -28,16 +27,7 @@ select {
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
-	opacity: .7;
-	transition: opacity .2s ease-in-out;
-
-	&:focus {
-		opacity: .8;
-	}
-	
-	&:hover {
-		opacity: .8;
-	}
+	color: $color-text-dark;
 }
 
 input[type=text],
@@ -46,16 +36,19 @@ input[type=number] {
 	padding: $spacing-third 0 $spacing-third $spacing-third;
 	border: none;
 	border-bottom: 2px solid $color-border-text;
-	transition: opacity .2s ease-in-out, border-bottom-color .2s ease-in-out;
+	transition:
+		color .2s ease-in-out,
+		border-bottom-color .2s ease-in-out;
 
 	&:active,
 	&:focus {
+		color: $color-text-darker;
 		border-bottom-color: $color-selection-accent;
 	}
 }
 
 select {
-	background: $color-border-dark;
+	background-color: $color-border-dark;
 	border-radius: $spacing-third;
 	border: none;
 	max-width: $spacing-single * 8;
@@ -63,7 +56,16 @@ select {
 	background-image: url('../../../assets/select.svg');
 	background-repeat: no-repeat;
 	background-position-x: 100%;
+	transition:
+		color .2s ease-in-out,
+		background-color .2s ease-in-out;
 	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		color: $color-text-darker;
+		background-color: $color-border-light;
+	}
 }
 
 .group {
