@@ -5,7 +5,9 @@
 footer {
 	width: 100%;
 	text-align: center;
-	margin: $spacing-triple 0 $spacing-double 0;
+	margin: $spacing-single 0 $spacing-double 0;
+	padding-top: $spacing-double;
+	border-top: 1px solid $color-border-light;
 }
 
 footer a {

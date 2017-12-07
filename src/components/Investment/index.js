@@ -1,5 +1,6 @@
 import { h } from 'preact';
 import classNames from 'obj-str';
+import Units from '../Units';
 import getMixWeights from '../../selectors/getMixWeights';
 import timelineStyle from '../App/style/timeline';
 import formStyle from '../App/style/forms';
@@ -54,7 +55,7 @@ const Investment = ({
 					<dt>{mix.component}</dt>
 					<dd>
 						{mix.grams}
-						<span>g</span>
+						<Units display="g" alt="grams" />
 					</dd>
 				</dl>
 			))}

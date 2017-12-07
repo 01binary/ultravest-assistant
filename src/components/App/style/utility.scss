@@ -1,0 +1,11 @@
+.offScreen {
+	// Hide content for screen readers
+	// http://unobfuscated.blogspot.com/2015/01/updated-offscreen-techniques.html
+	position: absolute !important;
+	height: 0px;
+	width: 0px; 
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: polygon(0px 0px, 0px 0px,0px 0px, 0px 0px);
+}

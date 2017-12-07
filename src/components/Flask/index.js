@@ -1,6 +1,7 @@
 import { h } from 'preact';
 import classNames from 'obj-str';
 import { CUSTOM } from '../../enhancers/withFlask';
+import Units from '../Units';
 import timelineStyle from '../App/style/timeline';
 import formStyle from '../App/style/forms';
 import style from './style';
@@ -97,7 +98,7 @@ const Flask = ({
 				<label for="flask-diameter">
 					diameter
 				</label>
-				<span>in</span>
+				<Units display="in" alt="inches" />
 			</section>
 
 			<section class={formStyle.control}>
@@ -112,7 +113,7 @@ const Flask = ({
 				<label for="flask-height">
 					height
 				</label>
-				<span>in</span>
+				<Units display="in" alt="inches" />
 			</section>
 		</section>
 	</article>
