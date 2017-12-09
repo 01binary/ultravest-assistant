@@ -4,6 +4,7 @@ import Header from '../Header';
 import Flask from '../Flask';
 import Investment from '../Investment';
 import Burnout from '../Burnout';
+import Footer from '../Footer';
 import style from './style';
 
 /**
@@ -12,7 +13,7 @@ import style from './style';
  * @returns {function} - A stateless component.
  */
 const App = props => (
-	<form id="app" class={style.app} method="post" action="/">
+	<form id="app" class={style.app}>
 		<Header />
 
 		<main>
@@ -20,6 +21,8 @@ const App = props => (
 			<Investment {...props} />
 			<Burnout {...props} />
 		</main>
+
+		<Footer />
 	</form>
 );
 

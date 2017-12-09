@@ -1,27 +1,190 @@
+@import '../App/style/colors';
+@import '../App/style/layout';
+
+$segment-width: 160px;
+$segment-height: 62px;
+$segment-overlap: -34px;
+$segment-icon-size: 35px;
+$segment-extend: $segment-icon-size + $spacing-three-halves;
+
+// Segment wrapper
 .segment {
+	padding: $spacing-third;
 }
 
+// Segment content
+.segment article {
+	position: relative;
+	background-repeat: no-repeat;
+	width: $segment-width;
+	height: $segment-height;
+	margin-right: $segment-overlap;
+}
+
+// Last segment content
+.segment:last-of-type article {
+	margin-right: 0;
+}
+
+// Segment raising diagram
 .raise {
-	background: orange;
+	background-image: url('../../assets/raise.svg');
 }
 
+// Segment lowering diagram
 .lower {
-	background: blueviolet;
+	background-image: url('../../assets/lower.svg');
 }
 
-.rate {
+// Segment tip icon
+.segment figure {
+	position: absolute;
+	cursor: pointer;
+	z-index: 2;
+	background-repeat: no-repeat;
 }
 
+// Segment ambient temperature overlay
+.ambient {
+	width: 28px;
+	height: $spacing-single;
+	top: 24px;
+	left: -43px;
+}
+
+// Segment temperature icon
 .temperature {
+	background-image: url('../../assets/pyrometer.svg');
+
+	// Icon width
+	width: $segment-icon-size;
+
+	// Extend to cover graph point
+	height: 60px;
 }
 
+// Segment time icon
 .time {
+	background-image: url('../../assets/clock.svg');
+
+	// Icon width
+	width: $segment-icon-size;
+	
+	// Extend to cover graph point
+	height: 60px;
 }
 
-.temperature,
-.rate,
-.time {
+// Segment rate icon
+.rate {
+	background-image: url('../../assets/up.svg');
+	width: $segment-extend;
+	height: $segment-icon-size;
+	left: 0px;
+	top: -10px;
 }
 
+// Segment temperature up icon
+.raise .temperature {
+	left: 47px;
+	top: -55px;
+}
+
+// Segment time up icon
+.raise .time {
+	left: 93px;
+	top: -55px;
+}
+
+// Segment rate down icon
+.lower .rate {
+	background-image: url('../../assets/down.svg');
+	left: -2px;
+	top: $spacing-third;
+}
+
+// Segment temperature down icon
+.lower .temperature {
+	left: 47px;
+	top: $spacing-single;
+	background-position-y: $spacing-single + $spacing-min;
+	height: $segment-icon-size + $spacing-single + $spacing-min;
+}
+
+// Segment time down icon
+.lower .time {
+	left: 93px;
+	top: $spacing-single;
+	background-position-y: $spacing-single + $spacing-min;
+	height: $segment-icon-size + $spacing-single + $spacing-min;
+}
+
+// Segment tip
+.segment figcaption {
+	position: absolute;
+	line-height: $spacing-single;
+	background: $color-border-light;
+	padding: $spacing-third $spacing-half;
+	min-width: 4em;
+	bottom: calc(100% + 1em);
+	right: 1em;
+	opacity: 0;
+	transform: translateY($spacing-third);
+	transition:
+		opacity .2s ease-in-out,
+		transform .2s ease-in-out;
+	pointer-events: none;
+}
+
+// Offset segment tip for rate
+.rate figcaption {
+	right: 2em;
+}
+
+// Segment tip hover
+.segment figure:hover > figcaption {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+// Segment tip point
+.segment figcaption:before {
+	content: '';
+	position: absolute;
+	top: 100%;
+	right: 0px;
+	border-width: $spacing-quarter;
+	border-style: solid;
+	border-color:
+		$color-border-light
+		$color-border-light
+		transparent
+		transparent;
+}
+
+// Segment tip down
+.segment .lower figcaption {
+	top: calc(100% + 1em);
+	bottom: initial;
+}
+
+// Segment down tip arrow
+.segment .lower figcaption:before {
+	top: -$spacing-half;
+	border-color:
+		transparent
+		$color-border-light
+		$color-border-light
+		transparent;
+}
+
+// Segment tip heading
+.segment h3 {
+	font-size: $spacing-four-thirds;
+	margin: 0;
+	line-height: $spacing-single;
+}
+
+// Units span
 .units {
+	color: $color-text-light;
 }

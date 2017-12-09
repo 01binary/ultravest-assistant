@@ -1,0 +1,195 @@
+@import '../App/style/colors';
+@import '../App/style/layout';
+@import '../App/style/timeline';
+
+.steps {
+	position: relative;
+}
+
+.tab {
+	display: none;
+}
+
+.tab + label {
+	display: inline-block;
+	color: $color-accent;
+	font-size: $spacing-four-thirds;
+	width: $spacing-half * 12 - $spacing-double - $spacing-third;
+	line-height: $spacing-double + $spacing-quarter;
+	padding: 0 $spacing-third 0 $spacing-double;
+	margin: 0;
+	margin-bottom: -1px;
+	opacity: 1;
+	cursor: pointer;
+	border-bottom: $spacing-min solid transparent;
+	background-repeat: no-repeat;
+	background-size:
+		$spacing-single
+		$spacing-single;
+	background-position:
+		$spacing-third
+		$spacing-three-halves;
+	transition:
+		color .3s ease-in-out,
+		border-color .3s ease-in-out;
+}
+
+.tab + label:hover {
+	color: $color-accent-highlight;
+}
+
+.tab:checked + label {
+	border-bottom-color: $color-accent;
+}
+
+.tab:checked + label:hover {
+	border-bottom-color: $color-accent-highlight;
+}
+
+.tab:first-of-type + label:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: $spacing-double + $spacing-third;
+	border-bottom: 1px solid $color-border-dark;
+}
+
+.stepsTab + label {
+	background-image: url('../../assets/steps.svg');
+}
+
+.segmentsTab + label {
+	background-image: url('../../assets/segments.svg');
+}
+
+.tabPages {
+	display: flex;
+	flex-wrap: nowrap;
+	width: $timeline-width-desktop;
+	overflow: hidden;
+	transition: transform 1s ease-in-out;
+}
+
+.tabPages table,
+.tabPages ol {
+	transform: translateX(0);
+	transition:
+		transform .5s ease-in-out,
+		opacity .5s ease-in-out;
+}
+
+.tabPages table {
+	opacity: 1;
+}
+
+.tabPages ol {
+	opacity: 0;
+}
+
+.stepsTab:checked ~ .tabPages table {
+	opacity: 0;
+	transform: translateX(-$timeline-width-desktop);
+}
+
+.stepsTab:checked ~ .tabPages ol {
+	opacity: 1;
+	transform: translateX(-$timeline-width-desktop);
+}
+
+// Firefox hack
+@-moz-document url-prefix() { 
+	.stepsTab:checked ~ .tabPages ol {
+		opacity: 1;
+		transform: translateX(-$timeline-width-desktop + 108px);
+	}
+}
+
+.tabPages table {
+	font-size: $spacing-four-thirds;
+	border-spacing: 0;
+	flex: 0 0 $timeline-width-desktop;
+	width: 100%;
+}
+
+.tabPages th {
+	padding: $spacing-half;
+	text-align: left;
+}
+
+.tabPages tr {
+	height: $spacing-double;
+}
+
+.tabPages td {
+	padding: $spacing-half;
+	border-bottom: 1px solid $color-border-dark;
+	transition: background-color .3s ease-in-out;
+}
+
+.tabPages tr:hover td {
+	background: $color-shadow;
+}
+
+.tabPages tr:last-of-type td {
+	border: none;
+}
+
+.tabPages td span {
+	color: $color-text-light;
+}
+
+.tabPages table a {
+	color: $color-accent;
+	text-decoration: none;
+	transition: color .3s ease-in-out;
+}
+
+.tabPages table a:hover {
+	text-decoration: underline;
+}
+
+.tabPages ol {
+	list-style: none;
+	font-size: $spacing-four-thirds;
+	counter-reset: listCounter;
+	flex: 0 0 $timeline-width-desktop;
+	margin: $spacing-single 0 $spacing-half 0;
+	padding: 0;
+}
+
+.tabPages li {
+	margin: 0 0 $spacing-half 0;
+}
+
+.tabPages li a {
+	color: $color-text-light;
+	text-decoration: none;
+}
+
+.tabPages li a:before {
+	display: inline-block;
+	content: counter(listCounter);
+	color: $color-text-dark;
+	counter-increment: listCounter;
+	line-height: $spacing-one-and-third;
+	background: $color-border-light;
+	width: $spacing-one-and-third;
+	height: $spacing-one-and-third;
+	border-radius: $spacing-one-and-third;
+	margin: 0 $spacing-half 0 0;
+	text-align: center;
+	transition:
+		color .3s ease-in-out,
+		background-color .3s ease-in-out;
+}
+
+.tabPages li a:hover:before,
+.tabPages li a:focus:before {
+	color: $color-background;
+	background: $color-accent;
+}
+
+.tabPages li span {
+	color: $color-text-dark;
+}

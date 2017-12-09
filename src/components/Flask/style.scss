@@ -1,0 +1,92 @@
+@import '../App/style/colors';
+@import '../App/style/layout';
+@import '../App/style/timeline';
+
+// Timeline color
+.flask:after {
+	border-color: $color-primary;
+}
+
+// Timeline icon
+.flask {
+	background: url('../../assets/flask.svg') 0 50% no-repeat;
+	background-size: $timeline-icon-size $timeline-icon-size;
+}
+
+// Height label smaller and with margin
+.dimensions section:last-of-type label {
+	margin-left: $spacing-half;
+	flex: 0 0 3.5em;
+}
+
+// Units
+.dimensions span {
+	color: $color-text-light;
+	margin: 1em 0 0 calc(-1em - 8px);
+	order: -2;
+	transition: color .3s ease-in-out;
+}
+
+// Hide units on focus and hover
+.dimensions input:focus ~ span,
+.dimensions section:hover span {
+	color: $color-background;
+}
+
+// Hide spinners when units are shown
+.dimensions input {
+	-moz-appearance: textfield;
+
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+	}
+}
+
+// Show spinners when units are hidden
+.dimensions input:focus,
+.dimensions section:hover input {
+	-moz-appearance: number-input;
+
+	&::-webkit-outer-spin-button {
+		-webkit-appearance: outer-spin-button;
+	}
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: inner-spin-button;
+	}
+}
+
+// Buttons
+.action {
+	flex: 0 0 $spacing-double;
+	background-color: $color-border-light;
+	border-radius: $spacing-quarter;
+	border: none;
+	width: $spacing-double;
+	height: $spacing-double;
+	margin-left: $spacing-third;
+	cursor: pointer;
+	transition:
+		color .2s ease-in-out,
+		background-color .2s ease-in-out;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	text-indent: -9999px;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+
+	&:hover,
+	&:focus {
+		color: $color-text-darker;
+		background-color: $color-shadow;
+	}
+}
+
+.add {
+	background-image: url('../../assets/add.svg');
+}
+
+.remove {
+	background-image: url('../../assets/remove.svg');
+}

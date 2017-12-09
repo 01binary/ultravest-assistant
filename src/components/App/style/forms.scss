@@ -1,0 +1,104 @@
+@import 'colors';
+@import 'typography';
+@import 'layout';
+
+label {
+	color: $color-text-light;
+	transition: color .3s ease-in-out;
+	margin-right: $spacing-third;
+	cursor: pointer;
+}
+
+input:focus + label,
+select:focus + label,
+label:hover {
+	color: $color-text-dark;
+}
+
+input[type=text],
+input[type=number],
+select {
+	color: $color-text-dark;
+	font-family: $font-body;
+	font-size: $font-size-input;
+	box-sizing: border-box;
+	line-height: $spacing-one-and-third;
+	min-height: $spacing-double;
+	margin: 0;
+}
+
+select {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+input[type=text],
+input[type=number] {
+	max-width: 3.25em;
+	padding: $spacing-third 0 $spacing-third $spacing-third;
+	border: none;
+	border-bottom: 2px solid $color-border-text;
+	background-color: transparent;
+	transition:
+		color .2s ease-in-out,
+		border-bottom-color .2s ease-in-out;
+
+	&:active,
+	&:focus {
+		color: $color-text-darker;
+		border-bottom-color: $color-selection-accent;
+	}
+}
+
+select {
+	background-color: $color-border-light;
+	border-radius: $spacing-third;
+	border: none;
+	max-width: $spacing-single * 8;
+	padding: 0 $spacing-one-and-half 0 $spacing-three-halves;
+	background-image: url('../../../assets/select.svg');
+	background-repeat: no-repeat;
+	background-position-x: 100%;
+	transition:
+		color .2s ease-in-out,
+		background-color .2s ease-in-out;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		color: $color-text-darker;
+		background-color: $color-shadow;
+	}
+}
+
+.group {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: $spacing-single;
+	max-width: $spacing-single * 16;
+}
+
+.group section {
+	margin-right: $spacing-single;
+}
+
+.group section:last-of-type {
+	margin-right: 0;
+}
+
+.control {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+	flex: 1 1 0px;
+}
+
+.control label {
+	flex: 0 0 5em;
+}
+
+.control select,
+.control input {
+	flex: 1 1 0px;
+}

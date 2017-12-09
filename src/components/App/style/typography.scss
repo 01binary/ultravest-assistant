@@ -1,0 +1,53 @@
+@import 'layout';
+@import 'colors';
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
+$font-body: 'Open Sans', sans-serif;
+$font-header: 'Soleil', sans-serif;
+
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+
+$font-size-title: $spacing-one-and-half; // 36px
+$font-size-subtitle: $spacing;           // 24px
+$font-size-heading: $spacing;            // 24px
+$font-size-header: $spacing-four-thirds; // 18px
+$font-size-body: $spacing-three-halves;  // 16px
+
+$font-size-input: 30px;
+
+html,
+body {
+	color: $color-text-dark;
+	background-color: $color-background;
+	font-family: $font-body;
+	font-weight: $font-weight-regular;
+	font-size: $font-size-body;
+	line-height: $spacing-single;
+	margin: 0;
+}
+
+h1 {
+	font-size: $font-size-title;
+	font-weight: $font-weight-semibold;
+	line-height: $spacing-double;
+	margin: 0 0 $spacing-single 0;
+}
+
+h1 span {
+	display: inline-block;
+	font-size: $font-size-subtitle;
+	font-weight: $font-weight-regular;
+	line-height: $spacing-double;
+	vertical-align: text-bottom;
+	padding-left: $spacing-half;
+}
+
+h2 {
+	color: $color-text-dark;
+	font-size: $font-size-heading;
+	font-weight: $font-weight-semibold;
+	line-height: $spacing-double;
+	margin-top: $spacing-three-halves;
+	margin-bottom: $spacing-three-halves;
+}

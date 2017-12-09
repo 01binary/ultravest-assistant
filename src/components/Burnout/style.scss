@@ -1,9 +1,33 @@
 @import '../App/style/colors';
 @import '../App/style/layout';
+@import '../App/style/timeline';
 
+// Timeline color
+.burnout:after {
+	top: $spacing-double + $timeline-donut-size / 2;
+	border-color: $color-tertiary;
+}
+
+// Timeline icon
+.burnout {
+	background: url('../../assets/burnout.svg') 0 $spacing-half no-repeat;
+	background-size: $timeline-icon-size $timeline-icon-size;
+}
+
+// Timeline border
+.burnout:before {
+	bottom: initial;
+	height: $spacing-double;
+}
+
+// Allow smaller label
+.burnout dl:last-of-type dt {
+	flex: 0 0 3em;
+}
+
+// Longest preset badge
 .longest {
 	margin: $spacing-small;
 	padding: $spacing-min $spacing-quarter;
-	background: $color-background-secondary;
 	border-radius: $spacing-small;
 }

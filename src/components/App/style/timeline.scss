@@ -1,0 +1,42 @@
+@import 'colors';
+@import 'layout';
+
+$timeline-donut-size: $spacing-three-halves;
+$timeline-icon-size: $spacing-single * 5;
+$timeline-spacing: $spacing-one-and-half;
+$timeline-gutter: $timeline-icon-size + $timeline-spacing * 2 + $timeline-donut-size;
+$timeline-gutter-center: $timeline-icon-size + $timeline-spacing + $timeline-donut-size / 2;
+$timeline-width-desktop: $max-width-desktop - $timeline-gutter;
+
+// Timeline article content
+.timeline {
+	position: relative;
+	max-width: $timeline-width-desktop;
+	margin: $spacing-three-halves auto 0 auto;
+	padding: 0 0 0 $timeline-gutter;
+}
+
+// Timeline stroke
+.timeline:before {
+	content: '';
+	position: absolute;
+	border: 1px solid $color-border-light;
+	left: $timeline-gutter-center;
+	width: 0;
+	top: 0;
+	bottom: -$spacing-single;
+}
+
+// Timeline donut
+.timeline:after {
+	content: '';
+	position: absolute;
+	width: $timeline-donut-size;
+	height: $timeline-donut-size;
+	background: $color-background;
+	border: $spacing-third solid $color-text-dark;
+	border-radius: $timeline-donut-size + $spacing-third * 2;
+	top: calc(50% - #{$timeline-donut-size});
+	left: $timeline-gutter-center - $timeline-donut-size;
+	box-shadow: 0 0 0 $spacing-quarter $color-background;
+}

@@ -1,22 +1,55 @@
 @import '../App/style/colors';
+@import '../App/style/typography';
 @import '../App/style/layout';
 
-// Default or Mobile
 header {
-	background-color: $color-background-secondary;
-	padding: $spacing-single;
-
-	@include full-width;
-
-	p {
-		margin-bottom: 0;
-	}
+	color: $color-text-inverse;
+	background-image: linear-gradient(90deg, $color-primary 13%, $color-secondary 100%);
+	box-shadow: 0 2px 4px 0 $color-dark-shadow;
+	padding: $spacing-double 0 $spacing-double 0;
+	-webkit-font-smoothing: antialiased;
 }
 
-// Desktop or Tablet
-@media (min-width: $breakpoint) {
-	header {
-		margin-top: $spacing-double;
-		border-radius: $spacing-third;
-	}
+header p {
+	font-size: $font-size-header;
+	line-height: $spacing-single;
+	margin: 0;
+}
+
+header p + p {
+	margin-top: $spacing-small;
+}
+
+header strong {
+	background-color: $color-highlight;
+	padding: $spacing-min $spacing-third;
+}
+
+.wrapper {
+	position: relative;
+	width: $max-width-desktop;
+	margin: auto;
+}
+
+$share-icon-size: 42px;
+
+.share {
+	position: absolute;
+	-webkit-appearance: none;
+	border: none;
+	color: $color-text-inverse;
+	background: url('../../assets/share.svg') 0 0 no-repeat;
+	border-radius: $spacing-quarter;
+	font-size: $font-size-header;
+	height: $share-icon-size+ $spacing-quarter * 2;
+	right: 0px;
+	top: 0px;
+	padding: $spacing-quarter;
+	padding-left: $spacing-quarter + $share-icon-size + $spacing-third;
+	transition: background-color .2s ease-in-out;
+	cursor: pointer;
+}
+
+.share:hover {
+	background: url('../../assets/share.svg') 0 0 no-repeat, $color-accent;
 }

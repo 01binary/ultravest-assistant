@@ -1,0 +1,13 @@
+@import '../App/style/colors';
+@import '../App/style/timeline';
+
+// Timeline color
+.investment:after {
+	border-color: $color-secondary;
+}
+
+// Timeline icon
+.investment {
+	background: url('../../assets/investment.svg') 0 50% no-repeat;
+	background-size: $timeline-icon-size $timeline-icon-size;
+}

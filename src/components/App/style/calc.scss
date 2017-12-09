@@ -1,0 +1,48 @@
+@import 'colors';
+@import 'typography';
+@import 'layout';
+
+.calc {
+	margin-bottom: $spacing-third;
+}
+
+// Calculation pair
+.calc dl {
+	flex-direction: row;
+	justify-content: flex-start;
+	margin: 0;
+}
+
+// Calculation heading
+.calc dt {
+	color: $color-text-dark;
+	opacity: .55;
+	flex: 0 0 6.5em;
+}
+
+// Calculation last heading
+.calc dl:last-of-type dt {
+	flex: 0 0 4em;
+	margin-left: $spacing-one-and-half;
+}
+
+// Calculation first heading
+.calc dl:first-of-type dt {
+	margin-left: 0;
+}
+
+// Calculation value
+.calc dd {
+	font-size: $font-size-input;
+	line-height: $spacing-one-and-third;
+	min-height: $spacing-double;
+	flex: 1 1 0px;
+	margin: 0;
+}
+
+// Calculation units
+.calc dd span {
+	font-size: $font-size-body;
+	color: $color-text-light;
+	margin-left: $spacing-third;
+}

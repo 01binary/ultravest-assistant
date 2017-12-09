@@ -1,57 +1,70 @@
 import { h } from 'preact';
-import joinStyle from 'obj-str';
+import classNames from 'obj-str';
 import { CUSTOM } from '../../enhancers/withFlask';
-import appStyle from '../App/style';
+import Units from '../Units';
+import timelineStyle from '../App/style/timeline';
+import formStyle from '../App/style/forms';
 import style from './style';
 
 /**
- * Flask Parameters.
- * @param {number} flask - The flask props.
- * @param {func} handleFlaskPresetChange - Handle changing flask preset.
- * @param {func} handleFlaskDiameterChange - Handle changing flask diameter.
- * @param {func} handleFlaskHeightChange - Handle changing flask height.
- * @param {func} handleAddFlaskPreset - Handle adding current flask diameter and height as preset.
+ * Flask Parameters
+ * @param {object} flask - The flask props.
+ * @param {function} handleFlaskPresetChange - Handle changing flask preset.
+ * @param {function} handleFlaskDiameterChange - Handle changing flask diameter.
+ * @param {function} handleFlaskHeightChange - Handle changing flask height.
+ * @param {function} handleAddFlaskPreset - Handle adding current flask diameter and height as preset.
  * @returns {JSX.Element} - A React stateless component.
  */
-const Flask = (
-	{
-		flask,
-		handleFlaskPresetChange,
-		handleFlaskDiameterChange,
-		handleFlaskHeightChange,
-		handleAddFlaskPreset,
-		handleRemoveFlaskPreset
-	}) => (
-
-	<article class={style.flask}>
+const Flask = ({
+	flask,
+	handleFlaskPresetChange,
+	handleFlaskDiameterChange,
+	handleFlaskHeightChange,
+	handleAddFlaskPreset,
+	handleRemoveFlaskPreset }) => (
+	<article class={classNames({
+		[timelineStyle.timeline]: true,
+		[style.flask]: true
+	})}
+	>
 		<h2>flask</h2>
 
-		<label for="flask-preset">
-			preset
-			<select
-				name="flask-preset"
-				className={style.flaskPreset}
-				value={flask.preset}
-				onChange={handleFlaskPresetChange}
+		<section class={formStyle.group}>
+			<section class={classNames({
+				[formStyle.control]: true,
+				[style.preset]: true
+			})}
 			>
-				{ Object.keys(flask.presets).map(preset => (
-					<option selected={preset === flask.preset}>
-						{preset}
-					</option>
-				))}
+				<select
+					id="flask-preset"
+					name="flask-preset"
+					value={flask.preset}
+					onChange={handleFlaskPresetChange}
+					autofocus
+				>
+					{ Object.keys(flask.presets).map(preset => (
+						<option selected={preset === flask.preset}>
+							{preset}
+						</option>
+					))}
 
-				<option selected={flask.preset === CUSTOM}>
-					custom
-				</option>
-			</select>
+					<option selected={flask.preset === CUSTOM}>
+						custom
+					</option>
+				</select>
+
+				<label for="flask-preset">
+					preset
+				</label>
+			</section>
 
 			<input
 				type="submit"
 				name="action"
 				value="Add flask preset"
-				class={joinStyle({
-					[appStyle.actionInline]: true,
-					[appStyle.actionAdd]: true
+				class={classNames({
+					[style.action]: true,
+					[style.add]: true
 				})}
 				onClick={handleAddFlaskPreset}
 			/>
@@ -60,37 +73,53 @@ const Flask = (
 				type="submit"
 				name="action"
 				value="Remove flask preset"
-				class={joinStyle({
-					[appStyle.actionInline]: true,
-					[appStyle.actionRemove]: true
+				class={classNames({
+					[style.action]: true,
+					[style.remove]: true
 				})}
 				onClick={handleRemoveFlaskPreset}
 			/>
-		</label>
+		</section>
 
-		<label for="flask-diameter">
-			diameter
-			<input
-				name="flask-diameter"
-				className={style.flaskDiameter}
-				type="number"
-				step="0.1"
-				value={flask.diameter}
-				onChange={handleFlaskDiameterChange}
-			/>
-		</label>
+		<section class={classNames({
+			[formStyle.group]: true,
+			[style.dimensions]: true
+		})}
+		>
+			<section class={formStyle.control}>
+				<input
+					id="flask-diameter"
+					name="flask-diameter"
+					type="number"
+					step="0.1"
+					value={flask.diameter}
+					onChange={handleFlaskDiameterChange}
+				/>
+				<label for="flask-diameter">
+					diameter
+				</label>
+				<Units alt="inches">
+					in
+				</Units>
+			</section>
 
-		<label for="flask-height">
-			height
-			<input
-				name="flask-height"
-				className={style.flaskHeight}
-				type="number"
-				step="0.1"
-				value={flask.height}
-				onChange={handleFlaskHeightChange}
-			/>
-		</label>
+			<section class={formStyle.control}>
+				<input
+					id="flask-height"
+					name="flask-height"
+					type="number"
+					step="0.1"
+					value={flask.height}
+					onChange={handleFlaskHeightChange}
+				/>
+				<label for="flask-height">
+					height
+				</label>
+				<Units alt="inches">
+					in
+				</Units>
+			</section>
+		</section>
 	</article>
 );
 

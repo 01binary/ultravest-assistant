@@ -4,7 +4,7 @@ import getSegmentAnchor from '../../selectors/getSegmentAnchor';
 import style from './style';
 
 /**
- * Burnout diagram segment.
+ * Burnout diagram segment
  * @param {string} name - The segment name.
  * @param {number} rate - The segment rate (F per hour).
  * @param {number} temp - The segment temperature (F).
@@ -13,40 +13,43 @@ import style from './style';
  */
 const Segment = ({
 	name,
+	offset,
 	rate,
 	temp,
 	hold,
-	prev
-}) => (
-	<a name={getSegmentAnchor(name)}>
-		<article class={getSegmentClass(prev && prev.temp, temp)}>
-			<figure class={style.temperature}>
-				<svg />
+	prev }) => (
+	<a name={getSegmentAnchor(name)} class={style.segment}>
+		<article
+			class={getSegmentClass(prev && prev.temp, temp)}
+			style={{
+				marginTop: 44 + offset * 44
+			}}
+		>
+			{ !prev &&
+				<figure class={style.ambient}>
+					<figcaption>
+						ambient
+					</figcaption>
+				</figure>
+			}
 
+			<figure class={style.temperature}>
 				<figcaption>
 					<h3>temp</h3>
-					{ prev ?
-						`${temp}°` : 'ambient'
-					}
-					{ prev &&
-						<span class={style.units}>F</span>
-					}
+					{ temp }
+					<span class={style.units}>&deg;F</span>
 				</figcaption>
 			</figure>
 
 			<figure class={style.rate}>
-				<svg />
-
 				<figcaption>
 					<h3>rate</h3>
-					{ `${rate}°` }
-					<span class={style.units}>F/hr</span>
+					{ rate }
+					<span class={style.units}>&deg;F/hr</span>
 				</figcaption>
 			</figure>
 
 			<figure class={style.time}>
-				<svg />
-
 				<figcaption>
 					<h3>hold</h3>
 					{hold}
@@ -60,7 +63,6 @@ const Segment = ({
 );
 
 const getSegmentClass = (prevTemp, temp) => classNames({
-	[style.segment]: true,
 	[style.raise]: prevTemp ? temp > prevTemp : true,
 	[style.lower]: prevTemp ? temp < prevTemp : false
 });
