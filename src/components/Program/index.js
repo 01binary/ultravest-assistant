@@ -2,14 +2,20 @@ import { h } from 'preact';
 import classNames from 'obj-str';
 import Segments from '../Segments';
 import Steps from '../Steps';
+import { VIEWS } from '../../enhancers/withView';
 import style from './style';
 
 /**
  * Burnout program tabs
  * @param {object} segments - The burnout segments.
+ * @param {string} view - The current view (segments or steps).
+ * @param {function} handleViewChange - The view change handler.
  * @returns {JSX.Element} - A stateless component.
  */
-const Program = ({ segments }) => (
+const Program = ({
+	segments,
+	view,
+	handleViewChange }) => (
 	<section class={style.steps}>
 		<input
 			class={classNames({
@@ -20,6 +26,8 @@ const Program = ({ segments }) => (
 			name="view"
 			id="segments"
 			value="segments"
+			checked={view === VIEWS.SEGMENTS}
+			onChange={handleViewChange}
 		/>
 		<label for="segments">
 			segments
@@ -34,6 +42,8 @@ const Program = ({ segments }) => (
 			name="view"
 			id="steps"
 			value="steps"
+			checked={view === VIEWS.STEPS}
+			onChange={handleViewChange}
 		/>
 		<label for="steps">
 			steps

@@ -36,8 +36,8 @@ const Flask = ({
 			})}
 			>
 				<select
-					id="flask-preset"
-					name="flask-preset"
+					id="flaskPreset"
+					name="flaskPreset"
 					value={flask.preset}
 					onChange={handleFlaskPresetChange}
 					autofocus
@@ -53,7 +53,7 @@ const Flask = ({
 					</option>
 				</select>
 
-				<label for="flask-preset">
+				<label for="flaskPreset">
 					preset
 				</label>
 			</section>
@@ -88,14 +88,14 @@ const Flask = ({
 		>
 			<section class={formStyle.control}>
 				<input
-					id="flask-diameter"
-					name="flask-diameter"
+					id="flaskDiameter"
+					name="flaskDiameter"
 					type="number"
 					step="0.1"
 					value={flask.diameter}
 					onChange={handleFlaskDiameterChange}
 				/>
-				<label for="flask-diameter">
+				<label for="flaskDiameter">
 					diameter
 				</label>
 				<Units alt="inches">
@@ -105,14 +105,14 @@ const Flask = ({
 
 			<section class={formStyle.control}>
 				<input
-					id="flask-height"
-					name="flask-height"
+					id="flaskHeight"
+					name="flaskHeight"
 					type="number"
 					step="0.1"
 					value={flask.height}
 					onChange={handleFlaskHeightChange}
 				/>
-				<label for="flask-height">
+				<label for="flaskHeight">
 					height
 				</label>
 				<Units alt="inches">
