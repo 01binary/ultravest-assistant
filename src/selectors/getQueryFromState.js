@@ -9,24 +9,24 @@ export default state => Object
 		const value = state[stateKey];
 
 		if (typeof(value) === 'object') {
-			query = Object.assign(query, getValues(value, stateKey));
+			query = Object.assign(getValues(value, stateKey), query);
 		}
 		else {
 			query[stateKey] = state[stateKey];
 		}
 
-		return state;
+		return query;
 	}, {});
 
 /**
  * Flatten object
  * @param {object} obj - The object to flatten.
- * @param {string} key - The parent object key.
+ * @param {string} rootKey - The parent object key.
  * @returns {object} - The flattened object.
  */
-const getValues = (obj, key) => Object
+const getValues = (obj, rootKey) => Object
 	.keys(obj)
 	.reduce((flat, leafKey) => {
-		flat[`${key}-${leafKey}`] = obj[leafKey];
+		flat[`${rootKey}-${leafKey}`] = obj[leafKey];
 		return flat;
 	}, {});
