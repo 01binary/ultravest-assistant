@@ -6,7 +6,7 @@ import style from './style';
 /**
  * Burnout diagram
  * @param {object[]} segments - The program segments.
- * @param {number} maxIndex - The max segment index.
+ * @param {number} maxIndex - The index of the segment with the highest temperature.
  * @returns {JSX.Element} - A stateless component.
  */
 const Diagram = ({

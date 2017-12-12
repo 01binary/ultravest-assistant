@@ -28,8 +28,8 @@ const Investment = ({
 		<section class={formStyle.group}>
 			<section class={formStyle.control}>
 				<select
-					id="investmentRatio"
-					name="investmentRatio"
+					id="investment-preset"
+					name="investment-preset"
 					value={investment.preset}
 					onChange={handleInvestmentPresetChange}
 				>
@@ -39,7 +39,7 @@ const Investment = ({
 						</option>
 					))}
 				</select>
-				<label for="investmentRatio">
+				<label for="investment-preset">
 					ratio
 				</label>
 			</section>
