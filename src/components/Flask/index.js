@@ -61,6 +61,7 @@ const Flask = ({
 			<input
 				type="submit"
 				name="action"
+				id="action-add"
 				value="Add flask preset"
 				class={classNames({
 					[style.action]: true,
@@ -72,6 +73,7 @@ const Flask = ({
 			<input
 				type="submit"
 				name="action"
+				id="action-remove"
 				value="Remove flask preset"
 				class={classNames({
 					[style.action]: true,

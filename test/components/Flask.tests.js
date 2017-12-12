@@ -41,46 +41,46 @@ describe('Flask', () => {
 	});
 
 	test('should bind preset value', () => {
-		expect(wrapper.find('.flaskPreset')[0].attributes.value)
+		expect(wrapper.find('#flask-preset')[0].attributes.value)
 			.toBe(expectedName);
 	});
 
 	test('should bind diameter', () => {
-		expect(wrapper.find('.flaskDiameter')[0].attributes.value)
+		expect(wrapper.find('#flask-diameter')[0].attributes.value)
 			.toBe(expected.diameter);
 	});
 
 	test('should bind height', () => {
-		expect(wrapper.find('.flaskHeight')[0].attributes.value)
+		expect(wrapper.find('#flask-height')[0].attributes.value)
 			.toBe(expected.height);
 	});
 
 	test('should bind change preset handler', () => {
-		wrapper.find('.flaskPreset')[0].attributes.onChange();
+		wrapper.find('#flask-preset')[0].attributes.onChange();
 		expect(props.handleFlaskPresetChange.mock.calls.length)
 			.toBe(1);
 	});
 
 	test('should bind change diameter handler', () => {
-		wrapper.find('.flaskDiameter')[0].attributes.onChange();
+		wrapper.find('#flask-diameter')[0].attributes.onChange();
 		expect(props.handleFlaskDiameterChange.mock.calls.length)
 			.toBe(1);
 	});
 
 	test('should bind change height handler', () => {
-		wrapper.find('.flaskHeight')[0].attributes.onChange();
+		wrapper.find('#flask-height')[0].attributes.onChange();
 		expect(props.handleFlaskHeightChange.mock.calls.length)
 			.toBe(1);
 	});
 
 	test('should bind add preset handler', () => {
-		wrapper.find('.actionAdd')[0].attributes.onClick();
+		wrapper.find('#action-add')[0].attributes.onClick();
 		expect(props.handleAddFlaskPreset.mock.calls.length)
 			.toBe(1);
 	});
 
 	test('should bind remove preset handler', () => {
-		wrapper.find('.actionRemove')[0].attributes.onClick();
+		wrapper.find('#action-remove')[0].attributes.onClick();
 		expect(props.handleRemoveFlaskPreset.mock.calls.length)
 			.toBe(1);
 	});

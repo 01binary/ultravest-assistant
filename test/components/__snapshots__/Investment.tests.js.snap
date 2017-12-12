@@ -3,27 +3,41 @@
 exports[`Investment should render 1`] = `
 preact-render-spy (1 nodes)
 -------
-<article class="investment">
+<article class="timeline investment">
   <h2>investment</h2>
-  <label for="investment-ratio">
-    ratio
-    <select
-      name="investment-ratio"
-      class="investmentRatio"
-      value="test preset"
-      onChange={[Function mockConstructor]}
-    >
-      <option selected={true}>test preset</option>
-    </select>
-  </label>
-  <output>
-    <dl>
+  <section class="group">
+    <section class="control">
+      <select
+        id="investment-preset"
+        name="investment-preset"
+        value="test preset"
+        onChange={[Function mockConstructor]}
+      >
+        <option selected={true}>test preset</option>
+      </select>
+      <label for="investment-preset">ratio</label>
+    </section>
+  </section>
+  <output class="group calc">
+    <dl class="control">
       <dt>investment</dt>
-      <dd>158</dd>
+      <dd>
+        158
+        <span aria-hidden="true">
+          g
+          <span class="offScreen">grams</span>
+        </span>
+      </dd>
     </dl>
-    <dl>
+    <dl class="control">
       <dt>water</dt>
-      <dd>264</dd>
+      <dd>
+        264
+        <span aria-hidden="true">
+          g
+          <span class="offScreen">grams</span>
+        </span>
+      </dd>
     </dl>
   </output>
 </article>

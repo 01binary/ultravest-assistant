@@ -42,12 +42,12 @@ describe('Investment', () => {
 	});
 
 	test('should bind preset value', () => {
-		expect(wrapper.find('.investmentRatio')[0].attributes.value)
+		expect(wrapper.find('#investment-preset')[0].attributes.value)
 			.toBe(expectedName);
 	});
 
 	test('should bind change preset handler', () => {
-		wrapper.find('.investmentRatio')[0].attributes.onChange();
+		wrapper.find('#investment-preset')[0].attributes.onChange();
 		expect(props.handleInvestmentPresetChange.mock.calls.length)
 			.toBe(1);
 	});

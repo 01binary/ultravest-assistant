@@ -35,7 +35,7 @@
     "moduleNameMapper": {
       "^react$": "preact-compat",
       "^react-dom$": "preact-compat",
-      "/style$": "identity-obj-proxy"
+      "style": "identity-obj-proxy"
     },
     "collectCoverageFrom": [
       "src/**/*.js"
