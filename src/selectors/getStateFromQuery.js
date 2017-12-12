@@ -9,9 +9,9 @@ export default query => Object
 		const [key, subkey] = queryKey.split('-');
 
 		if (subkey) {
-			state[key] = Object.assign(state[key], {
+			state[key] = Object.assign({
 				[subkey]: query[queryKey]
-			});
+			}, state[key]);
 		}
 		else {
 			state[queryKey] = query[queryKey];
