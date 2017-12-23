@@ -3,7 +3,7 @@ import { always } from 'ramda';
 import presets from '../../src/config/flaskPresets.json';
 import reflect from '../fixtures/reflector.tests.fixture';
 
-describe('composer withFlask', () => {
+describe('enhancer withFlask', () => {
 
 	let reflector;
 

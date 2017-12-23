@@ -5,7 +5,7 @@ import {
 import presets from '../../src/config/investmentPresets.json';
 import reflect from '../fixtures/reflector.tests.fixture';
 
-describe('composer withInvestment', () => {
+describe('enhancer withInvestment', () => {
 
 	let reflector;
 

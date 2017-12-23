@@ -1,7 +1,7 @@
 import reflect from '../fixtures/reflector.tests.fixture';
 import withView, { VIEWS } from '../../src/enhancers/withView';
 
-describe('composer withInvestment', () => {
+describe('enhancer withView', () => {
 
 	let reflector;
 	
