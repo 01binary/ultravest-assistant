@@ -1,4 +1,5 @@
 import { lifecycle } from 'recompose';
+import getQueryString from '../selectors/getQueryString';
 
 /**
  * Initialize application
@@ -6,12 +7,10 @@ import { lifecycle } from 'recompose';
  * @returns {function} - Enhanced component.
  */
 export default lifecycle({
-	componentDidMount: ({
-		handleQueryChange,
-		handleHistoryChange
-	}) => (
-		global.window &&
-		handleQueryChange(global.window.location) &&
-		handleHistoryChange(handleQueryChange)
-	)
+	componentDidMount() {
+		if (this.props.handleQueryChange && this.props.handleHistoryChange) {
+			this.props.handleQueryChange(getQueryString());
+			this.props.handleHistoryChange(this.props.handleQueryChange);
+		}
+	}
 });

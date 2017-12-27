@@ -1,4 +1,4 @@
-import { h } from 'preact';
+/*import { h } from 'preact';
 import { deep } from 'preact-render-spy';
 import Segment from '../../src/components/Segment';
 import presets from '../../src/config/burnoutPresets';
@@ -27,3 +27,4 @@ describe('Segment', () => {
 	const prev = segments[0];
 	const props = Object.assign({}, cur, { prev });
 });
+*/

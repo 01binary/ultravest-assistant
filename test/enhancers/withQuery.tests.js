@@ -1,33 +1,30 @@
 import reflect from '../fixtures/reflector.tests.fixture';
-import withQuery from '../../src/enhancers/withQuery';
+import { default as withQuery, initialState } from '../../src/enhancers/withQuery';
 
 describe('enhancer withQuery', () => {
 
-	test('should set initial state', () => {
-		simulateUrl('http://adopt.cats?cat-name=Mittens&cat-age=7&cat-color=tortoiseshell&location=Diamond%20City');
-		const props = reflect(withQuery).props;
-		expect(props).toEqual({
-			name: 'Mittens',
-			age: 7,
-			color: 'tortoiseshell'
-		});
-		expect(props.location).toBe('Diamond City');
+	let reflector;
+
+	beforeAll(() => {
+		reflector = reflect(withQuery);
 	});
 
-	/*test('should handle view change', (done) => {
-		reflector.props.handleViewChange({
-			target: { value: VIEWS.STEPS }
+	afterAll(() => {
+		reflector = null;
+	});
+
+	test('should set initial state', () => {
+		expect(reflect(withQuery).props.query).toEqual(initialState.query);
+	});
+
+	test('should handle query change', (done) => {
+		reflector.props.handleQueryChange({
+			search: '?cat[name]=Mittens'
 		});
 
 		reflector.update(props => {
-			expect(props.view).toBe(VIEWS.STEPS);
+			expect(props.query.cat.name).toBe('Mittens');
 			done();
 		});
-	});*/
-
-	const simulateUrl = url => global.window = {
-		location: {
-			url
-		}
-	};
+	});
 });

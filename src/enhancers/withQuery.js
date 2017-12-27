@@ -1,7 +1,5 @@
 import qs from 'qs';
 import { withStateHandlers } from 'recompose';
-import getQueryFromState from '../selectors/getQueryFromState';
-import getStateFromQuery from '../selectors/getStateFromQuery';
 
 export const initialState = {
 	query: {}
@@ -18,7 +16,7 @@ export default withStateHandlers(
 	},
 	{
 		handleQueryChange: state => ({ search }) => ({
-			query: getStateFromQuery(qs.parse(search))
+			query: qs.parse(search.substring(1))
 		}),
 
 		handleQueryParamChange: state => (key, value) => {
@@ -29,9 +27,11 @@ export default withStateHandlers(
 				}
 			};
 
+			console.log('query param change wants to push with', this.props.handleHistoryPush);
+
 			if (this.props.handleHistoryPush) {
 				this.props.handleHistoryPush(
-					qs.serialize(getQueryFromState(next))
+					qs.serialize(next)
 				);
 			}
 
