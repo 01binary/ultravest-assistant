@@ -1,4 +1,4 @@
-/*import { h } from 'preact';
+import { h } from 'preact';
 import { deep } from 'preact-render-spy';
 import Flask from '../../src/components/Flask';
 
@@ -91,4 +91,3 @@ describe('Flask', () => {
 		height: 3
 	};
 });
-*/

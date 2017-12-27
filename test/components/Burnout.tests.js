@@ -1,4 +1,4 @@
-/*import { h } from 'preact';
+import { h } from 'preact';
 import { deep } from 'preact-render-spy';
 import { reduce, minBy, maxBy } from 'ramda';
 import Burnout from '../../src/components/Burnout';
@@ -46,4 +46,3 @@ describe('Burnout', () => {
 	const firstPreset = reduce(minBy(getFlaskVolume), presets[0], presets);
 	const lastPreset = reduce(maxBy(getFlaskVolume), presets[0], presets);
 });
-*/

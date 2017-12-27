@@ -1,4 +1,4 @@
-/*import { h } from 'preact';
+import { h } from 'preact';
 import { deep } from 'preact-render-spy';
 import Investment from '../../src/components/Investment';
 
@@ -58,4 +58,3 @@ describe('Investment', () => {
 		water: 3.5
 	};
 });
-*/
