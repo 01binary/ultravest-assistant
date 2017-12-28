@@ -31,6 +31,15 @@ describe('enhancer withQuery', () => {
 		});
 	});
 
+	test('should handle query param change with no listener', (done) => {
+		reflector.props.handleQueryParamChange('testing', 'test');
+		reflector.update(props => {
+			expect(props.query.testing).toBe('test');
+			expect(handleHistoryPush).not.toBeCalled();
+			done();
+		});
+	});
+
 	test('should handle query param listener change', (done) => {
 		reflector.props.handleQueryParamListenerChange(handleHistoryPush);
 		reflector.update(props => {
@@ -43,7 +52,7 @@ describe('enhancer withQuery', () => {
 		reflector.props.handleQueryParamChange('hello', 'world');
 		reflector.update(props => {
 			expect(props.query.hello).toBe('world');
-			expect(handleHistoryPush).toBeCalledWith('?cat%5Bname%5D=Mittens&hello=world');
+			expect(handleHistoryPush).toBeCalledWith('?cat%5Bname%5D=Mittens&testing=test&hello=world');
 			done();
 		});
 	});
