@@ -2,7 +2,8 @@ import qs from 'qs';
 import { withStateHandlers } from 'recompose';
 
 export const initialState = {
-	query: {}
+	query: {},
+	onParamChange: null
 };
 
 /**
@@ -19,20 +20,22 @@ export default withStateHandlers(
 			query: qs.parse(search.substring(1))
 		}),
 
-		handleQueryParamChange: state => (key, value) => {
+		handleQueryParamListenerChange: state => onParamChange => ({
+			...state,
+			onParamChange
+		}),
+
+		handleQueryParamChange: ({ query, onParamChange }) => (key, value) => {
 			const next = {
 				query: {
-					...state.query,
+					...query,
 					[key]: value
-				}
+				},
+				onParamChange
 			};
 
-			console.log('query param change wants to push with', this.props.handleHistoryPush);
-
-			if (this.props.handleHistoryPush) {
-				this.props.handleHistoryPush(
-					qs.serialize(next)
-				);
+			if (onParamChange) {
+				onParamChange(`?${qs.stringify(next.query)}`);
 			}
 
 			return next;

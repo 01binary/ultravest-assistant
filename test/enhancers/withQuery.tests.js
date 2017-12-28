@@ -4,13 +4,16 @@ import { default as withQuery, initialState } from '../../src/enhancers/withQuer
 describe('enhancer withQuery', () => {
 
 	let reflector;
+	let handleHistoryPush;
 
 	beforeAll(() => {
+		handleHistoryPush = jest.fn();
 		reflector = reflect(withQuery);
 	});
 
 	afterAll(() => {
 		reflector = null;
+		handleHistoryPush = null;
 	});
 
 	test('should set initial state', () => {
@@ -24,6 +27,23 @@ describe('enhancer withQuery', () => {
 
 		reflector.update(props => {
 			expect(props.query.cat.name).toBe('Mittens');
+			done();
+		});
+	});
+
+	test('should handle query param listener change', (done) => {
+		reflector.props.handleQueryParamListenerChange(handleHistoryPush);
+		reflector.update(props => {
+			expect(props.onParamChange).toBe(handleHistoryPush);
+			done();
+		});
+	});
+
+	test('should handle query param change', (done) => {
+		reflector.props.handleQueryParamChange('hello', 'world');
+		reflector.update(props => {
+			expect(props.query.hello).toBe('world');
+			expect(handleHistoryPush).toBeCalledWith('?cat%5Bname%5D=Mittens&hello=world');
 			done();
 		});
 	});

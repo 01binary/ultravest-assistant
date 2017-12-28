@@ -8,8 +8,18 @@ import getQueryString from '../selectors/getQueryString';
  */
 export default lifecycle({
 	componentDidMount() {
-		if (this.props.handleQueryChange && this.props.handleHistoryChange) {
+		if (this.props.handleHistoryChange &&
+			this.props.handleHistoryPush &&
+			this.props.handleQueryChange &&
+			this.props.handleQueryParamListenerChange) {
+
+			// Initialize query state
 			this.props.handleQueryChange(getQueryString());
+
+			// Push any programmatic changes to query state to history
+			this.props.handleQueryParamListenerChange(this.props.handleHistoryPush);
+
+			// Initialize history and update query state on back/forward navigation
 			this.props.handleHistoryChange(this.props.handleQueryChange);
 		}
 	}
