@@ -23,6 +23,10 @@ describe('selector getSegmentOffset', () => {
 		expect(getSegmentOffset(4, max, segments)).toBe(1);
 	});
 
+	test('should offset the next higher segment by 2 steps', () => {
+		expect(getSegmentOffset(5, max, segments)).toBe(2);
+	});
+
 	const segments = [
 		{
 			name: 'water removal',
@@ -53,6 +57,12 @@ describe('selector getSegmentOffset', () => {
 			rate: 350,
 			temp: 0,
 			hold: 0
+		},
+		{
+			name: 'back up',
+			rate: 350,
+			temp: 350,
+			hold: 1
 		}
 	];
 

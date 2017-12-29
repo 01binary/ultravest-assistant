@@ -12,22 +12,8 @@ export default (currentIndex, maxIndex, all) => (
 
 const getOffsetBefore = (currentIndex, maxIndex, all) => all
 	.slice(currentIndex, maxIndex)
-	.reduce((offset, segment, index, segments) => (
-		offset + (getIsPrevLower(index, segment, segments) ? 1 : -1)
-	), 0);
+	.reduce((offset, segment, index, segments) => offset + 1, 0);
 
 const getOffsetAfter = (currentIndex, maxIndex, all) => all
 	.slice(maxIndex + 1, currentIndex)
-	.reduce((offset, segment, index, segments) => (
-		offset + (getIsNextHigher(index, segment, segments) ? -1 : 1)
-	), 0);
-
-const getIsNextHigher = (index, segment, segments) => (
-	index + 1 < segments.length &&
-	segments[index + 1].temp > segment.temp
-);
-
-const getIsPrevLower = (index, segment, segments) => (
-	index === 0 ||
-	segments[index - 1].temp < segment.temp
-);
+	.reduce((offset, segment, index, segments) => offset + 1, 0);
