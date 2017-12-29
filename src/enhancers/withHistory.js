@@ -1,5 +1,5 @@
 import { withStateHandlers } from 'recompose';
-import history from 'history';
+import { createBrowserHistory } from 'history';
 
 export const initialState = {
 	browserHistory: null
@@ -16,13 +16,14 @@ export default withStateHandlers(
 	},
 	{
 		handleHistoryChange: state => listener => {
-			const browserHistory = history.createBrowserHistory();
+			const browserHistory = createBrowserHistory();
 			browserHistory.listen(listener);
 			return { browserHistory };
 		},
 
 		handleHistoryPush: ({ browserHistory }) => url => {
 			browserHistory.push(url);
+			return { browserHistory };
 		}
 	}
 );

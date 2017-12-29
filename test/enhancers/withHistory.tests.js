@@ -1,5 +1,8 @@
+import { createBrowserHistory } from 'history';
 import reflect from '../fixtures/reflector.tests.fixture';
 import { default as withHistory, initialState } from '../../src/enhancers/withHistory';
+
+jest.mock('history');
 
 describe('enhancer withHistory', () => {
 
@@ -12,17 +15,19 @@ describe('enhancer withHistory', () => {
 		listener = jest.fn();
 		listen = jest.fn();
 		push = jest.fn();
-		jest.mock('history', {
-			createBrowserHistory: () => ({ listen, push })
-		});
+
+		createBrowserHistory.mockImplementation(() => ({
+			listen, push
+		}));
+
 		reflector = reflect(withHistory);
 	});
 
 	afterAll(() => {
-		reflector = null;
 		listener = null;
 		listen = null;
 		push = null;
+		reflector = null;
 	});
 
 	test('should set initial state', () => {
@@ -30,11 +35,13 @@ describe('enhancer withHistory', () => {
 			.toEqual(initialState.browserHistory);
 	});
 
-	test('should handle history change', (done) => {
+	test('should handle history change', () => {
 		reflector.props.handleHistoryChange(listener);
-		reflector.update(props => {
-			expect(listen).toHaveBeenCalledWith(listener);
-			done();
-		});
+		expect(listen).toHaveBeenCalledWith(listener);
+	});
+
+	test('should handle history push', () => {
+		reflector.props.handleHistoryPush('?testing');
+		expect(push).toHaveBeenCalledWith('?testing');
 	});
 });
