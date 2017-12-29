@@ -8,7 +8,7 @@ export const initialState = {
 
 /**
  * Provide query string handlers
- * @param {function} component - The component   to enhance.
+ * @param {function} component - The component to enhance.
  * @returns {function} - Enhanced component.
  */
 export default withStateHandlers(

@@ -11,6 +11,7 @@ export default compose(
 	withInvestment,
 	withView,
 	withQuery,
-	withStartup,
-	withHistory
+	withHistory,
+	// withStartup uses withQuery and withHistory, must be defined after
+	withStartup
 );
