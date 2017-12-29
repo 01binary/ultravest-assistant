@@ -2,26 +2,26 @@ import { h } from 'preact';
 import { deep } from 'preact-render-spy';
 import { createSink } from 'recompose';
 import withStartup from '../../src/enhancers/withStartup';
-import getQueryString from '../../src/selectors/getQueryString';
+import getLocation from '../../src/selectors/getLocation';
 
 describe('enhancer withStartup', () => {
 
 	let handleQueryChange;
 	let handleQueryParamListenerChange;
-	let handleHistoryChange;
+	let handleHistoryCreate;
 	let handleHistoryPush;
 
 	beforeAll(() => {
 		handleQueryChange = jest.fn();
 		handleQueryParamListenerChange = jest.fn();
-		handleHistoryChange = jest.fn();
+		handleHistoryCreate = jest.fn();
 		handleHistoryPush = jest.fn();
 
 		const Sink = withStartup(createSink(jest.fn()));
 		const props = {
 			handleQueryChange,
 			handleQueryParamListenerChange,
-			handleHistoryChange,
+			handleHistoryCreate,
 			handleHistoryPush
 		};
 
@@ -34,19 +34,19 @@ describe('enhancer withStartup', () => {
 
 	afterAll(() => {
 		handleQueryChange = null;
-		handleHistoryChange = null;
+		handleHistoryCreate = null;
 		global.window = null;
 	});
 
 	test('should call handleQueryChange', () => {
-		expect(handleQueryChange).toHaveBeenCalledWith(getQueryString());
+		expect(handleQueryChange).toHaveBeenCalledWith(getLocation());
 	});
 
 	test('should call handleQueryParamListenerChange', () => {
 		expect(handleQueryParamListenerChange).toHaveBeenCalledWith(handleHistoryPush);
 	});
 
-	test('should call handleHistoryChange', () => {
-		expect(handleHistoryChange).toHaveBeenCalledWith(handleQueryChange);
+	test('should call handleHistoryCreate', () => {
+		expect(handleHistoryCreate).toHaveBeenCalledWith(handleQueryChange);
 	});
 });

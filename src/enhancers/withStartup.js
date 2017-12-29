@@ -1,5 +1,5 @@
 import { lifecycle } from 'recompose';
-import getQueryString from '../selectors/getQueryString';
+import getLocation from '../selectors/getLocation';
 
 /**
  * Initialize application
@@ -8,19 +8,19 @@ import getQueryString from '../selectors/getQueryString';
  */
 export default lifecycle({
 	componentDidMount() {
-		if (this.props.handleHistoryChange &&
+		if (this.props.handleHistoryCreate &&
 			this.props.handleHistoryPush &&
 			this.props.handleQueryChange &&
 			this.props.handleQueryParamListenerChange) {
 
 			// Initialize query state
-			this.props.handleQueryChange(getQueryString());
+			this.props.handleQueryChange(getLocation());
 
 			// Push any programmatic changes to query state to history
 			this.props.handleQueryParamListenerChange(this.props.handleHistoryPush);
 
 			// Initialize history and update query state on back/forward navigation
-			this.props.handleHistoryChange(this.props.handleQueryChange);
+			this.props.handleHistoryCreate(this.props.handleQueryChange);
 		}
 	}
 });

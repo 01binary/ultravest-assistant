@@ -36,7 +36,7 @@ describe('enhancer withHistory', () => {
 	});
 
 	test('should handle history change', () => {
-		reflector.props.handleHistoryChange(listener);
+		reflector.props.handleHistoryCreate(listener);
 		expect(listen).toHaveBeenCalledWith(listener);
 	});
 

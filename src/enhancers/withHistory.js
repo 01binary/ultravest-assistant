@@ -15,7 +15,7 @@ export default withStateHandlers(
 		...initialState
 	},
 	{
-		handleHistoryChange: state => listener => {
+		handleHistoryCreate: state => listener => {
 			const browserHistory = createBrowserHistory();
 			browserHistory.listen(listener);
 			return { browserHistory };
