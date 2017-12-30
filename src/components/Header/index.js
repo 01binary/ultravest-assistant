@@ -24,12 +24,13 @@ const Header = () => (
 			<p><strong>Calculate</strong> materials and burnout program for your project.</p>
 			<p>Bookmark or <strong>share</strong> via permalink.</p>
 
-			<input
+			<button
 				class={style.share}
 				type="submit"
 				name="action"
-				value="share"
-			/>
+			>
+				<i/> share
+			</button>
 		</div>
 	</header>
 );
