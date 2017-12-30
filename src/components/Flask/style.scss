@@ -19,6 +19,14 @@
 	flex: 0 0 3.5em;
 }
 
+@media all and (-ms-high-contrast:none) {
+	// IE11: fix flexbox layout
+	.dimensions section:last-of-type label {
+		margin-right: -$spacing-small;
+		flex-basis: 5em;
+	}
+}
+
 // Units
 .dimensions span {
 	color: $color-text-light;
@@ -60,11 +68,14 @@
 .action {
 	flex: 0 0 $spacing-double;
 	background-color: $color-border-light;
+	background-size: 48px 48px;
+	background-position: 50% 50%;
 	border-radius: $spacing-quarter;
 	border: none;
 	width: $spacing-double;
 	height: $spacing-double;
 	margin-left: $spacing-third;
+	padding: 0;
 	cursor: pointer;
 	transition:
 		color .2s ease-in-out,
