@@ -11,3 +11,10 @@
 	background: url('../../assets/investment.svg') 0 50% no-repeat;
 	background-size: $timeline-icon-size $timeline-icon-size;
 }
+
+@media all and (-ms-high-contrast:none) {
+	// IE11: fix nested flexbox overflow
+	.investment select {
+		flex: none;
+	}
+}
