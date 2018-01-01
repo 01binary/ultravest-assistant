@@ -30,7 +30,6 @@ const Investment = ({
 				<select
 					id="investment-preset"
 					name="investment-preset"
-					value={investment.preset}
 					onChange={handleInvestmentPresetChange}
 				>
 					{ Object.keys(investment.presets).map(preset => (

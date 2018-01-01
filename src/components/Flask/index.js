@@ -38,7 +38,6 @@ const Flask = ({
 				<select
 					id="flask-preset"
 					name="flask-preset"
-					value={flask.preset}
 					onChange={handleFlaskPresetChange}
 					autofocus
 				>
