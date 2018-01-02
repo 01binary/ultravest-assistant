@@ -58,8 +58,9 @@ select {
 	max-width: $spacing-single * 8;
 	padding: 0 $spacing-one-and-half 0 $spacing-three-halves;
 	background-image: url('../../../assets/select.svg');
-	background-repeat: no-repeat;
 	background-position-x: 100%;
+	background-size: 48px 48px;
+	background-repeat: no-repeat;
 	transition:
 		color .2s ease-in-out,
 		background-color .2s ease-in-out;
