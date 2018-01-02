@@ -135,6 +135,47 @@ $segment-extend: $segment-icon-size + $spacing-three-halves;
 	pointer-events: none;
 }
 
+// Fix offsets on IE: 11
+@media all and (-ms-high-contrast:none) {
+	// Segment tip
+	.segment figcaption {
+		width: 5em;
+		bottom: calc(100% + .25em);
+	}
+
+	// Segment temperature up icon
+	.raise .temperature {
+		top: -68px;
+	}
+
+	// Segment time up icon
+	.raise .time {
+		top: -66px;
+	}
+
+	// Segment rate up icon
+	.raise .rate {
+		left: -$spacing-quarter;
+	}
+
+	// Segment temperature down icon
+	.lower .temperature {
+		top: 0px;
+		height: 82px;
+	}
+
+	// Segment time down icon
+	.lower .time {
+		top: 0px;
+		height: 80px;
+	}
+
+	// Segment rate down icon
+	.lower .rate {
+		left: -$spacing-third;
+	}
+}
+
 // Offset segment tip for rate
 .rate figcaption {
 	right: 2em;
@@ -165,6 +206,7 @@ $segment-extend: $segment-icon-size + $spacing-three-halves;
 .segment .lower figcaption {
 	top: calc(100% + 1em);
 	bottom: initial;
+	height: $spacing-single * 2;
 }
 
 // Segment down tip arrow
