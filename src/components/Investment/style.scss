@@ -16,5 +16,6 @@
 	// IE11: fix nested flexbox overflow
 	.investment select {
 		flex: none;
+		width: 184px;
 	}
 }
