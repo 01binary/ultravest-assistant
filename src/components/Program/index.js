@@ -8,8 +8,8 @@ import style from './style';
 /**
  * Burnout program tabs
  * @param {object} segments - The burnout segments.
- * @param {string} view - The current view (segments or steps).
- * @param {function} handleViewChange - The view change handler.
+ * @param {string} view - The current view (segments or steps) provided by withView.
+ * @param {function} handleViewChange - The view change handler provided by withView.
  * @returns {JSX.Element} - A stateless component.
  */
 const Program = ({
@@ -50,8 +50,8 @@ const Program = ({
 		</label>
 
 		<section class={style.tabPages}>
-			<Segments segments={segments} />
-			<Steps segments={segments} />
+			<Segments segments={segments} view={view} />
+			<Steps segments={segments} view={view} />
 		</section>
 	</section>
 );
