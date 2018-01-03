@@ -7,12 +7,14 @@ import formStyle from '../App/style/forms';
 import style from './style';
 
 /**
- * Flask Parameters
+ * Flask parameters
  * @param {object} flask - The flask props.
- * @param {function} handleFlaskPresetChange - Handle changing flask preset.
- * @param {function} handleFlaskDiameterChange - Handle changing flask diameter.
- * @param {function} handleFlaskHeightChange - Handle changing flask height.
- * @param {function} handleAddFlaskPreset - Handle adding current flask diameter and height as preset.
+ * @param {object} query - The flask overrides from query string provided by withQuery.
+ * @param {function} handleFlaskPresetChange - The flask preset handler provided by withFlask.
+ * @param {function} handleFlaskDiameterChange - The flask diameter handler provided by withFlask.
+ * @param {function} handleFlaskHeightChange - The flask height handler provided by withFlask.
+ * @param {function} handleAddFlaskPreset - The flask preset add handler provided by withFlask.
+ * @param {function} handleRemoveFlaskPreset - The flask preset remove handler provided by withFlask.
  * @returns {JSX.Element} - A React stateless component.
  */
 const Flask = ({

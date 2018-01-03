@@ -8,10 +8,10 @@ import calcStyle from '../App/style/calc';
 import style from './style';
 
 /**
- * Investment Parameters
- * @param {object} flask - The flask props.
- * @param {object} investment - The investment props.
- * @param {function} setInvestmentPreset - The function called to set investment ratio preset.
+ * Investment parameters
+ * @param {object} flask - The flask props provided by withFlask.
+ * @param {object} investment - The investment props provided by withInvestment.
+ * @param {function} setInvestmentPreset - The handler provided by withInvestment.
  * @returns {JSX.Element} - A React stateless component.
  */
 const Investment = ({

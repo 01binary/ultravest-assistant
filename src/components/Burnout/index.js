@@ -13,9 +13,9 @@ import style from './style';
 
 /**
  * Display burnout preset calculated from flask size
- * @param {object} flask - The flask props.
- * @param {string} view - The current view (segments or steps).
- * @param {function} handleViewChange - The view change handler.
+ * @param {object} flask - The flask props provided by withFlask.
+ * @param {string} view - The current view (segments or steps) provided by withView.
+ * @param {function} handleViewChange - The change handler provided by withView.
  * @returns {JSX.Element} - A stateless component.
  */
 const Burnout = ({

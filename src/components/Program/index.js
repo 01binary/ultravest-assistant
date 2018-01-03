@@ -7,9 +7,9 @@ import style from './style';
 
 /**
  * Burnout program tabs
- * @param {object} segments - The burnout segments.
- * @param {string} view - The current view (segments or steps) provided by withView.
- * @param {function} handleViewChange - The view change handler provided by withView.
+ * @param {object} segments - The burnout segments provided by Burnout.
+ * @param {string} view - The current view (segments or steps) provided by Burnout.
+ * @param {function} handleViewChange - The view change handler provided by Burnout.
  * @returns {JSX.Element} - A stateless component.
  */
 const Program = ({

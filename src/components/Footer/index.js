@@ -1,6 +1,10 @@
 import { h } from 'preact';
 import './style';
 
+/**
+ * Application header with repository link
+ * @returns {JSX.Element} - A stateless component.
+ */
 const Footer = () => (
 	<footer>
 		<a
