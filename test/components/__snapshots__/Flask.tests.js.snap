@@ -10,7 +10,6 @@ preact-render-spy (1 nodes)
       <select
         id="flask-preset"
         name="flask-preset"
-        value="test preset"
         onChange={[Function mockConstructor]}
         autofocus={true}
       >

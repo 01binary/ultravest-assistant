@@ -42,8 +42,9 @@ describe('Investment', () => {
 	});
 
 	test('should bind preset value', () => {
-		expect(wrapper.find('#investment-preset')[0].attributes.value)
-			.toBe(expectedName);
+		const first = wrapper.find('option')[0];
+		expect(first.children[0]).toBe(expectedName);
+		expect(first.attributes.selected).toBe(true);
 	});
 
 	test('should bind change preset handler', () => {

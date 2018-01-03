@@ -46,7 +46,12 @@ preact-render-spy (1 nodes)
         <tbody>
           <tr>
             <td>
-              <a href="#water-removal">water removal</a>
+              <a
+                href="#water-removal"
+                tabIndex={-1}
+              >
+                water removal
+              </a>
             </td>
             <td>
               300
@@ -69,7 +74,12 @@ preact-render-spy (1 nodes)
           </tr>
           <tr>
             <td>
-              <a href="#thermal-transition">thermal transition</a>
+              <a
+                href="#thermal-transition"
+                tabIndex={-1}
+              >
+                thermal transition
+              </a>
             </td>
             <td>
               400
@@ -92,7 +102,12 @@ preact-render-spy (1 nodes)
           </tr>
           <tr>
             <td>
-              <a href="#pattern-removal">pattern removal</a>
+              <a
+                href="#pattern-removal"
+                tabIndex={-1}
+              >
+                pattern removal
+              </a>
             </td>
             <td>
               325
@@ -115,7 +130,12 @@ preact-render-spy (1 nodes)
           </tr>
           <tr>
             <td>
-              <a href="#casting">casting</a>
+              <a
+                href="#casting"
+                tabIndex={-1}
+              >
+                casting
+              </a>
             </td>
             <td>
               700
@@ -140,7 +160,10 @@ preact-render-spy (1 nodes)
       </table>
       <ol>
         <li>
-          <a href="#water-removal">
+          <a
+            href="#water-removal"
+            tabIndex={-1}
+          >
             raise to
             <span> 300</span>
             ° over 
@@ -149,7 +172,10 @@ preact-render-spy (1 nodes)
           </a>
         </li>
         <li>
-          <a href="#water-removal">
+          <a
+            href="#water-removal"
+            tabIndex={-1}
+          >
             hold
             <span> 300</span>
             ° for 
@@ -158,7 +184,10 @@ preact-render-spy (1 nodes)
           </a>
         </li>
         <li>
-          <a href="#thermal-transition">
+          <a
+            href="#thermal-transition"
+            tabIndex={-1}
+          >
             raise to
             <span> 700</span>
             ° over 
@@ -167,7 +196,10 @@ preact-render-spy (1 nodes)
           </a>
         </li>
         <li>
-          <a href="#thermal-transition">
+          <a
+            href="#thermal-transition"
+            tabIndex={-1}
+          >
             hold
             <span> 700</span>
             ° for 
@@ -176,7 +208,10 @@ preact-render-spy (1 nodes)
           </a>
         </li>
         <li>
-          <a href="#pattern-removal">
+          <a
+            href="#pattern-removal"
+            tabIndex={-1}
+          >
             raise to
             <span> 1350</span>
             ° over 
@@ -185,7 +220,10 @@ preact-render-spy (1 nodes)
           </a>
         </li>
         <li>
-          <a href="#pattern-removal">
+          <a
+            href="#pattern-removal"
+            tabIndex={-1}
+          >
             hold
             <span> 1350</span>
             ° for 
@@ -194,7 +232,10 @@ preact-render-spy (1 nodes)
           </a>
         </li>
         <li>
-          <a href="#casting">
+          <a
+            href="#casting"
+            tabIndex={-1}
+          >
             lower to
             <span> 700</span>
             ° over 
@@ -203,7 +244,10 @@ preact-render-spy (1 nodes)
           </a>
         </li>
         <li>
-          <a href="#casting">
+          <a
+            href="#casting"
+            tabIndex={-1}
+          >
             hold
             <span> 700</span>
             ° for 
@@ -393,7 +437,12 @@ preact-render-spy (1 nodes)
         <tbody>
           <tr>
             <td>
-              <a href="#water-removal">water removal</a>
+              <a
+                href="#water-removal"
+                tabIndex={-1}
+              >
+                water removal
+              </a>
             </td>
             <td>
               300
@@ -416,7 +465,12 @@ preact-render-spy (1 nodes)
           </tr>
           <tr>
             <td>
-              <a href="#thermal-transition">thermal transition</a>
+              <a
+                href="#thermal-transition"
+                tabIndex={-1}
+              >
+                thermal transition
+              </a>
             </td>
             <td>
               200
@@ -439,7 +493,12 @@ preact-render-spy (1 nodes)
           </tr>
           <tr>
             <td>
-              <a href="#pattern-removal">pattern removal</a>
+              <a
+                href="#pattern-removal"
+                tabIndex={-1}
+              >
+                pattern removal
+              </a>
             </td>
             <td>
               217
@@ -462,7 +521,12 @@ preact-render-spy (1 nodes)
           </tr>
           <tr>
             <td>
-              <a href="#casting">casting</a>
+              <a
+                href="#casting"
+                tabIndex={-1}
+              >
+                casting
+              </a>
             </td>
             <td>
               700
@@ -487,7 +551,10 @@ preact-render-spy (1 nodes)
       </table>
       <ol>
         <li>
-          <a href="#water-removal">
+          <a
+            href="#water-removal"
+            tabIndex={-1}
+          >
             raise to
             <span> 300</span>
             ° over 
@@ -496,7 +563,10 @@ preact-render-spy (1 nodes)
           </a>
         </li>
         <li>
-          <a href="#water-removal">
+          <a
+            href="#water-removal"
+            tabIndex={-1}
+          >
             hold
             <span> 300</span>
             ° for 
@@ -505,7 +575,10 @@ preact-render-spy (1 nodes)
           </a>
         </li>
         <li>
-          <a href="#thermal-transition">
+          <a
+            href="#thermal-transition"
+            tabIndex={-1}
+          >
             raise to
             <span> 700</span>
             ° over 
@@ -514,7 +587,10 @@ preact-render-spy (1 nodes)
           </a>
         </li>
         <li>
-          <a href="#thermal-transition">
+          <a
+            href="#thermal-transition"
+            tabIndex={-1}
+          >
             hold
             <span> 700</span>
             ° for 
@@ -523,7 +599,10 @@ preact-render-spy (1 nodes)
           </a>
         </li>
         <li>
-          <a href="#pattern-removal">
+          <a
+            href="#pattern-removal"
+            tabIndex={-1}
+          >
             raise to
             <span> 1350</span>
             ° over 
@@ -532,7 +611,10 @@ preact-render-spy (1 nodes)
           </a>
         </li>
         <li>
-          <a href="#pattern-removal">
+          <a
+            href="#pattern-removal"
+            tabIndex={-1}
+          >
             hold
             <span> 1350</span>
             ° for 
@@ -541,7 +623,10 @@ preact-render-spy (1 nodes)
           </a>
         </li>
         <li>
-          <a href="#casting">
+          <a
+            href="#casting"
+            tabIndex={-1}
+          >
             lower to
             <span> 700</span>
             ° over 
@@ -550,7 +635,10 @@ preact-render-spy (1 nodes)
           </a>
         </li>
         <li>
-          <a href="#casting">
+          <a
+            href="#casting"
+            tabIndex={-1}
+          >
             hold
             <span> 700</span>
             ° for 

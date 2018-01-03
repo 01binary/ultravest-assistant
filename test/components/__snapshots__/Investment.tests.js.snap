@@ -10,7 +10,6 @@ preact-render-spy (1 nodes)
       <select
         id="investment-preset"
         name="investment-preset"
-        value="test preset"
         onChange={[Function mockConstructor]}
       >
         <option selected={true}>test preset</option>
