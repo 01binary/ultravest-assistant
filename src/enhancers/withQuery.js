@@ -1,5 +1,7 @@
 import qs from 'qs';
 import { withStateHandlers } from 'recompose';
+import getStateFromQuery from '../selectors/getStateFromQuery';
+import getQueryFromState from '../selectors/getQueryFromState';
 
 export const initialState = {
 	query: {},
@@ -17,7 +19,7 @@ export default withStateHandlers(
 	},
 	{
 		handleQueryChange: state => ({ search }) => ({
-			query: qs.parse(search.substring(1))
+			query: getStateFromQuery(qs.parse(search.substring(1)))
 		}),
 
 		handleQueryParamListenerChange: state => onParamChange => ({
@@ -35,7 +37,7 @@ export default withStateHandlers(
 			};
 
 			if (onParamChange) {
-				onParamChange(`?${qs.stringify(next.query)}`);
+				onParamChange(`?${qs.stringify(getQueryFromState(next.query))}`);
 			}
 
 			return next;

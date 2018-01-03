@@ -27,9 +27,8 @@ const Header = () => (
 			<button
 				class={style.share}
 				type="submit"
-				name="action"
 			>
-				<i/> share
+				<i /> share
 			</button>
 		</div>
 	</header>
