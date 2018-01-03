@@ -4,6 +4,7 @@ import { reduce, minBy, maxBy } from 'ramda';
 import Burnout from '../../src/components/Burnout';
 import getFlaskVolume from '../../src/selectors/getFlaskVolume';
 import presets from '../../src/config/burnoutPresets';
+import { VIEWS } from '../../src/enhancers/withView';
 
 describe('Burnout', () => {
 
@@ -39,6 +40,40 @@ describe('Burnout', () => {
 		});
 
 		test('should not render last marker', () => {
+			expect(wrapper).toMatchSnapshot();
+		});
+	});
+
+	describe('with segments view', () => {
+
+		beforeAll(() => {
+			wrapper = deep(
+				<Burnout flask={firstPreset} view={VIEWS.SEGMENTS} />
+			);
+		});
+	
+		afterAll(() => {
+			wrapper = null;
+		});
+
+		test('should render all steps with negative tab index', () => {
+			expect(wrapper).toMatchSnapshot();
+		});
+	});
+
+	describe('with steps view', () => {
+
+		beforeAll(() => {
+			wrapper = deep(
+				<Burnout flask={firstPreset} view={VIEWS.STEPS} />
+			);
+		});
+	
+		afterAll(() => {
+			wrapper = null;
+		});
+
+		test('should render all segments with negative tab index', () => {
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
