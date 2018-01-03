@@ -14,19 +14,19 @@ describe('App', () => {
 		wrapper = null;
 	});
 
-	test('should render', () => {
+	it('should render', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	test('should render Flask', () => {
+	it('should render Flask', () => {
 		expect(wrapper.find('Flask').length).toBe(1);
 	});
 
-	test('should render Investment', () => {
+	it('should render Investment', () => {
 		expect(wrapper.find('Investment').length).toBe(1);
 	});
 
-	test('should render Burnout', () => {
+	it('should render Burnout', () => {
 		expect(wrapper.find('Burnout').length).toBe(1);
 	});
 });

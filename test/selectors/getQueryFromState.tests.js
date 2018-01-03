@@ -2,7 +2,7 @@ import getQueryFromState from '../../src/selectors/getQueryFromState';
 
 describe('selector getQueryFromState', () => {
 
-	test('deflates state', () => {
+	it('deflates state', () => {
 		expect(getQueryFromState({
 			myobject: {
 				propertyOne: 'hello',

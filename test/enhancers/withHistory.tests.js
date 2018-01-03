@@ -30,17 +30,17 @@ describe('enhancer withHistory', () => {
 		reflector = null;
 	});
 
-	test('should set initial state', () => {
+	it('should set initial state', () => {
 		expect(reflect(withHistory).props.browserHistory)
 			.toEqual(initialState.browserHistory);
 	});
 
-	test('should handle history change', () => {
+	it('should handle history change', () => {
 		reflector.props.handleHistoryCreate(listener);
 		expect(listen).toHaveBeenCalledWith(listener);
 	});
 
-	test('should handle history push', () => {
+	it('should handle history push', () => {
 		reflector.props.handleHistoryPush('?testing');
 		expect(push).toHaveBeenCalledWith('?testing');
 	});

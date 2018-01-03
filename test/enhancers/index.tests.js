@@ -6,15 +6,15 @@ import includes from '../fixtures/composer.tests.fixture';
 
 describe('composed state', () => {
 
-	test('should include withFlask', () => {
+	it('should include withFlask', () => {
 		includes(withState, withFlask);
 	});
 
-	test('should include withInvestment', () => {
+	it('should include withInvestment', () => {
 		includes(withState, withInvestment);
 	});
 
-	test('should include withView', () => {
+	it('should include withView', () => {
 		includes(withState, withView);
 	});
 });

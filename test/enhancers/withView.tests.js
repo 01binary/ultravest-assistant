@@ -13,11 +13,11 @@ describe('enhancer withView', () => {
 		reflector = null;
 	});
 
-	test('should set initial state', () => {
+	it('should set initial state', () => {
 		expect(reflector.props.view).toBe(VIEWS.SEGMENTS);
 	});
 
-	test('should handle view change', (done) => {
+	it('should handle view change', (done) => {
 		reflector.props.handleViewChange({
 			target: { value: VIEWS.STEPS }
 		});

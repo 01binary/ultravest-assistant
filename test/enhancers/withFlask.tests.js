@@ -15,7 +15,7 @@ describe('enhancer withFlask', () => {
 		reflector = null;
 	});
 
-	test('should set initial state', () => {
+	it('should set initial state', () => {
 		expect(reflector.props.flask).toEqual({
 			presets,
 			preset: DEFAULT,
@@ -24,7 +24,7 @@ describe('enhancer withFlask', () => {
 		});
 	});
 
-	test('should set flask preset', done => {
+	it('should set flask preset', done => {
 		const expected = Object.keys(reflector.props.flask.presets)[2];
 
 		reflector.props.handleFlaskPresetChange({
@@ -45,7 +45,7 @@ describe('enhancer withFlask', () => {
 		});
 	});
 
-	test('should set flask diameter', done => {
+	it('should set flask diameter', done => {
 		reflector.props.handleFlaskDiameterChange({
 			target: { value: 6.2 }
 		});
@@ -64,7 +64,7 @@ describe('enhancer withFlask', () => {
 		});
 	});
 
-	test('should set flask height', done => {
+	it('should set flask height', done => {
 		reflector.props.handleFlaskHeightChange({
 			target: { value: 13.5 }
 		});
@@ -83,7 +83,7 @@ describe('enhancer withFlask', () => {
 		});
 	});
 
-	test('should add flask preset', done => {
+	it('should add flask preset', done => {
 		const event = { preventDefault: jest.fn() };
 		
 		reflector.props.handleAddFlaskPreset(event);
@@ -109,7 +109,7 @@ describe('enhancer withFlask', () => {
 		});
 	});
 
-	test('should keep added flask preset when setting diameter', done => {
+	it('should keep added flask preset when setting diameter', done => {
 		const expected = Object.assign({}, reflector.props.flask.presets);
 
 		reflector.props.handleFlaskDiameterChange({
@@ -128,7 +128,7 @@ describe('enhancer withFlask', () => {
 		});
 	});
 
-	test('should keep added flask preset when setting height', done => {
+	it('should keep added flask preset when setting height', done => {
 		const expected = Object.assign({}, reflector.props.flask.presets);
 
 		reflector.props.handleFlaskHeightChange({
@@ -147,7 +147,7 @@ describe('enhancer withFlask', () => {
 		});
 	});
 
-	test('should keep added flask preset when setting another preset', done => {
+	it('should keep added flask preset when setting another preset', done => {
 		const another = Object.keys(presets)[1];
 		const expected = Object.assign({}, reflector.props.flask.presets);
 		
@@ -165,7 +165,7 @@ describe('enhancer withFlask', () => {
 		});
 	});
 
-	test('should not add flask preset if already added', done => {
+	it('should not add flask preset if already added', done => {
 		const before = reflector.props.flask.presets.length;
 
 		reflector.props.handleFlaskPresetChange({
@@ -182,7 +182,7 @@ describe('enhancer withFlask', () => {
 		});
 	});
 
-	test('should remove added flask preset and switch to the one before', done => {
+	it('should remove added flask preset and switch to the one before', done => {
 		const event = { preventDefault: jest.fn() };
 		const presetNames = Object.keys(reflector.props.flask.presets);
 		const next = presetNames[
@@ -201,7 +201,7 @@ describe('enhancer withFlask', () => {
 		});
 	});
 
-	test('should remove second to last preset and switch to the one after', done => {
+	it('should remove second to last preset and switch to the one after', done => {
 		const presetNames = Object.keys(reflector.props.flask.presets);
 		const remove = presetNames[presetNames.length - 2];
 		const next = presetNames[presetNames.length - 1];
@@ -220,7 +220,7 @@ describe('enhancer withFlask', () => {
 		});
 	});
 
-	test('should set current preset to null when last remaining preset is removed', done => {
+	it('should set current preset to null when last remaining preset is removed', done => {
 		Object
 			.keys(reflector.props.flask.presets)
 			.forEach(preset => reflector.props.handleRemoveFlaskPreset({ preventDefault: always() }));

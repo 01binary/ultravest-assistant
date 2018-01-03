@@ -37,17 +37,17 @@ describe('Investment', () => {
 		wrapper = null;
 	});
 
-	test('should render', () => {
+	it('should render', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	test('should bind preset value', () => {
+	it('should bind preset value', () => {
 		const first = wrapper.find('option')[0];
 		expect(first.children[0]).toBe(expectedName);
 		expect(first.attributes.selected).toBe(true);
 	});
 
-	test('should bind change preset handler', () => {
+	it('should bind change preset handler', () => {
 		wrapper.find('#investment-preset')[0].attributes.onChange();
 		expect(props.handleInvestmentPresetChange.mock.calls.length)
 			.toBe(1);

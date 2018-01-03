@@ -2,13 +2,13 @@ import getBurnoutTime from '../../src/selectors/getBurnoutTime';
 
 describe('selector getBurnoutTime', () => {
 
-	test('calculates 0 with no segments', () => {
+	it('calculates 0 with no segments', () => {
 		expect(getBurnoutTime({
 			segments: []
 		})).toEqual(0);
 	});
 
-	test('calculates burnout time for a single segment', () => {
+	it('calculates burnout time for a single segment', () => {
 		expect(getBurnoutTime({
 			segments: [
 				// 100 / 100 + 1 = 2
@@ -21,7 +21,7 @@ describe('selector getBurnoutTime', () => {
 		})).toEqual(2);
 	});
 
-	test('calculates burnout time for multiple segments', () => {
+	it('calculates burnout time for multiple segments', () => {
 		expect(getBurnoutTime({
 			segments: [
 				// 100/100 + 1 = 2

@@ -16,11 +16,11 @@ describe('enhancer withQuery', () => {
 		handleHistoryPush = null;
 	});
 
-	test('should set initial state', () => {
+	it('should set initial state', () => {
 		expect(reflect(withQuery).props.query).toEqual(initialState.query);
 	});
 
-	test('should handle query change', (done) => {
+	it('should handle query change', (done) => {
 		reflector.props.handleQueryChange({
 			search: '?cat[name]=Mittens'
 		});
@@ -31,7 +31,7 @@ describe('enhancer withQuery', () => {
 		});
 	});
 
-	test('should handle query param change with no listener', (done) => {
+	it('should handle query param change with no listener', (done) => {
 		reflector.props.handleQueryParamChange('testing', 'test');
 		reflector.update(props => {
 			expect(props.query.testing).toBe('test');
@@ -40,7 +40,7 @@ describe('enhancer withQuery', () => {
 		});
 	});
 
-	test('should handle query param listener change', (done) => {
+	it('should handle query param listener change', (done) => {
 		reflector.props.handleQueryParamListenerChange(handleHistoryPush);
 		reflector.update(props => {
 			expect(props.onParamChange).toBe(handleHistoryPush);
@@ -48,7 +48,7 @@ describe('enhancer withQuery', () => {
 		});
 	});
 
-	test('should handle query param change', (done) => {
+	it('should handle query param change', (done) => {
 		reflector.props.handleQueryParamChange('hello', 'world');
 		reflector.update(props => {
 			expect(props.query.hello).toBe('world');

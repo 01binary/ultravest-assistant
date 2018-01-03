@@ -37,15 +37,15 @@ describe('enhancer withStartup', () => {
 			handleHistoryPush = null;
 		});
 
-		test('should call handleQueryChange', () => {
+		it('should call handleQueryChange', () => {
 			expect(handleQueryChange).toHaveBeenCalledWith(getLocation());
 		});
 
-		test('should call handleQueryParamListenerChange', () => {
+		it('should call handleQueryParamListenerChange', () => {
 			expect(handleQueryParamListenerChange).toHaveBeenCalledWith(handleHistoryPush);
 		});
 
-		test('should call handleHistoryCreate', () => {
+		it('should call handleHistoryCreate', () => {
 			expect(handleHistoryCreate).toHaveBeenCalledWith(handleQueryChange);
 		});
 	});
@@ -76,7 +76,7 @@ describe('enhancer withStartup', () => {
 			handleHistoryPush = null;
 		});
 
-		test('should not call any handlers', () => {
+		it('should not call any handlers', () => {
 			expect(handleQueryChange).not.toHaveBeenCalled();
 			expect(handleQueryParamListenerChange).not.toHaveBeenCalled();
 			expect(handleHistoryCreate).not.toHaveBeenCalled();

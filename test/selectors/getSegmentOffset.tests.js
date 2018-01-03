@@ -3,27 +3,27 @@ import getMaxSegmentIndex from '../../src/selectors/getMaxSegmentIndex';
 
 describe('selector getSegmentOffset', () => {
 
-	test('should offset the lowest temperature segment by 2 steps', () => {
+	it('should offset the lowest temperature segment by 2 steps', () => {
 		expect(getSegmentOffset(0, max, segments)).toBe(2);
 	});
 
-	test('should offset the interim temperature segment by 1 step', () => {
+	it('should offset the interim temperature segment by 1 step', () => {
 		expect(getSegmentOffset(1, max, segments)).toBe(1);
 	});
 
-	test('should not offset the peak temperature segment', () => {
+	it('should not offset the peak temperature segment', () => {
 		expect(getSegmentOffset(2, max, segments)).toBe(0);
 	});
 
-	test('should not offset the temperature segment directly following the peak', () => {
+	it('should not offset the temperature segment directly following the peak', () => {
 		expect(getSegmentOffset(3, max, segments)).toBe(0);
 	});
 
-	test('should offset the next lower temperature segment by 1 step', () => {
+	it('should offset the next lower temperature segment by 1 step', () => {
 		expect(getSegmentOffset(4, max, segments)).toBe(1);
 	});
 
-	test('should offset the next higher segment by 2 steps', () => {
+	it('should offset the next higher segment by 2 steps', () => {
 		expect(getSegmentOffset(5, max, segments)).toBe(2);
 	});
 

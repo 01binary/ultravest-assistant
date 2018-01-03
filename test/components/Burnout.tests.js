@@ -22,7 +22,7 @@ describe('Burnout', () => {
 			wrapper = null;
 		});
 	
-		test('should render last marker', () => {
+		it('should render last marker', () => {
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
@@ -39,7 +39,7 @@ describe('Burnout', () => {
 			wrapper = null;
 		});
 
-		test('should not render last marker', () => {
+		it('should not render last marker', () => {
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
@@ -56,7 +56,7 @@ describe('Burnout', () => {
 			wrapper = null;
 		});
 
-		test('should render all steps with negative tab index', () => {
+		it('should render all steps with negative tab index', () => {
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
@@ -73,7 +73,7 @@ describe('Burnout', () => {
 			wrapper = null;
 		});
 
-		test('should render all segments with negative tab index', () => {
+		it('should render all segments with negative tab index', () => {
 			expect(wrapper).toMatchSnapshot();
 		});
 	});

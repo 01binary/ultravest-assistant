@@ -2,7 +2,7 @@ import getBurnoutPreset from '../../src/selectors/getBurnoutPreset';
 
 describe('selector getBurnoutPreset', () => {
 
-	test('returns preset for exact flask size', () => {
+	it('returns preset for exact flask size', () => {
 		expect(getBurnoutPreset(
 			[
 				{
@@ -30,7 +30,7 @@ describe('selector getBurnoutPreset', () => {
 		});
 	});
 
-	test('returns the shortest preset for flask size', () => {
+	it('returns the shortest preset for flask size', () => {
 		expect(getBurnoutPreset(
 			[
 				{
@@ -62,7 +62,7 @@ describe('selector getBurnoutPreset', () => {
 		});
 	});
 
-	test('returns the longest preset if flask exceeds largest size', () => {
+	it('returns the longest preset if flask exceeds largest size', () => {
 		expect(getBurnoutPreset(
 			[
 				{
