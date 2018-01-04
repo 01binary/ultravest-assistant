@@ -10,7 +10,7 @@ export default ({
 	flask,
 	...handlers
 }) => ({
-	presets: flask.presets,
+	presets: (query.flask && query.flask.presets) || flask.presets,
 	preset: (query.flask && query.flask.preset) || flask.preset,
 	diameter: (query.flask && query.flask.diameter) || flask.diameter,
 	height: (query.flask && query.flask.height) || flask.height,
