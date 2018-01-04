@@ -43,7 +43,7 @@ export default withStateHandlers(
 		}),
 
 		handleAddFlaskPreset: ({ flask }) => event => {
-			const key = `${flask.diameter} × ${flask.height}`;
+			const key = `${flask.diameter}x${flask.height}`;
 
 			event.preventDefault();
 

@@ -92,14 +92,14 @@ describe('enhancer withFlask', () => {
 			expect(event.preventDefault.mock.calls.length)
 				.toBe(1);
 			expect(reflector.props.flask.preset)
-				.toEqual('6.2 × 13.5');
+				.toEqual('6.2x13.5');
 			expect(reflector.props.flask.diameter)
 				.toEqual(6.2);
 			expect(reflector.props.flask.height)
 				.toEqual(13.5);
 			expect(props.flask.presets)
 				.toEqual(Object.assign({}, presets, {
-					'6.2 × 13.5': {
+					'6.2x13.5': {
 						diameter: 6.2,
 						height: 13.5
 					}
@@ -169,7 +169,7 @@ describe('enhancer withFlask', () => {
 		const before = reflector.props.flask.presets.length;
 
 		reflector.props.handleFlaskPresetChange({
-			target: { value: '6.2 × 13.5' }
+			target: { value: '6.2x13.5' }
 		});
 
 		reflector.props.handleAddFlaskPreset({ preventDefault: always() });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Flask should render 1`] = `
+exports[`Flask without query overrides should render 1`] = `
 preact-render-spy (1 nodes)
 -------
 <article class="timeline flask">

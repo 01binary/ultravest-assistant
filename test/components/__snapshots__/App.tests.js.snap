@@ -25,7 +25,6 @@ preact-render-spy (1 nodes)
       <button
         class="share"
         type="submit"
-        name="action"
       >
         <i></i>
          share

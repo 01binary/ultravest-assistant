@@ -5,6 +5,7 @@ import Flask from '../Flask';
 import Investment from '../Investment';
 import Burnout from '../Burnout';
 import Footer from '../Footer';
+import getFlask from '../../selectors/getFlask';
 import style from './style';
 
 /**
@@ -17,7 +18,7 @@ const App = props => (
 		<Header />
 
 		<main>
-			<Flask {...props} />
+			<Flask {...getFlask(props)} />
 			<Investment {...props} />
 			<Burnout {...props} />
 		</main>

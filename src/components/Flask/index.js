@@ -2,14 +2,17 @@ import { h } from 'preact';
 import classNames from 'obj-str';
 import { CUSTOM } from '../../enhancers/withFlask';
 import Units from '../Units';
+import getDecoratedFlaskPreset from '../../selectors/getDecoratedFlaskPreset';
 import timelineStyle from '../App/style/timeline';
 import formStyle from '../App/style/forms';
 import style from './style';
 
 /**
  * Flask parameters
- * @param {object} flask - The flask props.
- * @param {object} query - The flask overrides from query string provided by withQuery.
+ * @param {object[]} presets - The flask presets provided by App.
+ * @param {string} preset - The flask preset provided by App.
+ * @param {number} diameter - The flask diameter provided by App.
+ * @param {number} height - The flask height provided by App.
  * @param {function} handleFlaskPresetChange - The flask preset handler provided by withFlask.
  * @param {function} handleFlaskDiameterChange - The flask diameter handler provided by withFlask.
  * @param {function} handleFlaskHeightChange - The flask height handler provided by withFlask.
@@ -18,7 +21,10 @@ import style from './style';
  * @returns {JSX.Element} - A React stateless component.
  */
 const Flask = ({
-	flask,
+	presets,
+	preset,
+	diameter,
+	height,
 	handleFlaskPresetChange,
 	handleFlaskDiameterChange,
 	handleFlaskHeightChange,
@@ -43,13 +49,13 @@ const Flask = ({
 					onChange={handleFlaskPresetChange}
 					autofocus
 				>
-					{ Object.keys(flask.presets).map(preset => (
-						<option selected={preset === flask.preset}>
-							{preset}
+					{ Object.keys(presets).map(name => (
+						<option selected={name === preset}>
+							{getDecoratedFlaskPreset(name)}
 						</option>
 					))}
 
-					<option selected={flask.preset === CUSTOM}>
+					<option selected={name === CUSTOM}>
 						custom
 					</option>
 				</select>
@@ -95,7 +101,7 @@ const Flask = ({
 					name="flask-diameter"
 					type="number"
 					step="0.1"
-					value={flask.diameter}
+					value={diameter}
 					onChange={handleFlaskDiameterChange}
 				/>
 				<label for="flask-diameter">
@@ -112,7 +118,7 @@ const Flask = ({
 					name="flask-height"
 					type="number"
 					step="0.1"
-					value={flask.height}
+					value={height}
 					onChange={handleFlaskHeightChange}
 				/>
 				<label for="flask-height">

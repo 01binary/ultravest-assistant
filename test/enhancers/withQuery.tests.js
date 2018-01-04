@@ -52,7 +52,7 @@ describe('enhancer withQuery', () => {
 		reflector.props.handleQueryParamChange('hello', 'world');
 		reflector.update(props => {
 			expect(props.query.hello).toBe('world');
-			expect(handleHistoryPush).toBeCalledWith('?cat%5Bname%5D=Mittens&testing=test&hello=world');
+			expect(handleHistoryPush).toBeCalledWith('?cat-name=Mittens&testing=test&hello=world');
 			done();
 		});
 	});
