@@ -1,9 +1,8 @@
 import { h } from 'preact';
 import classNames from 'obj-str';
-import presets from '../../config/burnoutPresets';
-import getBurnoutPreset from '../../selectors/getBurnoutPreset';
 import getBurnoutTime from '../../selectors/getBurnoutTime';
 import getMaxSegmentIndex from '../../selectors/getMaxSegmentIndex';
+import withBurnoutOrQuery from '../../enhancers/withBurnoutOrQuery';
 import Diagram from '../Diagram';
 import Program from '../Program';
 import timelineStyle from '../App/style/timeline';
@@ -13,50 +12,47 @@ import style from './style';
 
 /**
  * Display burnout preset calculated from flask size
- * @param {object} flask - The flask props provided by withFlask.
  * @param {string} view - The current view (segments or steps) provided by withView.
+ * @param {Object} schedule - The burnout schedule provided by withBurnoutOrQuery.
  * @param {function} handleViewChange - The change handler provided by withView.
  * @returns {JSX.Element} - A stateless component.
  */
-const Burnout = ({
-	flask,
+export const Burnout = ({
 	view,
-	handleViewChange }) => {
-	const preset = getBurnoutPreset(presets, flask);
-	return (
-		<article class={classNames({
-			[timelineStyle.timeline]: true,
-			[style.burnout]: true
+	schedule,
+	handleViewChange }) => (
+	<article class={classNames({
+		[timelineStyle.timeline]: true,
+		[style.burnout]: true
+	})}
+	>
+		<h2>burnout</h2>
+
+		<output class={classNames({
+			[formStyle.group]: true,
+			[calcStyle.calc]: true
 		})}
 		>
-			<h2>burnout</h2>
+			<dl class={formStyle.control}>
+				<dt>time</dt>
+				<dd>
+					{getBurnoutTime(schedule)}
+					<span>hours</span>
+				</dd>
+			</dl>
+		</output>
 
-			<output class={classNames({
-				[formStyle.group]: true,
-				[calcStyle.calc]: true
-			})}
-			>
-				<dl class={formStyle.control}>
-					<dt>time</dt>
-					<dd>
-						{getBurnoutTime(preset)}
-						<span>hours</span>
-					</dd>
-				</dl>
-			</output>
+		<Program
+			segments={schedule}
+			view={view}
+			handleViewChange={handleViewChange}
+		/>
 
-			<Program
-				segments={preset.segments}
-				view={view}
-				handleViewChange={handleViewChange}
-			/>
+		<Diagram
+			segments={schedule}
+			maxIndex={getMaxSegmentIndex(schedule)}
+		/>
+	</article>
+);
 
-			<Diagram
-				segments={preset.segments}
-				maxIndex={getMaxSegmentIndex(preset.segments)}
-			/>
-		</article>
-	);
-};
-
-export default Burnout;
+export default withBurnoutOrQuery(Burnout);

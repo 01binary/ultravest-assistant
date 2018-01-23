@@ -3,6 +3,7 @@ import classNames from 'obj-str';
 import { CUSTOM } from '../../enhancers/withFlask';
 import Units from '../Units';
 import getDecoratedFlaskPreset from '../../selectors/getDecoratedFlaskPreset';
+import withFlaskOrQuery from '../../enhancers/withFlaskOrQuery';
 import timelineStyle from '../App/style/timeline';
 import formStyle from '../App/style/forms';
 import style from './style';
@@ -20,7 +21,7 @@ import style from './style';
  * @param {function} handleRemoveFlaskPreset - The flask preset remove handler provided by withFlask.
  * @returns {JSX.Element} - A React stateless component.
  */
-const Flask = ({
+export const Flask = ({
 	presets,
 	preset,
 	diameter,
@@ -132,4 +133,4 @@ const Flask = ({
 	</article>
 );
 
-export default Flask;
+export default withFlaskOrQuery(Flask);

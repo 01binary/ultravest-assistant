@@ -2,6 +2,7 @@ import { h } from 'preact';
 import classNames from 'obj-str';
 import Units from '../Units';
 import getMixWeights from '../../selectors/getMixWeights';
+import withInvestmentOrQuery from '../../enhancers/withInvestmentOrQuery';
 import timelineStyle from '../App/style/timeline';
 import formStyle from '../App/style/forms';
 import calcStyle from '../App/style/calc';
@@ -9,14 +10,16 @@ import style from './style';
 
 /**
  * Investment parameters
- * @param {object} flask - The flask props provided by withFlask.
- * @param {object} investment - The investment props provided by withInvestment.
- * @param {function} setInvestmentPreset - The handler provided by withInvestment.
+ * @param {Object} flask - The flask props provided by withFlask.
+ * @param {string} preset - The investment preset provided by withInvestment.
+ * @param {Object[]} presets - The investment presets provided by withInvestment.
+ * @param {function} handleInvestmentPresetChange - The handler provided by withInvestment.
  * @returns {JSX.Element} - A React stateless component.
  */
-const Investment = ({
+export const Investment = ({
+	preset,
+	presets,
 	flask,
-	investment,
 	handleInvestmentPresetChange }) => (
 	<article class={classNames({
 		[timelineStyle.timeline]: true,
@@ -32,8 +35,8 @@ const Investment = ({
 					name="investment-preset"
 					onChange={handleInvestmentPresetChange}
 				>
-					{ Object.keys(investment.presets).map(preset => (
-						<option selected={preset === investment.preset}>
+					{ Object.keys(presets).map(preset => (
+						<option selected={preset === preset}>
 							{preset}
 						</option>
 					))}
@@ -49,14 +52,12 @@ const Investment = ({
 			[calcStyle.calc]: true
 		})}
 		>
-			{ getMixWeights({ flask, investment }).map(mix => (
+			{ getMixWeights(flask, preset, presets).map(mix => (
 				<dl class={formStyle.control}>
 					<dt>{mix.component}</dt>
 					<dd>
 						{mix.grams}
-						<Units alt="grams">
-							g
-						</Units>
+						<Units alt="grams">g</Units>
 					</dd>
 				</dl>
 			))}
@@ -64,4 +65,4 @@ const Investment = ({
 	</article>
 );
 
-export default Investment;
+export default withInvestmentOrQuery(Investment);

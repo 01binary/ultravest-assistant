@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { deep } from 'preact-render-spy';
-import Flask from '../../src/components/Flask';
+import { Flask } from '../../src/components/Flask';
 
 describe('Flask', () => {
 

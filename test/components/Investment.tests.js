@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { deep } from 'preact-render-spy';
-import Investment from '../../src/components/Investment';
+import { Investment } from '../../src/components/Investment';
 
 describe('Investment', () => {
 

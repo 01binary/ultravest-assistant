@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import { deep } from 'preact-render-spy';
 import { reduce, minBy, maxBy } from 'ramda';
-import Burnout from '../../src/components/Burnout';
+import { Burnout } from '../../src/components/Burnout';
 import getFlaskVolume from '../../src/selectors/getFlaskVolume';
 import presets from '../../src/config/burnoutPresets';
 import { VIEWS } from '../../src/enhancers/withView';
