@@ -13,5 +13,6 @@ export default (presets, flask) => (
 		.filter(preset => (
 			preset.diameter >= flask.diameter &&
 			preset.height >= flask.height
-		))([0] || presets[presets.length - 1]).segments
-);
+		))[0] ||
+	presets[presets.length - 1]
+).segments;
