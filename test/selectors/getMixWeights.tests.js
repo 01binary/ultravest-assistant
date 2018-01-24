@@ -4,7 +4,11 @@ import getFlaskVolume from '../../src/selectors/getFlaskVolume';
 describe('selector getMixWeights', () => {
 
 	it('calculates mix weights', () => {
-		getMixWeights({ flask, investment }).forEach((calc, index) => {
+		getMixWeights(
+			flask,
+			investment.preset,
+			investment.presets
+		).forEach((calc, index) => {
 			expect(calc.grams)
 				.toEqual(mix[index].grams);
 			expect(calc.component)
@@ -13,10 +17,11 @@ describe('selector getMixWeights', () => {
 	});
 
 	it('sorts by component name', () => {
-		getMixWeights({
+		getMixWeights(
 			flask,
-			investment: unsortedInvestment
-		}).forEach((calc, index) => {
+			unsortedInvestment.preset,
+			unsortedInvestment.presets
+		).forEach((calc, index) => {
 			expect(calc.grams)
 				.toEqual(mix[index].grams);
 			expect(calc.component)
