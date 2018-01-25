@@ -27,7 +27,7 @@ const enhancer = (hoc, reflect) => (
  *  The reflected instance is available on .element.
  */
 class Wrapper {
-	constructor(hoc) {
+	constructor(hoc, params) {
 		if (typeof hoc !== 'function') {
 			throw new Error('invalid higher order component passed to reflect Wrapper:', hoc);
 		}
@@ -41,7 +41,7 @@ class Wrapper {
 			}
 		});
 
-		this.element = h(factory);
+		this.element = h(factory, params);
 		this.callback = null;
 
 		render(this.element, global.document);
@@ -52,4 +52,4 @@ class Wrapper {
 	}
 }
 
-export default (hoc) => new Wrapper(hoc);
+export default (hoc, params) => new Wrapper(hoc, params);

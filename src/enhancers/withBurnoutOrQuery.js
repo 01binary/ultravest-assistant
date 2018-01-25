@@ -1,7 +1,7 @@
 import { mapProps } from 'recompose';
 import { mergeWith, defaultTo } from 'ramda';
-import getBurnoutSchedule from '../../selectors/getBurnoutSchedule';
-import presets from '../../config/burnoutPresets';
+import getBurnoutSchedule from '../selectors/getBurnoutSchedule';
+import presets from '../config/burnoutPresets';
 
 /**
  * Select burnout props
@@ -17,8 +17,8 @@ export default mapProps(({
 	view,
 	handleViewChange
 }) => ({
-	view,
 	handleViewChange,
+	view: query.view || view,
 	schedule: getBurnoutSchedule(
 		presets,
 		mergeWith(defaultTo, flask, query.flask)
