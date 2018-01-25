@@ -8,11 +8,10 @@ describe('Flask', () => {
 
 	beforeAll(() => {
 		props = {
-			query: {},
 			preset: expectedName,
 			presets: {
 				[expectedName]: expected,
-				'another preset': {
+				[anotherName]: {
 					diameter: 4,
 					height: 6
 				}
@@ -85,6 +84,7 @@ describe('Flask', () => {
 			.toBe(1);
 	});
 
+	const anotherName = 'another preset';
 	const expectedName = 'test preset';
 	const expected = {
 		diameter: 2,

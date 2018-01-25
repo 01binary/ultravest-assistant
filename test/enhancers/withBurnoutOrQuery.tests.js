@@ -13,7 +13,7 @@ describe('enhancer withBurnoutOrQuery', () => {
 		beforeAll(() => {
 			props = {
 				query: {},
-				flask: flaskProps,
+				flask,
 				view: 'testing',
 				handleViewChange: jest.fn()
 			};
@@ -49,7 +49,7 @@ describe('enhancer withBurnoutOrQuery', () => {
 					},
 					view: 'another'
 				},
-				flask: flaskProps,
+				flask,
 				view: 'test',
 				handleViewChange: jest.fn()
 			};
@@ -70,5 +70,5 @@ describe('enhancer withBurnoutOrQuery', () => {
 		});
 	});
 
-	const flaskProps = flaskPresets[Object.keys(flaskPresets)[0]];
+	const flask = flaskPresets[Object.keys(flaskPresets)[0]];
 });
