@@ -57,7 +57,12 @@ describe('enhancer withFlaskOrQuery', () => {
 						diameter: 100,
 						height: 100,
 						preset: 'whatever',
-						presets: [ 'whatever', 'one', 'two' ]
+						presets: {
+							whatever: {
+								diameter: 22,
+								height: 33
+							}
+						}
 					}
 				},
 				flask: flaskProps,
