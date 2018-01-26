@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { deep } from 'preact-render-spy';
-import { reduce, minBy, maxBy } from 'ramda';
+import { reduce, maxBy } from 'ramda';
 import { Burnout } from '../../src/components/Burnout';
 import getFlaskVolume from '../../src/selectors/getFlaskVolume';
 import presets from '../../src/config/burnoutPresets';
@@ -8,47 +8,19 @@ import { VIEWS } from '../../src/enhancers/withView';
 
 describe('Burnout', () => {
 
-	let wrapper;
-
-	describe('with last burnout preset', () => {
-
-		beforeAll(() => {
-			wrapper = deep(
-				<Burnout flask={lastPreset} />
-			);
-		});
-	
-		afterAll(() => {
-			wrapper = null;
-		});
-	
-		it('should render last marker', () => {
-			expect(wrapper).toMatchSnapshot();
-		});
-	});
-
-	describe('with first burnout preset', () => {
-
-		beforeAll(() => {
-			wrapper = deep(
-				<Burnout flask={firstPreset} />
-			);
-		});
-	
-		afterAll(() => {
-			wrapper = null;
-		});
-
-		it('should not render last marker', () => {
-			expect(wrapper).toMatchSnapshot();
-		});
-	});
+	let wrapper, props;
 
 	describe('with segments view', () => {
 
 		beforeAll(() => {
+			props = {
+				view: VIEWS.SEGMENTS,
+				schedule: preset.segments,
+				handleViewChange: jest.fn()
+			};
+
 			wrapper = deep(
-				<Burnout flask={firstPreset} view={VIEWS.SEGMENTS} />
+				<Burnout {...props} />
 			);
 		});
 	
@@ -64,8 +36,14 @@ describe('Burnout', () => {
 	describe('with steps view', () => {
 
 		beforeAll(() => {
+			props = {
+				view: VIEWS.STEPS,
+				schedule: preset.segments,
+				handleViewChange: jest.fn()
+			};
+
 			wrapper = deep(
-				<Burnout flask={firstPreset} view={VIEWS.STEPS} />
+				<Burnout {...props} />
 			);
 		});
 	
@@ -78,6 +56,5 @@ describe('Burnout', () => {
 		});
 	});
 
-	const firstPreset = reduce(minBy(getFlaskVolume), presets[0], presets);
-	const lastPreset = reduce(maxBy(getFlaskVolume), presets[0], presets);
+	const preset = reduce(maxBy(getFlaskVolume), presets[0], presets);
 });
