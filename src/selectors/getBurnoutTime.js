@@ -5,7 +5,8 @@
  */
 export default schedule => (
 	Math.round(schedule.reduce((total, segment, index) =>
-		total + ( index ?
+		total +
+		( index ?
 			segment.temp - schedule[index - 1].temp :
 			segment.temp
 		) / segment.rate + segment.hold,
