@@ -14,8 +14,8 @@ describe('App', () => {
 		wrapper = null;
 	});
 
-	it('should render', () => {
-		expect(wrapper).toMatchSnapshot();
+	it('should render Header', () => {
+		expect(wrapper.find('Header').length).toBe(1);
 	});
 
 	it('should render Flask', () => {
@@ -28,5 +28,9 @@ describe('App', () => {
 
 	it('should render Burnout', () => {
 		expect(wrapper.find('Burnout').length).toBe(1);
+	});
+
+	it('should render Footer', () => {
+		expect(wrapper.find('Footer').length).toBe(1);
 	});
 });
