@@ -8,11 +8,9 @@ describe('Investment', () => {
 
 	beforeAll(() => {
 		props = {
-			investment: {
-				preset: expectedName,
-				presets: {
-					[expectedName]: expected
-				}
+			preset: expectedName,
+			presets: {
+				[expectedName]: expected
 			},
 			flask: {
 				preset: 'another preset',

@@ -1,5 +1,5 @@
 import { mapProps } from 'recompose';
-import { mergeWith, defaultTo } from 'ramda';
+import { mergeWith, defaultTo, propOr } from 'ramda';
 
 /**
  * Merge flask state and flask state from query
@@ -21,10 +21,12 @@ export default mapProps(({
 	handleAddFlaskPreset,
 	handleRemoveFlaskPreset
 }) => ({
-	...mergeWith(defaultTo, flask, query.flask),
+	...mergeWith(defaultTo, flask, getQueryFlask(query)),
 	handleFlaskPresetChange,
 	handleFlaskDiameterChange,
 	handleFlaskHeightChange,
 	handleAddFlaskPreset,
 	handleRemoveFlaskPreset
 }));
+
+const getQueryFlask = propOr({}, 'flask');

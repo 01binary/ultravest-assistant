@@ -72,6 +72,8 @@ describe('enhancer withFlaskOrQuery', () => {
 				handleAddFlaskPreset: jest.fn(),
 				handleRemoveFlaskPreset: jest.fn()
 			};
+
+			reflector = reflect(withFlaskOrQuery, props);
 		});
 
 		afterAll(() => {

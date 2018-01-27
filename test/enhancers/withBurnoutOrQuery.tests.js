@@ -53,6 +53,8 @@ describe('enhancer withBurnoutOrQuery', () => {
 				view: 'test',
 				handleViewChange: jest.fn()
 			};
+
+			reflector = reflect(withBurnoutOrQuery, props);
 		});
 
 		afterAll(() => {
