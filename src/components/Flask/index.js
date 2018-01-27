@@ -10,7 +10,7 @@ import style from './style';
 
 /**
  * Flask parameters
- * @param {object[]} presets - The flask presets provided by App.
+ * @param {Object[]} presets - The flask presets provided by App.
  * @param {string} preset - The flask preset provided by App.
  * @param {number} diameter - The flask diameter provided by App.
  * @param {number} height - The flask height provided by App.

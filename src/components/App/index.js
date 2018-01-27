@@ -8,7 +8,7 @@ import { app as appStyle } from './style';
 
 /**
  * Ultravest Assistant App
- * @param {object} props - The composed application state.
+ * @param {Object} props - The composed application state.
  * @returns {function} - A stateless component.
  */
 const App = props => (

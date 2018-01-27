@@ -1,6 +1,6 @@
 /**
  * Get index of a segment with the highest temperature.
- * @param {object[]} segments - The array of segments.
+ * @param {Object[]} segments - The array of segments.
  * @returns {number} - The index of a segment with the highest temperature.
  */
 export default segments => segments.reduce(

@@ -5,7 +5,7 @@ import { VIEWS } from '../../enhancers/withView';
 
 /**
  * Program steps
- * @param {object[]} segments - The program segments provided by Program.
+ * @param {Object[]} segments - The program segments provided by Program.
   * @param {string} view - The current view provided by Program.
  * @returns {JSX.Element} - A stateless component.
  */

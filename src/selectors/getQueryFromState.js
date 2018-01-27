@@ -1,7 +1,7 @@
 /**
  * Deflate state into a flat object ready for serialization.
- * @param {object} state - The state to deflate.
- * @returns {object} - Deflated state.
+ * @param {Object} state - The state to deflate.
+ * @returns {Object} - Deflated state.
  */
 export default state => Object
 	.keys(state)
@@ -20,9 +20,9 @@ export default state => Object
 
 /**
  * Flatten object
- * @param {object} obj - The object to flatten.
+ * @param {Object} obj - The object to flatten.
  * @param {string} rootKey - The parent object key.
- * @returns {object} - The flattened object.
+ * @returns {Object} - The flattened object.
  */
 const getValues = (obj, rootKey) => Object
 	.keys(obj)

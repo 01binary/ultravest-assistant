@@ -1,7 +1,7 @@
 /**
  * Inflate objects from parsed query string.
- * @param {object} query - A parsed query string.
- * @returns {object} - Inflated state.
+ * @param {Object} query - A parsed query string.
+ * @returns {Object} - Inflated state.
  */
 export default query => Object
 	.keys(query)
