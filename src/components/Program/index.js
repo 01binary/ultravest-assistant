@@ -7,14 +7,12 @@ import style from './style';
 
 /**
  * Burnout program tabs
- * @param {object} segments - The burnout segments provided by Burnout.
- * @param {string} view - The current view (segments or steps) provided by Burnout.
- * @param {function} handleViewChange - The view change handler provided by Burnout.
+ * @param {Object} props - The props provided by withBurnoutOrQuery.
+ * @param {function} handleViewChange - The view change handler provided by withBurnout.
  * @returns {JSX.Element} - A stateless component.
  */
 const Program = ({
-	segments,
-	view,
+	...props,
 	handleViewChange }) => (
 	<section class={style.steps}>
 		<input
@@ -26,7 +24,7 @@ const Program = ({
 			name="view"
 			id="segments"
 			value="segments"
-			checked={view === VIEWS.SEGMENTS}
+			checked={props.view === VIEWS.SEGMENTS}
 			onChange={handleViewChange}
 		/>
 		<label for="segments">
@@ -42,7 +40,7 @@ const Program = ({
 			name="view"
 			id="steps"
 			value="steps"
-			checked={view === VIEWS.STEPS}
+			checked={props.view === VIEWS.STEPS}
 			onChange={handleViewChange}
 		/>
 		<label for="steps">
@@ -50,8 +48,8 @@ const Program = ({
 		</label>
 
 		<section class={style.tabPages}>
-			<Segments segments={segments} view={view} />
-			<Steps segments={segments} view={view} />
+			<Segments {...props} />
+			<Steps {...props} />
 		</section>
 	</section>
 );

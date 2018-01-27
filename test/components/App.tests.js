@@ -1,13 +1,13 @@
 import { h } from 'preact';
 import { deep } from 'preact-render-spy';
-import Root from '../../src/index.js';
+import App from '../../src/index.js';
 
 describe('App', () => {
 
 	let wrapper;
 
 	beforeAll(() => {
-		wrapper = deep(h(Root));
+		wrapper = deep(<App />);
 	});
 
 	afterAll(() => {
@@ -19,15 +19,15 @@ describe('App', () => {
 	});
 
 	it('should render Flask', () => {
-		expect(wrapper.find('Flask').length).toBe(1);
+		expect(wrapper.find('mapProps(Flask)').length).toBe(1);
 	});
 
 	it('should render Investment', () => {
-		expect(wrapper.find('Investment').length).toBe(1);
+		expect(wrapper.find('mapProps(Investment)').length).toBe(1);
 	});
 
 	it('should render Burnout', () => {
-		expect(wrapper.find('Burnout').length).toBe(1);
+		expect(wrapper.find('mapProps(Burnout)').length).toBe(1);
 	});
 
 	it('should render Footer', () => {
