@@ -10,10 +10,10 @@ import style from './style';
 
 /**
  * Flask parameters
- * @param {Object[]} presets - The flask presets provided by App.
- * @param {string} preset - The flask preset provided by App.
- * @param {number} diameter - The flask diameter provided by App.
- * @param {number} height - The flask height provided by App.
+ * @param {Object[]} presets - The state provided by withFlaskOrQuery.
+ * @param {string} preset - The state provided by withFlaskOrQuery.
+ * @param {number} diameter - The state provided by withFlaskOrQuery.
+ * @param {number} height - The state provided by withFlaskOrQuery.
  * @param {function} handleQueryPresetChange - The handler provided by withFlaskOrQuery.
  * @param {function} handleQueryDiameterChange - The handler provided by withFlask.
  * @param {function} handleQueryHeightChange - The handler provided by withFlask.

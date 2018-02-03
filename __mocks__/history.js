@@ -1,2 +1,5 @@
 export const listen = jest.fn();
-export const createBrowserHistory = () => ({ listen });
+export const createBrowserHistory = () => ({
+	listen,
+	location: { search: '' }
+});

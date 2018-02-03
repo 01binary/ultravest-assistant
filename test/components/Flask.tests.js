@@ -18,9 +18,9 @@ describe('Flask', () => {
 			},
 			diameter: expected.diameter,
 			height: expected.height,
-			handleFlaskPresetChange: jest.fn(),
-			handleFlaskDiameterChange: jest.fn(),
-			handleFlaskHeightChange: jest.fn(),
+			handleQueryPresetChange: jest.fn(),
+			handleQueryDiameterChange: jest.fn(),
+			handleQueryHeightChange: jest.fn(),
 			handleAddFlaskPreset: jest.fn(),
 			handleRemoveFlaskPreset: jest.fn()
 		};
@@ -56,19 +56,19 @@ describe('Flask', () => {
 
 	it('should bind change preset handler', () => {
 		wrapper.find('#flask-preset')[0].attributes.onChange();
-		expect(props.handleFlaskPresetChange.mock.calls.length)
+		expect(props.handleQueryPresetChange.mock.calls.length)
 			.toBe(1);
 	});
 
 	it('should bind change diameter handler', () => {
 		wrapper.find('#flask-diameter')[0].attributes.onChange();
-		expect(props.handleFlaskDiameterChange.mock.calls.length)
+		expect(props.handleQueryDiameterChange.mock.calls.length)
 			.toBe(1);
 	});
 
 	it('should bind change height handler', () => {
 		wrapper.find('#flask-height')[0].attributes.onChange();
-		expect(props.handleFlaskHeightChange.mock.calls.length)
+		expect(props.handleQueryHeightChange.mock.calls.length)
 			.toBe(1);
 	});
 
