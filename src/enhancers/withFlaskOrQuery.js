@@ -1,5 +1,6 @@
 import { mapProps } from 'recompose';
 import { mergeWith, defaultTo, propOr } from 'ramda';
+import getEventValue from '../selectors/getEventValue';
 
 /**
  * Merge flask state and flask state from query
@@ -19,12 +20,23 @@ export default mapProps(({
 	handleFlaskDiameterChange,
 	handleFlaskHeightChange,
 	handleAddFlaskPreset,
-	handleRemoveFlaskPreset
+	handleRemoveFlaskPreset,
+	handleQueryParamChange
 }) => ({
 	...mergeWith(defaultTo, flask, getQueryFlask(query)),
-	handleFlaskPresetChange,
-	handleFlaskDiameterChange,
-	handleFlaskHeightChange,
+
+	handleQueryPresetChange: event => {
+		handleFlaskPresetChange(event);
+		handleQueryParamChange('flask.preset', getEventValue(event));
+	},
+	handleQueryDiameterChange: event => {
+		handleFlaskDiameterChange(event);
+		handleQueryParamChange('flask.diameter', getEventValue(event));
+	},
+	handleQueryHeightChange: event => {
+		handleFlaskDiameterChange(event);
+		handleQueryParamChange('flask.height', getEventValue(event));
+	},
 	handleAddFlaskPreset,
 	handleRemoveFlaskPreset
 }));

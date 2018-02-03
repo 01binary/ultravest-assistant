@@ -14,11 +14,11 @@ import style from './style';
  * @param {string} preset - The flask preset provided by App.
  * @param {number} diameter - The flask diameter provided by App.
  * @param {number} height - The flask height provided by App.
- * @param {function} handleFlaskPresetChange - The flask preset handler provided by withFlask.
- * @param {function} handleFlaskDiameterChange - The flask diameter handler provided by withFlask.
- * @param {function} handleFlaskHeightChange - The flask height handler provided by withFlask.
- * @param {function} handleAddFlaskPreset - The flask preset add handler provided by withFlask.
- * @param {function} handleRemoveFlaskPreset - The flask preset remove handler provided by withFlask.
+ * @param {function} handleQueryPresetChange - The handler provided by withFlaskOrQuery.
+ * @param {function} handleQueryDiameterChange - The handler provided by withFlask.
+ * @param {function} handleQueryHeightChange - The handler provided by withFlask.
+ * @param {function} handleAddFlaskPreset - The handler provided by withFlask.
+ * @param {function} handleRemoveFlaskPreset - The handler provided by withFlask.
  * @returns {JSX.Element} - A React stateless component.
  */
 export const Flask = ({
@@ -26,9 +26,9 @@ export const Flask = ({
 	preset,
 	diameter,
 	height,
-	handleFlaskPresetChange,
-	handleFlaskDiameterChange,
-	handleFlaskHeightChange,
+	handleQueryPresetChange,
+	handleQueryDiameterChange,
+	handleQueryHeightChange,
 	handleAddFlaskPreset,
 	handleRemoveFlaskPreset }) => (
 	<article class={classNames({
@@ -47,7 +47,7 @@ export const Flask = ({
 				<select
 					id="flask-preset"
 					name="flask-preset"
-					onChange={handleFlaskPresetChange}
+					onChange={handleQueryPresetChange}
 					autofocus
 				>
 					{ Object.keys(presets).map(name => (
@@ -103,7 +103,7 @@ export const Flask = ({
 					type="number"
 					step="0.1"
 					value={diameter}
-					onChange={handleFlaskDiameterChange}
+					onChange={handleQueryDiameterChange}
 				/>
 				<label for="flask-diameter">
 					diameter
@@ -120,7 +120,7 @@ export const Flask = ({
 					type="number"
 					step="0.1"
 					value={height}
-					onChange={handleFlaskHeightChange}
+					onChange={handleQueryHeightChange}
 				/>
 				<label for="flask-height">
 					height

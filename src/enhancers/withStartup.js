@@ -1,5 +1,5 @@
 import { lifecycle } from 'recompose';
-import getLocation from '../selectors/getLocation';
+import { createBrowserHistory } from 'history';
 
 /**
  * Initialize application
@@ -8,19 +8,13 @@ import getLocation from '../selectors/getLocation';
  */
 export default lifecycle({
 	componentDidMount() {
-		if (this.props.handleHistoryCreate &&
-			this.props.handleHistoryPush &&
-			this.props.handleQueryChange &&
-			this.props.handleQueryParamListenerChange) {
+		const { handleQueryInit, handleQueryChange } = this.props;
 
-			// Initialize query state
-			this.props.handleQueryChange(getLocation());
+		if (handleQueryInit && handleQueryChange) {
+			const browserHistory = createBrowserHistory();
+			browserHistory.listen(handleQueryChange);
 
-			// Push any programmatic changes to query state to history
-			this.props.handleQueryParamListenerChange(this.props.handleHistoryPush);
-
-			// Initialize history and update query state on back/forward navigation
-			this.props.handleHistoryCreate(this.props.handleQueryChange);
+			handleQueryInit(browserHistory);
 		}
 	}
 });

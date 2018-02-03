@@ -1,11 +1,11 @@
-import qs from 'qs';
+import { assocPath } from 'ramda';
 import { withStateHandlers } from 'recompose';
-import getStateFromQuery from '../selectors/getStateFromQuery';
 import getQueryFromState from '../selectors/getQueryFromState';
+import getStateFromQuery from '../selectors/getStateFromQuery';
 
 export const initialState = {
 	query: {},
-	onParamChange: null
+	history: null
 };
 
 /**
@@ -18,29 +18,30 @@ export default withStateHandlers(
 		...initialState
 	},
 	{
+		handleQueryInit: state => (history) => ({
+			query: getStateFromQuery(history.location.search),
+			history
+		}),
+
 		handleQueryChange: state => ({ search }) => ({
-			query: getStateFromQuery(qs.parse(search.substring(1)))
+			query: getStateFromQuery(search),
+			...state
 		}),
 
-		handleQueryParamListenerChange: state => onParamChange => ({
-			...state,
-			onParamChange
-		}),
+		handleQueryParamChange: ({
+			history,
+			query,
+			...state
+		}) => (path, value) => {
+			const queryWithParam = assocPath(path.split('.'), value, query);
 
-		handleQueryParamChange: ({ query, onParamChange }) => (key, value) => {
-			const next = {
-				query: {
-					...query,
-					[key]: value
-				},
-				onParamChange
+			history.push(getQueryFromState(queryWithParam));
+
+			return {
+				query: queryWithParam,
+				history,
+				...state
 			};
-
-			if (onParamChange) {
-				onParamChange(`?${qs.stringify(getQueryFromState(next.query))}`);
-			}
-
-			return next;
 		}
 	}
 );

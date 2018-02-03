@@ -1,21 +1,41 @@
+import qs from 'qs';
+
 /**
- * Inflate objects from parsed query string.
- * @param {Object} query - A parsed query string.
- * @returns {Object} - Inflated state.
+ * Parse query string into normalized application state.
+ * @param {string} query - The query string to parse.
+ * @returns {Object} - Normalized application state.
  */
-export default query => Object
-	.keys(query)
-	.reduce((state, queryKey) => {
-		const [key, subkey] = queryKey.split('-');
+export default query => normalizeQuery(parseQuery(query));
 
-		if (subkey) {
-			state[key] = Object.assign({
-				[subkey]: query[queryKey]
-			}, state[key]);
-		}
-		else {
-			state[queryKey] = query[queryKey];
-		}
+/**
+ * Normalize parsed query state into application state.
+ * @param {Object} query - The destructured query state.
+ * @returns {Object} - The normalized application state.
+ */
+const normalizeQuery = query => (
+	Object
+		.keys(query)
+		.reduce((state, queryKey) => {
+			const [key, subkey] = queryKey.split('-');
 
-		return state;
-	}, {});
+			if (subkey) {
+				state[key] = Object.assign({
+					[subkey]: query[queryKey]
+				}, state[key]);
+			}
+			else {
+				state[queryKey] = query[queryKey];
+			}
+
+			return state;
+		}, {})
+);
+
+/**
+ * Parse query string to an object.
+ * @param {string} query - The query string.
+ * @returns {Object} - The parsed query.
+ */
+const parseQuery = query => (
+	qs.parse(query.substring(1))
+);

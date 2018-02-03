@@ -1,85 +1,65 @@
 import { h } from 'preact';
 import { deep } from 'preact-render-spy';
 import { createSink } from 'recompose';
+import { createBrowserHistory, listen } from 'history';
 import withStartup from '../../src/enhancers/withStartup';
-import getLocation from '../../src/selectors/getLocation';
 
 describe('enhancer withStartup', () => {
 
+	let handleQueryInit;
 	let handleQueryChange;
-	let handleQueryParamListenerChange;
-	let handleHistoryCreate;
-	let handleHistoryPush;
 
 	describe('with all handlers provided', () => {
 
 		beforeAll(() => {
+			handleQueryInit = jest.fn();
 			handleQueryChange = jest.fn();
-			handleQueryParamListenerChange = jest.fn();
-			handleHistoryCreate = jest.fn();
-			handleHistoryPush = jest.fn();
 
 			const Sink = withStartup(createSink(jest.fn()));
-			const props = {
-				handleQueryChange,
-				handleQueryParamListenerChange,
-				handleHistoryCreate,
-				handleHistoryPush
-			};
+			const props = { handleQueryInit, handleQueryChange };
 
 			deep(<Sink {...props} />);
 		});
 
 		afterAll(() => {
+			handleQueryInit = null;
 			handleQueryChange = null;
-			handleQueryParamListenerChange = null;
-			handleHistoryCreate = null;
-			handleHistoryPush = null;
 		});
 
-		it('should call handleQueryChange', () => {
-			expect(handleQueryChange).toHaveBeenCalledWith(getLocation());
+		it('should call handleQueryInit', () => {
+			expect(handleQueryInit).toHaveBeenCalledWith(createBrowserHistory());
 		});
 
-		it('should call handleQueryParamListenerChange', () => {
-			expect(handleQueryParamListenerChange).toHaveBeenCalledWith(handleHistoryPush);
-		});
-
-		it('should call handleHistoryCreate', () => {
-			expect(handleHistoryCreate).toHaveBeenCalledWith(handleQueryChange);
+		it('should pass handleQueryChange to history listen', () => {
+			expect(listen).toHaveBeenCalledWith(handleQueryChange);
 		});
 	});
 
 	describe('with any handler not provided', () => {
 
 		beforeAll(() => {
-			handleQueryChange = jest.fn();
-			handleQueryParamListenerChange = jest.fn();
-			handleHistoryCreate = jest.fn();
-			handleHistoryPush = null;
+			handleQueryInit = jest.fn();
+			handleQueryChange = null;
 
+			listen.mockReset();
+			
 			const Sink = withStartup(createSink(jest.fn()));
-			const props = {
-				handleQueryChange,
-				handleQueryParamListenerChange,
-				handleHistoryCreate,
-				handleHistoryPush
-			};
+			const props = { handleQueryInit, handleQueryChange };
+
 
 			deep(<Sink {...props} />);
 		});
 
 		afterAll(() => {
-			handleQueryChange = null;
-			handleQueryParamListenerChange = null;
-			handleHistoryCreate = null;
-			handleHistoryPush = null;
+			handleQueryInit = null;
 		});
 
 		it('should not call any handlers', () => {
-			expect(handleQueryChange).not.toHaveBeenCalled();
-			expect(handleQueryParamListenerChange).not.toHaveBeenCalled();
-			expect(handleHistoryCreate).not.toHaveBeenCalled();
+			expect(handleQueryInit).not.toHaveBeenCalled();
+		});
+
+		it('should not call history listen', () => {
+			expect(listen).not.toHaveBeenCalled();
 		});
 	});
 });
