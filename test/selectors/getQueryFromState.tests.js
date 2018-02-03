@@ -9,10 +9,8 @@ describe('selector getQueryFromState', () => {
 				propertyTwo: 'world'
 			},
 			notobject: 'testing'
-		})).toEqual({
-			'myobject-propertyOne': 'hello',
-			'myobject-propertyTwo': 'world',
-			notobject: 'testing'
-		});
+		})).toEqual(
+			'?myobject-propertyOne=hello&myobject-propertyTwo=world&notobject=testing'
+		);
 	});
 });
