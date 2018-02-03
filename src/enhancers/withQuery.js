@@ -24,8 +24,8 @@ export default withStateHandlers(
 		}),
 
 		handleQueryChange: state => ({ search }) => ({
-			query: getStateFromQuery(search),
-			...state
+			...state,
+			query: getStateFromQuery(search)
 		}),
 
 		handleQueryParamChange: ({
