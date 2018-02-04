@@ -4,10 +4,10 @@ import getBurnoutSchedule from '../selectors/getBurnoutSchedule';
 import presets from '../config/burnoutPresets';
 
 /**
- * Select burnout props
- * @param {Object} query - The query provided by withQuery.
- * @param {Object} flask - The flask provided by withFlask.
- * @param {string} view - The current view provided by withView.
+ * Select burnout props.
+ * @param {Object} query - The state provided by withQuery.
+ * @param {Object} flask - The state provided by withFlask.
+ * @param {string} view - The state provided by withView.
  * @param {function} handleViewChange - The handler provided by withView.
  * @returns {Object} - The burnout props.
  */

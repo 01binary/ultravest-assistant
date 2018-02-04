@@ -9,7 +9,7 @@ export const initialState = {
 };
 
 /**
- * Provide query string handlers
+ * Provide sync between query string and application state.
  * @param {function} component - The component to enhance.
  * @returns {function} - Enhanced component.
  */

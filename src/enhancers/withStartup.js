@@ -2,7 +2,7 @@ import { lifecycle } from 'recompose';
 import { createBrowserHistory } from 'history';
 
 /**
- * Initialize application
+ * Initialize application.
  * @param {function} component - The component to enhance.
  * @returns {function} - Enhanced component.
  */

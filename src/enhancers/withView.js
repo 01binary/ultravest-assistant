@@ -5,6 +5,11 @@ export const VIEWS = {
 	STEPS: 'steps'
 };
 
+/**
+ * Provide the current view.
+ * @param {function} component - The component to enhance.
+ * @returns {function} - Enhanced component.
+ */
 export default withStateHandlers(
 	{
 		view: VIEWS.SEGMENTS

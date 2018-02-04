@@ -3,7 +3,7 @@ import { mergeWith, defaultTo, propOr } from 'ramda';
 import getEventValue from '../selectors/getEventValue';
 
 /**
- * Merge investment state and investment state from query
+ * Merge investment state and investment state from query.
  * @param {Object} query - The state provided by withQuery.
  * @param {Object} flask - The state provided by withFlask.
  * @param {Object} investment - The state provided by withInvestment.

@@ -5,6 +5,11 @@ import presets from '../config/flaskPresets';
 export const CUSTOM = 'custom';
 export const DEFAULT = getDefaultPresetName(presets);
 
+/**
+ * Provide flask parameters.
+ * @param {function} component - The component to enhance.
+ * @returns {function} - Enhanced component.
+ */
 export default withStateHandlers(
 	{
 		flask: {

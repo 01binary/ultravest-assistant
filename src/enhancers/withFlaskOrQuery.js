@@ -3,7 +3,7 @@ import { mergeWith, defaultTo } from 'ramda';
 import getEventValue from '../selectors/getEventValue';
 
 /**
- * Merge flask state and flask state from query
+ * Merge flask state and flask state from query.
  * @param {Object} query - The state provided by withQuery.
  * @param {Object} flask - The state provided by withFlask.
  * @param {function} handleFlaskPresetChange - The handler provided by withFlask.
