@@ -13,14 +13,14 @@ import style from './style';
  * @param {Object} flask - The flask props provided by withFlask.
  * @param {string} preset - The investment preset provided by withInvestment.
  * @param {Object[]} presets - The investment presets provided by withInvestment.
- * @param {function} handleInvestmentPresetChange - The handler provided by withInvestment.
+ * @param {function} handleQueryPresetChange - The handler provided by withInvestment.
  * @returns {JSX.Element} - A React stateless component.
  */
 export const Investment = ({
 	preset,
 	presets,
 	flask,
-	handleInvestmentPresetChange }) => (
+	handleQueryPresetChange }) => (
 	<article class={classNames({
 		[timelineStyle.timeline]: true,
 		[style.investment]: true
@@ -33,7 +33,7 @@ export const Investment = ({
 				<select
 					id="investment-preset"
 					name="investment-preset"
-					onChange={handleInvestmentPresetChange}
+					onChange={handleQueryPresetChange}
 				>
 					{ Object.keys(presets).map(preset => (
 						<option selected={preset === preset}>

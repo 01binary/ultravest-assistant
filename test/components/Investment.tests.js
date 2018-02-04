@@ -23,7 +23,7 @@ describe('Investment', () => {
 				diameter: 4,
 				height: 6
 			},
-			handleInvestmentPresetChange: jest.fn()
+			handleQueryPresetChange: jest.fn()
 		};
 
 		wrapper = deep(
@@ -46,11 +46,11 @@ describe('Investment', () => {
 	});
 
 	it('should bind change preset handler', () => {
-		wrapper.find('#investment-preset')[0].attributes.onChange();
-		expect(props.handleInvestmentPresetChange.mock.calls.length)
-			.toBe(1);
+		wrapper.find('#investment-preset')[0].attributes.onChange(expectedChange);
+		expect(props.handleQueryPresetChange).toHaveBeenCalledWith(expectedChange);
 	});
 
+	const expectedChange = { target: { value: 'test' } };
 	const expectedName = 'test preset';
 	const expected = {
 		investment: 2.1,

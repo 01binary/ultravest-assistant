@@ -14,11 +14,8 @@ describe('enhancer withInvestmentOrQuery', () => {
 				query: {},
 				flask,
 				investment,
-				handleFlaskPresetChange: jest.fn(),
-				handleFlaskDiameterChange: jest.fn(),
-				handleFlaskHeightChange: jest.fn(),
-				handleAddFlaskPreset: jest.fn(),
-				handleRemoveFlaskPreset: jest.fn()
+				handleInvestmentPresetChange: jest.fn(),
+				handleQueryParamChange: jest.fn()
 			};
 
 			reflector = reflect(withInvestmentOrQuery, props);
@@ -34,12 +31,14 @@ describe('enhancer withInvestmentOrQuery', () => {
 			expect(reflector.props.flask.height).toBe(props.flask.height);
 			expect(reflector.props.flask.presets).toBe(props.flask.presets);
 			expect(reflector.props.flask.preset).toBe(props.flask.preset);
-
 			expect(reflector.props.preset).toBe(props.investment.preset);
 			expect(reflector.props.presets).toBe(props.investment.presets);
+		});
 
-			expect(reflector.props.handleInvestmentPresetChange)
-				.toBe(props.handleInvestmentPresetChange);
+		it('should map handleQueryPresetChange handler', () => {
+			reflector.props.handleQueryPresetChange(change);
+			expect(props.handleInvestmentPresetChange).toHaveBeenCalledWith(change);
+			expect(props.handleQueryParamChange).toHaveBeenCalledWith('investment.preset', 'testing');
 		});
 	});
 
@@ -77,11 +76,8 @@ describe('enhancer withInvestmentOrQuery', () => {
 				},
 				flask,
 				investment,
-				handleFlaskPresetChange: jest.fn(),
-				handleFlaskDiameterChange: jest.fn(),
-				handleFlaskHeightChange: jest.fn(),
-				handleAddFlaskPreset: jest.fn(),
-				handleRemoveFlaskPreset: jest.fn()
+				handleInvestmentPresetChange: jest.fn(),
+				handleQueryParamChange: jest.fn()
 			};
 
 			reflector = reflect(withInvestmentOrQuery, props);
@@ -97,12 +93,8 @@ describe('enhancer withInvestmentOrQuery', () => {
 			expect(reflector.props.flask.height).toBe(props.query.flask.height);
 			expect(reflector.props.flask.presets).toBe(props.query.flask.presets);
 			expect(reflector.props.flask.preset).toBe(props.query.flask.preset);
-
 			expect(reflector.props.preset).toBe(props.query.investment.preset);
 			expect(reflector.props.presets).toBe(props.query.investment.presets);
-
-			expect(reflector.props.handleInvestmentPresetChange)
-				.toBe(props.handleInvestmentPresetChange);
 		});
 	});
 
@@ -118,4 +110,5 @@ describe('enhancer withInvestmentOrQuery', () => {
 		presets: investmentPresets,
 		preset: investmentPresetName
 	};
+	const change = { target: { value: 'testing' } };
 });
