@@ -1,6 +1,6 @@
 /**
- * Get burnout preset for flask size.
- * @param {Object} presets - The available burnout presets.
+ * Get burnout schedule for flask size.
+ * @param {Object} presets - The available burnout presets with schedules.
  * @param {Object} flask - The flask size.
  * @returns - The shortest burnout for the given flask or the longest, if flask is too big.
  */

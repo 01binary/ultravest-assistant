@@ -1,5 +1,5 @@
 /**
- * Get index of a segment with the highest temperature.
+ * Get index of a burnout schedule segment with the highest temperature.
  * @param {Object[]} segments - The array of segments.
  * @returns {number} - The index of a segment with the highest temperature.
  */

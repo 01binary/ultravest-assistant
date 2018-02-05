@@ -4,16 +4,13 @@ import { default as withQuery, initialState } from '../../src/enhancers/withQuer
 describe('enhancer withQuery', () => {
 
 	let reflector;
-	let push;
 
 	beforeAll(() => {
-		push = jest.fn();
 		reflector = reflect(withQuery);
 	});
 
 	afterAll(() => {
 		reflector = null;
-		push = null;
 	});
 
 	it('should set initial state', () => {
@@ -22,8 +19,7 @@ describe('enhancer withQuery', () => {
 
 	it('should handle query init', (done) => {
 		reflector.props.handleQueryInit({
-			location: { search: '?cat-age=5' },
-			push
+			location: { search: '?cat-age=5' }
 		});
 
 		reflector.update(props => {
@@ -32,8 +28,8 @@ describe('enhancer withQuery', () => {
 		});
 	});
 
-	it('should handle query change', (done) => {
-		reflector.props.handleQueryChange({
+	it('should handle query location change', (done) => {
+		reflector.props.handleQueryLocationChange({
 			search: '?cat-name=Mittens'
 		});
 
@@ -43,12 +39,17 @@ describe('enhancer withQuery', () => {
 		});
 	});
 
-	it('should handle query param change', (done) => {
-		reflector.props.handleQueryParamChange('hello', 'world');
+	it('should handle query change', (done) => {
+		const change = {
+			cat: {
+				condition: 'diabetes'
+			}
+		};
+
+		reflector.props.handleQueryChange(change);
+
 		reflector.update(props => {
-			expect(props.query.cat.name).toBe('Mittens');
-			expect(props.query.hello).toBe('world');
-			expect(push).toBeCalledWith('?cat-name=Mittens&hello=world');
+			expect(props.query).toEqual(change);
 			done();
 		});
 	});

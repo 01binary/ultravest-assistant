@@ -2,7 +2,6 @@ import { h } from 'preact';
 import classNames from 'obj-str';
 import { CUSTOM } from '../../enhancers/withFlask';
 import Units from '../Units';
-import getDecoratedFlaskPreset from '../../selectors/getDecoratedFlaskPreset';
 import withFlaskOrQuery from '../../enhancers/withFlaskOrQuery';
 import timelineStyle from '../App/style/timeline';
 import formStyle from '../App/style/forms';
@@ -132,5 +131,12 @@ export const Flask = ({
 		</section>
 	</article>
 );
+
+/**
+ * Get display text for flask preset.
+ * @param {string} name - The flask preset name.
+ * @returns {string} - The display text for flask preset.
+ */
+const getDecoratedFlaskPreset = name => name.replace('x', ' × ');
 
 export default withFlaskOrQuery(Flask);

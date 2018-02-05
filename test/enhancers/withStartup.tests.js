@@ -7,31 +7,31 @@ import withStartup from '../../src/enhancers/withStartup';
 describe('enhancer withStartup', () => {
 
 	let handleQueryInit;
-	let handleQueryChange;
+	let handleQueryLocationChange;
 
 	describe('with all handlers provided', () => {
 
 		beforeAll(() => {
 			handleQueryInit = jest.fn();
-			handleQueryChange = jest.fn();
+			handleQueryLocationChange = jest.fn();
 
 			const Sink = withStartup(createSink(jest.fn()));
-			const props = { handleQueryInit, handleQueryChange };
+			const props = { handleQueryInit, handleQueryLocationChange };
 
 			deep(<Sink {...props} />);
 		});
 
 		afterAll(() => {
 			handleQueryInit = null;
-			handleQueryChange = null;
+			handleQueryLocationChange = null;
 		});
 
 		it('should call handleQueryInit', () => {
 			expect(handleQueryInit).toHaveBeenCalledWith(createBrowserHistory());
 		});
 
-		it('should pass handleQueryChange to history listen', () => {
-			expect(listen).toHaveBeenCalledWith(handleQueryChange);
+		it('should pass handleQueryLocationChange to history listen', () => {
+			expect(listen).toHaveBeenCalledWith(handleQueryLocationChange);
 		});
 	});
 
@@ -39,12 +39,12 @@ describe('enhancer withStartup', () => {
 
 		beforeAll(() => {
 			handleQueryInit = jest.fn();
-			handleQueryChange = null;
+			handleQueryLocationChange = null;
 
 			listen.mockReset();
 			
 			const Sink = withStartup(createSink(jest.fn()));
-			const props = { handleQueryInit, handleQueryChange };
+			const props = { handleQueryInit, handleQueryLocationChange };
 
 
 			deep(<Sink {...props} />);

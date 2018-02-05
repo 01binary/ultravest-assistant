@@ -94,6 +94,12 @@ export default withStateHandlers(
 	}
 );
 
+/**
+ * Get next flask preset to select after current is removed.
+ * @param {string[]} keys - The flask preset keys.
+ * @param {number} index - The selected flask preset index.
+ * @returns {string} - The next key to select.
+ */
 const getNextKey = (keys, index) => (
 	keys[index + 1] ||
 	keys[index - 1] ||

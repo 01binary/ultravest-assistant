@@ -6,9 +6,11 @@ describe('enhancer withFlaskOrQuery', () => {
 
 	describe('with no overrides', () => {
 
-		let reflector, props;
+		let reflector, props, handleQueryParamChangeWithParam;
 
 		beforeAll(() => {
+			handleQueryParamChangeWithParam = jest.fn();
+
 			props = {
 				query: {},
 				flask: flaskProps,
@@ -17,7 +19,7 @@ describe('enhancer withFlaskOrQuery', () => {
 				handleFlaskHeightChange: jest.fn(),
 				handleAddFlaskPreset: jest.fn(),
 				handleRemoveFlaskPreset: jest.fn(),
-				handleQueryParamChange: jest.fn()
+				handleQueryParamChange: jest.fn(() => handleQueryParamChangeWithParam)
 			};
 
 			reflector = reflect(withFlaskOrQuery, props);
@@ -36,18 +38,21 @@ describe('enhancer withFlaskOrQuery', () => {
 		});
 
 		it('should map handleQueryPresetChange handler', () => {
-			reflector.props.handleQueryPresetChange({ target: { value: 'bobo' } });
-			expect(props.handleQueryParamChange).toHaveBeenCalledWith('flask.preset', 'bobo');
+			reflector.props.handleQueryPresetChange(presetChange);
+			expect(props.handleQueryParamChange).toHaveBeenCalledWith('flask.preset'),
+			expect(handleQueryParamChangeWithParam).toHaveBeenCalledWith(presetChange);
 		});
 
 		it('should map handleQueryDiameterChange handler', () => {
-			reflector.props.handleQueryDiameterChange({ target: { value: 13 } });
-			expect(props.handleQueryParamChange).toHaveBeenCalledWith('flask.diameter', 13);
+			reflector.props.handleQueryDiameterChange(diameterChange);
+			expect(props.handleQueryParamChange).toHaveBeenCalledWith('flask.diameter');
+			expect(handleQueryParamChangeWithParam).toHaveBeenCalledWith(diameterChange);
 		});
 
 		it('should map handleQueryHeightChange handler', () => {
-			reflector.props.handleQueryHeightChange({ target: { value: 66 } });
-			expect(props.handleQueryParamChange).toHaveBeenCalledWith('flask.height', 66);
+			reflector.props.handleQueryHeightChange(heightChange);
+			expect(props.handleQueryParamChange).toHaveBeenCalledWith('flask.height');
+			expect(handleQueryParamChangeWithParam).toHaveBeenCalledWith(heightChange);
 		});
 
 		it('should map handlers', () => {
@@ -77,7 +82,8 @@ describe('enhancer withFlaskOrQuery', () => {
 						}
 					}
 				},
-				flask: flaskProps
+				flask: flaskProps,
+				handleQueryParamChange: () => jest.fn()
 			};
 
 			reflector = reflect(withFlaskOrQuery, props);
@@ -99,4 +105,7 @@ describe('enhancer withFlaskOrQuery', () => {
 	const preset = Object.keys(presets)[0];
 	const flask = presets[preset];
 	const flaskProps = { flask, preset, presets };
+	const presetChange = { target: { value: 'bobo' } };
+	const diameterChange = { target: { value: 13 } };
+	const heightChange = { target: { value: 66 } };
 });

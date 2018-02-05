@@ -1,6 +1,4 @@
-import { assocPath } from 'ramda';
 import { withStateHandlers } from 'recompose';
-import getQueryFromState from '../selectors/getQueryFromState';
 import getStateFromQuery from '../selectors/getStateFromQuery';
 
 export const initialState = {
@@ -9,39 +7,28 @@ export const initialState = {
 };
 
 /**
- * Provide sync between query string and application state.
+ * Provide query arguments.
  * @param {function} component - The component to enhance.
  * @returns {function} - Enhanced component.
  */
-export default withStateHandlers(
+export default 	withStateHandlers(
 	{
 		...initialState
 	},
 	{
-		handleQueryInit: state => (history) => ({
+		handleQueryInit: state => history => ({
 			query: getStateFromQuery(history.location.search),
 			history
 		}),
 
-		handleQueryChange: state => ({ search }) => ({
+		handleQueryLocationChange: state => ({ search }) => ({
 			...state,
 			query: getStateFromQuery(search)
 		}),
 
-		handleQueryParamChange: ({
-			history,
-			query,
-			...state
-		}) => (path, value) => {
-			const queryWithParam = assocPath(path.split('.'), value, query);
-
-			history.push(getQueryFromState(queryWithParam));
-
-			return {
-				query: queryWithParam,
-				history,
-				...state
-			};
-		}
+		handleQueryChange: state => query => ({
+			...state,
+			query
+		})
 	}
 );

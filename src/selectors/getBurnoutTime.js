@@ -1,5 +1,5 @@
 /**
- * Calculate total burnout time for the given preset.
+ * Calculate total burnout time for the given schedule.
  * @param {Object} schedule - The burnout schedule.
  * @returns {number} - The total time in hours for the burnout process.
  */

@@ -3,6 +3,7 @@ import withFlask from './withFlask';
 import withInvestment from './withInvestment';
 import withView from './withView';
 import withQuery from './withQuery';
+import withQuerySync from './withQuerySync';
 import withStartup from './withStartup';
 
 export default compose(
@@ -10,5 +11,6 @@ export default compose(
 	withInvestment,
 	withView,
 	withQuery,
+	withQuerySync,
 	withStartup
 );

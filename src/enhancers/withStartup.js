@@ -8,11 +8,11 @@ import { createBrowserHistory } from 'history';
  */
 export default lifecycle({
 	componentDidMount() {
-		const { handleQueryInit, handleQueryChange } = this.props;
+		const { handleQueryInit, handleQueryLocationChange } = this.props;
 
-		if (handleQueryInit && handleQueryChange) {
+		if (handleQueryInit && handleQueryLocationChange) {
 			const browserHistory = createBrowserHistory();
-			browserHistory.listen(handleQueryChange);
+			browserHistory.listen(handleQueryLocationChange);
 
 			handleQueryInit(browserHistory);
 		}

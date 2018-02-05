@@ -1,6 +1,5 @@
 import { mapProps } from 'recompose';
-import { mergeWith, defaultTo } from 'ramda';
-import getEventValue from '../selectors/getEventValue';
+import { mergeWith, defaultTo, compose } from 'ramda';
 
 /**
  * Merge flask state and flask state from query.
@@ -26,21 +25,34 @@ export default mapProps(({
 }) => ({
 	...mergeWith(defaultTo, flask, query.flask || {}),
 
-	handleQueryPresetChange: event => {
-		handleFlaskPresetChange(event);
-		handleQueryParamChange('flask.preset', getEventValue(event));
-	},
+	handleQueryPresetChange: compose(
+		handleFlaskPresetChange,
+		handleQueryParamChange('flask.preset'),
+		getUndecoratedFlaskPreset
+	),
 
-	handleQueryDiameterChange: event => {
-		handleFlaskDiameterChange(event);
-		handleQueryParamChange('flask.diameter', getEventValue(event));
-	},
+	handleQueryDiameterChange: compose(
+		handleFlaskDiameterChange,
+		handleQueryParamChange('flask.diameter')
+	),
 
-	handleQueryHeightChange: event => {
-		handleFlaskDiameterChange(event);
-		handleQueryParamChange('flask.height', getEventValue(event));
-	},
+	handleQueryHeightChange: compose(
+		handleFlaskDiameterChange,
+		handleQueryParamChange('flask.height')
+	),
 
 	handleAddFlaskPreset,
 	handleRemoveFlaskPreset
 }));
+
+/**
+ * Get display text for flask preset.
+ * @param {Object} event - The flask preset change event.
+ * @returns {string} - The display text for flask preset.
+ */
+const getUndecoratedFlaskPreset = ({ target }) => ({
+	target: {
+		...target,
+		value: target.value.replace(' × ', 'x')
+	}
+});
