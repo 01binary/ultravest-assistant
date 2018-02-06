@@ -1,5 +1,6 @@
 import { mapProps } from 'recompose';
-import { mergeWith, defaultTo, propOr, compose } from 'ramda';
+import { mergeWith, defaultTo, compose } from 'ramda';
+import getFlaskOrQuery from '../selectors/getFlaskOrQuery';
 
 /**
  * Merge investment state and investment state from query.
@@ -17,15 +18,12 @@ export default mapProps(({
 	handleInvestmentPresetChange,
 	handleQueryParamChange
 }) => ({
-	...mergeWith(defaultTo, investment, getQueryInvestment(query)),
+	...mergeWith(defaultTo, investment, query.investment || {}),
 
-	flask: mergeWith(defaultTo, flask, getQueryFlask(query)),
+	flask: getFlaskOrQuery(flask, query.flask),
 
 	handleQueryPresetChange: compose(
 		handleInvestmentPresetChange,
 		handleQueryParamChange('investment.preset')
 	)
 }));
-
-const getQueryInvestment = propOr({}, 'investment');
-const getQueryFlask = propOr({}, 'flask');

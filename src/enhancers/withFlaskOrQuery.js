@@ -1,5 +1,6 @@
 import { mapProps } from 'recompose';
-import { mergeWith, defaultTo, compose } from 'ramda';
+import { compose } from 'ramda';
+import getFlaskOrQuery from '../selectors/getFlaskOrQuery';
 
 /**
  * Merge flask state and flask state from query.
@@ -23,12 +24,12 @@ export default mapProps(({
 	handleRemoveFlaskPreset,
 	handleQueryParamChange
 }) => ({
-	...mergeWith(defaultTo, flask, query.flask || {}),
+	...getFlaskOrQuery(flask, query.flask),
 
 	handleQueryPresetChange: compose(
 		handleFlaskPresetChange,
 		handleQueryParamChange('flask.preset'),
-		getUndecoratedFlaskPreset
+		undecoratePreset
 	),
 
 	handleQueryDiameterChange: compose(
@@ -46,11 +47,11 @@ export default mapProps(({
 }));
 
 /**
- * Get display text for flask preset.
+ * Get URL parameter key for flask preset.
  * @param {Object} event - The flask preset change event.
- * @returns {string} - The display text for flask preset.
+ * @returns {string} - The URL parameter key for the flask preset.
  */
-const getUndecoratedFlaskPreset = ({ target }) => ({
+const undecoratePreset = ({ target }) => ({
 	target: {
 		...target,
 		value: target.value.replace(' × ', 'x')
