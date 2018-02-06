@@ -10,7 +10,7 @@ import { mergeWith, defaultTo, compose } from 'ramda';
  * @param {function} handleFlaskHeightChange - The handler provided by withFlask.
  * @param {function} handleAddFlaskPreset - The handler provided by withFlask.
  * @param {function} handleRemoveFlaskPreset - The handler provided by withFlask.
- * @param {function} handleQueryParamChange - The handler provided by withQuery.
+ * @param {function} handleQueryParamChange - The handler provided by withQuerySync.
  * @returns {Object} - The flask props.
  */
 export default mapProps(({
@@ -37,7 +37,7 @@ export default mapProps(({
 	),
 
 	handleQueryHeightChange: compose(
-		handleFlaskDiameterChange,
+		handleFlaskHeightChange,
 		handleQueryParamChange('flask.height')
 	),
 

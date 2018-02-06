@@ -1,3 +1,4 @@
+import { identity } from 'ramda';
 import reflect from '../fixtures/reflector.tests.fixture';
 import withInvestmentOrQuery from '../../src/enhancers/withInvestmentOrQuery';
 import flaskPresets from '../../src/config/flaskPresets.json';
@@ -7,15 +8,20 @@ describe('enhancer withInvestmentOrQuery', () => {
 
 	describe('with no overrides', () => {
 
-		let reflector, props;
+		let reflector;
+		let props;
+		let handleQueryParamChangeWithParam;
 
 		beforeAll(() => {
+			handleQueryParamChangeWithParam = jest.fn(identity);
 			props = {
 				query: {},
 				flask,
 				investment,
 				handleInvestmentPresetChange: jest.fn(),
-				handleQueryParamChange: jest.fn()
+				handleQueryParamChange: jest.fn(
+					() => handleQueryParamChangeWithParam
+				)
 			};
 
 			reflector = reflect(withInvestmentOrQuery, props);
@@ -24,6 +30,7 @@ describe('enhancer withInvestmentOrQuery', () => {
 		afterAll(() => {
 			props = null;
 			reflector = null;
+			handleQueryParamChangeWithParam = null;
 		});
 
 		it('should map props', () => {
@@ -37,16 +44,21 @@ describe('enhancer withInvestmentOrQuery', () => {
 
 		it('should map handleQueryPresetChange handler', () => {
 			reflector.props.handleQueryPresetChange(change);
+
+			expect(props.handleQueryParamChange).toHaveBeenCalledWith('investment.preset');
+			expect(handleQueryParamChangeWithParam).toHaveBeenCalledWith(change);
 			expect(props.handleInvestmentPresetChange).toHaveBeenCalledWith(change);
-			expect(props.handleQueryParamChange).toHaveBeenCalledWith('investment.preset', 'testing');
 		});
 	});
 
 	describe('with overrides', () => {
 
-		let reflector, props;
+		let reflector;
+		let props;
+		let handleQueryParamChangeWithParam;
 
 		beforeAll(() => {
+			handleQueryParamChangeWithParam = jest.fn(identity);
 			props = {
 				query: {
 					flask: {
@@ -77,7 +89,9 @@ describe('enhancer withInvestmentOrQuery', () => {
 				flask,
 				investment,
 				handleInvestmentPresetChange: jest.fn(),
-				handleQueryParamChange: jest.fn()
+				handleQueryParamChange: jest.fn(
+					() => handleQueryParamChangeWithParam
+				)
 			};
 
 			reflector = reflect(withInvestmentOrQuery, props);
@@ -86,6 +100,7 @@ describe('enhancer withInvestmentOrQuery', () => {
 		afterAll(() => {
 			props = null;
 			reflector = null;
+			handleQueryParamChangeWithParam = null;
 		});
 
 		it('should map props', () => {

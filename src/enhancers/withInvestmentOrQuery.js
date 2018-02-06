@@ -1,6 +1,5 @@
 import { mapProps } from 'recompose';
-import { mergeWith, defaultTo, propOr } from 'ramda';
-import getEventValue from '../selectors/getEventValue';
+import { mergeWith, defaultTo, propOr, compose } from 'ramda';
 
 /**
  * Merge investment state and investment state from query.
@@ -8,7 +7,7 @@ import getEventValue from '../selectors/getEventValue';
  * @param {Object} flask - The state provided by withFlask.
  * @param {Object} investment - The state provided by withInvestment.
  * @param {function} handleInvestmentPresetChange - The handler provided by withInvestment.
- * @param {function} handleQueryParamChange - The handler provided by withQuery.
+ * @param {function} handleQueryParamChange - The handler provided by withQuerySync.
  * @returns {Object} - The investment props.
  */
 export default mapProps(({
@@ -22,10 +21,10 @@ export default mapProps(({
 
 	flask: mergeWith(defaultTo, flask, getQueryFlask(query)),
 
-	handleQueryPresetChange: (event) => {
-		handleInvestmentPresetChange(event);
-		handleQueryParamChange('investment.preset', getEventValue(event));
-	}
+	handleQueryPresetChange: compose(
+		handleInvestmentPresetChange,
+		handleQueryParamChange('investment.preset')
+	)
 }));
 
 const getQueryInvestment = propOr({}, 'investment');

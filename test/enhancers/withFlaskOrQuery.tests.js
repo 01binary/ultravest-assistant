@@ -1,3 +1,4 @@
+import { identity } from 'ramda';
 import reflect from '../fixtures/reflector.tests.fixture';
 import withFlaskOrQuery from '../../src/enhancers/withFlaskOrQuery';
 import presets from '../../src/config/flaskPresets.json';
@@ -9,8 +10,7 @@ describe('enhancer withFlaskOrQuery', () => {
 		let reflector, props, handleQueryParamChangeWithParam;
 
 		beforeAll(() => {
-			handleQueryParamChangeWithParam = jest.fn();
-
+			handleQueryParamChangeWithParam = jest.fn(identity);
 			props = {
 				query: {},
 				flask: flaskProps,
@@ -39,18 +39,21 @@ describe('enhancer withFlaskOrQuery', () => {
 
 		it('should map handleQueryPresetChange handler', () => {
 			reflector.props.handleQueryPresetChange(presetChange);
+			expect(props.handleFlaskPresetChange).toHaveBeenCalledWith(presetChange);
 			expect(props.handleQueryParamChange).toHaveBeenCalledWith('flask.preset'),
 			expect(handleQueryParamChangeWithParam).toHaveBeenCalledWith(presetChange);
 		});
 
 		it('should map handleQueryDiameterChange handler', () => {
 			reflector.props.handleQueryDiameterChange(diameterChange);
+			expect(props.handleFlaskDiameterChange).toHaveBeenCalledWith(diameterChange);
 			expect(props.handleQueryParamChange).toHaveBeenCalledWith('flask.diameter');
 			expect(handleQueryParamChangeWithParam).toHaveBeenCalledWith(diameterChange);
 		});
 
 		it('should map handleQueryHeightChange handler', () => {
 			reflector.props.handleQueryHeightChange(heightChange);
+			expect(props.handleFlaskHeightChange).toHaveBeenCalledWith(heightChange);
 			expect(props.handleQueryParamChange).toHaveBeenCalledWith('flask.height');
 			expect(handleQueryParamChangeWithParam).toHaveBeenCalledWith(heightChange);
 		});
