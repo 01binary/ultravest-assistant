@@ -35,11 +35,15 @@ export const Investment = ({
 					name="investment-preset"
 					onChange={handleQueryPresetChange}
 				>
-					{ Object.keys(presets).map(preset => (
-						<option selected={preset === preset}>
-							{preset}
+					{ Object.keys(presets).map(presetOption => (
+						<option selected={presetOption === preset}>
+							{presetOption}
 						</option>
 					))}
+
+					{
+						console.log('got preset in Investment comp', preset)
+					}
 				</select>
 				<label for="investment-preset">
 					ratio
