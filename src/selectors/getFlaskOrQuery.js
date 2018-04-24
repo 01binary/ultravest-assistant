@@ -6,6 +6,7 @@ import { CUSTOM } from '../enhancers/withFlask';
  * @param {Object} queryFlask - The state provided by withQuery.
  */
 export default (flask, queryFlask = {}) => ({
+	presets: queryFlask.presets || flask.presets,
 	preset: queryFlask.preset || flask.preset,
 	diameter: (queryFlask.preset || flask.preset) === CUSTOM ?
 		queryFlask.diameter || flask.diameter :
