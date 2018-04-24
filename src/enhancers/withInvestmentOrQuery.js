@@ -24,6 +24,19 @@ export default mapProps(({
 
 	handleQueryPresetChange: compose(
 		handleInvestmentPresetChange,
-		handleQueryParamChange('investment.preset')
+		handleQueryParamChange('investment.preset'),
+		undecoratePreset
 	)
 }));
+
+/**
+ * Get URL parameter key for investment preset.
+ * @param {Object} event - The investment preset change event.
+ * @returns {string} - The URL parameter key for the investment preset.
+ */
+const undecoratePreset = ({ target }) => ({
+	target: {
+		...target,
+		value: target.value.replace('/', '-')
+	}
+});

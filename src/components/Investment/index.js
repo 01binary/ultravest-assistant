@@ -37,13 +37,9 @@ export const Investment = ({
 				>
 					{ Object.keys(presets).map(presetOption => (
 						<option selected={presetOption === preset}>
-							{presetOption}
+							{getDisplayText(presetOption)}
 						</option>
 					))}
-
-					{
-						console.log('got preset in Investment comp', preset)
-					}
 				</select>
 				<label for="investment-preset">
 					ratio
@@ -68,5 +64,12 @@ export const Investment = ({
 		</output>
 	</article>
 );
+
+/**
+ * Get display text for investment preset.
+ * @param {string} name - The preset name.
+ * @returns {string} - The display text for flask preset.
+ */
+const getDisplayText = name => name.replace('-', '/');
 
 export default withInvestmentOrQuery(Investment);

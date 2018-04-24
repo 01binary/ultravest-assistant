@@ -51,7 +51,7 @@ export const Flask = ({
 				>
 					{ Object.keys(presets).map(name => (
 						<option selected={name === preset}>
-							{getDecoratedFlaskPreset(name)}
+							{getDisplayText(name)}
 						</option>
 					))}
 
@@ -137,6 +137,6 @@ export const Flask = ({
  * @param {string} name - The flask preset name.
  * @returns {string} - The display text for flask preset.
  */
-const getDecoratedFlaskPreset = name => name.replace('x', ' × ');
+const getDisplayText = name => name.replace('x', ' × ');
 
 export default withFlaskOrQuery(Flask);
