@@ -35,9 +35,9 @@ export const Investment = ({
 					name="investment-preset"
 					onChange={handleQueryPresetChange}
 				>
-					{ Object.keys(presets).map(presetOption => (
-						<option selected={presetOption === preset}>
-							{getDisplayText(presetOption)}
+					{ Object.keys(presets).map(name => (
+						<option selected={name === preset}>
+							{getDisplayText(name)}
 						</option>
 					))}
 				</select>
