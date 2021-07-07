@@ -17,7 +17,7 @@ describe('Segment', () => {
 		wrapper = null;
 	});
 
-	test('should render', () => {
+	it('should render', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 

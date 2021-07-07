@@ -2,24 +2,32 @@ import { h } from 'preact';
 import classNames from 'obj-str';
 import { CUSTOM } from '../../enhancers/withFlask';
 import Units from '../Units';
+import withFlaskOrQuery from '../../enhancers/withFlaskOrQuery';
 import timelineStyle from '../App/style/timeline';
 import formStyle from '../App/style/forms';
 import style from './style';
 
 /**
- * Flask Parameters
- * @param {object} flask - The flask props.
- * @param {function} handleFlaskPresetChange - Handle changing flask preset.
- * @param {function} handleFlaskDiameterChange - Handle changing flask diameter.
- * @param {function} handleFlaskHeightChange - Handle changing flask height.
- * @param {function} handleAddFlaskPreset - Handle adding current flask diameter and height as preset.
+ * Flask parameters
+ * @param {Object[]} presets - The state provided by withFlaskOrQuery.
+ * @param {string} preset - The state provided by withFlaskOrQuery.
+ * @param {number} diameter - The state provided by withFlaskOrQuery.
+ * @param {number} height - The state provided by withFlaskOrQuery.
+ * @param {function} handleQueryPresetChange - The handler provided by withFlaskOrQuery.
+ * @param {function} handleQueryDiameterChange - The handler provided by withFlask.
+ * @param {function} handleQueryHeightChange - The handler provided by withFlask.
+ * @param {function} handleAddFlaskPreset - The handler provided by withFlask.
+ * @param {function} handleRemoveFlaskPreset - The handler provided by withFlask.
  * @returns {JSX.Element} - A React stateless component.
  */
-const Flask = ({
-	flask,
-	handleFlaskPresetChange,
-	handleFlaskDiameterChange,
-	handleFlaskHeightChange,
+export const Flask = ({
+	presets,
+	preset,
+	diameter,
+	height,
+	handleQueryPresetChange,
+	handleQueryDiameterChange,
+	handleQueryHeightChange,
 	handleAddFlaskPreset,
 	handleRemoveFlaskPreset }) => (
 	<article class={classNames({
@@ -38,17 +46,16 @@ const Flask = ({
 				<select
 					id="flask-preset"
 					name="flask-preset"
-					value={flask.preset}
-					onChange={handleFlaskPresetChange}
+					onChange={handleQueryPresetChange}
 					autofocus
 				>
-					{ Object.keys(flask.presets).map(preset => (
-						<option selected={preset === flask.preset}>
-							{preset}
+					{ Object.keys(presets).map(name => (
+						<option selected={name === preset}>
+							{getDisplayText(name)}
 						</option>
 					))}
 
-					<option selected={flask.preset === CUSTOM}>
+					<option selected={name === CUSTOM}>
 						custom
 					</option>
 				</select>
@@ -61,6 +68,7 @@ const Flask = ({
 			<input
 				type="submit"
 				name="action"
+				id="action-add"
 				value="Add flask preset"
 				class={classNames({
 					[style.action]: true,
@@ -72,6 +80,7 @@ const Flask = ({
 			<input
 				type="submit"
 				name="action"
+				id="action-remove"
 				value="Remove flask preset"
 				class={classNames({
 					[style.action]: true,
@@ -92,8 +101,8 @@ const Flask = ({
 					name="flask-diameter"
 					type="number"
 					step="0.1"
-					value={flask.diameter}
-					onChange={handleFlaskDiameterChange}
+					value={diameter}
+					onChange={handleQueryDiameterChange}
 				/>
 				<label for="flask-diameter">
 					diameter
@@ -109,8 +118,8 @@ const Flask = ({
 					name="flask-height"
 					type="number"
 					step="0.1"
-					value={flask.height}
-					onChange={handleFlaskHeightChange}
+					value={height}
+					onChange={handleQueryHeightChange}
 				/>
 				<label for="flask-height">
 					height
@@ -123,4 +132,11 @@ const Flask = ({
 	</article>
 );
 
-export default Flask;
+/**
+ * Get display text for flask preset.
+ * @param {string} name - The flask preset name.
+ * @returns {string} - The display text for flask preset.
+ */
+const getDisplayText = name => name.replace('x', ' × ');
+
+export default withFlaskOrQuery(Flask);

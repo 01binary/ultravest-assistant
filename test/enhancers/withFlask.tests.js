@@ -3,7 +3,7 @@ import { always } from 'ramda';
 import presets from '../../src/config/flaskPresets.json';
 import reflect from '../fixtures/reflector.tests.fixture';
 
-describe('composer withFlask', () => {
+describe('enhancer withFlask', () => {
 
 	let reflector;
 
@@ -15,7 +15,7 @@ describe('composer withFlask', () => {
 		reflector = null;
 	});
 
-	test('should set initial state', () => {
+	it('should set initial state', () => {
 		expect(reflector.props.flask).toEqual({
 			presets,
 			preset: DEFAULT,
@@ -24,7 +24,7 @@ describe('composer withFlask', () => {
 		});
 	});
 
-	test('should set flask preset', done => {
+	it('should set flask preset', done => {
 		const expected = Object.keys(reflector.props.flask.presets)[2];
 
 		reflector.props.handleFlaskPresetChange({
@@ -45,7 +45,7 @@ describe('composer withFlask', () => {
 		});
 	});
 
-	test('should set flask diameter', done => {
+	it('should set flask diameter', done => {
 		reflector.props.handleFlaskDiameterChange({
 			target: { value: 6.2 }
 		});
@@ -64,7 +64,7 @@ describe('composer withFlask', () => {
 		});
 	});
 
-	test('should set flask height', done => {
+	it('should set flask height', done => {
 		reflector.props.handleFlaskHeightChange({
 			target: { value: 13.5 }
 		});
@@ -83,7 +83,7 @@ describe('composer withFlask', () => {
 		});
 	});
 
-	test('should add flask preset', done => {
+	it('should add flask preset', done => {
 		const event = { preventDefault: jest.fn() };
 		
 		reflector.props.handleAddFlaskPreset(event);
@@ -92,14 +92,14 @@ describe('composer withFlask', () => {
 			expect(event.preventDefault.mock.calls.length)
 				.toBe(1);
 			expect(reflector.props.flask.preset)
-				.toEqual('6.2 × 13.5');
+				.toEqual('6.2x13.5');
 			expect(reflector.props.flask.diameter)
 				.toEqual(6.2);
 			expect(reflector.props.flask.height)
 				.toEqual(13.5);
 			expect(props.flask.presets)
 				.toEqual(Object.assign({}, presets, {
-					'6.2 × 13.5': {
+					'6.2x13.5': {
 						diameter: 6.2,
 						height: 13.5
 					}
@@ -109,7 +109,7 @@ describe('composer withFlask', () => {
 		});
 	});
 
-	test('should keep added flask preset when setting diameter', done => {
+	it('should keep added flask preset when setting diameter', done => {
 		const expected = Object.assign({}, reflector.props.flask.presets);
 
 		reflector.props.handleFlaskDiameterChange({
@@ -128,7 +128,7 @@ describe('composer withFlask', () => {
 		});
 	});
 
-	test('should keep added flask preset when setting height', done => {
+	it('should keep added flask preset when setting height', done => {
 		const expected = Object.assign({}, reflector.props.flask.presets);
 
 		reflector.props.handleFlaskHeightChange({
@@ -147,7 +147,7 @@ describe('composer withFlask', () => {
 		});
 	});
 
-	test('should keep added flask preset when setting another preset', done => {
+	it('should keep added flask preset when setting another preset', done => {
 		const another = Object.keys(presets)[1];
 		const expected = Object.assign({}, reflector.props.flask.presets);
 		
@@ -165,11 +165,11 @@ describe('composer withFlask', () => {
 		});
 	});
 
-	test('should not add flask preset if already added', done => {
+	it('should not add flask preset if already added', done => {
 		const before = reflector.props.flask.presets.length;
 
 		reflector.props.handleFlaskPresetChange({
-			target: { value: '6.2 × 13.5' }
+			target: { value: '6.2x13.5' }
 		});
 
 		reflector.props.handleAddFlaskPreset({ preventDefault: always() });
@@ -182,7 +182,7 @@ describe('composer withFlask', () => {
 		});
 	});
 
-	test('should remove added flask preset and switch to the one before', done => {
+	it('should remove added flask preset and switch to the one before', done => {
 		const event = { preventDefault: jest.fn() };
 		const presetNames = Object.keys(reflector.props.flask.presets);
 		const next = presetNames[
@@ -201,7 +201,7 @@ describe('composer withFlask', () => {
 		});
 	});
 
-	test('should remove second to last preset and switch to the one after', done => {
+	it('should remove second to last preset and switch to the one after', done => {
 		const presetNames = Object.keys(reflector.props.flask.presets);
 		const remove = presetNames[presetNames.length - 2];
 		const next = presetNames[presetNames.length - 1];
@@ -220,7 +220,7 @@ describe('composer withFlask', () => {
 		});
 	});
 
-	test('should set current preset to null when last remaining preset is removed', done => {
+	it('should set current preset to null when last remaining preset is removed', done => {
 		Object
 			.keys(reflector.props.flask.presets)
 			.forEach(preset => reflector.props.handleRemoveFlaskPreset({ preventDefault: always() }));

@@ -1,533 +1,786 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Burnout with first burnout preset should not render last marker 1`] = `
+exports[`Burnout with segments view should render all steps with negative tab index 1`] = `
 preact-render-spy (1 nodes)
 -------
-<article class="burnout">
+<article class="timeline burnout">
   <h2>burnout</h2>
-  <output>
-    <dl>
-      <dt>preset</dt>
-      <dd>3 X 3 in</dd>
+  <output class="group calc">
+    <dl class="control">
       <dt>time</dt>
-      <dd>8 hours</dd>
+      <dd>
+        15
+        <span>hours</span>
+      </dd>
     </dl>
   </output>
+  <section class="steps">
+    <input
+      class="tab segmentsTab"
+      type="radio"
+      name="view"
+      id="segments"
+      value="segments"
+      checked={true}
+      onChange={[Function mockConstructor]}
+     />
+    <label for="segments">segments</label>
+    <input
+      class="tab stepsTab"
+      type="radio"
+      name="view"
+      id="steps"
+      value="steps"
+      checked={false}
+      onChange={[Function mockConstructor]}
+     />
+    <label for="steps">steps</label>
+    <section class="tabPages">
+      <table>
+        <thead>
+          <tr>
+            <th>segment</th>
+            <th>rate</th>
+            <th>temp</th>
+            <th>hold</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a
+                href="#water-removal"
+                tabIndex={0}
+              >
+                water removal
+              </a>
+            </td>
+            <td>
+              300
+              <span aria-hidden="true">
+                °F/hr
+                <span class="offScreen">degrees Fahrenheit per hour</span>
+              </span>
+            </td>
+            <td>
+              300
+              <span aria-hidden="true">
+                °F
+                <span class="offScreen">degrees Fahrenheit</span>
+              </span>
+            </td>
+            <td>
+              3 
+              <span>hours</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a
+                href="#thermal-transition"
+                tabIndex={0}
+              >
+                thermal transition
+              </a>
+            </td>
+            <td>
+              200
+              <span aria-hidden="true">
+                °F/hr
+                <span class="offScreen">degrees Fahrenheit per hour</span>
+              </span>
+            </td>
+            <td>
+              700
+              <span aria-hidden="true">
+                °F
+                <span class="offScreen">degrees Fahrenheit</span>
+              </span>
+            </td>
+            <td>
+              2 
+              <span>hours</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a
+                href="#pattern-removal"
+                tabIndex={0}
+              >
+                pattern removal
+              </a>
+            </td>
+            <td>
+              217
+              <span aria-hidden="true">
+                °F/hr
+                <span class="offScreen">degrees Fahrenheit per hour</span>
+              </span>
+            </td>
+            <td>
+              1350
+              <span aria-hidden="true">
+                °F
+                <span class="offScreen">degrees Fahrenheit</span>
+              </span>
+            </td>
+            <td>
+              3 
+              <span>hours</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a
+                href="#casting"
+                tabIndex={0}
+              >
+                casting
+              </a>
+            </td>
+            <td>
+              700
+              <span aria-hidden="true">
+                °F/hr
+                <span class="offScreen">degrees Fahrenheit per hour</span>
+              </span>
+            </td>
+            <td>
+              700
+              <span aria-hidden="true">
+                °F
+                <span class="offScreen">degrees Fahrenheit</span>
+              </span>
+            </td>
+            <td>
+              2 
+              <span>hours</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ol>
+        <li>
+          <a
+            href="#water-removal"
+            tabIndex={-1}
+          >
+            raise to
+            <span> 300</span>
+            ° over 
+            <span> 1 </span>
+            hour
+          </a>
+        </li>
+        <li>
+          <a
+            href="#water-removal"
+            tabIndex={-1}
+          >
+            hold
+            <span> 300</span>
+            ° for 
+            <span> 3 </span>
+            hours
+          </a>
+        </li>
+        <li>
+          <a
+            href="#thermal-transition"
+            tabIndex={-1}
+          >
+            raise to
+            <span> 700</span>
+            ° over 
+            <span> 2 </span>
+            hours
+          </a>
+        </li>
+        <li>
+          <a
+            href="#thermal-transition"
+            tabIndex={-1}
+          >
+            hold
+            <span> 700</span>
+            ° for 
+            <span> 2 </span>
+            hours
+          </a>
+        </li>
+        <li>
+          <a
+            href="#pattern-removal"
+            tabIndex={-1}
+          >
+            raise to
+            <span> 1350</span>
+            ° over 
+            <span> 3 </span>
+            hours
+          </a>
+        </li>
+        <li>
+          <a
+            href="#pattern-removal"
+            tabIndex={-1}
+          >
+            hold
+            <span> 1350</span>
+            ° for 
+            <span> 3 </span>
+            hours
+          </a>
+        </li>
+        <li>
+          <a
+            href="#casting"
+            tabIndex={-1}
+          >
+            lower to
+            <span> 700</span>
+            ° over 
+            <span> 0.9 </span>
+            hour
+          </a>
+        </li>
+        <li>
+          <a
+            href="#casting"
+            tabIndex={-1}
+          >
+            hold
+            <span> 700</span>
+            ° for 
+            <span> 2 </span>
+            hours
+          </a>
+        </li>
+      </ol>
+    </section>
+  </section>
   <section class="diagram">
-    <a name="water-removal">
-      <article class="segment raise">
+    <a
+      name="water-removal"
+      class="segment"
+    >
+      <article
+        class="raise"
+        style="margin-top: 132px;"
+      >
+        <figure class="ambient">
+          <figcaption>ambient</figcaption>
+        </figure>
         <figure class="temperature">
-          <svg></svg>
           <figcaption>
             <h3>temp</h3>
-            ambient
+            300
+            <span class="units">°F</span>
           </figcaption>
         </figure>
         <figure class="rate">
-          <svg></svg>
           <figcaption>
             <h3>rate</h3>
-            300°
-            <span class="units">F/hr</span>
+            300
+            <span class="units">°F/hr</span>
           </figcaption>
         </figure>
         <figure class="time">
-          <svg></svg>
           <figcaption>
             <h3>hold</h3>
-            1
-            <span class="units">hour</span>
+            3
+            <span class="units"> hours</span>
           </figcaption>
         </figure>
       </article>
     </a>
-    <a name="thermal-transition">
-      <article class="segment raise">
+    <a
+      name="thermal-transition"
+      class="segment"
+    >
+      <article
+        class="raise"
+        style="margin-top: 88px;"
+      >
         <figure class="temperature">
-          <svg></svg>
           <figcaption>
             <h3>temp</h3>
-            700°
-            <span class="units">F</span>
+            700
+            <span class="units">°F</span>
           </figcaption>
         </figure>
         <figure class="rate">
-          <svg></svg>
           <figcaption>
             <h3>rate</h3>
-            400°
-            <span class="units">F/hr</span>
+            200
+            <span class="units">°F/hr</span>
           </figcaption>
         </figure>
         <figure class="time">
-          <svg></svg>
-          <figcaption>
-            <h3>hold</h3>
-            1
-            <span class="units">hour</span>
-          </figcaption>
-        </figure>
-      </article>
-    </a>
-    <a name="pattern-removal">
-      <article class="segment raise">
-        <figure class="temperature">
-          <svg></svg>
-          <figcaption>
-            <h3>temp</h3>
-            1350°
-            <span class="units">F</span>
-          </figcaption>
-        </figure>
-        <figure class="rate">
-          <svg></svg>
-          <figcaption>
-            <h3>rate</h3>
-            325°
-            <span class="units">F/hr</span>
-          </figcaption>
-        </figure>
-        <figure class="time">
-          <svg></svg>
           <figcaption>
             <h3>hold</h3>
             2
-            <span class="units">hours</span>
+            <span class="units"> hours</span>
           </figcaption>
         </figure>
       </article>
     </a>
-    <a name="casting">
-      <article class="segment lower">
+    <a
+      name="pattern-removal"
+      class="segment"
+    >
+      <article
+        class="raise"
+        style="margin-top: 44px;"
+      >
         <figure class="temperature">
-          <svg></svg>
           <figcaption>
             <h3>temp</h3>
-            700°
-            <span class="units">F</span>
+            1350
+            <span class="units">°F</span>
           </figcaption>
         </figure>
         <figure class="rate">
-          <svg></svg>
           <figcaption>
             <h3>rate</h3>
-            700°
-            <span class="units">F/hr</span>
+            217
+            <span class="units">°F/hr</span>
           </figcaption>
         </figure>
         <figure class="time">
-          <svg></svg>
           <figcaption>
             <h3>hold</h3>
-            1
-            <span class="units">hour</span>
+            3
+            <span class="units"> hours</span>
           </figcaption>
         </figure>
       </article>
     </a>
-  </section>
-  <section class="steps">
-    <input
-      type="radio"
-      name="program-view"
-      id="steps"
-      checked={true}
-     />
-    </input>
-    <label for="steps">steps</label>
-    <input
-      type="radio"
-      name="program-view"
-      id="segments"
-     />
-    </input>
-    <label for="segments">segments</label>
-    <table>
-      <thead>
-        <tr>
-          <th>segment</th>
-          <th>rate</th>
-          <th>temp</th>
-          <th>hold</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <a href="#water-removal">water removal</a>
-          </td>
-          <td>300</td>
-          <td>300</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>
-            <a href="#thermal-transition">thermal transition</a>
-          </td>
-          <td>400</td>
-          <td>700</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>
-            <a href="#pattern-removal">pattern removal</a>
-          </td>
-          <td>325</td>
-          <td>1350</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>
-            <a href="#casting">casting</a>
-          </td>
-          <td>700</td>
-          <td>700</td>
-          <td>1</td>
-        </tr>
-      </tbody>
-    </table>
-    <ol>
-      <li>
-        <a href="#water-removal">
-          raise to
-          <span> 300</span>
-          ° over 
-          <span> 1 </span>
-          hour
-        </a>
-      </li>
-      <li>
-        <a href="#water-removal">
-          hold
-          <span> 300</span>
-          ° for 
-          <span> 1 </span>
-          hour
-        </a>
-      </li>
-      <li>
-        <a href="#thermal-transition">
-          raise to
-          <span> 700</span>
-          ° over 
-          <span> 1 </span>
-          hour
-        </a>
-      </li>
-      <li>
-        <a href="#thermal-transition">
-          hold
-          <span> 700</span>
-          ° for 
-          <span> 1 </span>
-          hour
-        </a>
-      </li>
-      <li>
-        <a href="#pattern-removal">
-          raise to
-          <span> 1350</span>
-          ° over 
-          <span> 2 </span>
-          hours
-        </a>
-      </li>
-      <li>
-        <a href="#pattern-removal">
-          hold
-          <span> 1350</span>
-          ° for 
-          <span> 2 </span>
-          hours
-        </a>
-      </li>
-      <li>
-        <a href="#casting">
-          lower to
-          <span> 700</span>
-          ° over 
-          <span> 0.9 </span>
-          hour
-        </a>
-      </li>
-      <li>
-        <a href="#casting">
-          hold
-          <span> 700</span>
-          ° for 
-          <span> 1 </span>
-          hour
-        </a>
-      </li>
-    </ol>
+    <a
+      name="casting"
+      class="segment"
+    >
+      <article
+        class="lower"
+        style="margin-top: 44px;"
+      >
+        <figure class="temperature">
+          <figcaption>
+            <h3>temp</h3>
+            700
+            <span class="units">°F</span>
+          </figcaption>
+        </figure>
+        <figure class="rate">
+          <figcaption>
+            <h3>rate</h3>
+            700
+            <span class="units">°F/hr</span>
+          </figcaption>
+        </figure>
+        <figure class="time">
+          <figcaption>
+            <h3>hold</h3>
+            2
+            <span class="units"> hours</span>
+          </figcaption>
+        </figure>
+      </article>
+    </a>
   </section>
 </article>
 
 `;
 
-exports[`Burnout with last burnout preset should render last marker 1`] = `
+exports[`Burnout with steps view should render all segments with negative tab index 1`] = `
 preact-render-spy (1 nodes)
 -------
-<article class="burnout">
+<article class="timeline burnout">
   <h2>burnout</h2>
-  <output>
-    <dl>
-      <dt>preset</dt>
-      <dd>
-        4 X 8 in
-        <span class="longest">longest</span>
-      </dd>
+  <output class="group calc">
+    <dl class="control">
       <dt>time</dt>
-      <dd>15 hours</dd>
+      <dd>
+        15
+        <span>hours</span>
+      </dd>
     </dl>
   </output>
-  <section class="diagram">
-    <a name="water-removal">
-      <article class="segment raise">
-        <figure class="temperature">
-          <svg></svg>
-          <figcaption>
-            <h3>temp</h3>
-            ambient
-          </figcaption>
-        </figure>
-        <figure class="rate">
-          <svg></svg>
-          <figcaption>
-            <h3>rate</h3>
-            300°
-            <span class="units">F/hr</span>
-          </figcaption>
-        </figure>
-        <figure class="time">
-          <svg></svg>
-          <figcaption>
-            <h3>hold</h3>
-            3
-            <span class="units">hours</span>
-          </figcaption>
-        </figure>
-      </article>
-    </a>
-    <a name="thermal-transition">
-      <article class="segment raise">
-        <figure class="temperature">
-          <svg></svg>
-          <figcaption>
-            <h3>temp</h3>
-            700°
-            <span class="units">F</span>
-          </figcaption>
-        </figure>
-        <figure class="rate">
-          <svg></svg>
-          <figcaption>
-            <h3>rate</h3>
-            200°
-            <span class="units">F/hr</span>
-          </figcaption>
-        </figure>
-        <figure class="time">
-          <svg></svg>
-          <figcaption>
-            <h3>hold</h3>
-            2
-            <span class="units">hours</span>
-          </figcaption>
-        </figure>
-      </article>
-    </a>
-    <a name="pattern-removal">
-      <article class="segment raise">
-        <figure class="temperature">
-          <svg></svg>
-          <figcaption>
-            <h3>temp</h3>
-            1350°
-            <span class="units">F</span>
-          </figcaption>
-        </figure>
-        <figure class="rate">
-          <svg></svg>
-          <figcaption>
-            <h3>rate</h3>
-            217°
-            <span class="units">F/hr</span>
-          </figcaption>
-        </figure>
-        <figure class="time">
-          <svg></svg>
-          <figcaption>
-            <h3>hold</h3>
-            3
-            <span class="units">hours</span>
-          </figcaption>
-        </figure>
-      </article>
-    </a>
-    <a name="casting">
-      <article class="segment lower">
-        <figure class="temperature">
-          <svg></svg>
-          <figcaption>
-            <h3>temp</h3>
-            700°
-            <span class="units">F</span>
-          </figcaption>
-        </figure>
-        <figure class="rate">
-          <svg></svg>
-          <figcaption>
-            <h3>rate</h3>
-            700°
-            <span class="units">F/hr</span>
-          </figcaption>
-        </figure>
-        <figure class="time">
-          <svg></svg>
-          <figcaption>
-            <h3>hold</h3>
-            2
-            <span class="units">hours</span>
-          </figcaption>
-        </figure>
-      </article>
-    </a>
-  </section>
   <section class="steps">
     <input
+      class="tab segmentsTab"
       type="radio"
-      name="program-view"
-      id="steps"
-      checked={true}
-     />
-    </input>
-    <label for="steps">steps</label>
-    <input
-      type="radio"
-      name="program-view"
+      name="view"
       id="segments"
+      value="segments"
+      checked={false}
+      onChange={[Function mockConstructor]}
      />
-    </input>
     <label for="segments">segments</label>
-    <table>
-      <thead>
-        <tr>
-          <th>segment</th>
-          <th>rate</th>
-          <th>temp</th>
-          <th>hold</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <a href="#water-removal">water removal</a>
-          </td>
-          <td>300</td>
-          <td>300</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td>
-            <a href="#thermal-transition">thermal transition</a>
-          </td>
-          <td>200</td>
-          <td>700</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>
-            <a href="#pattern-removal">pattern removal</a>
-          </td>
-          <td>217</td>
-          <td>1350</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td>
-            <a href="#casting">casting</a>
-          </td>
-          <td>700</td>
-          <td>700</td>
-          <td>2</td>
-        </tr>
-      </tbody>
-    </table>
-    <ol>
-      <li>
-        <a href="#water-removal">
-          raise to
-          <span> 300</span>
-          ° over 
-          <span> 1 </span>
-          hour
-        </a>
-      </li>
-      <li>
-        <a href="#water-removal">
-          hold
-          <span> 300</span>
-          ° for 
-          <span> 3 </span>
-          hours
-        </a>
-      </li>
-      <li>
-        <a href="#thermal-transition">
-          raise to
-          <span> 700</span>
-          ° over 
-          <span> 2 </span>
-          hours
-        </a>
-      </li>
-      <li>
-        <a href="#thermal-transition">
-          hold
-          <span> 700</span>
-          ° for 
-          <span> 2 </span>
-          hours
-        </a>
-      </li>
-      <li>
-        <a href="#pattern-removal">
-          raise to
-          <span> 1350</span>
-          ° over 
-          <span> 3 </span>
-          hours
-        </a>
-      </li>
-      <li>
-        <a href="#pattern-removal">
-          hold
-          <span> 1350</span>
-          ° for 
-          <span> 3 </span>
-          hours
-        </a>
-      </li>
-      <li>
-        <a href="#casting">
-          lower to
-          <span> 700</span>
-          ° over 
-          <span> 0.9 </span>
-          hour
-        </a>
-      </li>
-      <li>
-        <a href="#casting">
-          hold
-          <span> 700</span>
-          ° for 
-          <span> 2 </span>
-          hours
-        </a>
-      </li>
-    </ol>
+    <input
+      class="tab stepsTab"
+      type="radio"
+      name="view"
+      id="steps"
+      value="steps"
+      checked={true}
+      onChange={[Function mockConstructor]}
+     />
+    <label for="steps">steps</label>
+    <section class="tabPages">
+      <table>
+        <thead>
+          <tr>
+            <th>segment</th>
+            <th>rate</th>
+            <th>temp</th>
+            <th>hold</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a
+                href="#water-removal"
+                tabIndex={-1}
+              >
+                water removal
+              </a>
+            </td>
+            <td>
+              300
+              <span aria-hidden="true">
+                °F/hr
+                <span class="offScreen">degrees Fahrenheit per hour</span>
+              </span>
+            </td>
+            <td>
+              300
+              <span aria-hidden="true">
+                °F
+                <span class="offScreen">degrees Fahrenheit</span>
+              </span>
+            </td>
+            <td>
+              3 
+              <span>hours</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a
+                href="#thermal-transition"
+                tabIndex={-1}
+              >
+                thermal transition
+              </a>
+            </td>
+            <td>
+              200
+              <span aria-hidden="true">
+                °F/hr
+                <span class="offScreen">degrees Fahrenheit per hour</span>
+              </span>
+            </td>
+            <td>
+              700
+              <span aria-hidden="true">
+                °F
+                <span class="offScreen">degrees Fahrenheit</span>
+              </span>
+            </td>
+            <td>
+              2 
+              <span>hours</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a
+                href="#pattern-removal"
+                tabIndex={-1}
+              >
+                pattern removal
+              </a>
+            </td>
+            <td>
+              217
+              <span aria-hidden="true">
+                °F/hr
+                <span class="offScreen">degrees Fahrenheit per hour</span>
+              </span>
+            </td>
+            <td>
+              1350
+              <span aria-hidden="true">
+                °F
+                <span class="offScreen">degrees Fahrenheit</span>
+              </span>
+            </td>
+            <td>
+              3 
+              <span>hours</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a
+                href="#casting"
+                tabIndex={-1}
+              >
+                casting
+              </a>
+            </td>
+            <td>
+              700
+              <span aria-hidden="true">
+                °F/hr
+                <span class="offScreen">degrees Fahrenheit per hour</span>
+              </span>
+            </td>
+            <td>
+              700
+              <span aria-hidden="true">
+                °F
+                <span class="offScreen">degrees Fahrenheit</span>
+              </span>
+            </td>
+            <td>
+              2 
+              <span>hours</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ol>
+        <li>
+          <a
+            href="#water-removal"
+            tabIndex={0}
+          >
+            raise to
+            <span> 300</span>
+            ° over 
+            <span> 1 </span>
+            hour
+          </a>
+        </li>
+        <li>
+          <a
+            href="#water-removal"
+            tabIndex={0}
+          >
+            hold
+            <span> 300</span>
+            ° for 
+            <span> 3 </span>
+            hours
+          </a>
+        </li>
+        <li>
+          <a
+            href="#thermal-transition"
+            tabIndex={0}
+          >
+            raise to
+            <span> 700</span>
+            ° over 
+            <span> 2 </span>
+            hours
+          </a>
+        </li>
+        <li>
+          <a
+            href="#thermal-transition"
+            tabIndex={0}
+          >
+            hold
+            <span> 700</span>
+            ° for 
+            <span> 2 </span>
+            hours
+          </a>
+        </li>
+        <li>
+          <a
+            href="#pattern-removal"
+            tabIndex={0}
+          >
+            raise to
+            <span> 1350</span>
+            ° over 
+            <span> 3 </span>
+            hours
+          </a>
+        </li>
+        <li>
+          <a
+            href="#pattern-removal"
+            tabIndex={0}
+          >
+            hold
+            <span> 1350</span>
+            ° for 
+            <span> 3 </span>
+            hours
+          </a>
+        </li>
+        <li>
+          <a
+            href="#casting"
+            tabIndex={0}
+          >
+            lower to
+            <span> 700</span>
+            ° over 
+            <span> 0.9 </span>
+            hour
+          </a>
+        </li>
+        <li>
+          <a
+            href="#casting"
+            tabIndex={0}
+          >
+            hold
+            <span> 700</span>
+            ° for 
+            <span> 2 </span>
+            hours
+          </a>
+        </li>
+      </ol>
+    </section>
+  </section>
+  <section class="diagram">
+    <a
+      name="water-removal"
+      class="segment"
+    >
+      <article
+        class="raise"
+        style="margin-top: 132px;"
+      >
+        <figure class="ambient">
+          <figcaption>ambient</figcaption>
+        </figure>
+        <figure class="temperature">
+          <figcaption>
+            <h3>temp</h3>
+            300
+            <span class="units">°F</span>
+          </figcaption>
+        </figure>
+        <figure class="rate">
+          <figcaption>
+            <h3>rate</h3>
+            300
+            <span class="units">°F/hr</span>
+          </figcaption>
+        </figure>
+        <figure class="time">
+          <figcaption>
+            <h3>hold</h3>
+            3
+            <span class="units"> hours</span>
+          </figcaption>
+        </figure>
+      </article>
+    </a>
+    <a
+      name="thermal-transition"
+      class="segment"
+    >
+      <article
+        class="raise"
+        style="margin-top: 88px;"
+      >
+        <figure class="temperature">
+          <figcaption>
+            <h3>temp</h3>
+            700
+            <span class="units">°F</span>
+          </figcaption>
+        </figure>
+        <figure class="rate">
+          <figcaption>
+            <h3>rate</h3>
+            200
+            <span class="units">°F/hr</span>
+          </figcaption>
+        </figure>
+        <figure class="time">
+          <figcaption>
+            <h3>hold</h3>
+            2
+            <span class="units"> hours</span>
+          </figcaption>
+        </figure>
+      </article>
+    </a>
+    <a
+      name="pattern-removal"
+      class="segment"
+    >
+      <article
+        class="raise"
+        style="margin-top: 44px;"
+      >
+        <figure class="temperature">
+          <figcaption>
+            <h3>temp</h3>
+            1350
+            <span class="units">°F</span>
+          </figcaption>
+        </figure>
+        <figure class="rate">
+          <figcaption>
+            <h3>rate</h3>
+            217
+            <span class="units">°F/hr</span>
+          </figcaption>
+        </figure>
+        <figure class="time">
+          <figcaption>
+            <h3>hold</h3>
+            3
+            <span class="units"> hours</span>
+          </figcaption>
+        </figure>
+      </article>
+    </a>
+    <a
+      name="casting"
+      class="segment"
+    >
+      <article
+        class="lower"
+        style="margin-top: 44px;"
+      >
+        <figure class="temperature">
+          <figcaption>
+            <h3>temp</h3>
+            700
+            <span class="units">°F</span>
+          </figcaption>
+        </figure>
+        <figure class="rate">
+          <figcaption>
+            <h3>rate</h3>
+            700
+            <span class="units">°F/hr</span>
+          </figcaption>
+        </figure>
+        <figure class="time">
+          <figcaption>
+            <h3>hold</h3>
+            2
+            <span class="units"> hours</span>
+          </figcaption>
+        </figure>
+      </article>
+    </a>
   </section>
 </article>
 

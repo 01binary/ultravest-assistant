@@ -5,7 +5,7 @@ import {
 import presets from '../../src/config/investmentPresets.json';
 import reflect from '../fixtures/reflector.tests.fixture';
 
-describe('composer withInvestment', () => {
+describe('enhancer withInvestment', () => {
 
 	let reflector;
 
@@ -17,14 +17,14 @@ describe('composer withInvestment', () => {
 		reflector = null;
 	});
 
-	test('should set initial state', () => {
+	it('should set initial state', () => {
 		expect(reflector.props.investment).toEqual({
 			preset: DEFAULT_PRESET,
 			presets
 		});
 	});
 
-	test('should set investment preset', done => {
+	it('should set investment preset', done => {
 		const arbitraryPreset = Object.keys(presets)[2];
 		
 		reflector.props.handleInvestmentPresetChange({

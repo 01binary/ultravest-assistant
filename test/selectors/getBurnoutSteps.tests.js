@@ -2,11 +2,11 @@ import getBurnoutSteps from '../../src/selectors/getBurnoutSteps';
 
 describe('selector getBurnoutSteps', () => {
 
-	test('calculates no steps with no segments', () => {
+	it('calculates no steps with no segments', () => {
 		expect(getBurnoutSteps([]).length).toEqual(0);
 	});
 
-	test('calculates up transition and hold step for one segment', () => {
+	it('calculates up transition and hold step for one segment', () => {
 		expect(getBurnoutSteps([
 			{
 				name: 'test heading',
@@ -36,7 +36,7 @@ describe('selector getBurnoutSteps', () => {
 		]);
 	});
 
-	test('calculates up transition with no hold for one segment', () => {
+	it('calculates up transition with no hold for one segment', () => {
 		expect(getBurnoutSteps([
 			{
 				name: 'test heading',
@@ -58,7 +58,7 @@ describe('selector getBurnoutSteps', () => {
 		]);
 	});
 
-	test('calculates only hold for segments with no difference', () => {
+	it('calculates only hold for segments with no difference', () => {
 		expect(getBurnoutSteps([
 			{
 				name: 'test heading',
@@ -96,7 +96,7 @@ describe('selector getBurnoutSteps', () => {
 		]);
 	});
 
-	test('calculates four steps with two segments', () => {
+	it('calculates four steps with two segments', () => {
 		expect(getBurnoutSteps([
 			{
 				name: 'first segment',

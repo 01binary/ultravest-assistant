@@ -5,6 +5,11 @@ import presets from '../config/flaskPresets';
 export const CUSTOM = 'custom';
 export const DEFAULT = getDefaultPresetName(presets);
 
+/**
+ * Provide flask parameters.
+ * @param {function} component - The component to enhance.
+ * @returns {function} - Enhanced component.
+ */
 export default withStateHandlers(
 	{
 		flask: {
@@ -43,7 +48,7 @@ export default withStateHandlers(
 		}),
 
 		handleAddFlaskPreset: ({ flask }) => event => {
-			const key = `${flask.diameter} × ${flask.height}`;
+			const key = `${flask.diameter}x${flask.height}`;
 
 			event.preventDefault();
 
@@ -89,6 +94,12 @@ export default withStateHandlers(
 	}
 );
 
+/**
+ * Get next flask preset to select after current is removed.
+ * @param {string[]} keys - The flask preset keys.
+ * @param {number} index - The selected flask preset index.
+ * @returns {string} - The next key to select.
+ */
 const getNextKey = (keys, index) => (
 	keys[index + 1] ||
 	keys[index - 1] ||

@@ -2,7 +2,7 @@ import getFlaskVolume from '../../src/selectors/getFlaskVolume';
 
 describe('selector getFlaskVolume', () => {
 
-	test('calculates flask volume', () => {
+	it('calculates flask volume', () => {
 		expect(getFlaskVolume({
 			diameter: 4,
 			height: 8

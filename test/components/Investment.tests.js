@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { deep } from 'preact-render-spy';
-import Investment from '../../src/components/Investment';
+import { Investment } from '../../src/components/Investment';
 
 describe('Investment', () => {
 
@@ -8,11 +8,9 @@ describe('Investment', () => {
 
 	beforeAll(() => {
 		props = {
-			investment: {
-				preset: expectedName,
-				presets: {
-					[expectedName]: expected
-				}
+			preset: expectedName,
+			presets: {
+				[expectedName]: expected
 			},
 			flask: {
 				preset: 'another preset',
@@ -25,7 +23,7 @@ describe('Investment', () => {
 				diameter: 4,
 				height: 6
 			},
-			handleInvestmentPresetChange: jest.fn()
+			handleQueryPresetChange: jest.fn()
 		};
 
 		wrapper = deep(
@@ -37,21 +35,22 @@ describe('Investment', () => {
 		wrapper = null;
 	});
 
-	test('should render', () => {
+	it('should render', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
-	test('should bind preset value', () => {
-		expect(wrapper.find('.investmentRatio')[0].attributes.value)
-			.toBe(expectedName);
+	it('should bind preset value', () => {
+		const first = wrapper.find('option')[0];
+		expect(first.children[0]).toBe(expectedName);
+		expect(first.attributes.selected).toBe(true);
 	});
 
-	test('should bind change preset handler', () => {
-		wrapper.find('.investmentRatio')[0].attributes.onChange();
-		expect(props.handleInvestmentPresetChange.mock.calls.length)
-			.toBe(1);
+	it('should bind change preset handler', () => {
+		wrapper.find('#investment-preset')[0].attributes.onChange(expectedChange);
+		expect(props.handleQueryPresetChange).toHaveBeenCalledWith(expectedChange);
 	});
 
+	const expectedChange = { target: { value: 'test' } };
 	const expectedName = 'test preset';
 	const expected = {
 		investment: 2.1,

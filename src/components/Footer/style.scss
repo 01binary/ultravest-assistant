@@ -16,7 +16,9 @@ footer a {
 	font-size: $spacing-four-thirds;
 	text-decoration: none;
 	padding-left: $spacing-one-and-half + $spacing-quarter;
-	background: url('../../assets/github.svg') 0 0 no-repeat;
+	background: url('../../assets/github.svg');
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
 	transition: color .2s ease-in-out;
 }
 

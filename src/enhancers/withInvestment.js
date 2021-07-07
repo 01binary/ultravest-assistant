@@ -4,6 +4,11 @@ import getDefaultPresetName from '../selectors/getDefaultPresetName';
 
 export const DEFAULT_PRESET = getDefaultPresetName(presets);
 
+/**
+ * Provide investment parameters.
+ * @param {function} component - The component to enhance.
+ * @returns {function} - Enhanced component.
+ */
 export default withStateHandlers(
 	{
 		investment: {

@@ -1,21 +1,21 @@
 {
-	"3.5 × 5": {
+	"3.5x5": {
 		"diameter": 3.5,
 		"height": 5
 	},
 
-	"3.5 × 10": {
+	"3.5x10": {
 		"diameter": 3.5,
 		"height": 10,
 		"default": true
 	},
 
-	"4 × 10": {
+	"4x10": {
 		"diameter": 4,
 		"height": 10
 	},
 
-	"4 × 14": {
+	"4x14": {
 		"diameter": 4,
 		"height": 14
 	}

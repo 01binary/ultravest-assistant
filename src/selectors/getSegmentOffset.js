@@ -12,14 +12,8 @@ export default (currentIndex, maxIndex, all) => (
 
 const getOffsetBefore = (currentIndex, maxIndex, all) => all
 	.slice(currentIndex, maxIndex)
-	.reduce((offset, segment, index, segments) => (
-		offset +
-		(index === 0 || segments[index - 1].temp < segment.temp ? 1 : -1)
-	), 0);
+	.reduce((offset, segment, index, segments) => offset + 1, 0);
 
 const getOffsetAfter = (currentIndex, maxIndex, all) => all
 	.slice(maxIndex + 1, currentIndex)
-	.reduce((offset, segment, index, segments) => (
-		offset +
-		(segments[index + 1].temp > segment.temp ? -1 : 1)
-	), 0);
+	.reduce((offset, segment, index, segments) => offset + 1, 0);

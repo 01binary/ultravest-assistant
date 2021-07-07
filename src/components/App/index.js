@@ -1,19 +1,18 @@
-
 import { h } from 'preact';
 import Header from '../Header';
+import Footer from '../Footer';
 import Flask from '../Flask';
 import Investment from '../Investment';
 import Burnout from '../Burnout';
-import Footer from '../Footer';
-import style from './style';
+import { app as appStyle } from './style';
 
 /**
  * Ultravest Assistant App
- * @param {object} props - The composed application state.
+ * @param {Object} props - The composed application state.
  * @returns {function} - A stateless component.
  */
 const App = props => (
-	<form id="app" class={style.app}>
+	<form id="app" class={appStyle}>
 		<Header />
 
 		<main>

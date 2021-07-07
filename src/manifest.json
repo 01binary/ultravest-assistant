@@ -1,6 +1,6 @@
 {
-  "name": "Preact PWA",
-  "short_name": "Preact PWA",
+  "name": "UltraVest Assistant",
+  "short_name": "Ultravest Assistant",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

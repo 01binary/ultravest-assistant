@@ -31,25 +31,38 @@ header strong {
 	margin: auto;
 }
 
-$share-icon-size: 42px;
+$share-icon-size: 54px;
 
 .share {
 	position: absolute;
 	-webkit-appearance: none;
 	border: none;
 	color: $color-text-inverse;
-	background: url('../../assets/share.svg') 0 0 no-repeat;
+	background: transparent;
 	border-radius: $spacing-quarter;
 	font-size: $font-size-header;
-	height: $share-icon-size+ $spacing-quarter * 2;
+	height: $share-icon-size + $spacing-quarter * 2;
 	right: 0px;
 	top: 0px;
-	padding: $spacing-quarter;
-	padding-left: $spacing-quarter + $share-icon-size + $spacing-third;
+	padding:
+		$spacing-quarter
+		$spacing-half
+		$spacing-quarter
+		$spacing-quarter + $share-icon-size + $spacing-small;
 	transition: background-color .2s ease-in-out;
 	cursor: pointer;
 }
 
+.share i {
+	display: block;
+	position: absolute;
+	left: $spacing-quarter;
+	top: $spacing-quarter;
+	background-image: url('../../assets/share.svg');
+	width: $share-icon-size;
+	height: $share-icon-size;
+}
+
 .share:hover {
-	background: url('../../assets/share.svg') 0 0 no-repeat, $color-accent;
+	background: $color-accent;
 }

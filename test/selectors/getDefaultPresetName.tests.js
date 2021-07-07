@@ -2,7 +2,7 @@ import getDefaultPresetName from '../../src/selectors/getDefaultPresetName';
 
 describe('selector getDefaultPresetName', () => {
 
-	test('returns the default preset name', () => {
+	it('returns the default preset name', () => {
 		expect(getDefaultPresetName({
 			// has default false
 			one: {
@@ -18,7 +18,7 @@ describe('selector getDefaultPresetName', () => {
 		})).toEqual('two');
 	});
 	
-	test('returns undefined if a default preset could not be found', () => {
+	it('returns undefined if a default preset could not be found', () => {
 		expect(getDefaultPresetName({
 			// has default false
 			one: {

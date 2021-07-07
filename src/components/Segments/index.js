@@ -1,13 +1,15 @@
 import { h } from 'preact';
 import Units from '../Units';
 import getSegmentAnchor from '../../selectors/getSegmentAnchor';
+import { VIEWS } from '../../enhancers/withView';
 
 /**
  * Program table
- * @param {obect[]} segments - The program segments.
+ * @param {Object[]} segments - The program segments provided by Program.
+ * @param {string} view - The current view provided by Program.
  * @returns {JSX.Element} - A stateless component.
  */
-const Segments = ({ segments }) => (
+const Segments = ({ segments, view  }) => (
 	<table>
 		<thead>
 			<tr>
@@ -22,7 +24,10 @@ const Segments = ({ segments }) => (
 			{ segments.map(({ name, rate, temp, hold }) => (
 				<tr>
 					<td>
-						<a href={`#${getSegmentAnchor(name)}`}>
+						<a
+							href={`#${getSegmentAnchor(name)}`}
+							tabIndex={view === VIEWS.SEGMENTS ? 0 : -1}
+						>
 							{name}
 						</a>
 					</td>

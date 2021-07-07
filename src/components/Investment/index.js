@@ -2,22 +2,25 @@ import { h } from 'preact';
 import classNames from 'obj-str';
 import Units from '../Units';
 import getMixWeights from '../../selectors/getMixWeights';
+import withInvestmentOrQuery from '../../enhancers/withInvestmentOrQuery';
 import timelineStyle from '../App/style/timeline';
 import formStyle from '../App/style/forms';
 import calcStyle from '../App/style/calc';
 import style from './style';
 
 /**
- * Investment Parameters
- * @param {object} flask - The flask props.
- * @param {object} investment - The investment props.
- * @param {function} setInvestmentPreset - The function called to set investment ratio preset.
+ * Investment parameters
+ * @param {Object} flask - The flask props provided by withFlask.
+ * @param {string} preset - The investment preset provided by withInvestment.
+ * @param {Object[]} presets - The investment presets provided by withInvestment.
+ * @param {function} handleQueryPresetChange - The handler provided by withInvestment.
  * @returns {JSX.Element} - A React stateless component.
  */
-const Investment = ({
+export const Investment = ({
+	preset,
+	presets,
 	flask,
-	investment,
-	handleInvestmentPresetChange }) => (
+	handleQueryPresetChange }) => (
 	<article class={classNames({
 		[timelineStyle.timeline]: true,
 		[style.investment]: true
@@ -28,18 +31,17 @@ const Investment = ({
 		<section class={formStyle.group}>
 			<section class={formStyle.control}>
 				<select
-					id="investment-ratio"
-					name="investment-ratio"
-					value={investment.preset}
-					onChange={handleInvestmentPresetChange}
+					id="investment-preset"
+					name="investment-preset"
+					onChange={handleQueryPresetChange}
 				>
-					{ Object.keys(investment.presets).map(preset => (
-						<option selected={preset === investment.preset}>
-							{preset}
+					{ Object.keys(presets).map(name => (
+						<option selected={name === preset}>
+							{getDisplayText(name)}
 						</option>
 					))}
 				</select>
-				<label for="investment-ratio">
+				<label for="investment-preset">
 					ratio
 				</label>
 			</section>
@@ -50,14 +52,12 @@ const Investment = ({
 			[calcStyle.calc]: true
 		})}
 		>
-			{ getMixWeights({ flask, investment }).map(mix => (
+			{ getMixWeights(flask, preset, presets).map(mix => (
 				<dl class={formStyle.control}>
 					<dt>{mix.component}</dt>
 					<dd>
 						{mix.grams}
-						<Units alt="grams">
-							g
-						</Units>
+						<Units alt="grams">g</Units>
 					</dd>
 				</dl>
 			))}
@@ -65,4 +65,11 @@ const Investment = ({
 	</article>
 );
 
-export default Investment;
+/**
+ * Get display text for investment preset.
+ * @param {string} name - The preset name.
+ * @returns {string} - The display text for flask preset.
+ */
+const getDisplayText = name => name.replace('-', '/');
+
+export default withInvestmentOrQuery(Investment);

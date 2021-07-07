@@ -1,7 +1,7 @@
 /**
  * Get friendly steps from a machine readable burnout program.
- * @param {object} segments - The burnout preset segments.
- * @returns {object[]} - The burnout steps ready for formatted output.
+ * @param {Object} segments - The burnout preset segments.
+ * @returns {Object[]} - The burnout steps ready for formatted output.
  */
 export default segments => segments.reduce(
 	(steps, segment, index, segments) => {
